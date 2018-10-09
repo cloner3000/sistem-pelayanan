@@ -29876,6 +29876,11 @@ __webpack_require__(151);
 //bootstrap js
 __webpack_require__(198);
 
+//data gtable
+// require('datatables.net-bs')
+// require('datatables.net')
+
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

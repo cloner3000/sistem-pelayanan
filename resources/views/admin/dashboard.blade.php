@@ -1,5 +1,5 @@
 @extends('admin.admin')
-@section('judul','Tambah Pengguna')
+@section('judul','| Dashboard')
 
 @section('isi')
 	<section class="content-header">
@@ -8,7 +8,7 @@
         <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.user.tambahUser');
 });
 
 Route::get('kades',function(){
@@ -21,7 +21,7 @@ Route::get('kades',function(){
 
 Route::get('admin',function(){
 	return view('admin.dashboard');
-})->middleware('role:Admin');
+})->middleware('role:Admin')->name('admin');
 
 Route::get('user',function(){
 	return view('user');
@@ -30,3 +30,7 @@ Route::get('user',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin','middleware' => 'role:Admin'], function(){
+    Route::resource('pengguna','UserController');
+});
