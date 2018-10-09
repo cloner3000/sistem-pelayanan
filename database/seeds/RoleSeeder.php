@@ -14,7 +14,7 @@ class RoleSeeder extends Seeder
     {
         $role_employee = new Role();
     	$role_employee->name = 'User';
-    	$role_employee->deskripsi = 'Pekerja';
+    	$role_employee->deskripsi = 'Masyarakat';
     	$role_employee->save();
 
     	$role_manager = new Role();
@@ -23,8 +23,8 @@ class RoleSeeder extends Seeder
     	$role_manager->save();
 
     	$role_manager = new Role();
-    	$role_manager->name = 'Super Admin';
-    	$role_manager->deskripsi = 'User Root Sistem';
+    	$role_manager->name = 'Kepala Desa';
+    	$role_manager->deskripsi = 'Kepala Desa';
     	$role_manager->save();
     }
 }

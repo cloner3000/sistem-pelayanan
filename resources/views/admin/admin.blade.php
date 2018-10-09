@@ -37,46 +37,36 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              <li class="user-body bg-aqua">
                 <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
+                  <div class="col-xs-12 text-center">
+                    <p>
+                      {{Auth::user()->name}} - {{Auth::user()->roles->first()->deskripsi}}
+                    </p>
+                    <p>
+                      <small>Admin Sejak {{Auth::user()->created_at}}</small>
+                    </p>
                   </div>
                 </div>
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <div class="text-center">
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    Logout
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                 </div>
               </li>
             </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -87,11 +77,11 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div class="user-panel">
+{{--       <div class="user-panel">
         <div class="pull-left" style="color: white;">
-          <p>Alexander Pierce</p>
+          <p>{{Auth::user()->name}}</p>
         </div>
-      </div>
+      </div> --}}
       <!-- search form -->
      
       <!-- /.search form -->

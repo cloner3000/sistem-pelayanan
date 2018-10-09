@@ -12,15 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('test');
+    return view('welcome');
 });
 
-Route::get('superadmin',function(){
+Route::get('kades',function(){
 	return view('superadmin');
-})->middleware('role:Super Admin');
+})->middleware('role:Kepala Desa');
 
 Route::get('admin',function(){
-	return view('admin');
+	return view('admin.admin');
 })->middleware('role:Admin');
 
 Route::get('user',function(){
