@@ -19,6 +19,8 @@ require('admin-lte');
 //chart.js
 require('chart.js');
 
+//bootstrap js
+require('bootstrap-datepicker');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

@@ -20,7 +20,7 @@ Route::get('kades',function(){
 })->middleware('role:Kepala Desa');
 
 Route::get('admin',function(){
-	return view('admin.admin');
+	return view('admin.dashboard');
 })->middleware('role:Admin');
 
 Route::get('user',function(){
