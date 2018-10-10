@@ -1,6 +1,6 @@
 @extends('admin.admin')
 @section('judul','Tambah Pengguna')
-
+@section('tambahUser','active')
 @section('isi')
 	<section class="content-header">
       <h1>

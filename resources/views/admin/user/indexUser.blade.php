@@ -1,6 +1,6 @@
 @extends('admin.admin')
 @section('judul','Daftar Pengguna')
-
+@section('daftarUser','active')
 @section('isi')
 	<section class="content-header">
       <h1>
@@ -41,19 +41,27 @@
 	                <th>Aksi</th>
                 </tr>
                 @foreach($datas as $data)
-                	<tr>
-	                  <td>{{++$no}}</td>
-	                  <td>{{$data->name}}</td>
-	                  <td>{{$data->email}}</td>
-	                  <td>
-	                  	{{-- @if($data->roles->first() != "Super Admin") --}}
-	                  		<span class="label label-success">{!!$data->roles->first()->name!!}</span>
-	                  	{{-- @endif --}}
-	                  </td>
-	                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-	                </tr>
+                	@if($data->roles->first()->name == "Kepala Desa")
+	                	{{-- buang data kepala desa --}}
+		            @else
+		            	<tr>
+		                  	<td>{{++$no}}</td>
+		                  	<td>{{$data->name}}</td>
+		                  	<td>{{$data->email}}</td>
+		                  	<td>
+		                  		<span class="label label-success">{!!$data->roles->first()->name!!}</span>
+		                  	</td>
+		                  	<td>
+								<a class="btn btn-sm btn-info" href="mailto:joe@example.com?subject=feedback" >email me</a>
+								<a class="btn btn-sm btn-danger" href="mailto:joe@example.com?subject=feedback" >email me</a>
+		                  	</td>
+		                </tr>
+	                @endif
                 @endforeach
               </table>
+              <div class="pull-right">
+              	{!! $datas->render('vendor.pagination.default') !!}
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

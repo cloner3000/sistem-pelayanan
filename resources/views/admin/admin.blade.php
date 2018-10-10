@@ -86,7 +86,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU UTAMA</li>
-        <li class="active">
+        <li class="@yield('dashboard')">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
@@ -100,7 +100,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i>Tambah User</a></li>
+            <li class="@yield('tambahUser')">
+              <a href="{{ route('pengguna.create') }}"><i class="fa fa-circle-o"></i>Tambah User</a>
+            </li>
+            <li class="@yield('daftarUser')">
+              <a href="{{ route('pengguna.index') }}"><i class="fa fa-circle-o"></i>Daftar User</a>
+            </li>
           </ul>
         </li>
         <li class="treeview">
