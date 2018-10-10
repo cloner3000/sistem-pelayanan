@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index(Request $req)
     {
-        $datas = User::with('roles')->paginate(10);
+        $datas = User::with('roles')->get();        
         return view('admin.user.indexUser',compact('datas'))->with('no',($req->input('page',1)-1)*10);
     }
 

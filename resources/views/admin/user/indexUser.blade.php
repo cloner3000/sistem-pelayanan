@@ -42,10 +42,14 @@
                 </tr>
                 @foreach($datas as $data)
                 	<tr>
-	                  <td>183</td>
+	                  <td>{{++$no}}</td>
 	                  <td>{{$data->name}}</td>
 	                  <td>{{$data->email}}</td>
-	                  <td><span class="label label-success">Approved</span></td>
+	                  <td>
+	                  	{{-- @if($data->roles->first() != "Super Admin") --}}
+	                  		<span class="label label-success">{!!$data->roles->first()->name!!}</span>
+	                  	{{-- @endif --}}
+	                  </td>
 	                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
 	                </tr>
                 @endforeach
