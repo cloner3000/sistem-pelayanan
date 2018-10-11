@@ -12,9 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        // Eeder data Role.
+        // Seeder data Role.
 		$this->call(RoleSeeder::class);
 		// Seeder data Root/Admin/User.
 		$this->call(UserSeeder::class);
+        //Seeder data Surat Pengantar Pindah
+        $this->call(SppSeeder::class);
+
     }
 }
