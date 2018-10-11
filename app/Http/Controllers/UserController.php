@@ -72,7 +72,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::findOrFail($id);
+
     }
 
     /**
@@ -84,7 +85,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = User::findOrFail($id);
+        $data->name     = $request->input('name');
+        $data->email    = $request->input('email');
+        $data->password = $data->password;
+        $data->save();
+        $data->roles()->attach($data->roles->first());
+
+        return redirect()->route('pengguna.index');
     }
 
     /**
@@ -95,6 +103,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = User::findOrFail($id);
+        $data->roles()->detach();
+        $data->delete();
+        return redirect()->route('pengguna.index');
     }
 }

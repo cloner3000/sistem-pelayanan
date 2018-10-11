@@ -176,9 +176,6 @@
 <!-- jQuery 3 -->
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript">
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
-<script type="text/javascript">
     var ctx = document.getElementById("areaChart");
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -248,6 +245,37 @@
       data: data,
       options: options
     });
+
+    //javascript konfirmasi delete
+
+    // $(document).ready(function(){
+    //   $('.remove-record').click(function() {
+    //     var id = $(this).attr('data-id');
+    //     var url = $(this).attr('data-url');
+    //     var token = CSRF_TOKEN;
+    //         $.ajax({
+    //         url: urlhapus,
+    //         type: 'post',
+    //         data: {_method: 'delete', _token :token, },
+    //         success:function(msg){
+    //           setTimeout(
+    //             function() 
+    //               {
+    //                  location.reload();
+    //               }, 0001);  
+    //         }
+    //       })
+    //   });
+    // });
+
+function ConfirmDelete()
+  {
+  var x = confirm("Are you sure you want to delete?");
+  if (x)
+    return true;
+  else
+    return false;
+  }
 </script>
 </body>
 </html>

@@ -32,5 +32,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'], function(){
-    Route::resource('pengguna','UserController');
+	
+    Route::resource('pengguna','UserController')->except(['show','edit']);
 });

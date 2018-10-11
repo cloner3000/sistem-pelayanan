@@ -1,5 +1,5 @@
 @extends('admin.admin')
-@section('judul','| Dashboard')
+@section('judul','Dashboard')
 @section('dashboard','active')
 @section('isi')
 	<section class="content-header">
