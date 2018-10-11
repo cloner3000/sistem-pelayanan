@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
-//@import "variables";
+@import "variables";
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
@@ -13,5 +13,11 @@
 @import "~admin-lte/dist/css/skins/_all-skins.css";
 
 // Font-awesome
-@import "~font-awesome/scss/font-awesome.scss";
+//@import "~font-awesome/scss/font-awesome.scss";
 @import "~ionicons-npm/scss/ionicons.scss";
+
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
+@import '~@fortawesome/fontawesome-free/scss/fontawesome'; 
+@import '~@fortawesome/fontawesome-free/scss/solid'; 
+@import '~@fortawesome/fontawesome-free/scss/regular'; 
+@import '~@fortawesome/fontawesome-free/scss/brands'; 

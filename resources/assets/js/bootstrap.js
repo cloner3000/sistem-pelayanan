@@ -22,9 +22,8 @@ require('chart.js');
 //bootstrap js
 require('bootstrap-datepicker');
 
-//data gtable
-// require('datatables.net-bs')
-// require('datatables.net')
+//fontawesome
+
 
 
 /**

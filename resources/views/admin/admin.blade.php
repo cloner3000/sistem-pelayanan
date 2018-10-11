@@ -27,7 +27,7 @@
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-list"></i>
       </a>
 
       <div class="navbar-custom-menu">
@@ -101,28 +101,24 @@
           </a>
           <ul class="treeview-menu">
             <li class="@yield('tambahUser')">
-              <a href="{{ route('pengguna.create') }}"><i class="fa fa-circle-o"></i>Tambah User</a>
+              <a href="{{ route('pengguna.create') }}"><i class="fa fa-dot-circle"></i>Tambah User</a>
             </li>
             <li class="@yield('daftarUser')">
-              <a href="{{ route('pengguna.index') }}"><i class="fa fa-circle-o"></i>Daftar User</a>
+              <a href="{{ route('pengguna.index') }}"><i class="fa fa-dot-circle"></i>Daftar User</a>
             </li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
+            <i class="fa fa-people-carry"></i>
+            <span>Data Surat Pindah</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+            <li><a href="pages/UI/general.html"><i class="fa fa-dot-circle"></i> General</a></li>
+            <li><a href="pages/UI/icons.html"><i class="fa fa-dot-circle"></i> Icons</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -133,9 +129,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+            <li><a href="pages/forms/general.html"><i class="fa fa-dot-circle"></i> General Elements</a></li>
+            <li><a href="pages/forms/advanced.html"><i class="fa fa-dot-circle"></i> Advanced Elements</a></li>
+            <li><a href="pages/forms/editors.html"><i class="fa fa-dot-circle"></i> Editors</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -146,8 +142,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+            <li><a href="pages/tables/simple.html"><i class="fa fa-dot-circle"></i> Simple tables</a></li>
+            <li><a href="pages/tables/data.html"><i class="fa fa-dot-circle"></i> Data tables</a></li>
           </ul>
         </li>
         
