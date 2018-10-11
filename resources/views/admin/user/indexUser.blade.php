@@ -18,10 +18,11 @@
     	<div class="row">
     		<div class="col-xs-12">
     			<div class="box">
+
 	            <div class="box-header">
 	              <h3 class="box-title">Daftar Pengguna</h3>
 
-	              <div class="box-tools">
+	              {{-- <div class="box-tools">
 	                <div class="input-group input-group-sm" style="width: 150px;">
 	                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
@@ -29,7 +30,7 @@
 	                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
 	                  </div>
 	                </div>
-	              </div>
+	              </div> --}}
 	            </div>
 	            <!-- /.box-header -->
 	            <div class="box-body table-responsive no-padding">
@@ -42,9 +43,8 @@
 		                <th>Aksi</th>
 	                </tr>
 	                @foreach($datas as $data)
-	                	@if($data->roles->first()->name == "Kepala Desa")
-		                	{{-- buang data kepala desa --}}
-			            @else
+	                	@if($data->roles->first()->name != "Kepala Desa" && $data->roles->first()->name != "Admin")
+		                	
 			            	<tr>
 			                  	<td>{{++$no}}</td>
 			                  	<td>{{$data->name}}</td>
@@ -57,8 +57,9 @@
 										<i class="fa fa-edit"></i>
 										 Edit
 									</a>
-									<a class="btn btn-info" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();">
-					                    Logout
+									<a class="btn btn-sm btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();">
+					                    <i class="fa fa-trash"></i>
+					                    Hapus
 					                    </a>
 
 					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('pengguna.destroy',$data->id) }}" method="POST" style="display: none;">
@@ -74,7 +75,7 @@
 	              	{!! $datas->render('vendor.pagination.default') !!}
 	              </div>
 	            </div>
-	            <!-- /.box-body -->
+
 	          </div>
             
     		</div>
@@ -139,6 +140,6 @@
 			    </div>
 			</div>
     	@endforeach
-    	
+
     </section>
 @endsection
