@@ -43,7 +43,9 @@
 		            	<div class="form-group">
 		                  <select name="role" class="form-control">
 		                    @foreach($role as $r)
-	                            <option value="{{$r->id}}">{{$r->name}}</option>
+	                            @if($r->name != "Kepala Desa")
+	                            	<option value="{{$r->id}}">{{$r->name}}</option>
+	                            @endif
 	                        @endforeach
 		                  </select>
 		                </div>

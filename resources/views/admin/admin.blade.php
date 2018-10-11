@@ -87,7 +87,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU UTAMA</li>
         <li class="@yield('dashboard')">
-          <a href="#">
+          <a href="{{ route('admin') }}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
