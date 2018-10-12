@@ -23,14 +23,23 @@ class SppController extends Controller
         return view('admin.spp.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
     }
 
+    public function acc(Request $req)
+    {
+        $data = Spp::findOrFail($req->id);
+
+        $data->status = "acc";
+
+        $data->save();
+        return redirect()->route('spp.indexAcc');
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $req)
     {
-        //
+        
     }
 
     /**

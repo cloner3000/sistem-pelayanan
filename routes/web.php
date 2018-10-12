@@ -32,8 +32,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'], function(){
-
+	//route edit User
     Route::resource('pengguna','UserController')->except(['show','edit']);
+
+    //route CRUD data pelayanan surat pindah
+    Route::post('spp/acc','SppController@acc')->name('spp.acc');
     Route::get('spp/acc','SppController@indexAcc')->name('spp.indexAcc');
     Route::resource('spp', 'SppController')->except(['edit']);
 

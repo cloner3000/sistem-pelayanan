@@ -65,16 +65,16 @@
 										<i class="fa fa-edit"></i>
 										 Edit
 									</a>
-									<br>
+									<br>									
 									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin-top: 10px;">
 					                    <i class="fa fa-trash"></i>
 					                    Hapus
-					                    </a>
+					                </a>
 
-					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('spp.destroy',$data->id) }}" method="POST" style="display: none;">
-					                        {{ csrf_field() }}
-					                        <input type="hidden" name="_method" value="DELETE">
-					                    </form>
+					                <form id="{{md5($data->id.'hapus')}}" action="{{ route('spp.destroy',$data->id) }}" method="POST" style="display: none;">
+					                    {{ csrf_field() }}
+					                    <input type="hidden" name="_method" value="DELETE">
+					                </form>
 			                  	</td>
 			                </tr>
 	                @endforeach

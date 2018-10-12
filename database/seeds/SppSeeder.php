@@ -14,7 +14,7 @@ class SppSeeder extends Seeder
     {
         $faker = Faker\Factory::create('id_ID');
 
-        $limit = 20;
+        $limit = 50;
         $status = array('pending','acc');
         for ($i=0; $i < $limit; $i++) { 
         	DB::table('spps')->insert([

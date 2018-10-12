@@ -63,8 +63,18 @@
 			                  	<td>
 									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'spp')}}" >
 										<i class="fa fa-edit"></i>
-										 Edit
+										Edit
 									</a>
+									<br>
+									<a class="btn btn-xs btn-success" onclick="event.preventDefault();document.getElementById('{{md5($data->id."acc")}}').submit();" style="margin-top: 10px;">
+					                    <i class="fa fa-check"></i>
+					                    Acc
+					                </a>
+
+					                <form id="{{md5($data->id.'acc')}}" action="{{ route('spp.acc') }}" method="POST" style="display: none;">
+					                    {{ csrf_field() }}
+					                    <input type="hidden" name="id" value="{{$data->id}}">
+					                </form>
 									<br>
 									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin-top: 10px;">
 					                    <i class="fa fa-trash"></i>
