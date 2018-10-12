@@ -9,7 +9,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Daftar Pengajuan Surat Pindah</li>
+        <li class="active">Daftar Surat Pengantar Pindah</li>
       </ol>
     </section>
 
@@ -20,7 +20,7 @@
     			<div class="box">
 
 	            <div class="box-header">
-	              <h3 class="box-title">Daftar Pengajuan Surat Pindah</h3>
+	              <h3 class="box-title">Daftar Surat Pindah</h3>
 
 	              {{-- <div class="box-tools">
 	                <div class="input-group input-group-sm" style="width: 150px;">
@@ -58,7 +58,7 @@
 			                  	<td>{{$data->alamat_tujuan}}</td>
 			                  	<td>{{$data->jumlah_pindah}}</td>
 			                  	<td>
-			                  		<span class="label label-warning">{{$data->status}}</span>
+			                  		<span class="label label-success">{{$data->status}}</span>
 			                  	</td>
 			                  	<td>
 									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'spp')}}" >

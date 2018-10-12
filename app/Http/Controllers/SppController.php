@@ -13,8 +13,14 @@ class SppController extends Controller
      */
     public function index(Request $req)
     {
-        $datas = Spp::with('user')->paginate(10);
+        $datas = Spp::with('user')->where('status','pending')->paginate(10);
         return view('admin.spp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+    }
+
+    public function indexAcc(Request $req)
+    {
+        $datas = Spp::with('user')->where('status','acc')->paginate(10);
+        return view('admin.spp.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
     }
 
     /**
@@ -50,17 +56,6 @@ class SppController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -91,6 +86,8 @@ class SppController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Spp::findOrFail($id);
+        $hapus->delete();
+        return redirect()->route('spp.index');
     }
 }

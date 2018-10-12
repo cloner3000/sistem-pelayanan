@@ -15,7 +15,7 @@ class SppSeeder extends Seeder
         $faker = Faker\Factory::create('id_ID');
 
         $limit = 20;
-
+        $status = array('pending','acc');
         for ($i=0; $i < $limit; $i++) { 
         	DB::table('spps')->insert([
         		'user_id' => 3,
@@ -26,6 +26,7 @@ class SppSeeder extends Seeder
 				'alamat_sekarang' => $faker->address,
 				'alamat_tujuan' => $faker->address,
 				'jumlah_pindah' => $faker->numberBetween(3,6),
+                'status' => $faker->randomElement($status),
         	]);
         }
     }

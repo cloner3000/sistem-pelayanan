@@ -34,5 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'], function(){
 
     Route::resource('pengguna','UserController')->except(['show','edit']);
-    Route::resource('spp', 'SppController')->except(['create','store']);
+    Route::get('spp/acc','SppController@indexAcc')->name('spp.indexAcc');
+    Route::resource('spp', 'SppController')->except(['edit']);
+
 });

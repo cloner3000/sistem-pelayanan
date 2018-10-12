@@ -29,7 +29,6 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <i class="fa fa-list"></i>
       </a>
-
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- User Account: style can be found in dropdown.less -->
@@ -88,7 +87,8 @@
         <li class="header">MENU UTAMA</li>
         <li class="@yield('dashboard')">
           <a href="{{ route('admin') }}">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-tachometer-alt"></i>
+            <span>Dashboard</span>
           </a>
         </li>
         <li class="treeview">
@@ -117,8 +117,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-dot-circle"></i> General</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-dot-circle"></i> Icons</a></li>
+            <li><a href="{{ route('spp.index') }}"><i class="fa fa-dot-circle"></i>Pengajuan</a></li>
+            <li><a href="{{ route('spp.indexAcc') }}"><i class="fa fa-dot-circle"></i>Riwayat Pengajuan</a></li>
           </ul>
         </li>
         <li class="treeview">

@@ -9,13 +9,13 @@
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 // Admin-lte
-@import "~admin-lte/dist/css/AdminLTE.css";
-@import "~admin-lte/dist/css/skins/_all-skins.css";
+@import "~admin-lte/dist/css/AdminLTE.min.css";
+@import "~admin-lte/dist/css/skins/_all-skins.min.css";
 
-// Font-awesome
-//@import "~font-awesome/scss/font-awesome.scss";
+// Ionicons 
 @import "~ionicons-npm/scss/ionicons.scss";
 
+// Font-awesome
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
 @import '~@fortawesome/fontawesome-free/scss/fontawesome'; 
 @import '~@fortawesome/fontawesome-free/scss/solid'; 
