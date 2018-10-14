@@ -40,4 +40,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::get('spp/acc','SppController@indexAcc')->name('spp.indexAcc');
     Route::resource('spp', 'SppController')->except(['edit']);
 
+    //route CRUD data ktp
+    Route::post('ktp/acc','KtpController@acc')->name('ktp.acc');
+    Route::get('ktp/acc','KtpController@indexAcc')->name('ktp.indexAcc');
+    Route::resource('ktp', 'KtpController')->except(['edit']);
+
 });

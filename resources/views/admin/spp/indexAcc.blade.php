@@ -1,6 +1,6 @@
 @extends('admin.admin')
 @section('judul','Daftar Surat Pengantar Pindah')
-@section('daftarUser','active')
+@section('riwayatSpp','active')
 @section('isi')
 	<section class="content-header">
       <h1>
@@ -20,7 +20,7 @@
     			<div class="box">
 
 	            <div class="box-header">
-	              <h3 class="box-title">Daftar Surat Pindah</h3>
+	              <h3 class="box-title">Daftar Surat Pindah Yang Telah Di Terima</h3>
 
 	              {{-- <div class="box-tools">
 	                <div class="input-group input-group-sm" style="width: 150px;">

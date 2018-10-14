@@ -108,6 +108,7 @@
             </li>
           </ul>
         </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-people-carry"></i>
@@ -117,23 +118,32 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('spp.index') }}"><i class="fa fa-dot-circle"></i>Pengajuan</a></li>
-            <li><a href="{{ route('spp.indexAcc') }}"><i class="fa fa-dot-circle"></i>Riwayat Pengajuan</a></li>
+            <li class="@yield('pengajuanSpp')">
+              <a href="{{ route('spp.index') }}"><i class="fa fa-dot-circle"></i>Pengajuan</a>
+            </li>
+            <li class="@yield('riwayatSpp')">
+              <a href="{{ route('spp.indexAcc') }}"><i class="fa fa-dot-circle"></i>Riwayat Pengajuan</a>
+            </li>
           </ul>
         </li>
+
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
+            <i class="fa fa-id-card"></i> <span>Data Surat KTP</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-dot-circle"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-dot-circle"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-dot-circle"></i> Editors</a></li>
+            <li class="@yield('pengajuanKtp')">
+              <a href="{{ route('ktp.index') }}"><i class="fa fa-dot-circle"></i>Pengajuan</a>
+            </li>
+            <li class="@yield('riwayatKtp')">
+              <a href="{{ route('ktp.acc') }}"><i class="fa fa-dot-circle"></i>Riwayat Pengajuan</a>
+            </li>
           </ul>
         </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Tables</span>

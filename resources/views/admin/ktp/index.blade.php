@@ -1,6 +1,6 @@
 @extends('admin.admin')
-@section('judul','Daftar Surat Pengantar Pindah')
-@section('pengajuanSpp','active')
+@section('judul','Daftar Surat Permohonan KTP')
+@section('pengajuanKtp','active')
 @section('isi')
 	<section class="content-header">
       <h1>
@@ -9,7 +9,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Daftar Pengajuan Surat Pindah</li>
+        <li class="active">Daftar Surat Permohonan KTP</li>
       </ol>
     </section>
 
@@ -20,7 +20,7 @@
     			<div class="box">
 
 	            <div class="box-header">
-	              <h3 class="box-title">Daftar Pengajuan Surat Pindah</h3>
+	              <h3 class="box-title">Daftar Pengajuan Surat Permohonan KTP</h3>
 
 	              {{-- <div class="box-tools">
 	                <div class="input-group input-group-sm" style="width: 150px;">
@@ -39,11 +39,9 @@
 						<th>No</th>
 						<th>NIK</th>
 		                <th>Nama</th>
+		                <th>Permohonan</th>
 		                <th>No Kartu Keluarga</th>
-		                <th>Nama Kepala Keluarga</th>
-		                <th>Alamat Sekarang</th>
-		                <th>Alamat Tujuan</th>
-		                <th>Jumlah</th>
+		                <th>Alamat</th>
 		                <th>Status</th>
 		                <th>Aksi</th>
 	                </tr>
@@ -52,16 +50,14 @@
 			                  	<td>{{++$no}}</td>
 			                  	<td>{{$data->nik}}</td>
 			                  	<td>{{$data->nama}}</td>
+			                  	<td>{{$data->permohonan}}</td>
 			                  	<td>{{$data->no_kk}}</td>
-			                  	<td>{{$data->kepala_keluarga}}</td>
-			                  	<td>{{$data->alamat_sekarang}}</td>
-			                  	<td>{{$data->alamat_tujuan}}</td>
-			                  	<td>{{$data->jumlah_pindah}}</td>
+			                  	<td>{{$data->alamat}}</td>
 			                  	<td>
 			                  		<span class="label label-warning">{{$data->status}}</span>
 			                  	</td>
 			                  	<td>
-									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'spp')}}" >
+									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'ktp')}}" >
 										<i class="fa fa-edit"></i>
 										Edit
 									</a>
@@ -71,7 +67,7 @@
 					                    Acc
 					                </a>
 
-					                <form id="{{md5($data->id.'acc')}}" action="{{ route('spp.acc') }}" method="POST" style="display: none;">
+					                <form id="{{md5($data->id.'acc')}}" action="{{ route('ktp.acc') }}" method="POST" style="display: none;">
 					                    {{ csrf_field() }}
 					                    <input type="hidden" name="id" value="{{$data->id}}">
 					                </form>
@@ -81,7 +77,7 @@
 					                    Hapus
 					                    </a>
 
-					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('spp.destroy',$data->id) }}" method="POST" style="display: none;">
+					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('ktp.destroy',$data->id) }}" method="POST" style="display: none;">
 					                        {{ csrf_field() }}
 					                        <input type="hidden" name="_method" value="DELETE">
 					                    </form>
@@ -100,18 +96,18 @@
     	</div>
 
     	@foreach($datas as $d)
-			<div class="modal fade" id="{{md5($d->id.'spp')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal fade" id="{{md5($d->id.'ktp')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    <div class="modal-dialog" role="document">
 			        <div class="modal-content">
 			            <div class="modal-header text-center">
-			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Pindah</h4>
+			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Permohonan KTP</h4>
 			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			                    <span aria-hidden="true">&times;</span>
 			                </button>
 			            </div>
 			            <div class="modal-body mx-3">
 
-				            <form method="POST" action="{{ route('spp.update',$d->id) }}">
+				            <form method="POST" action="{{ route('ktp.update',$d->id) }}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								
@@ -133,32 +129,11 @@
 				              		<input name="no_kk" type="text" class="form-control" placeholder="" required value="{{$d->no_kk}}">
 				            	</div>
 
-				            	<h5>Nama Kepala Keluarga</h5>
+				            	<h5>Alamat</h5>
 				            	<div class="input-group">
 
 				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="kepala_keluarga" type="text" class="form-control" placeholder="" required value="{{$d->kepala_keluarga}}">
-				            	</div>
-
-				            	<h5>Alamat Sekarang</h5>
-				            	<div class="input-group">
-
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="alamat_sekarang" type="text" class="form-control" placeholder="" required value="{{$d->alamat_sekarang}}">
-				            	</div>
-
-				            	<h5>Alamat Tujuan</h5>
-				            	<div class="input-group">
-
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="alamat_tujuan" type="text" class="form-control" placeholder="" required value="{{$d->alamat_tujuan}}">
-				            	</div>
-
-				            	<h5>Jumlah</h5>
-				            	<div class="input-group">
-
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="jumlah_pindah" type="number" class="form-control" placeholder="" required value="{{$d->jumlah_pindah}}">
+				              		<input name="alamat" type="text" class="form-control" placeholder="" required value="{{$d->alamat}}">
 				            	</div>
 
 				            	<div class="modal-footer d-flex justify-content-center">

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
 		$this->call(UserSeeder::class);
         //Seeder data Surat Pengantar Pindah
         $this->call(SppSeeder::class);
+        //Seeder data permohonan KTP
+        $this->call(KtpSeeder::class);
 
     }
 }
