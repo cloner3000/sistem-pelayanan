@@ -1,5 +1,7 @@
 @extends('admin.admin')
 @section('judul','Daftar Surat Pengantar Pindah')
+
+@section('spp','active')
 @section('pengajuanSpp','active')
 @section('isi')
 	<section class="content-header">

@@ -1,5 +1,7 @@
 @extends('admin.admin')
 @section('judul','Daftar Surat Permohonan KTP')
+
+@section('ktp','active')
 @section('pengajuanKtp','active')
 @section('isi')
 	<section class="content-header">

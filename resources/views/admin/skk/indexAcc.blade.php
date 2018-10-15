@@ -1,6 +1,8 @@
 @extends('admin.admin')
-@section('judul','Daftar Surat Pengantar Pindah')
-@section('riwayatSpp','active')
+@section('judul','Daftar Surat Pindah Yang Telah Di Terima')
+
+@section('skk','active')
+@section('riwayatSkk','active')
 @section('isi')
 	<section class="content-header">
       <h1>
@@ -9,7 +11,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Daftar Surat Pengantar Pindah</li>
+        <li class="active">Daftar Surat Pindah Yang Telah Di Terima</li>
       </ol>
     </section>
 
@@ -37,44 +39,42 @@
 	              <table class="table table-hover">
 	                <tr>
 						<th>No</th>
-						<th>NIK</th>
 		                <th>Nama</th>
-		                <th>No Kartu Keluarga</th>
-		                <th>Nama Kepala Keluarga</th>
-		                <th>Alamat Sekarang</th>
-		                <th>Alamat Tujuan</th>
-		                <th>Jumlah</th>
+		                <th>Tempat Tanggal Lahir</th>
+		                <th>Nama Ibu</th>
+		                <th>Nama Ayah</th>
+		                <th>Jenis Kelamin</th>
+		                <th>Kelahiran Ke</th>
 		                <th>Status</th>
 		                <th>Aksi</th>
 	                </tr>
 	                @foreach($datas as $data)
 			            	<tr>
 			                  	<td>{{++$no}}</td>
-			                  	<td>{{$data->nik}}</td>
-			                  	<td>{{$data->nama}}</td>
-			                  	<td>{{$data->no_kk}}</td>
-			                  	<td>{{$data->kepala_keluarga}}</td>
-			                  	<td>{{$data->alamat_sekarang}}</td>
-			                  	<td>{{$data->alamat_tujuan}}</td>
-			                  	<td>{{$data->jumlah_pindah}}</td>
+			                  	<td>{{$data->b_nama}}</td>
+			                  	<td>{{$data->b_tempat}}, {{$data->b_tanggal}}</td> 
+			                  	<td>{{$data->a_nama}}</td>
+			                  	<td>{{$data->i_nama}}</td>
+			                  	<td>{{$data->b_jenis_kelamin}}</td>
+			                  	<td>{{$data->b_kelahiran_ke}}</td>
 			                  	<td>
 			                  		<span class="label label-success">{{$data->status}}</span>
 			                  	</td>
 			                  	<td>
-									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'spp')}}" >
+									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'skk')}}" >
 										<i class="fa fa-edit"></i>
-										 Edit
+										Edit
 									</a>
-									<br>									
+									<br>
 									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin-top: 10px;">
 					                    <i class="fa fa-trash"></i>
 					                    Hapus
-					                </a>
+					                    </a>
 
-					                <form id="{{md5($data->id.'hapus')}}" action="{{ route('spp.destroy',$data->id) }}" method="POST" style="display: none;">
-					                    {{ csrf_field() }}
-					                    <input type="hidden" name="_method" value="DELETE">
-					                </form>
+					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('skk.destroy',$data->id) }}" method="POST" style="display: none;">
+					                        {{ csrf_field() }}
+					                        <input type="hidden" name="_method" value="DELETE">
+					                    </form>
 			                  	</td>
 			                </tr>
 	                @endforeach
@@ -90,66 +90,322 @@
     	</div>
 
     	@foreach($datas as $d)
-			<div class="modal fade" id="{{md5($d->id.'spp')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			    <div class="modal-dialog" role="document">
+			<div class="modal fade" id="{{md5($d->id.'skk')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog modal-lg" role="document">
 			        <div class="modal-content">
 			            <div class="modal-header text-center">
-			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Pindah</h4>
+			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Keterangan Kelahiran</h4>
 			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			                    <span aria-hidden="true">&times;</span>
 			                </button>
 			            </div>
-			            <div class="modal-body mx-3">
+			            <div class="modal-body">
 
-				            <form method="POST" action="{{ route('spp.update',$d->id) }}">
+				            <form method="POST" action="{{ route('skk.update',$d->id) }}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								
-								<h5>NIK</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="nik" type="text" class="form-control" placeholder="" required value="{{$d->nik}}">
-				            	</div>
+								<div class="panel panel-info">
+						            <div class="panel-heading"><strong>BAYI</strong></div>
+						            <div class="panel-body">
+						                <div class="row">
+						                	<div class="col-md-6">
+						                		<h5>Nama</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="b_nama" type="text" class="form-control" required value="{{$d->b_nama}}">
+								            	</div>
 
-								<h5>Nama</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="nama" type="text" class="form-control" placeholder="Nama" required value="{{$d->nama}}">
-				            	</div>
+								            	<h5>Jenis Kelamin</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="b_jenis_kelamin" type="text" class="form-control" required value="{{$d->b_jenis_kelamin}}">
+								            	</div>
 
-				            	<h5>No Kartu Keluarga</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="no_kk" type="text" class="form-control" placeholder="" required value="{{$d->no_kk}}">
-				            	</div>
+								            	<h5>Tempat Lahir</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="b_tempat" type="text" class="form-control" required value="{{$d->b_tempat}}">
+								            	</div>
 
-				            	<h5>Nama Kepala Keluarga</h5>
-				            	<div class="input-group">
+								            	<h5>Tanggal Lahir</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+								              		<input name="b_tanggal" type="text" class="form-control" required value="{{$d->b_tanggal}}">
+								            	</div>
+						                	</div>
+						                	<div class="col-md-6">
+						                		<h5>Jenis Kelahiran</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="b_jenis_kelahiran" type="text" class="form-control" required value="{{$d->b_jenis_kelahiran}}">
+								            	</div>
 
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="kepala_keluarga" type="text" class="form-control" placeholder="" required value="{{$d->kepala_keluarga}}">
-				            	</div>
+								            	<h5>Kelahiran Ke</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="b_kelahiran_ke" type="text" class="form-control" required value="{{$d->b_kelahiran_ke}}">
+								            	</div>
 
-				            	<h5>Alamat Sekarang</h5>
-				            	<div class="input-group">
+								            	<h5>Berat</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="b_berat" type="text" class="form-control" required value="{{$d->b_berat}}">
+								            	</div>
 
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="alamat_sekarang" type="text" class="form-control" placeholder="" required value="{{$d->alamat_sekarang}}">
-				            	</div>
+								            	<h5>Panjang</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="b_panjang" type="text" class="form-control" required value="{{$d->b_panjang}}">
+								            	</div>
+						                	</div>
+						              	</div>
+						            </div>
+					            </div>
 
-				            	<h5>Alamat Tujuan</h5>
-				            	<div class="input-group">
+					            <div class="panel panel-primary">
+						            <div class="panel-heading"><strong>IBU</strong></div>
+						            <div class="panel-body">
+						                <div class="row">
+						                	<div class="col-md-6">
+						                		<h5>NIK</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+								              		<input name="i_nik" type="text" class="form-control" required value="{{$d->i_nik}}">
+								            	</div>
 
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="alamat_tujuan" type="text" class="form-control" placeholder="" required value="{{$d->alamat_tujuan}}">
-				            	</div>
+								            	<h5>Nama</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="i_nama" type="text" class="form-control" required value="{{$d->i_nama}}">
+								            	</div>
 
-				            	<h5>Jumlah</h5>
-				            	<div class="input-group">
+								            	<h5>Tanggal Lahir</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+								              		<input name="i_tanggal_lahir" type="text" class="form-control" required value="{{$d->i_tanggal_lahir}}">
+								            	</div>
 
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="jumlah_pindah" type="number" class="form-control" placeholder="" required value="{{$d->jumlah_pindah}}">
-				            	</div>
+								            	<h5>Pekerjaan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								              		<input name="i_pekerjaan" type="text" class="form-control" required value="{{$d->i_pekerjaan}}">
+								            	</div>
+						                	</div>
+						                	<div class="col-md-6">
+						                		<h5>Alamat</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+								              		<input name="i_alamat" type="text" class="form-control" required value="{{$d->i_alamat}}">
+								            	</div>
+
+								            	<h5>Kewarganegaraan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="i_kewarganegaraan" type="text" class="form-control" required value="{{$d->i_kewarganegaraan}}">
+								            	</div>
+
+								            	<h5>Kebangsaan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="i_kebangsaan" type="text" class="form-control" required value="{{$d->i_kebangsaan}}">
+								            	</div>
+
+								            	<h5>Tanggal Pernikahan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="i_tanggal_perkawinan" type="text" class="form-control" required value="{{$d->i_tanggal_perkawinan}}">
+								            	</div>
+						                	</div>
+						              	</div>
+						            </div>
+					            </div>
+
+					            <div class="panel panel-success">
+						            <div class="panel-heading"><strong>AYAH</strong></div>
+						            <div class="panel-body">
+						                <div class="row">
+						                	<div class="col-md-6">
+						                		<h5>NIK</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+								              		<input name="a_nik" type="text" class="form-control" required value="{{$d->a_nik}}">
+								            	</div>
+
+								            	<h5>Nama</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="a_nama" type="text" class="form-control" required value="{{$d->a_nama}}">
+								            	</div>
+
+								            	<h5>Tanggal Lahir</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+								              		<input name="a_tanggal_lahir" type="text" class="form-control" required value="{{$d->a_tanggal_lahir}}">
+								            	</div>
+
+								            	<h5>Pekerjaan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								              		<input name="a_pekerjaan" type="text" class="form-control" required value="{{$d->a_pekerjaan}}">
+								            	</div>
+						                	</div>
+						                	<div class="col-md-6">
+						                		<h5>Alamat</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+								              		<input name="a_alamat" type="text" class="form-control" required value="{{$d->a_alamat}}">
+								            	</div>
+
+								            	<h5>Kewarganegaraan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="a_kewarganegaraan" type="text" class="form-control" required value="{{$d->a_kewarganegaraan}}">
+								            	</div>
+
+								            	<h5>Kebangsaan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="a_kebangsaan" type="text" class="form-control" required value="{{$d->a_kebangsaan}}">
+								            	</div>
+
+								            	<h5>Tanggal Pernikahan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="a_tanggal_perkawinan" type="text" class="form-control" required value="{{$d->a_tanggal_perkawinan}}">
+								            	</div>
+						                	</div>
+						              	</div>
+						            </div>
+					            </div>
+
+					            <div class="panel panel-info">
+						            <div class="panel-heading"><strong>PELAPOR</strong></div>
+						            <div class="panel-body">
+						                <div class="row">
+						                	<div class="col-md-6">
+						                		<h5>NIK</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+								              		<input name="p_nik" type="text" class="form-control" required value="{{$d->p_nik}}">
+								            	</div>
+
+								            	<h5>Nama</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="p_nama" type="text" class="form-control" required value="{{$d->p_nama}}">
+								            	</div>
+
+								            	<h5>Umur</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="p_umur" type="text" class="form-control" required value="{{$d->p_umur}}">
+								            	</div>
+						                	</div>
+						                	<div class="col-md-6">
+						                		<h5>Jenis Kelamin</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="p_jenis_kelamin" type="text" class="form-control" required value="{{$d->p_jenis_kelamin}}">
+								            	</div>
+
+								            	<h5>Pekerjaan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								              		<input name="p_pekerjaan" type="text" class="form-control" required value="{{$d->p_pekerjaan}}">
+								            	</div>
+
+								            	<h5>Alamat</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+								              		<input name="p_alamat" type="text" class="form-control" required value="{{$d->p_alamat}}">
+								            	</div>
+						                	</div>
+						              	</div>
+						            </div>
+					            </div>
+
+					            <div class="panel panel-primary">
+						            <div class="panel-heading"><strong>SAKSI I</strong></div>
+						            <div class="panel-body">
+						                <div class="row">
+						                	<div class="col-md-6">
+						                		<h5>NIK</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+								              		<input name="s1_nik" type="text" class="form-control" required value="{{$d->s1_nik}}">
+								            	</div>
+
+								            	<h5>Nama</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="s1_nama" type="text" class="form-control" required value="{{$d->s1_nama}}">
+								            	</div>
+
+								            	<h5>Umur</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="s1_umur" type="text" class="form-control" required value="{{$d->s1_umur}}">
+								            	</div>
+						                	</div>
+						                	<div class="col-md-6">
+
+								            	<h5>Pekerjaan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								              		<input name="s1_pekerjaan" type="text" class="form-control" required value="{{$d->s1_pekerjaan}}">
+								            	</div>
+
+								            	<h5>Alamat</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+								              		<input name="s1_alamat" type="text" class="form-control" required value="{{$d->s1_alamat}}">
+								            	</div>
+						                	</div>
+						              	</div>
+						            </div>
+					            </div>
+
+					            <div class="panel panel-success">
+						            <div class="panel-heading"><strong>SAKSI II</strong></div>
+						            <div class="panel-body">
+						                <div class="row">
+						                	<div class="col-md-6">
+						                		<h5>NIK</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+								              		<input name="s2_nik" type="text" class="form-control" required value="{{$d->s2_nik}}">
+								            	</div>
+
+								            	<h5>Nama</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="s2_nama" type="text" class="form-control" required value="{{$d->s2_nama}}">
+								            	</div>
+
+								            	<h5>Umur</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								              		<input name="s2_umur" type="text" class="form-control" required value="{{$d->s2_umur}}">
+								            	</div>
+						                	</div>
+						                	<div class="col-md-6">
+
+								            	<h5>Pekerjaan</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								              		<input name="s2_pekerjaan" type="text" class="form-control" required value="{{$d->s2_pekerjaan}}">
+								            	</div>
+
+								            	<h5>Alamat</h5>
+								            	<div class="input-group">
+								              		<span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+								              		<input name="s2_alamat" type="text" class="form-control" required value="{{$d->s2_alamat}}">
+								            	</div>
+						                	</div>
+						              	</div>
+						            </div>
+					            </div>
 
 				            	<div class="modal-footer d-flex justify-content-center">
 				               		<button type="submit" class="btn btn-primary">Simpan</button>

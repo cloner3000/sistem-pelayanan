@@ -91,7 +91,7 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="treeview @yield('user')">
           <a href="#">
             <i class="fa fa-users"></i>
             <span>Data Akun</span>
@@ -109,7 +109,7 @@
           </ul>
         </li>
 
-        <li class="treeview">
+        <li class="treeview @yield('spp')">
           <a href="#">
             <i class="fa fa-people-carry"></i>
             <span>Data Surat Pindah</span>
@@ -127,7 +127,7 @@
           </ul>
         </li>
 
-        <li class="treeview">
+        <li class="treeview @yield('ktp')">
           <a href="#">
             <i class="fa fa-id-card"></i> <span>Data Surat KTP</span>
             <span class="pull-right-container">
@@ -144,16 +144,16 @@
           </ul>
         </li>
 
-        <li class="treeview">
+        <li class="treeview @yield('skk')">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
+            <i class="fa fa-table"></i> <span>Data Surat Kelahiran</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-dot-circle"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-dot-circle"></i> Data tables</a></li>
+            <li class="@yield('pengajuanSkk')"><a href="{{ route('skk.index') }}"><i class="fa fa-dot-circle"></i> Pengajuan</a></li>
+            <li class="@yield('riwayatSkk')"><a href="{{ route('skk.acc') }}"><i class="fa fa-dot-circle"></i> Riwayat Pengajuan</a></li>
           </ul>
         </li>
         
