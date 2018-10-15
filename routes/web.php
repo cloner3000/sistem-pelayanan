@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('admin.user.tambahUser');
+    return view('welcome');
 });
 
 Route::get('kades',function(){
@@ -44,5 +44,10 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::post('ktp/acc','KtpController@acc')->name('ktp.acc');
     Route::get('ktp/acc','KtpController@indexAcc')->name('ktp.indexAcc');
     Route::resource('ktp', 'KtpController')->except(['edit']);
+
+    //route Crud data surat Kelahiran
+    Route::post('skk/acc','SkkController@acc')->name('skk.acc');
+    Route::get('skk/acc','SkkController@indexAcc')->name('skk.indexAcc');
+    Route::resource('skk','SkkController')->except(['edit']);
 
 });
