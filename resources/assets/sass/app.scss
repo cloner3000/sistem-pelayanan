@@ -1,6 +1,7 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 
 // Variables
 @import "variables";
@@ -15,9 +16,11 @@
 // Ionicons 
 @import "~ionicons-npm/scss/ionicons.scss";
 
+@import "~eonasdan-bootstrap-datetimepicker/src/sass/_bootstrap-datetimepicker.scss";
+
 // Font-awesome
-$fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
-@import '~@fortawesome/fontawesome-free/scss/fontawesome'; 
-@import '~@fortawesome/fontawesome-free/scss/solid'; 
-@import '~@fortawesome/fontawesome-free/scss/regular'; 
-@import '~@fortawesome/fontawesome-free/scss/brands'; 
+@import "~@fortawesome/fontawesome-free/scss/fontawesome"; 
+@import "~@fortawesome/fontawesome-free/scss/solid"; 
+@import "~@fortawesome/fontawesome-free/scss/regular"; 
+@import "~@fortawesome/fontawesome-free/scss/brands"; 
+

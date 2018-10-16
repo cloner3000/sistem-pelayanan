@@ -8,7 +8,7 @@
         <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -21,9 +21,9 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{$spp->count()+$ktp->count()+$skk->count()}}</h3>
 
-              <p>Pelayanan</p>
+              <p>Pengajuan Pelayanan</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -51,12 +51,12 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{$acc}}</h3>
 
-              <p>Pengguna</p>
+              <p>Pengajuan Diterima</p>
             </div>
             <div class="icon">
-              <i class="ion ion-man"></i>
+              <i class="ion ion-checkmark"></i>
             </div>
             <a href="#" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -66,9 +66,9 @@
           <!-- small box -->
           <div class="small-box bg-purple">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{$user->count()}}</h3>
 
-              <p>Pekerja</p>
+              <p>Pengguna</p>
             </div>
             <div class="icon">
               <i class="ion ion-person"></i>
@@ -104,7 +104,7 @@
           <!-- /.nav-tabs-custom -->
 
           <!-- TO DO List -->
-          <div class="box box-primary">
+          {{-- <div class="box box-primary">
             <div class="box-header">
               <i class="ion ion-clipboard"></i>
 
@@ -248,7 +248,7 @@
               <button type="button" class="pull-right btn btn-default" id="sendEmail">Send
                 <i class="fa fa-arrow-circle-right"></i></button>
             </div>
-          </div>
+          </div> --}}
 
         </section>
         <!-- /.Left col -->
@@ -274,7 +274,7 @@
           <!-- /.box -->
 
           <!-- solid sales graph -->
-          <div class="box box-solid bg-teal-gradient">
+          {{-- <div class="box box-solid bg-teal-gradient">
             <div class="box-header">
               <i class="fa fa-th"></i>
 
@@ -318,11 +318,11 @@
               <!-- /.row -->
             </div>
             <!-- /.box-footer -->
-          </div>
+          </div> --}}
           <!-- /.box -->
 
           <!-- Calendar -->
-          <div class="box box-solid bg-green-gradient">
+          {{-- <div class="box box-solid bg-green-gradient">
             <div class="box-header">
               <i class="fa fa-calendar"></i>
 
@@ -346,9 +346,9 @@
                 </button>
               </div>
               <!-- /. tools -->
-            </div>
+            </div> --}}
             <!-- /.box-header -->
-            <div class="box-body no-padding">
+           {{--  <div class="box-body no-padding">
               <!--The calendar -->
               <div id="calendar" style="width: 100%"></div>
             </div>
@@ -395,7 +395,7 @@
               </div>
               <!-- /.row -->
             </div>
-          </div>
+          </div> --}}
           <!-- /.box -->
 
         </section>

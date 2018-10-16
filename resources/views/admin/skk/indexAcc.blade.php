@@ -10,7 +10,7 @@
         <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Daftar Surat Pindah Yang Telah Di Terima</li>
       </ol>
     </section>
@@ -21,70 +21,70 @@
     		<div class="col-xs-12">
     			<div class="box">
 
-	            <div class="box-header">
-	              <h3 class="box-title">Daftar Surat Pindah Yang Telah Di Terima</h3>
+		            <div class="box-header">
+		              <h3 class="box-title">Daftar Surat Pindah Yang Telah Di Terima</h3>
 
-	              {{-- <div class="box-tools">
-	                <div class="input-group input-group-sm" style="width: 150px;">
-	                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+		              {{-- <div class="box-tools">
+		                <div class="input-group input-group-sm" style="width: 150px;">
+		                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
-	                  <div class="input-group-btn">
-	                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-	                  </div>
-	                </div>
-	              </div> --}}
-	            </div>
-	            <!-- /.box-header -->
-	            <div class="box-body table-responsive no-padding">
-	              <table class="table table-hover">
-	                <tr>
-						<th>No</th>
-		                <th>Nama</th>
-		                <th>Tempat Tanggal Lahir</th>
-		                <th>Nama Ibu</th>
-		                <th>Nama Ayah</th>
-		                <th>Jenis Kelamin</th>
-		                <th>Kelahiran Ke</th>
-		                <th>Status</th>
-		                <th>Aksi</th>
-	                </tr>
-	                @foreach($datas as $data)
-			            	<tr>
-			                  	<td>{{++$no}}</td>
-			                  	<td>{{$data->b_nama}}</td>
-			                  	<td>{{$data->b_tempat}}, {{$data->b_tanggal}}</td> 
-			                  	<td>{{$data->a_nama}}</td>
-			                  	<td>{{$data->i_nama}}</td>
-			                  	<td>{{$data->b_jenis_kelamin}}</td>
-			                  	<td>{{$data->b_kelahiran_ke}}</td>
-			                  	<td>
-			                  		<span class="label label-success">{{$data->status}}</span>
-			                  	</td>
-			                  	<td>
-									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'skk')}}" >
-										<i class="fa fa-edit"></i>
-										Edit
-									</a>
-									<br>
-									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin-top: 10px;">
-					                    <i class="fa fa-trash"></i>
-					                    Hapus
-					                    </a>
+		                  <div class="input-group-btn">
+		                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+		                  </div>
+		                </div>
+		              </div> --}}
+		            </div>
+		            
+		            <div class="box-body table-responsive no-padding">
+		              <table class="table table-hover">
+		                <tr>
+							<th>No</th>
+			                <th>Nama</th>
+			                <th>Tempat Tanggal Lahir</th>
+			                <th>Nama Ibu</th>
+			                <th>Nama Ayah</th>
+			                <th>Jenis Kelamin</th>
+			                <th>Kelahiran Ke</th>
+			                <th>Status</th>
+			                <th>Aksi</th>
+		                </tr>
+		                @foreach($datas as $data)
+				            	<tr>
+				                  	<td>{{++$no}}</td>
+				                  	<td>{{$data->b_nama}}</td>
+				                  	<td>{{$data->b_tempat}}, {{$data->b_tanggal}}</td> 
+				                  	<td>{{$data->a_nama}}</td>
+				                  	<td>{{$data->i_nama}}</td>
+				                  	<td>{{$data->b_jenis_kelamin}}</td>
+				                  	<td>{{$data->b_kelahiran_ke}}</td>
+				                  	<td>
+				                  		<span class="label label-success">{{$data->status}}</span>
+				                  	</td>
+				                  	<td>
+										<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'skk')}}" >
+											<i class="fa fa-edit"></i>
+											Edit
+										</a>
+										<br>
+										<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin-top: 10px;">
+						                    <i class="fa fa-trash"></i>
+						                    Hapus
+						                    </a>
 
-					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('skk.destroy',$data->id) }}" method="POST" style="display: none;">
-					                        {{ csrf_field() }}
-					                        <input type="hidden" name="_method" value="DELETE">
-					                    </form>
-			                  	</td>
-			                </tr>
-	                @endforeach
-	              </table>
-	              <div class="pull-right">
-	              	{!! $datas->render('vendor.pagination.default') !!}
-	              </div>
-	            </div>
+						                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('skk.destroy',$data->id) }}" method="POST" style="display: none;">
+						                        {{ csrf_field() }}
+						                        <input type="hidden" name="_method" value="DELETE">
+						                    </form>
+				                  	</td>
+				                </tr>
+		                @endforeach
+		              </table>
+		              <div class="pull-right">
+		              	{!! $datas->render('vendor.pagination.default') !!}
+		              </div>
+		            </div>
 
-	          </div>
+		        </div>
 
     		</div>
     	</div>

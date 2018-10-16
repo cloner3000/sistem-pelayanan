@@ -16,28 +16,22 @@
 <div class="wrapper">
 
   <header class="main-header">
-    <!-- Logo -->
     <a href="index2.html" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>S</b>P</span>
-      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>System</b> Pelayanan</span>
     </a>
-    <!-- Header Navbar: style can be found in header.less -->
+
     <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <i class="fa fa-list"></i>
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
-              <!-- Menu Body -->
               <li class="user-body bg-aqua">
                 <div class="row">
                   <div class="col-xs-12 text-center">
@@ -49,9 +43,7 @@
                     </p>
                   </div>
                 </div>
-                <!-- /.row -->
               </li>
-              <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="text-center">
                   <a class="btn btn-info" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -68,25 +60,21 @@
         </ul>
       </div>
     </nav>
+
   </header>
-  <!-- Left side column. contains the logo and sidebar -->
+
   <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- Sidebar user panel -->
 {{--       <div class="user-panel">
         <div class="pull-left" style="color: white;">
           <p>{{Auth::user()->name}}</p>
         </div>
       </div> --}}
-      <!-- search form -->
      
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU UTAMA</li>
         <li class="@yield('dashboard')">
-          <a href="{{ route('admin') }}">
+          <a href="{{ route('admin.dashboard') }}">
             <i class="fa fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
@@ -152,36 +140,65 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="@yield('pengajuanSkk')"><a href="{{ route('skk.index') }}"><i class="fa fa-dot-circle"></i> Pengajuan</a></li>
-            <li class="@yield('riwayatSkk')"><a href="{{ route('skk.acc') }}"><i class="fa fa-dot-circle"></i> Riwayat Pengajuan</a></li>
+            <li class="@yield('pengajuanSkk')">
+              <a href="{{ route('skk.index') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Pengajuan
+              </a>
+            </li>
+            <li class="@yield('riwayatSkk')">
+              <a href="{{ route('skk.acc') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Riwayat Pengajuan
+              </a>
+            </li>
           </ul>
         </li>
         
       </ul>
     </section>
-    <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    
+    <div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     @yield('isi')
   </div>
 
-  <!-- /.content-wrapper -->
-
   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
+    {{-- <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    </div> --}}
+    <strong>Copyright &copy; {{date('Y')}} Made with <i class="fa fa-heart"></i>
+      <a href="https://laravel.com">Laravel</a>.
+    </strong> 
+    All rights reserved.
   </footer>
 
 </div>
 
-<!-- jQuery 3 -->
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker2').datetimepicker({
+           format:'DD-MM-YYYY HH:mm:ss',
+        });
+    });
+
     var ctx = document.getElementById("areaChart");
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -251,7 +268,6 @@
       data: data,
       options: options
     });
-
 </script>
 </body>
 </html>

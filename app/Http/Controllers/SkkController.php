@@ -30,7 +30,7 @@ class SkkController extends Controller
         $data->status = "acc";
 
         $data->save();
-        return redirect()->route('skk.acc');
+        return back();
     }
     /**
      * Show the form for creating a new resource.

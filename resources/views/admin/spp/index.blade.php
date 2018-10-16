@@ -10,7 +10,7 @@
         <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Daftar Pengajuan Surat Pindah</li>
       </ol>
     </section>

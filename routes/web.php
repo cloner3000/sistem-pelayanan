@@ -19,9 +19,9 @@ Route::get('kades',function(){
 	return view('superadmin');
 })->middleware('role:Kepala Desa');
 
-Route::get('admin',function(){
-	return view('admin.dashboard');
-})->middleware('role:Admin')->name('admin');
+// Route::get('admin',function(){
+// 	return view('admin.dashboard');
+// })->middleware('role:Admin')->name('admin');
 
 Route::get('user',function(){
 	return view('user');
@@ -32,7 +32,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'], function(){
-	//route edit User
+	
+    Route::get('/','DashboardController@indexAdmin')->name('admin.dashboard');
+    //route edit User
     Route::resource('pengguna','UserController')->except(['show','edit']);
 
     //route CRUD data pelayanan surat pindah

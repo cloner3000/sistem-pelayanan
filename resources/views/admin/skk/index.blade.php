@@ -10,7 +10,7 @@
         <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Daftar Pengajuan Surat Keterangan Kelahiran</li>
       </ol>
     </section>
@@ -188,7 +188,7 @@
 								            	<h5>Tanggal Lahir</h5>
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								              		<input name="b_tanggal" type="text" class="form-control" required value="{{$d->b_tanggal}}">
+								              		<input name="b_tanggal" type="text" id="datepicker" class="form-control" required value="{{$d->b_tanggal}}">
 								            	</div>
 						                	</div>
 						                	<div class="col-md-6">
