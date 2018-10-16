@@ -160,22 +160,6 @@
   </aside>
 
   <div class="content-wrapper">
-    
-    <div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker2'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
     @yield('isi')
   </div>
 
@@ -194,7 +178,7 @@
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript">
     $(function () {
-        $('#datetimepicker2').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });
