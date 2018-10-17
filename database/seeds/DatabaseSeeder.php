@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(KtpSeeder::class);
         //Seeder data Surat Kelahiran
         $this->call(SkkSeeder::class);
+        //Seeder data SPTJM
+        $this->call(SptjmSeeder::class);
 
     }
 }

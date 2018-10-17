@@ -47,7 +47,7 @@ class CreateSptjmsTable extends Migration
         });
 
         Schema::table('sptjms',function(Blueprint $t){
-            $t->foreign('user_id')->references('id')->on('user')->onDelete('cascade')->onUpdate('cascade');
+            $t->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
