@@ -27,6 +27,7 @@ class SptjmSeeder extends Seeder
         for ($i=0; $i < $limit; $i++) { 
         	DB::table('sptjms')->insert([
 				'user_id'    => 3,
+				'status'	 => $f->randomElement(array('acc','pending')),
 				'nama'       => $f->name,
 				'nik'        => $f->randomNumber($nbDigits = NULL, $strict = false),
 				'tempat'     => "sukabumi",

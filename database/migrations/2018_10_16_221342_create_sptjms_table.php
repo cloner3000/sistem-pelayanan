@@ -16,6 +16,7 @@ class CreateSptjmsTable extends Migration
         Schema::create('sptjms', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->string('status')->default('pending');
             $table->string('nama');
             $table->string('nik');
             $table->string('tempat');

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sptjm extends Model
 {
     protected $fillable = [
-    	'user_id',
+    	'user_id','status',
     	'nama','nik','tempat','tanggal','pekerjaan','alamat',
     	'nama1','nik1','tempat1','tanggal1','pekerjaan1','alamat1',
     	'nama2','nik2','tempat2','tanggal2','pekerjaan2','alamat2',
@@ -16,4 +16,9 @@ class Sptjm extends Model
     ];
 
     protected $table = 'sptjms';
+
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
+    }
 }

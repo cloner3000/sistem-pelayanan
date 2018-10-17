@@ -52,4 +52,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::get('skk/acc','SkkController@indexAcc')->name('skk.indexAcc');
     Route::resource('skk','SkkController')->except(['edit']);
 
+    //route CRUD data sptjm
+    Route::post('sptjm/acc','SptjmController@acc')->name('sptjm.acc');
+    Route::get('sptjm/acc','SptjmController@indexAcc')->name('sptjm.indexAcc');
+    Route::resource('sptjm','SptjmController')->except(['edit']);
+
 });
