@@ -154,6 +154,29 @@
             </li>
           </ul>
         </li>
+
+        <li class="treeview @yield('sptjm')">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Data SPTJM</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@yield('pengajuanSptjm')">
+              <a href="{{ route('sptjm.index') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Pengajuan
+              </a>
+            </li>
+            <li class="@yield('riwayatSptjm')">
+              <a href="{{ route('sptjm.acc') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Riwayat Pengajuan
+              </a>
+            </li>
+          </ul>
+        </li>
         
       </ul>
     </section>

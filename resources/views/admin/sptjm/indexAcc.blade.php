@@ -1,8 +1,8 @@
 @extends('admin.admin')
 @section('judul','Daftar Riwayat Surat Pernyataan Tanggung Jawab Mutlak')
 
-@section('ktp','active')
-@section('riwayatKtp','active')
+@section('sptjm','active')
+@section('riwayatsptjm','active')
 @section('isi')
 	<section class="content-header">
       <h1>
@@ -34,7 +34,6 @@
 	                </div>
 	              </div> --}}
 	            </div>
-	            <!-- /.box-header -->
 	            <div class="box-body table-responsive no-padding">
 	              <table class="table table-hover">
 	                <tr>
@@ -59,7 +58,7 @@
 			                  		<span class="label label-success">{{$data->status}}</span>
 			                  	</td>
 			                  	<td>
-									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'ktp')}}" >
+									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'sptjm')}}" >
 										<i class="fa fa-edit"></i>
 										 Edit
 									</a>
@@ -69,7 +68,7 @@
 					                    Hapus
 					                </a>
 
-					                <form id="{{md5($data->id.'hapus')}}" action="{{ route('ktp.destroy',$data->id) }}" method="POST" style="display: none;">
+					                <form id="{{md5($data->id.'hapus')}}" action="{{ route('sptjm.destroy',$data->id) }}" method="POST" style="display: none;">
 					                    {{ csrf_field() }}
 					                    <input type="hidden" name="_method" value="DELETE">
 					                </form>
@@ -88,18 +87,19 @@
     	</div>
 
 		@foreach($datas as $d)
-			<div class="modal fade" id="{{md5($d->id.'ktp')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			    <div class="modal-dialog" role="document">
+			<div class="modal fade" id="{{md5($d->id.'sptjm')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog modal-lg" role="document">
 			        <div class="modal-content">
 			            <div class="modal-header text-center">
-			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Permohonan KTP</h4>
-			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			                    <span aria-hidden="true">&times;</span>
-			                </button>
+			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Permohonan sptjm
+				                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				                    <span aria-hidden="true">&times;</span>
+				                </button>
+				            </h4>
 			            </div>
 			            <div class="modal-body mx-3">
 
-				            <form method="POST" action="{{ route('ktp.update',$d->id) }}">
+				            <form method="POST" action="{{ route('sptjm.update',$d->id) }}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								
@@ -115,17 +115,160 @@
 				              		<input name="nama" type="text" class="form-control" placeholder="Nama" required value="{{$d->nama}}">
 				            	</div>
 
-				            	<h5>No Kartu Keluarga</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
-				              		<input name="no_kk" type="text" class="form-control" placeholder="" required value="{{$d->no_kk}}">
-				            	</div>
+				            	<h5>Pekerjaan</h5>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								  	<select class="form-control" name="pekerjaan">
+								  		<option value="pns">Pegawai Negeri Sipil</option>
+								  		<option value="wiraswasta">Wiraswasta</option>
+								  		<option value="pelajar">Pelajar</option>
+								  		<option value="mahasiswa">Mahasiswa</option>
+								  		<option value="karyawan">Karyawan</option>
+								  		<option value="programmer">Programmer</option>
+								  		<option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+								  		<option value="lain-lain">Lain-Lain</option>
+								  	</select>
+								</div>
+
+								<h5>Tempat Lahir</h5>
+								    <div class="input-group">
+								      	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+								      	<input name="tempat" type="text" class="form-control" required value="{{$d->tempat}}">
+								    </div>
+
+								    <h5>Tanggal Lahir</h5>
+								    <div class="input-group">
+								      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+								      	<input name="tanggal" type="text" id="" class="form-control" required value="{{$d->tanggal}}">
+								    </div>
 
 				            	<h5>Alamat</h5>
 				            	<div class="input-group">
 
 				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
 				              		<input name="alamat" type="text" class="form-control" placeholder="" required value="{{$d->alamat}}">
+				            	</div>
+
+				            	<hr></hr>
+
+				            	<h5>NIK</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+				              		<input name="nik1" type="text" class="form-control" placeholder="" required value="{{$d->nik}}">
+				            	</div>
+
+								<h5>Nama</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<input name="nama1" type="text" class="form-control" placeholder="Nama" required value="{{$d->nama}}">
+				            	</div>
+
+				            	<h5>Pekerjaan</h5>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								  	<select class="form-control" name="pekerjaan1">
+								  		<option value="pns">Pegawai Negeri Sipil</option>
+								  		<option value="wiraswasta">Wiraswasta</option>
+								  		<option value="pelajar">Pelajar</option>
+								  		<option value="mahasiswa">Mahasiswa</option>
+								  		<option value="karyawan">Karyawan</option>
+								  		<option value="programmer">Programmer</option>
+								  		<option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+								  		<option value="lain-lain">Lain-Lain</option>
+								  	</select>
+								</div>
+
+								<h5>Tempat Lahir</h5>
+								    <div class="input-group">
+								      	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+								      	<input name="tempat1" type="text" class="form-control" required value="{{$d->tempat}}">
+								    </div>
+
+								    <h5>Tanggal Lahir</h5>
+								    <div class="input-group">
+								      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+								      	<input name="tanggal1" type="text" id="" class="form-control" required value="{{$d->tanggal}}">
+								    </div>
+
+				            	<h5>Alamat</h5>
+				            	<div class="input-group">
+
+				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+				              		<input name="alamat1" type="text" class="form-control" placeholder="" required value="{{$d->alamat}}">
+				            	</div>
+								
+								<hr></hr>
+
+								<h5>NIK</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+				              		<input name="nik2" type="text" class="form-control" placeholder="" required value="{{$d->nik}}">
+				            	</div>
+
+								<h5>Nama</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<input name="nama2" type="text" class="form-control" placeholder="Nama" required value="{{$d->nama}}">
+				            	</div>
+
+				            	<h5>Pekerjaan</h5>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								  	<select class="form-control" name="pekerjaan2">
+								  		<option value="pns">Pegawai Negeri Sipil</option>
+								  		<option value="wiraswasta">Wiraswasta</option>
+								  		<option value="pelajar">Pelajar</option>
+								  		<option value="mahasiswa">Mahasiswa</option>
+								  		<option value="karyawan">Karyawan</option>
+								  		<option value="programmer">Programmer</option>
+								  		<option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+								  		<option value="lain-lain">Lain-Lain</option>
+								  	</select>
+								</div>
+
+								<h5>Tempat Lahir</h5>
+								    <div class="input-group">
+								      	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+								      	<input name="tempat2" type="text" class="form-control" required value="{{$d->tempat}}">
+								    </div>
+
+								    <h5>Tanggal Lahir</h5>
+								    <div class="input-group">
+								      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+								      	<input name="tanggal2" type="text" id="" class="form-control" required value="{{$d->tanggal}}">
+								    </div>
+
+				            	<h5>Alamat</h5>
+				            	<div class="input-group">
+
+				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+				              		<input name="alamat2" type="text" class="form-control" placeholder="" required value="{{$d->alamat}}">
+				            	</div>
+
+				            	<hr></hr>
+
+				            	<h5>NIK</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+				              		<input name="s1_nik" type="text" class="form-control" placeholder="" required value="{{$d->s1_nik}}">
+				            	</div>
+
+								<h5>Nama</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<input name="s1_nama" type="text" class="form-control" placeholder="Nama" required value="{{$d->s1_nama}}">
+				            	</div>
+
+				            	<h5>NIK</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+				              		<input name="s2_nik" type="text" class="form-control" placeholder="" required value="{{$d->s2_nik}}">
+				            	</div>
+
+								<h5>Nama</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<input name="s2_nama" type="text" class="form-control" placeholder="Nama" required value="{{$d->s2_nama}}">
 				            	</div>
 
 				            	<div class="modal-footer d-flex justify-content-center">

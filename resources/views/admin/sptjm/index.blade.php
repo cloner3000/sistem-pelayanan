@@ -1,8 +1,8 @@
 @extends('admin.admin')
 @section('judul','Daftar Surat Pernyataan Tanggung Jawab Mutlak')
 
-@section('ktp','active')
-@section('pengajuanKtp','active')
+@section('sptjm','active')
+@section('pengajuanSptjm','active')
 @section('isi')
 	<section class="content-header">
       <h1>
@@ -34,7 +34,6 @@
 	                </div>
 	              </div> --}}
 	            </div>
-	            <!-- /.box-header -->
 	            <div class="box-body table-responsive no-padding">
 	              <table class="table table-hover">
 	                <tr>
@@ -53,7 +52,7 @@
 			                  	<td>{{$data->nik}}</td>
 			                  	<td>{{$data->nama}}</td>
 			                  	<td>{{$data->tempat}},{{$data->tanggal}}</td>
-			                  	<td>{{$data->pekerjaan}}</td>
+			                  	<td>{{ucfirst($data->pekerjaan)}}</td>
 			                  	<td>{{$data->alamat}}</td>
 			                  	<td>
 			                  		<span class="label label-warning">{{$data->status}}</span>
@@ -99,13 +98,14 @@
 
     	@foreach($datas as $d)
 			<div class="modal fade" id="{{md5($d->id.'sptjm')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			    <div class="modal-dialog" role="document">
+			    <div class="modal-dialog modal-lg" role="document">
 			        <div class="modal-content">
 			            <div class="modal-header text-center">
-			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Permohonan sptjm</h4>
-			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			                    <span aria-hidden="true">&times;</span>
-			                </button>
+			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Permohonan sptjm
+				                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				                    <span aria-hidden="true">&times;</span>
+				                </button>
+				            </h4>
 			            </div>
 			            <div class="modal-body mx-3">
 
@@ -143,13 +143,13 @@
 								<h5>Tempat Lahir</h5>
 								    <div class="input-group">
 								      	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
-								      	<input name="tempat" type="text" class="form-control" required value="{{$d->b_tempat}}">
+								      	<input name="tempat" type="text" class="form-control" required value="{{$d->tempat}}">
 								    </div>
 
 								    <h5>Tanggal Lahir</h5>
 								    <div class="input-group">
 								      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								      	<input name="tanggal" type="text" id="" class="form-control" required value="{{$d->b_tanggal}}">
+								      	<input name="tanggal" type="text" id="" class="form-control" required value="{{$d->tanggal}}">
 								    </div>
 
 				            	<h5>Alamat</h5>
@@ -159,7 +159,7 @@
 				              		<input name="alamat" type="text" class="form-control" placeholder="" required value="{{$d->alamat}}">
 				            	</div>
 
-				            	<h5>=====================================================================================================</h5>
+				            	<hr></hr>
 
 				            	<h5>NIK</h5>
 				            	<div class="input-group">
@@ -191,13 +191,13 @@
 								<h5>Tempat Lahir</h5>
 								    <div class="input-group">
 								      	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
-								      	<input name="tempat1" type="text" class="form-control" required value="{{$d->b_tempat}}">
+								      	<input name="tempat1" type="text" class="form-control" required value="{{$d->tempat}}">
 								    </div>
 
 								    <h5>Tanggal Lahir</h5>
 								    <div class="input-group">
 								      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								      	<input name="tanggal1" type="text" id="" class="form-control" required value="{{$d->b_tanggal}}">
+								      	<input name="tanggal1" type="text" id="" class="form-control" required value="{{$d->tanggal}}">
 								    </div>
 
 				            	<h5>Alamat</h5>
@@ -207,7 +207,7 @@
 				              		<input name="alamat1" type="text" class="form-control" placeholder="" required value="{{$d->alamat}}">
 				            	</div>
 								
-								<h5>=================================================================================================</h5>
+								<hr></hr>
 
 								<h5>NIK</h5>
 				            	<div class="input-group">
@@ -239,13 +239,13 @@
 								<h5>Tempat Lahir</h5>
 								    <div class="input-group">
 								      	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
-								      	<input name="tempat2" type="text" class="form-control" required value="{{$d->b_tempat}}">
+								      	<input name="tempat2" type="text" class="form-control" required value="{{$d->tempat}}">
 								    </div>
 
 								    <h5>Tanggal Lahir</h5>
 								    <div class="input-group">
 								      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								      	<input name="tanggal2" type="text" id="" class="form-control" required value="{{$d->b_tanggal}}">
+								      	<input name="tanggal2" type="text" id="" class="form-control" required value="{{$d->tanggal}}">
 								    </div>
 
 				            	<h5>Alamat</h5>
@@ -255,7 +255,7 @@
 				              		<input name="alamat2" type="text" class="form-control" placeholder="" required value="{{$d->alamat}}">
 				            	</div>
 
-				            	<h5>===================================================================================================</h5>
+				            	<hr></hr>
 
 				            	<h5>NIK</h5>
 				            	<div class="input-group">
