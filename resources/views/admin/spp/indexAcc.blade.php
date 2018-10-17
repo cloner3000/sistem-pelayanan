@@ -103,13 +103,13 @@
 			            </div>
 			            <div class="modal-body mx-3">
 
-				            <form method="POST" action="{{ route('spp.update',$d->id) }}">
+				             <form method="POST" action="{{ route('spp.update',$d->id) }}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								
 								<h5>NIK</h5>
 				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
 				              		<input name="nik" type="text" class="form-control" placeholder="" required value="{{$d->nik}}">
 				            	</div>
 
@@ -121,35 +121,35 @@
 
 				            	<h5>No Kartu Keluarga</h5>
 				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
 				              		<input name="no_kk" type="text" class="form-control" placeholder="" required value="{{$d->no_kk}}">
 				            	</div>
 
 				            	<h5>Nama Kepala Keluarga</h5>
 				            	<div class="input-group">
 
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
 				              		<input name="kepala_keluarga" type="text" class="form-control" placeholder="" required value="{{$d->kepala_keluarga}}">
 				            	</div>
 
 				            	<h5>Alamat Sekarang</h5>
 				            	<div class="input-group">
 
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
 				              		<input name="alamat_sekarang" type="text" class="form-control" placeholder="" required value="{{$d->alamat_sekarang}}">
 				            	</div>
 
 				            	<h5>Alamat Tujuan</h5>
 				            	<div class="input-group">
 
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
 				              		<input name="alamat_tujuan" type="text" class="form-control" placeholder="" required value="{{$d->alamat_tujuan}}">
 				            	</div>
 
 				            	<h5>Jumlah</h5>
 				            	<div class="input-group">
 
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<span class="input-group-addon"><i class="fa fa-users"></i></span>
 				              		<input name="jumlah_pindah" type="number" class="form-control" placeholder="" required value="{{$d->jumlah_pindah}}">
 				            	</div>
 

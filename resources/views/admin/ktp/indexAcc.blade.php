@@ -105,7 +105,7 @@
 								
 								<h5>NIK</h5>
 				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
 				              		<input name="nik" type="text" class="form-control" placeholder="" required value="{{$d->nik}}">
 				            	</div>
 
@@ -117,14 +117,14 @@
 
 				            	<h5>No Kartu Keluarga</h5>
 				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
 				              		<input name="no_kk" type="text" class="form-control" placeholder="" required value="{{$d->no_kk}}">
 				            	</div>
 
 				            	<h5>Alamat</h5>
 				            	<div class="input-group">
 
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
 				              		<input name="alamat" type="text" class="form-control" placeholder="" required value="{{$d->alamat}}">
 				            	</div>
 
