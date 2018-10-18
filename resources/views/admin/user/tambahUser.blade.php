@@ -73,6 +73,60 @@
 	            <!-- /.box-body -->
 	          </div>
 	        </div>
+
+	        <div class="col-md-6">
+
+	          <div class="box box-info">
+	            <div class="box-header with-border">
+	              <h3 class="box-title">Ubah Password</h3>
+	            </div>
+
+	            <div class="box-body">
+					<form method="POST" action="{{ route('admin.ganti_password') }}">
+						{{ csrf_field() }}
+						<input type="hidden" name="id" value="{{encrypt($user->id)}}">
+
+						<h5>Nama</h5>
+		            	<div class="input-group">
+
+		              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+		              		<input name="nama" type="text" class="form-control" required value="{{$user->name}}">
+		            	</div>
+
+						<h5>Email</h5>
+		            	<div class="input-group">
+		              		<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+		              		<input name="email" type="email" class="form-control" required value="{{$user->email}}">
+		            	</div>
+
+		            	<h5>Password Lama</h5>
+		            	<div class="input-group">
+		              		<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+		              		<input name="pasLama" type="password" class="form-control" placeholder="Kata Sandi" required>
+		            	</div>
+						
+						<h5>Password Baru</h5>
+		            	<div class="input-group">
+		              		<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+		              		<input name="pasBaru" type="password" class="form-control" placeholder="Kata Sandi" required>
+		            	</div>
+		            	
+		            	<h5>Konfirmasi Password Baru</h5>
+		            	<div class="input-group">
+		              		<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+		              		<input name="pasBaruCek" type="password" class="form-control" placeholder="Konfirmasi Kata Sandi" required>
+		            	</div>
+		            	<br>
+						
+		            	<div class="box-footer">
+		               		<button type="submit" class="btn btn-primary">Tambah</button>
+		              	</div>
+					</form>
+	            </div>
+	            <!-- /.box-body -->
+	          </div>
+	        </div>
+
     	</div>
           <!-- /.box -->
     </section>

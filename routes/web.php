@@ -33,6 +33,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'], function(){
 	
+    Route::post('/','UserController@gantiPas')->name('admin.ganti_password');
     Route::get('/','DashboardController@indexAdmin')->name('admin.dashboard');
     //route edit User
     Route::resource('pengguna','UserController')->except(['show','edit']);

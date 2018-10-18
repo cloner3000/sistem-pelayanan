@@ -76,12 +76,12 @@
 									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin-top: 10px;">
 					                    <i class="fa fa-trash"></i>
 					                    Hapus
-					                    </a>
+					                </a>
 
-					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('sptjm.destroy',$data->id) }}" method="POST" style="display: none;">
-					                        {{ csrf_field() }}
-					                        <input type="hidden" name="_method" value="DELETE">
-					                    </form>
+					                <form id="{{md5($data->id.'hapus')}}" action="{{ route('sptjm.destroy',$data->id) }}" method="POST" style="display: none;">
+					                    {{ csrf_field() }}
+					                    <input type="hidden" name="_method" value="DELETE">
+					                </form>
 			                  	</td>
 			                </tr>
 	                @endforeach
@@ -141,16 +141,16 @@
 								</div>
 
 								<h5>Tempat Lahir</h5>
-								    <div class="input-group">
-								      	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
-								      	<input name="tempat" type="text" class="form-control" required value="{{$d->tempat}}">
-								    </div>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+								  	<input name="tempat" type="text" class="form-control" required value="{{$d->tempat}}">
+								</div>
 
-								    <h5>Tanggal Lahir</h5>
-								    <div class="input-group">
-								      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								      	<input name="tanggal" type="text" id="" class="form-control" required value="{{$d->tanggal}}">
-								    </div>
+							    <h5>Tanggal Lahir</h5>
+							    <div class="input-group">
+							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+							      	<input name="tanggal" type="text" id="tl" class="form-control" required value="{{$d->tanggal}}">
+							    </div>
 
 				            	<h5>Alamat</h5>
 				            	<div class="input-group">
@@ -189,16 +189,16 @@
 								</div>
 
 								<h5>Tempat Lahir</h5>
-								    <div class="input-group">
-								      	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
-								      	<input name="tempat1" type="text" class="form-control" required value="{{$d->tempat}}">
-								    </div>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+								  	<input name="tempat1" type="text" class="form-control" required value="{{$d->tempat}}">
+								</div>
 
-								    <h5>Tanggal Lahir</h5>
-								    <div class="input-group">
-								      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								      	<input name="tanggal1" type="text" id="" class="form-control" required value="{{$d->tanggal}}">
-								    </div>
+							    <h5>Tanggal Lahir</h5>
+							    <div class="input-group">
+							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+							      	<input name="tanggal1" type="text" id="tl1" class="form-control" required value="{{$d->tanggal}}">
+							    </div>
 
 				            	<h5>Alamat</h5>
 				            	<div class="input-group">
@@ -237,16 +237,16 @@
 								</div>
 
 								<h5>Tempat Lahir</h5>
-								    <div class="input-group">
-								      	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
-								      	<input name="tempat2" type="text" class="form-control" required value="{{$d->tempat}}">
-								    </div>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+								  	<input name="tempat2" type="text" class="form-control" required value="{{$d->tempat}}">
+								</div>
 
-								    <h5>Tanggal Lahir</h5>
-								    <div class="input-group">
-								      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								      	<input name="tanggal2" type="text" id="" class="form-control" required value="{{$d->tanggal}}">
-								    </div>
+							    <h5>Tanggal Lahir</h5>
+							    <div class="input-group">
+							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+							      	<input name="tanggal2" type="text" id="tl" class="form-control" required value="{{$d->tanggal}}">
+							    </div>
 
 				            	<h5>Alamat</h5>
 				            	<div class="input-group">

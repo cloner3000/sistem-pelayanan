@@ -45,7 +45,7 @@
                 </div>
               </li>
               <li class="user-footer">
-                <div class="text-center">
+                <div class="pull-right">
                   <a class="btn btn-info" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     Logout
                     </a>
@@ -53,6 +53,10 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
+                </div>
+
+                <div class="pull-left">
+                  <a class="btn btn-info" href="{{ route('pengguna.create') }}">Ubah Password</a>
                 </div>
               </li>
             </ul>

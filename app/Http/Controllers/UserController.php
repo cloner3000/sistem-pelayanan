@@ -4,14 +4,52 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
 use App\Role;
+use App\User;
+
+use Auth;
+use Hash;
 
 class UserController extends Controller
 {
+
+    public function gantiPas(Request $request)
+    {
+        $id     = decrypt($request->input('id'));
+        $user   = User::find($id);
+
+        if (!(Hash::check($request->get('pasLama'), Auth::user()->password))) {
+            
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Password lama salah');
+            return back();
+        }else{
+            if ($request->input('pasBaru') == $request->input('pasBaruCek') ) {
+                
+                $user->name = $request->input('nama');
+                $user->email = $request->input('email');
+                $user->password = bcrypt($request->input('pasBaru'));
+
+                if ($user->save()) {
+                    
+                    session()->flash('status','Sukses');
+                    session()->flash('pesan','Password berhasil diubah');
+                    return back();     
+                }
+
+            }else{
+                
+                session()->flash('status','Gagal');
+                session()->flash('pesan','Password baru tidak sama');
+                return back();
+            }
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,8 +68,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $user = User::findOrFail(Auth::user()->id);
         $role = Role::all();
-        return view('admin.user.tambahUser',compact('role'));
+        return view('admin.user.tambahUser',compact('role','user'));
     }
 
     /**
