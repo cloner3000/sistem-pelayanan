@@ -205,7 +205,7 @@
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript">
     $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });

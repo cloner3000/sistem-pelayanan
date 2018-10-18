@@ -245,7 +245,7 @@
 							    <h5>Tanggal Lahir</h5>
 							    <div class="input-group">
 							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-							      	<input name="tanggal2" type="text" id="tl" class="form-control" required value="{{$d->tanggal}}">
+							      	<input name="tanggal2" type="text" id="tl2" class="form-control" required value="{{$d->tanggal}}">
 							    </div>
 
 				            	<h5>Alamat</h5>
