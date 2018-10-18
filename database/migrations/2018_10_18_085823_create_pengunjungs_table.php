@@ -15,9 +15,9 @@ class CreatePengunjungsTable extends Migration
     {
         Schema::create('pengunjungs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('browser');
-            $table->string('platform');
-            $table->string('vendor');
+            $table->string('users');
+            $table->string('browsers');
+            $table->string('oses');
             $table->timestamps();
         });
     }

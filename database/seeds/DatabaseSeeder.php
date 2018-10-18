@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SkkSeeder::class);
         //Seeder data SPTJM
         $this->call(SptjmSeeder::class);
+        //Seeder data Pengunjugn website
+        $this->call(PengunjungSeeder::class);
 
     }
 }

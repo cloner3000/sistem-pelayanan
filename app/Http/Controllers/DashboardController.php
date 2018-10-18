@@ -8,6 +8,7 @@ use App\Ktp;
 use App\Skk;
 use App\Spp;
 use App\User;
+use App\Pengunjung;
 
 class DashboardController extends Controller
 {
@@ -17,7 +18,8 @@ class DashboardController extends Controller
     	$skk = Skk::all();
     	$spp = Spp::all();
     	$user = User::all();
+    	$visitor = Pengunjung::count();
     	$acc  = Ktp::where('status','acc')->count()+Skk::where('status','acc')->count()+Spp::where('status','acc')->count();
-    	return view('admin.dashboard',compact('ktp','skk','spp','user','acc'));
+    	return view('admin.dashboard',compact('ktp','skk','spp','user','acc','visitor'));
     }
 }
