@@ -12,6 +12,7 @@ use App\Pengunjung;
 
 use Carbon\Carbon;
 use Auth;
+
 class DashboardController extends Controller
 {
     public function indexAdmin()
@@ -33,9 +34,14 @@ class DashboardController extends Controller
     						}
     					)
     					->all();
-    	$hit = 	$p['01']->count().','.$p['02']->count().','.$p['03']->count().','.$p['04']->count().','.
-    			$p['05']->count().','.$p['06']->count().','.$p['07']->count().','.$p['08']->count().','.
-    			$p['09']->count().','.$p['10']->count().','.$p['11']->count().','.$p['12']->count();
+
+        if (!empty($p)) {
+            $hit =  $p['01']->count().','.$p['02']->count().','.$p['03']->count().','.$p['04']->count().','.
+                    $p['05']->count().','.$p['06']->count().','.$p['07']->count().','.$p['08']->count().','.
+                    $p['09']->count().','.$p['10']->count().','.$p['11']->count().','.$p['12']->count();
+        }else{
+            $hit = "0,0,0,0,0,0,0,0,0,0,0,0";
+        }
 
     	$acc  = Ktp::where('status','acc')->count()+Skk::where('status','acc')->count()+Spp::where('status','acc')->count();
     	if (Auth::user()->roles->first()->name == "Kepala Desa") {

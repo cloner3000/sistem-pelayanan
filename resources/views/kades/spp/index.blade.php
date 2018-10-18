@@ -10,7 +10,7 @@
         <small>Kepala Desa</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('kades.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Daftar Pengajuan Surat Pindah</li>
       </ol>
     </section>
@@ -73,7 +73,7 @@
 					                    Acc
 					                </a>
 
-					                <form id="{{md5($data->id.'acc')}}" action="{{ route('spp.acc') }}" method="POST" style="display: none;">
+					                <form id="{{md5($data->id.'acc')}}" action="{{ route('kades.spp.acc') }}" method="POST" style="display: none;">
 					                    {{ csrf_field() }}
 					                    <input type="hidden" name="id" value="{{$data->id}}">
 					                </form>
@@ -83,7 +83,7 @@
 					                    Hapus
 					                    </a>
 
-					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('spp.destroy',$data->id) }}" method="POST" style="display: none;">
+					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('kades.spp.destroy',$data->id) }}" method="POST" style="display: none;">
 					                        {{ csrf_field() }}
 					                        <input type="hidden" name="_method" value="DELETE">
 					                    </form>
@@ -113,7 +113,7 @@
 			            </div>
 			            <div class="modal-body mx-3">
 
-				            <form method="POST" action="{{ route('spp.update',$d->id) }}">
+				            <form method="POST" action="{{ route('kades.spp.update',$d->id) }}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								

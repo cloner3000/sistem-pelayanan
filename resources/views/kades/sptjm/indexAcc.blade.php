@@ -10,7 +10,7 @@
         <small>Kepala Desa</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('kades.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Daftar Surat Pernyataan Tanggung Jawab Mutlak</li>
       </ol>
     </section>
@@ -68,7 +68,7 @@
 					                    Hapus
 					                </a>
 
-					                <form id="{{md5($data->id.'hapus')}}" action="{{ route('sptjm.destroy',$data->id) }}" method="POST" style="display: none;">
+					                <form id="{{md5($data->id.'hapus')}}" action="{{ route('kades.sptjm.destroy',$data->id) }}" method="POST" style="display: none;">
 					                    {{ csrf_field() }}
 					                    <input type="hidden" name="_method" value="DELETE">
 					                </form>
@@ -99,7 +99,7 @@
 			            </div>
 			            <div class="modal-body mx-3">
 
-				            <form method="POST" action="{{ route('sptjm.update',$d->id) }}">
+				            <form method="POST" action="{{ route('kades.sptjm.update',$d->id) }}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								

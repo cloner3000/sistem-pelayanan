@@ -87,7 +87,7 @@ class SkkController extends Controller
         $data->b_nama            = $req->input('b_nama');
         $data->b_jenis_kelamin   = $req->input('b_jenis_kelamin');
         $data->b_tempat          = $req->input('b_tempat');
-        $data->b_tanggal         = $req->input('b_tanggal');
+        $data->b_tanggal         = date('Y-m-d',strtotime($request->input('tanggal')));
         $data->b_jenis_kelahiran = $req->input('b_jenis_kelahiran');
         $data->b_kelahiran_ke    = $req->input('b_kelahiran_ke');
         $data->b_berat           = $req->input('b_berat');
@@ -95,21 +95,21 @@ class SkkController extends Controller
 
         $data->i_nik                = $req->input('i_nik');
         $data->i_nama               = $req->input('i_nama');
-        $data->i_tanggal_lahir      = $req->input('i_tanggal_lahir');
+        $data->i_tanggal_lahir      = date('Y-m-d',strtotime($request->input('i_tanggal_lahir')));
         $data->i_pekerjaan          = $req->input('i_pekerjaan');
         $data->i_alamat             = $req->input('i_alamat');
         $data->i_kewarganegaraan    = $req->input('i_kewarganegaraan');
         $data->i_kebangsaan         = $req->input('i_kebangsaan');
-        $data->i_tanggal_perkawinan = $req->input('i_tanggal_perkawinan');
+        $data->i_tanggal_perkawinan = date('Y-m-d',strtotime($request->input('i_tanggal_perkawinan')));
         
         $data->a_nik                = $req->input('a_nik');
         $data->a_nama               = $req->input('a_nama');
-        $data->a_tanggal_lahir      = $req->input('a_tanggal_lahir');
+        $data->a_tanggal_lahir      = date('Y-m-d',strtotime($request->input('a_tanggal_lahir')));
         $data->a_pekerjaan          = $req->input('a_pekerjaan');
         $data->a_alamat             = $req->input('a_alamat');
         $data->a_kewarganegaraan    = $req->input('a_kewarganegaraan');
         $data->a_kebangsaan         = $req->input('a_kebangsaan');
-        $data->a_tanggal_perkawinan = $req->input('a_tanggal_perkawinan');
+        $data->a_tanggal_perkawinan = date('Y-m-d',strtotime($request->input('a_tanggal_perkawinan')));
         
         $data->p_nik                = $req->input('p_nik');
         $data->p_nama               = $req->input('p_nama');

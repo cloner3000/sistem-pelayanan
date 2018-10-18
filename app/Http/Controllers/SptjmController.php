@@ -100,21 +100,21 @@ class SptjmController extends Controller
         $data->nama       = $request->input('nama');
         $data->nik        = $request->input('nik');
         $data->tempat     = $request->input('tempat');
-        $data->tanggal    = $request->input('tanggal');
+        $data->tanggal    = date('Y-m-d',strtotime($request->input('tanggal')));
         $data->pekerjaan  = $request->input('pekerjaan');
         $data->alamat     = $request->input('alamat');
         
         $data->nama1      = $request->input('nama1');
         $data->nik1       = $request->input('nik1');
         $data->tempat1    = $request->input('tempat1');
-        $data->tanggal1   = $request->input('tanggal1');
+        $data->tanggal1   = date('Y-m-d',strtotime($request->input('tanggal1')));
         $data->pekerjaan1 = $request->input('pekerjaan1');
         $data->alamat1    = $request->input('alamat1');
         
         $data->nama2      = $request->input('nama2');
         $data->nik2       = $request->input('nik2');
         $data->tempat2    = $request->input('tempat2');
-        $data->tanggal2   = $request->input('tanggal2');
+        $data->tanggal2   = date('Y-m-d',strtotime($request->input('tanggal2')));
         $data->pekerjaan2 = $request->input('pekerjaan2');
         $data->alamat2    = $request->input('alamat2');
         
