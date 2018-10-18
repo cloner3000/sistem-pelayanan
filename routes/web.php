@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('kades',function(){
-	return view('superadmin');
-})->middleware('role:Kepala Desa');
+// Route::get('kades',function(){
+// 	return view('superadmin');
+// })->middleware('role:Kepala Desa');
 
 // Route::get('admin',function(){
 // 	return view('admin.dashboard');
@@ -30,6 +30,37 @@ Route::get('user',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => 'kades'], function(){
+
+    Route::post('/','UserController@gantiPas')->name('kades.ganti_password');
+    Route::get('/','DashboardController@indexAdmin')->name('kades.dashboard');
+    //route edit User
+    Route::resource('pengguna','UserController',['names' =>'kades.pengguna'])->except(['show','edit']);
+
+    //route CRUD data pelayanan surat pindah
+    Route::post('spp/acc','SppController@acc')->name('kades.spp.acc');
+    Route::get('spp/acc','SppController@indexAcc')->name('kades.spp.indexAcc');
+    Route::resource('spp', 'SppController',['names' =>'kades.spp'])->except(['edit']);
+
+    //route CRUD data ktp
+    Route::post('ktp/acc','KtpController@acc')->name('kades.ktp.acc');
+    Route::get('ktp/acc','KtpController@indexAcc')->name('kades.ktp.indexAcc');
+    Route::resource('ktp', 'KtpController',['names' =>'kades.ktp'])->except(['edit']);
+
+    //route Crud data surat Kelahiran
+    Route::post('skk/acc','SkkController@acc')->name('kades.skk.acc');
+    Route::get('skk/acc','SkkController@indexAcc')->name('kades.skk.indexAcc');
+    Route::resource('skk','SkkController',['names' =>'kades.skk'])->except(['edit']);
+
+    //route CRUD data sptjm
+    Route::post('sptjm/acc','SptjmController@acc')->name('kades.sptjm.acc');
+    Route::get('sptjm/acc','SptjmController@indexAcc')->name('kades.sptjm.indexAcc');
+    Route::resource('sptjm','SptjmController',['names' =>'kades.sptjm'])->except(['edit']);
+
+    Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');
+    Route::post('/riwayat','DashboardController@hapus_riwayat')->name('kades.hapus_riwayat');
+});
 
 Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'], function(){
 	
@@ -57,5 +88,8 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::post('sptjm/acc','SptjmController@acc')->name('sptjm.acc');
     Route::get('sptjm/acc','SptjmController@indexAcc')->name('sptjm.indexAcc');
     Route::resource('sptjm','SptjmController')->except(['edit']);
+
+    Route::get('/riwayat','DashboardController@riwayat')->name('riwayat');
+    Route::post('/riwayat','DashboardController@hapus_riwayat')->name('hapus_riwayat');
 
 });

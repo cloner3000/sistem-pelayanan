@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin | @yield('judul')</title>
+  <title>Kepala Desa | @yield('judul')</title>
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
@@ -39,7 +39,7 @@
                       {{Auth::user()->name}} - {{Auth::user()->roles->first()->deskripsi}}
                     </p>
                     <p>
-                      <small>Admin Sejak {{Auth::user()->created_at}}</small>
+                      <small>Kepala Desa Sejak {{Auth::user()->created_at}}</small>
                     </p>
                   </div>
                 </div>
@@ -78,7 +78,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU UTAMA</li>
         <li class="@yield('dashboard')">
-          <a href="{{ route('admin.dashboard') }}">
+          <a href="{{ route('kades.dashboard') }}">
             <i class="fa fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
@@ -93,10 +93,10 @@
           </a>
           <ul class="treeview-menu">
             <li class="@yield('tambahUser')">
-              <a href="{{ route('pengguna.create') }}"><i class="fa fa-dot-circle"></i>Tambah User</a>
+              <a href="{{ route('kades.pengguna.create') }}"><i class="fa fa-dot-circle"></i>Tambah User</a>
             </li>
             <li class="@yield('daftarUser')">
-              <a href="{{ route('pengguna.index') }}"><i class="fa fa-dot-circle"></i>Daftar User</a>
+              <a href="{{ route('kades.pengguna.index') }}"><i class="fa fa-dot-circle"></i>Daftar User</a>
             </li>
           </ul>
         </li>
@@ -111,10 +111,10 @@
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanSpp')">
-              <a href="{{ route('spp.index') }}"><i class="fa fa-dot-circle"></i>Pengajuan</a>
+              <a href="{{ route('kades.spp.index') }}"><i class="fa fa-dot-circle"></i>Pengajuan</a>
             </li>
             <li class="@yield('riwayatSpp')">
-              <a href="{{ route('spp.indexAcc') }}"><i class="fa fa-dot-circle"></i>Riwayat Pengajuan</a>
+              <a href="{{ route('kades.spp.indexAcc') }}"><i class="fa fa-dot-circle"></i>Riwayat Pengajuan</a>
             </li>
           </ul>
         </li>
@@ -128,10 +128,10 @@
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanKtp')">
-              <a href="{{ route('ktp.index') }}"><i class="fa fa-dot-circle"></i>Pengajuan</a>
+              <a href="{{ route('kades.ktp.index') }}"><i class="fa fa-dot-circle"></i>Pengajuan</a>
             </li>
             <li class="@yield('riwayatKtp')">
-              <a href="{{ route('ktp.acc') }}"><i class="fa fa-dot-circle"></i>Riwayat Pengajuan</a>
+              <a href="{{ route('kades.ktp.acc') }}"><i class="fa fa-dot-circle"></i>Riwayat Pengajuan</a>
             </li>
           </ul>
         </li>
@@ -145,13 +145,13 @@
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanSkk')">
-              <a href="{{ route('skk.index') }}">
+              <a href="{{ route('kades.skk.index') }}">
                 <i class="fa fa-dot-circle"></i> 
                 Pengajuan
               </a>
             </li>
             <li class="@yield('riwayatSkk')">
-              <a href="{{ route('skk.acc') }}">
+              <a href="{{ route('kades.skk.acc') }}">
                 <i class="fa fa-dot-circle"></i> 
                 Riwayat Pengajuan
               </a>
@@ -168,13 +168,13 @@
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanSptjm')">
-              <a href="{{ route('sptjm.index') }}">
+              <a href="{{ route('kades.sptjm.index') }}">
                 <i class="fa fa-dot-circle"></i> 
                 Pengajuan
               </a>
             </li>
             <li class="@yield('riwayatSptjm')">
-              <a href="{{ route('sptjm.acc') }}">
+              <a href="{{ route('kades.sptjm.acc') }}">
                 <i class="fa fa-dot-circle"></i> 
                 Riwayat Pengajuan
               </a>
