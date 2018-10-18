@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ktp;
+use Auth;
 class KtpController extends Controller
 {
     /**
@@ -14,13 +15,21 @@ class KtpController extends Controller
     public function index(Request $req)
     {
         $datas = Ktp::with('user')->where('status','pending')->paginate(10);
-        return view('admin.ktp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.ktp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.ktp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     public function indexAcc(Request $req)
     {
         $datas = Ktp::with('user')->where('status','acc')->paginate(10);
-        return view('admin.ktp.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.ktp.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.ktp.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     public function acc(Request $req)
@@ -30,7 +39,7 @@ class KtpController extends Controller
         $data->status = "acc";
 
         $data->save();
-        return redirect()->route('ktp.acc');
+        return back();
     }
     /**
      * Show the form for creating a new resource.
@@ -82,7 +91,7 @@ class KtpController extends Controller
         $data->alamat           = $request->input('alamat');
 
         $data->save();
-        return redirect()->route('ktp.acc');
+        return back();
     }
 
     /**
@@ -95,6 +104,6 @@ class KtpController extends Controller
     {
         $hapus = Ktp::findOrFail($id);
         $hapus->delete();
-        return redirect()->route('ktp.index');
+        return back();
     }
 }

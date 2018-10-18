@@ -10,7 +10,7 @@
         <small>Kepala Desa</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('kades.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Tambah Pengguna</li>
       </ol>
     </section>
@@ -25,7 +25,7 @@
 	            </div>
 
 	            <div class="box-body">
-					<form method="POST" action="{{ route('pengguna.store') }}">
+					<form method="POST" action="{{ route('kades.pengguna.store') }}">
 						{{ csrf_field() }}
 
 						<h5>Nama</h5>
@@ -45,9 +45,7 @@
 		            	<div class="form-group">
 		                  <select name="role" class="form-control">
 		                    @foreach($role as $r)
-	                            @if($r->name != "Kepala Desa" && $r->name != "Admin")
-	                            	<option value="{{$r->id}}">{{$r->name}}</option>
-	                            @endif
+	                            <option value="{{$r->id}}">{{$r->name}}</option>
 	                        @endforeach
 		                  </select>
 		                </div>
@@ -82,7 +80,7 @@
 	            </div>
 
 	            <div class="box-body">
-					<form method="POST" action="{{ route('admin.ganti_password') }}">
+					<form method="POST" action="{{ route('kades.ganti_password') }}">
 						{{ csrf_field() }}
 						<input type="hidden" name="id" value="{{encrypt($user->id)}}">
 

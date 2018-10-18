@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('kades.admin')
 @section('judul','Daftar Riwayat Pengunjung Website')
 
 @section('riwayat','active')
@@ -6,7 +6,7 @@
 	<section class="content-header">
       <h1>
         Dashboard
-        <small>Admin</small>
+        <small>Kepala Desa</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -35,7 +35,7 @@
 							    Hapus Riwayat
 							</a>
 
-							<form id="hapus" action="{{ route('hapus_riwayat') }}" method="POST" style="display: none;">
+							<form id="hapus" action="{{ route('kades.hapus_riwayat') }}" method="POST" style="display: none;">
 							    {{ csrf_field() }}
 							</form>
 		                </div>

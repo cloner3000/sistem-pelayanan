@@ -182,7 +182,7 @@
           </ul>
         </li>
         <li class="@yield('riwayat')">
-          <a href="#">
+          <a href="{{ route('kades.riwayat') }}">
             <i class="fa fa-history"></i>
             <span>Riwayat Pengunjung</span>
           </a>

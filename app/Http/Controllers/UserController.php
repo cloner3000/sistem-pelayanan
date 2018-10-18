@@ -57,8 +57,12 @@ class UserController extends Controller
      */
     public function index(Request $req)
     {
-        $datas = User::with('roles')->paginate(10);        
-        return view('admin.user.indexUser',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        $datas = User::with('roles')->paginate(10); 
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.user.indexUser',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{       
+            return view('admin.user.indexUser',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     /**
@@ -70,7 +74,11 @@ class UserController extends Controller
     {
         $user = User::findOrFail(Auth::user()->id);
         $role = Role::all();
-        return view('admin.user.tambahUser',compact('role','user'));
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.user.tambahUser',compact('role','user'));
+        }else{
+            return view('admin.user.tambahUser',compact('role','user'));
+        }
     }
 
     /**
@@ -89,7 +97,7 @@ class UserController extends Controller
         
         $user->roles()->attach(Role::where('id', $request->input('role'))->first());
 
-        return redirect()->route('pengguna.create');
+        return back();
     }
 
     /**
@@ -108,7 +116,7 @@ class UserController extends Controller
         $data->save();
         $data->roles()->attach($data->roles->first());
 
-        return redirect()->route('pengguna.index');
+        return back();
     }
 
     /**
@@ -122,6 +130,6 @@ class UserController extends Controller
         $data = User::findOrFail($id);
         $data->roles()->detach();
         $data->delete();
-        return redirect()->route('pengguna.index');
+        return back();
     }
 }

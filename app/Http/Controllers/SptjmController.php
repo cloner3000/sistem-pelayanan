@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Sptjm;
-
+use Auth;
 class SptjmController extends Controller
 {
     /**
@@ -16,13 +16,21 @@ class SptjmController extends Controller
    public function index(Request $req)
     {
         $datas = Sptjm::with('user')->where('status','pending')->paginate(10);
-        return view('admin.sptjm.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.sptjm.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.sptjm.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     public function indexAcc(Request $req)
     {
         $datas = Sptjm::with('user')->where('status','acc')->paginate(10);
-        return view('admin.sptjm.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.sptjm.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.sptjm.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     public function acc(Request $req)
@@ -32,7 +40,7 @@ class SptjmController extends Controller
         $data->status = "acc";
 
         $data->save();
-        return redirect()->route('sptjm.acc');
+        return back();
     }
 
     /**

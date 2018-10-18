@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Skk;
+use Auth;
 class SkkController extends Controller
 {
     /**
@@ -14,13 +15,21 @@ class SkkController extends Controller
     public function index(Request $req)
     {
         $datas = Skk::with('user')->where('status','pending')->paginate(10);
-        return view('admin.skk.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.skk.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.skk.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
      public function indexAcc(Request $req)
     {
         $datas = Skk::with('user')->where('status','acc')->paginate(10);
-        return view('admin.skk.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.skk.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.skk.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     public function acc(Request $req)

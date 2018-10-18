@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Spp;
+use Auth;
 class SppController extends Controller
 {
     /**
@@ -14,13 +15,21 @@ class SppController extends Controller
     public function index(Request $req)
     {
         $datas = Spp::with('user')->where('status','pending')->paginate(10);
-        return view('admin.spp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.spp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.spp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     public function indexAcc(Request $req)
     {
         $datas = Spp::with('user')->where('status','acc')->paginate(10);
-        return view('admin.spp.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.spp.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.spp.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     public function acc(Request $req)
@@ -30,7 +39,7 @@ class SppController extends Controller
         $data->status = "acc";
 
         $data->save();
-        return redirect()->route('spp.indexAcc');
+        return back();
     }
     /**
      * Show the form for creating a new resource.
@@ -84,7 +93,7 @@ class SppController extends Controller
         $data->jumlah_pindah    = $request->input('jumlah_pindah');
 
         $data->save();
-        return redirect()->route('spp.index');
+        return back();
     }
 
     /**
@@ -97,6 +106,6 @@ class SppController extends Controller
     {
         $hapus = Spp::findOrFail($id);
         $hapus->delete();
-        return redirect()->route('spp.index');
+        return back();
     }
 }
