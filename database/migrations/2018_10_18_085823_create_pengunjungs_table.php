@@ -18,6 +18,7 @@ class CreatePengunjungsTable extends Migration
             $table->string('users');
             $table->string('browsers');
             $table->string('oses');
+            $table->string('platform');
             $table->timestamps();
         });
     }
