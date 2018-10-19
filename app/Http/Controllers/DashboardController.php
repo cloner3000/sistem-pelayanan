@@ -72,7 +72,7 @@ class DashboardController extends Controller
 
     public function editWeb()
     {
-        $web = Web::first(); 
+        $web = Web::firstOrFail(); 
         return view('kades.web.web',compact('web'));
     }
 }
