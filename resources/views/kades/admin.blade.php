@@ -217,7 +217,8 @@
         });
     });
 
-    CKEDITOR.replace( 'ckeditor' );
+    CKEDITOR.replace('tentang');
+    CKEDITOR.replace('visimisi');
 
     var ctx = document.getElementById("areaChart");
     var myChart = new Chart(ctx, {

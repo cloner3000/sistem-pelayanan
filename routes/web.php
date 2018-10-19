@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/','DashboardController@web');
+Route::get('/',function(){
+    return view('welcome');
+});
 
 // Route::get('kades',function(){
 // 	return view('superadmin');
@@ -33,6 +35,7 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
 
     Route::post('/','UserController@gantiPas')->name('kades.ganti_password');
     Route::get('/','DashboardController@indexAdmin')->name('kades.dashboard');
+
     //route edit User
     Route::resource('pengguna','UserController',['names' =>'kades.pengguna'])->except(['show','edit']);
 
@@ -56,8 +59,12 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     Route::get('sptjm/acc','SptjmController@indexAcc')->name('kades.sptjm.indexAcc');
     Route::resource('sptjm','SptjmController',['names' =>'kades.sptjm'])->except(['edit']);
 
+    //route data Riwayat pengunjung
     Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('kades.hapus_riwayat');
+
+    Route::get('/web','DashboardController@editWeb');
+
 });
 
 Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'], function(){

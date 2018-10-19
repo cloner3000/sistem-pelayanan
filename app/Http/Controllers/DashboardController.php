@@ -70,8 +70,9 @@ class DashboardController extends Controller
     	return back();
     }
 
-    public function web()
+    public function editWeb()
     {
-        return view('kades.web.web');
+        $web = Web::first(); 
+        return view('kades.web.web',compact('web'));
     }
 }
