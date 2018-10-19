@@ -188,7 +188,7 @@
 								            	<h5>Tanggal Lahir</h5>
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								              		<input name="b_tanggal" type="text" id="l_bayi" class="form-control" required value="{{$d->b_tanggal}}">
+								              		<input name="b_tanggal" type="text" id="l_bayi" class="form-control" required value="{{date('d-m-Y', strtotime($d->b_tanggal))}}">
 								            	</div>
 						                	</div>
 						                	<div class="col-md-6">
@@ -242,7 +242,7 @@
 								            	<h5>Tanggal Lahir</h5>
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								              		<input name="i_tanggal_lahir" id="l_ibu" type="text" class="form-control" required value="{{$d->i_tanggal_lahir}}">
+								              		<input name="i_tanggal_lahir" id="l_ibu" type="text" class="form-control" required value="{{date('d-m-Y', strtotime($d->i_tanggal_lahir))}}"">
 								            	</div>
 
 								            	<h5>Pekerjaan</h5>
@@ -284,7 +284,7 @@
 								            	<h5>Tanggal Pernikahan</h5>
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								              		<input name="i_tanggal_perkawinan" id="p_ibu" type="text" class="form-control" required value="{{$d->i_tanggal_perkawinan}}">
+								              		<input name="i_tanggal_perkawinan" id="p_ibu" type="text" class="form-control" required value="{{date('Y-m-d',strtotime($d->i_tanggal_perkawinan))}}">
 								            	</div>
 						                	</div>
 						              	</div>
@@ -311,7 +311,7 @@
 								            	<h5>Tanggal Lahir</h5>
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								              		<input name="a_tanggal_lahir" type="text" id="l_ayah" class="form-control" required value="{{$d->a_tanggal_lahir}}">
+								              		<input name="a_tanggal_lahir" type="text" id="l_ayah" class="form-control" required value="{{date('d-m-Y', strtotime($d->a_tanggal_lahir))}}">
 								            	</div>
 
 								            	<h5>Pekerjaan</h5>
