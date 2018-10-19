@@ -9,6 +9,8 @@ use App\Skk;
 use App\Spp;
 use App\User;
 use App\Pengunjung;
+use App\Web;
+use App\Struktur;
 
 use Carbon\Carbon;
 use Auth;
@@ -66,5 +68,10 @@ class DashboardController extends Controller
     {
     	$data = Pengunjung::truncate();
     	return back();
+    }
+
+    public function web()
+    {
+        return view('kades.web.web');
     }
 }

@@ -215,7 +215,7 @@
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });
-
+    
     var ctx = document.getElementById("areaChart");
     var myChart = new Chart(ctx, {
         type: 'bar',
