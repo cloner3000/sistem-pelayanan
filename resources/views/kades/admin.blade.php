@@ -181,6 +181,12 @@
             </li>
           </ul>
         </li>
+        <li class="@yield('web')">
+          <a href="{{ route('kades.web') }}">
+            <i class="fa fa-cogs"></i>
+            <span>Pengaturan Website</span>
+          </a>
+        </li>
         <li class="@yield('riwayat')">
           <a href="{{ route('kades.riwayat') }}">
             <i class="fa fa-history"></i>
@@ -197,9 +203,6 @@
   </div>
 
   <footer class="main-footer">
-    {{-- <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div> --}}
     <strong>Copyright &copy; {{date('Y')}} Made with <i class="fa fa-heart"></i>
       <a href="https://laravel.com">Laravel</a>.
     </strong> 

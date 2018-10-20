@@ -75,4 +75,33 @@ class DashboardController extends Controller
         $web = Web::firstOrFail(); 
         return view('kades.web.web',compact('web'));
     }
+
+    public function updateWeb(Request $req,$id)
+    {
+        $data  = Web::firstOrFail($id);
+        
+        $data->nama_website      = $req->input('nama_website');
+        $data->judul_slider      = $req->input('judul_slider');
+        $data->deskripsi_slider  = $req->input('deskripsi_slider');
+        $data->foto_slider       = "h";
+        $data->judul_slider1     = $req->input('judul_slider1');
+        $data->deskripsi_slider1 = $req->input('deskripsi_slider1');
+        $data->foto_slider1      = "h";
+        $data->judul_slider2     = $req->input('judul_slider2');
+        $data->deskripsi_slider2 = $req->input('deskripsi_slider2');
+        $data->foto_slider2      = "h";
+        $data->judul_slider3     = $req->input('judul_slider3');
+        $data->deskripsi_slider3 = $req->input('deskripsi_slider3');
+        $data->foto_slider3      = "h";
+        $data->tentang           = $req->input('tentang');
+        $data->visi_misi         = $req->input('visi_misi');
+        $data->tlp               = $req->input('tlp');
+        $data->email             = $req->input('email');
+        $data->fb                = $req->input('fb');
+        $data->twitter           = $req->input('twitter');
+        $data->ig                = $req->input('ig');
+
+        $data->save();
+        return back();
+    }
 }

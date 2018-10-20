@@ -63,7 +63,8 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('kades.hapus_riwayat');
 
-    Route::get('/web','DashboardController@editWeb');
+    Route::get('/web','DashboardController@editWeb')->name('kades.web');
+    Route::patch('/web/{id}','DashboardController@updateWeb')->name('kades.web.update');
 
 });
 
