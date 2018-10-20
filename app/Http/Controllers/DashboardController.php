@@ -136,7 +136,8 @@ class DashboardController extends Controller
         return back();
     }
 
-    public function indexStruktur(Request $req){
+    public function indexStruktur(Request $req)
+    {
         $datas = Struktur::paginate(12);
 
         return view('admin.struktur.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
@@ -146,9 +147,17 @@ class DashboardController extends Controller
     {
         $data = Struktur::findOrFail($id);
 
+        if($req->hasFile('foto')){
+            $foto              = $req->file('foto');
+            $nama              = time().'.'.$foto->getClientOriginalExtension();
+            $lokasi            = public_path('/storage/struktur');
+            $status            = $foto->move($lokasi, $nama);
+            
+            $data->foto        = $nama;
+        }
+
         $data->nama    = $req->input('nama');
         $data->jabatan = $req->input('jabatan');
-        $data->foto    = $req->input('foto');
         $data->fb      = $req->input('fb');
         $data->twitter = $req->input('twitter');
 
