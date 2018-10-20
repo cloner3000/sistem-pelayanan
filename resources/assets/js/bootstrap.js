@@ -23,7 +23,6 @@ require('chart.js');
 require('moment');
 require('moment-timezone');
 require('eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js');
-require('@fortawesome/fontawesome-free');
 
 
 /**
