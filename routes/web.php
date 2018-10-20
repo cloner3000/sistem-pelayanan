@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/',function(){
-    return view('welcome');
-});
+// Route::get('/',function(){
+//     return view('welcome');
+// });
 
+Route::get('/','WebController@index');
 // Route::get('kades',function(){
 // 	return view('superadmin');
 // })->middleware('role:Kepala Desa');

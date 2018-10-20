@@ -78,21 +78,48 @@ class DashboardController extends Controller
 
     public function updateWeb(Request $req,$id)
     {
-        $data  = Web::firstOrFail($id);
-        
+        $data  = Web::findOrFail($id);
+
+        if ($req->hasFile('foto_slider') && $req->hasFile('foto_slider1')) {
+            
+            $foto               = $req->file('foto_slider');
+            $nama               = time().'.'.$foto->getClientOriginalExtension();
+            $lokasi             = public_path('/storage/slider');
+            $status             = $foto->move($lokasi, $nama);
+            
+            $foto1              = $req->file('foto_slider1');
+            $nama1              = (time()+1).'.'.$foto1->getClientOriginalExtension();
+            $lokasi1            = public_path('/storage/slider');
+            $status1            = $foto1->move($lokasi1, $nama1);
+            
+            $data->foto_slider  = $nama;
+            $data->foto_slider1 = $nama1;
+
+        }elseif($req->hasFile('foto_slider')){
+
+            $foto              = $req->file('foto_slider');
+            $nama              = time().'.'.$foto->getClientOriginalExtension();
+            $lokasi            = public_path('/storage/slider');
+            $status            = $foto->move($lokasi, $nama);
+            
+            $data->foto_slider = $nama;
+
+        }elseif($req->hasFile('foto_slider1')){
+            $foto1              = $req->file('foto_slider1');
+            $nama1              = time().'.'.$foto1->getClientOriginalExtension();
+            $lokasi1            = public_path('/storage/slider');
+            $status1            = $foto1->move($lokasi1, $nama1);
+            
+            $data->foto_slider1 = $nama1;
+
+        }
+
         $data->nama_website      = $req->input('nama_website');
         $data->judul_slider      = $req->input('judul_slider');
         $data->deskripsi_slider  = $req->input('deskripsi_slider');
-        $data->foto_slider       = "h";
         $data->judul_slider1     = $req->input('judul_slider1');
         $data->deskripsi_slider1 = $req->input('deskripsi_slider1');
-        $data->foto_slider1      = "h";
-        $data->judul_slider2     = $req->input('judul_slider2');
-        $data->deskripsi_slider2 = $req->input('deskripsi_slider2');
-        $data->foto_slider2      = "h";
-        $data->judul_slider3     = $req->input('judul_slider3');
-        $data->deskripsi_slider3 = $req->input('deskripsi_slider3');
-        $data->foto_slider3      = "h";
+
         $data->tentang           = $req->input('tentang');
         $data->visi_misi         = $req->input('visi_misi');
         $data->tlp               = $req->input('tlp');
