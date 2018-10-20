@@ -181,6 +181,12 @@
             </li>
           </ul>
         </li>
+        <li class="@yield('web')">
+          <a href="{{ route('admin.web') }}">
+            <i class="fa fa-cogs"></i>
+            <span>Pengaturan Website</span>
+          </a>
+        </li>
         <li class="@yield('riwayat')">
           <a href="#">
             <i class="fa fa-history"></i>
@@ -209,6 +215,7 @@
 </div>
 
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
     $(function () {
         $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2').datetimepicker({
@@ -216,6 +223,9 @@
         });
     });
 
+    CKEDITOR.replace('tentang');
+    CKEDITOR.replace('visimisi');
+    
     var ctx = document.getElementById("areaChart");
     var myChart = new Chart(ctx, {
         type: 'bar',

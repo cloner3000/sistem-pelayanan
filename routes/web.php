@@ -67,6 +67,8 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     Route::get('/web','DashboardController@editWeb')->name('kades.web');
     Route::patch('/web/{id}','DashboardController@updateWeb')->name('kades.web.update');
 
+
+
 });
 
 Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'], function(){
@@ -98,5 +100,11 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
 
     Route::get('/riwayat','DashboardController@riwayat')->name('riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('hapus_riwayat');
+
+    Route::get('/web','DashboardController@editWeb')->name('admin.web');
+    Route::patch('/web/{id}','DashboardController@updateWeb')->name('admin.web.update');
+
+    Route::get('struktur','DashboardController@indexStruktur')->name('admin.struktur');
+    Route::patch('struktur/{id}','DashboardController@updateStruktur')->name('admin.struktur.update');
 
 });

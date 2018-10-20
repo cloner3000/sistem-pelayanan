@@ -73,7 +73,11 @@ class DashboardController extends Controller
     public function editWeb()
     {
         $web = Web::firstOrFail(); 
-        return view('kades.web.web',compact('web'));
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.web.web',compact('web'));
+        }else{
+            return view('admin.web.web',compact('web'));
+        }
     }
 
     public function updateWeb(Request $req,$id)
@@ -127,6 +131,26 @@ class DashboardController extends Controller
         $data->fb                = $req->input('fb');
         $data->twitter           = $req->input('twitter');
         $data->ig                = $req->input('ig');
+
+        $data->save();
+        return back();
+    }
+
+    public function indexStruktur(Request $req){
+        $datas = Struktur::paginate(12);
+
+        return view('admin.struktur.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+    }
+
+    public function updateStruktur(Request $req,$id)
+    {
+        $data = Struktur::findOrFail($id);
+
+        $data->nama    = $req->input('nama');
+        $data->jabatan = $req->input('jabatan');
+        $data->foto    = $req->input('foto');
+        $data->fb      = $req->input('fb');
+        $data->twitter = $req->input('twitter');
 
         $data->save();
         return back();
