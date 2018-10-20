@@ -181,6 +181,12 @@
             </li>
           </ul>
         </li>
+        <li class="@yield('struktur')">
+          <a href="{{ route('kades.struktur') }}">
+            <i class="fa fa-briefcase"></i>
+            <span>Struktur Organisasi</span>
+          </a>
+        </li>
         <li class="@yield('web')">
           <a href="{{ route('kades.web') }}">
             <i class="fa fa-cogs"></i>

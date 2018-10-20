@@ -67,7 +67,8 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     Route::get('/web','DashboardController@editWeb')->name('kades.web');
     Route::patch('/web/{id}','DashboardController@updateWeb')->name('kades.web.update');
 
-
+    Route::get('struktur','DashboardController@indexStruktur')->name('kades.struktur');
+    Route::patch('struktur/{id}','DashboardController@updateStruktur')->name('kades.struktur.update');
 
 });
 

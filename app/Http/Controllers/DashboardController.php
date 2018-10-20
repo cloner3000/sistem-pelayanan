@@ -140,7 +140,11 @@ class DashboardController extends Controller
     {
         $datas = Struktur::paginate(12);
 
-        return view('admin.struktur.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.struktur.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.struktur.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     public function updateStruktur(Request $req,$id)
