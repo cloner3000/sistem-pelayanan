@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ktp;
 use Auth;
+use PDF;
 class KtpController extends Controller
 {
     /**
@@ -70,7 +71,9 @@ class KtpController extends Controller
      */
     public function show($id)
     {
-        //
+        $data   = Ktp::first();
+        $pdf    = PDF::loadView('pdf.ktp', compact('data'));
+        return $pdf->stream($data->nama.".pdf");
     }
 
 
