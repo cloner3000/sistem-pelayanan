@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-		<style type="text/css" media="screen">
+	<title>SKK | {{$data->b_nama}}</title>
+	<style type="text/css" media="screen">
 		.judul{
 			margin-bottom: 5px;
 			text-align: center;
@@ -94,6 +94,24 @@
 	</style>
 </head>
 <body>
-	
+	<div class="container">
+		<div class="col-md-4">
+			<span>Pemerintah Desa / Kelurahan</span>
+			<br>
+			<span>Kecamatan</span>
+			<br>
+			<span>Kabupaten / Kota</span>
+			<br>
+		</div>
+		<div class="col-md-8">
+			<span>: Warnajati</span>
+			<br>
+			<span>: Cibadak</span>
+			<br>
+			<span>: Sukabumi</span>
+			<br>
+		</div>
+		<div class="clear"></div>
+	</div>
 </body>
 </html>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Skk;
 use Auth;
+use PDF;
 class SkkController extends Controller
 {
     /**
@@ -70,7 +71,9 @@ class SkkController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Skk::findOrFail($id);
+        $pdf = PDF::loadView('pdf.skk',compact('data'))->setPaper('legal');
+        return $pdf->stream($data->nama.".pdf");
     }
 
     /**
