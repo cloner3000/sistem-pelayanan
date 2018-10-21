@@ -17,6 +17,7 @@ class CreateSptjmsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('status')->default('pending');
+
             $table->string('nama');
             $table->string('nik');
             $table->string('tempat');
@@ -27,14 +28,14 @@ class CreateSptjmsTable extends Migration
             $table->string('nama1');
             $table->string('nik1');
             $table->string('tempat1');
-            $table->string('tanggal1');
+            $table->date('tanggal1');
             $table->string('pekerjaan1');
             $table->string('alamat1');
             
             $table->string('nama2');
             $table->string('nik2');
             $table->string('tempat2');
-            $table->string('tanggal2');
+            $table->date('tanggal2');
             $table->string('pekerjaan2');
             $table->string('alamat2');
 

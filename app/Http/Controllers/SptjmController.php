@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Sptjm;
 use Auth;
+use PDF;
 class SptjmController extends Controller
 {
     /**
@@ -72,7 +73,9 @@ class SptjmController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Sptjm::findOrFail($id);
+        $pdf   = PDF::loadView('pdf.sptjm',compact('data'));
+        return $pdf->stream($data->nama.'.pdf');
     }
 
     /**
