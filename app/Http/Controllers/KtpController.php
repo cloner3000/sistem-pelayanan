@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Ktp;
 use Auth;
 use PDF;
+use App\Struktur;
 class KtpController extends Controller
 {
     /**
@@ -71,8 +72,9 @@ class KtpController extends Controller
      */
     public function show($id)
     {
-        $data   = Ktp::first();
-        $pdf    = PDF::loadView('pdf.ktp', compact('data'));
+        $s      = Struktur::where('jabatan','Sekertaris')->first()->nama;
+        $data   = Ktp::findOrFail($id);
+        $pdf    = PDF::loadView('pdf.ktp', compact('data','s'));
         return $pdf->stream($data->nama.".pdf");
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Carbon\Carbon;
 class KtpSeeder extends Seeder
 {
     /**
@@ -29,6 +29,8 @@ class KtpSeeder extends Seeder
                 'nik' => $faker->randomNumber($nbDigits = NULL, $strict = false),
                 'alamat' => $faker->address,
                 'status' => $faker->randomElement($status),
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
         }
     }
