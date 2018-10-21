@@ -30,6 +30,7 @@
 			border-collapse: collapse;
 			text-align: left;
 			width: 100%;
+			margin-top: -2px;
 		}
 		table {
 			border: 1px solid black;
@@ -102,7 +103,10 @@
 		}	
 		td{
 			font-size: 13px;
-		}		
+		}	
+		.container{
+			border-collapse: collapse;
+		}	
 	</style>
 </head>
 <body>
@@ -148,6 +152,9 @@
 		</div>
 		<div class="clear"></div>
 	</div>
+	
+	<br>
+	<br>
 
 	<div class="container">
 
