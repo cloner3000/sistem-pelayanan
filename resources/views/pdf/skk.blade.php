@@ -165,7 +165,7 @@
 			</tr>
 			<tr>
 				<td class="width-30">3. Hari</td>
-				<td class="width-70">{{-- {{$data->b_}} --}}</td>
+				<td class="width-70">: {{date('D',strtotime($data->tanggal))}}</td>
 			</tr>
 			<tr>
 				<td class="width-30">4. Tempat Tanggal Lahir</td>
@@ -346,6 +346,45 @@
 				<td class="width-70">: {{$data->s2_alamat}}</td>
 			</tr>
 		</table>
+		<br>
+		<br>
+		<div class="row" style="font-size: 13px;">
+			<div class="col-md-7">
+				<span><strong><u>Persyaratan :</u></strong></span>
+				<br>
+				<div style="margin-left: 10px;">
+					<span>1. Foto Copy KK terbatu</span>
+					<br>
+					<span>2. Foto Copy KTP Orang Tua</span>
+					<br>
+					<span>3. Foto Copy Surat Nikah</span>
+					<br>
+					<span>4. Surat Keterangan Pengakuan Nikah Diatas Materai, Ada Saksi dan Diketahui Oleh Kepala Desa / Kelurahan Bagi Yang Tidak Ada Surat Nikah</span>
+					<br>
+					<span>5. Keterangan Lahir Asli Dari Bidan / Rumah Sakit</span>
+					<br>
+					<span>6. Foto Copy KTP 2(dua) Orang Saksi</span>
+					<br>
+					<span>7. Surat Kuasa Diatas MAterai 6000 Bagi Yang Permohonannya Dikuasakan</span>
+					<br>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div style="text-align: center;">
+					<span>Warnajati,{{$data->created_at->format('d-m-Y')}}</span>
+					<br>
+					<span>Pelapor</span>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<span>{{$data->p_nama}}</span>
+				</div>
+			</div>
+		</div>
 
 	</div>
 </body>
