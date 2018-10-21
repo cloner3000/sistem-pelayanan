@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Spp;
+use Carbon/Carbon;
 class SppSeeder extends Seeder
 {
     /**
@@ -27,6 +28,8 @@ class SppSeeder extends Seeder
 				'alamat_tujuan' => $faker->address,
 				'jumlah_pindah' => $faker->numberBetween(3,6),
                 'status' => $faker->randomElement($status),
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         	]);
         }
     }

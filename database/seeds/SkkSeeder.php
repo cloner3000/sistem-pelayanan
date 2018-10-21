@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Carbon\Carbon;
 class SkkSeeder extends Seeder
 {
     /**
@@ -70,6 +70,9 @@ class SkkSeeder extends Seeder
     			's2_umur' =>$f->NumberBetween($min=19,$max=40),
     			's2_pekerjaan' =>$f->jobTitle,
     			's2_alamat' =>$f->address,
+
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         	]);
         }
     }

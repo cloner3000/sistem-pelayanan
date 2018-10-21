@@ -148,7 +148,7 @@
 		<br>
 		<br>
 		<br>
-		<span></span>
+		<span>Warnajati,{{$data->created_at->format('d-m-Y')}}</span>
 		<br>
 		<span></span>
 		<br>
