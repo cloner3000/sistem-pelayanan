@@ -104,6 +104,8 @@
 			</h3>
 		</div>
 	</div>
+	<br>
+	<br>
 	<div class="container">
 		<span>Saya yang bertanda tangan dibawah ini:</span>
 		<div class="row">
