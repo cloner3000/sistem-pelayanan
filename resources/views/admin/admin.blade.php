@@ -228,9 +228,6 @@
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });
-
-    CKEDITOR.replace('tentang');
-    CKEDITOR.replace('visimisi');
     
     var ctx = document.getElementById("areaChart");
     var myChart = new Chart(ctx, {
@@ -319,6 +316,9 @@
       data: data,
       options: options
     });
+
+    CKEDITOR.replace('tentang');
+    CKEDITOR.replace('visimisi');
 </script>
 </body>
 </html>
