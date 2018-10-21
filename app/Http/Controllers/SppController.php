@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Spp;
 use Auth;
+use PDF;
 class SppController extends Controller
 {
     /**
@@ -70,7 +71,9 @@ class SppController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Spp::findOrFail($id);
+        $pdf = PDF::loadView('pdf.spp',compact('data'));
+        return $pdf->stream($data->nama.".pdf");
     }
 
     /**
