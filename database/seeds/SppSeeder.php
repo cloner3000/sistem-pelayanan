@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Spp;
-use Carbon/Carbon;
+use Carbon\Carbon;
 class SppSeeder extends Seeder
 {
     /**

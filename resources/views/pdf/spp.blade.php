@@ -148,14 +148,18 @@
 		<br>
 		<br>
 		<br>
-		<span>Warnajati,{{$data->created_at->format('d-m-Y')}}</span>
-		<br>
-		<span></span>
-		<br>
-		<br>
-		<br>
-		<span></span>
-		<br>
+		<div style="float: right;">
+			<span>Warnajati,{{$data->created_at->format('d-m-Y')}}</span>
+			<br>
+			<span style="margin-left: 20px;">Camat Cibadak,</span>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<span style="margin-left: 20px;">______________</span>
+			<br>
+		</div>
 	</div>
 </body>
 </html>
