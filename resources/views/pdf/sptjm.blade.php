@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>SPTJM | {{$data->nama}}</title>
-		<style type="text/css" media="screen">
+	<style type="text/css" media="screen">
 		.judul{
 			margin-bottom: 5px;
 			text-align: center;
