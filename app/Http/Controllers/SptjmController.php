@@ -74,7 +74,7 @@ class SptjmController extends Controller
     public function show($id)
     {
         $data = Sptjm::findOrFail($id);
-        $pdf   = PDF::loadView('pdf.sptjm',compact('data'));
+        $pdf   = PDF::loadView('pdf.sptjm',compact('data'))->setPaper('legal','portrait');
         return $pdf->stream($data->nama.'.pdf');
     }
 

@@ -201,12 +201,69 @@
 		<span>sebagaimana tercantum dalam Kartu Keluarga (KK) Nomor:...............</span>
 		<br>
 		<br>
+		<br>
 		<span><span style="margin-left: 20px;">Demikian surat pernyataan ini saya buat dengan sebenar-benarnya dan apabila dikemudian hari </span>ternyata pernyataan saya ini tidak benar, maka saya bersedian diproses secara hukum sesuai dengan peraturan perundang-undangan dan sokumen yang diterbitkan dari pernyataan ini menjadi tidak sah.</span>
 		<br>
 		<br>
+		<br>
 
+		<div class="row">
+			<div class="col-md-6">
+				<br>
+				<span>Saksi I</span>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<span>({{$data->s1_nama}})</span>
+				<br>
+				<span>NIK : {{$data->s1_nik}}</span>
+			</div>
+			<div class="col-md-6">
+				<span>Warnajati, {{$data->created_at->format('d-m-Y')}}</span>
+				<br>
+				<span>Saya yang menyatakan,</span>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<span>({{$data->nama}})</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<br>
+		<br>
+
+		<span>Saksi II</span>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<span>({{$data->s2_nama}})</span>
+		<br>
+		<span>NIK : {{$data->s2_nik}}</span>
 		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
+		<div class="container">
+			<span>Keterangan :</span>
+			<br>
+			<span>Lampiran ini digunakan dalam hal perkawinan tidak dapat dibuktikan dengan akta perkawinan atau akta nikah.</span>
+			<br>
+			<span>*) Coret yang tidak perlu.</span>
+			<br>
+			<span>**) Ditulis nama Ibu Kota Kabupaten/Kota, Tanggal-Bulan-Tahun.</span>
+		</div>
 	</div>
 </body>
 </html>
