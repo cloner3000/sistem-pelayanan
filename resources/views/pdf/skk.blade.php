@@ -28,11 +28,14 @@
 		}
 		table {
 			border-collapse: collapse;
-			text-align: center;
+			text-align: left;
 			width: 100%;
 		}
-		table, th, td {
+		table {
 			border: 1px solid black;
+		}
+		td{
+			text-align: left;
 		}
 		.spacing{
 			height: 100px;
@@ -90,7 +93,16 @@
 		}
 		.col-md-1 {
 			width: 8.33333333%;
-		}			
+		}
+		.width-30{
+			width: 30%;
+		}
+		.width{
+			width: 70%;
+		}	
+		td{
+			font-size: 13px;
+		}		
 	</style>
 </head>
 <body>
@@ -112,6 +124,229 @@
 			<br>
 		</div>
 		<div class="clear"></div>
+	</div>
+
+	<div class="container tengah">
+		<div class="tengah" style="text-align: center;">
+			<h3 class="judul" style="margin-left: 30px;">
+				SURAT KETERANGAN KELAHIRAN
+			</h3>
+		</div>
+	</div>
+	<br>
+
+	<div class="container">
+		<div class="col-md-4">
+			<span>Nama Kepala Keluarga</span>
+			<br>
+			<span>No Kartu Keluarga</span>
+		</div>
+		<div class="col-md-8">
+			<span>: {{$data->a_nama}}</span>
+			<br>
+			<span>: {{$data->a_nik}}</span>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="container">
+
+		<table>
+			<tr>
+				<td colspan="2"><strong>BAYI / ANAK</strong></td>
+			</tr>
+			<tr>
+				<td class="width-30">1. Nama</td>
+				<td class="width-70">: {{$data->b_nama}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">2. Jenis Kelamin</td>
+				<td class="width-70">: {{$data->b_jenis_kelamin}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">3. Hari</td>
+				<td class="width-70">{{-- {{$data->b_}} --}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">4. Tempat Tanggal Lahir</td>
+				<td class="width-70">: {{$data->b_tempat}},{{date('d-m-Y',strtotime($data->tanggal))}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">5. Pukul</td>
+				<td class="width-70">l</td>
+			</tr>
+			<tr>
+				<td class="width-30">6. Jenis Kelahiran</td>
+				<td class="width-70">: {{$data->b_jenis_kelahiran}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">7. Kelahiran Ke</td>
+				<td class="width-70">: {{$data->b_kelahiran_ke}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">8. Berat / Panjang</td>
+				<td class="width-70">: {{$data->b_berat}} KG, {{$data->b_berat}} CM</td>
+			</tr>
+		</table>
+
+		<table>
+			<tr>
+				<td colspan="2"><strong>IBU</strong></td>
+			</tr>
+			<tr>
+				<td class="width-30">1. NIK</td>
+				<td class="width-70">: {{$data->i_nik}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">2. Nama Lengkap</td>
+				<td class="width-70">: {{$data->i_nama}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">3. Tanggal Lahir / Umur</td>
+				<td class="width-70">: {{date('d-m-Y',strtotime($data->i_tanggal_lahir))}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">4. Pekerjaan</td>
+				<td class="width-70">: {{$data->i_pekerjaan }}</td>
+			</tr>
+			<tr>
+				<td class="width-30">5. Alamat</td>
+				<td class="width-70">: {{$data->i_alamat}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">6. Kewarganegaraan</td>
+				<td class="width-70">: {{$data->i_kewarganegaraan}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">7. Kebangsan</td>
+				<td class="width-70">: {{$data->i_kebangsaan }}</td>
+			</tr>
+			<tr>
+				<td class="width-30">8. Tgl Pencatatan Perkawinan</td>
+				<td class="width-70">: {{date('d-m-Y',strtotime($data->i_tanggal_perkawinan))}}</td>
+			</tr>
+		</table>
+
+		<table>
+			<tr>
+				<td colspan="2"><strong>AYAH</strong></td>
+			</tr>
+			<tr>
+				<td class="width-30">1. NIK</td>
+				<td class="width-70">: {{$data->a_nik}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">2. Nama Lengkap</td>
+				<td class="width-70">: {{$data->a_nama}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">3. Tanggal Lahir / Umur</td>
+				<td class="width-70">: {{date('d-m-Y',strtotime($data->a_tanggal_lahir))}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">4. Pekerjaan</td>
+				<td class="width-70">: {{$data->a_pekerjaan }}</td>
+			</tr>
+			<tr>
+				<td class="width-30">5. Alamat</td>
+				<td class="width-70">: {{$data->a_alamat}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">6. Kewarganegaraan</td>
+				<td class="width-70">: {{$data->a_kewarganegaraan}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">7. Kebangsan</td>
+				<td class="width-70">: {{$data->a_kebangsaan }}</td>
+			</tr>
+			<tr>
+				<td class="width-30">8. Tgl Pencatatan Perkawinan</td>
+				<td class="width-70">: {{date('d-m-Y',strtotime($data->a_tanggal_perkawinan))}}</td>
+			</tr>
+		</table>
+
+		<table>
+			<tr>
+				<td colspan="2"><strong>PELAPOR</strong></td>
+			</tr>
+			<tr>
+				<td class="width-30">1. NIK</td>
+				<td class="width-70">: {{$data->p_nik}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">2. Nama Lengkap</td>
+				<td class="width-70">: {{$data->p_nama}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">3. Umur</td>
+				<td class="width-70">: {{$data->p_umur}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">4. Jenis Kelamin</td>
+				<td class="width-70">: {{$data->p_jenis_kelamin }}</td>
+			</tr>
+			<tr>
+				<td class="width-30">5. Pekerjaan</td>
+				<td class="width-70">: {{$data->p_pekerjaan}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">6. Alamat</td>
+				<td class="width-70">: {{$data->p_alamat}}</td>
+			</tr>
+		</table>
+
+		<table>
+			<tr>
+				<td colspan="2"><strong>SAKSI I</strong></td>
+			</tr>
+			<tr>
+				<td class="width-30">1. NIK</td>
+				<td class="width-70">: {{$data->s1_nik}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">2. Nama Lengkap</td>
+				<td class="width-70">: {{$data->s1_nama}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">3. Umur</td>
+				<td class="width-70">: {{$data->s1_umur}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">4. Pekerjaan</td>
+				<td class="width-70">: {{$data->s1_pekerjaan}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">5. Alamat</td>
+				<td class="width-70">: {{$data->s1_alamat}}</td>
+			</tr>
+		</table>
+
+		<table>
+			<tr>
+				<td colspan="2"><strong>SAKSI II</strong></td>
+			</tr>
+			<tr>
+				<td class="width-30">1. NIK</td>
+				<td class="width-70">: {{$data->s2_nik}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">2. Nama Lengkap</td>
+				<td class="width-70">: {{$data->s2_nama}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">3. Umur</td>
+				<td class="width-70">: {{$data->s2_umur}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">4. Pekerjaan</td>
+				<td class="width-70">: {{$data->s2_pekerjaan}}</td>
+			</tr>
+			<tr>
+				<td class="width-30">5. Alamat</td>
+				<td class="width-70">: {{$data->s2_alamat}}</td>
+			</tr>
+		</table>
+
 	</div>
 </body>
 </html>
