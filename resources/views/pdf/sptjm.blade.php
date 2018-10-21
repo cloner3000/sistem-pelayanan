@@ -197,6 +197,16 @@
 		</div>
 		<div class="clear"></div>
 
+		<br>
+		<span>sebagaimana tercantum dalam Kartu Keluarga (KK) Nomor:...............</span>
+		<br>
+		<br>
+		<span><span style="margin-left: 20px;">Demikian surat pernyataan ini saya buat dengan sebenar-benarnya dan apabila dikemudian hari </span>ternyata pernyataan saya ini tidak benar, maka saya bersedian diproses secara hukum sesuai dengan peraturan perundang-undangan dan sokumen yang diterbitkan dari pernyataan ini menjadi tidak sah.</span>
+		<br>
+		<br>
+
+		
+
 	</div>
 </body>
 </html>
