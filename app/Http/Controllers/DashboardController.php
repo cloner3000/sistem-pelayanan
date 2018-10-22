@@ -115,7 +115,15 @@ class DashboardController extends Controller
             $status1            = $foto1->move($lokasi1, $nama1);
             
             $data->foto_slider1 = $nama1;
+        }
 
+        if ($req->hasFile('foto_tentang')) {
+            $foto2              = $req->file('foto_tentang');
+            $nama2              = time().'.'.$foto2->getClientOriginalExtension();
+            $lokasi2            = public_path('/storage/slider');
+            $status2            = $foto2->move($lokasi2, $nama2);
+            
+            $data->foto_tentang = $nama;
         }
 
         $data->nama_website      = $req->input('nama_website');
@@ -124,13 +132,15 @@ class DashboardController extends Controller
         $data->judul_slider1     = $req->input('judul_slider1');
         $data->deskripsi_slider1 = $req->input('deskripsi_slider1');
 
-        $data->tentang           = $req->input('tentang');
-        $data->visi_misi         = $req->input('visi_misi');
-        $data->tlp               = $req->input('tlp');
-        $data->email             = $req->input('email');
-        $data->fb                = $req->input('fb');
-        $data->twitter           = $req->input('twitter');
-        $data->ig                = $req->input('ig');
+        $data->tentang  = $req->input('tentang');
+        $data->tentang1 = $req->input('tentang1');
+        $data->visi     = $req->input('visi');
+        $data->misi     = $req->input('misi');
+        $data->tlp      = $req->input('tlp');
+        $data->email    = $req->input('email');
+        $data->fb       = $req->input('fb');
+        $data->twitter  = $req->input('twitter');
+        $data->ig       = $req->input('ig');
 
         $data->save();
         return back();

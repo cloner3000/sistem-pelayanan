@@ -222,6 +222,11 @@
 
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script type="text/javascript" charset="utf-8" async defer>
+  CKEDITOR.replace('tentang');
+  CKEDITOR.replace('visi');
+  CKEDITOR.replace('misi');
+</script>
 <script type="text/javascript">
     $(function () {
         $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2').datetimepicker({
@@ -317,8 +322,7 @@
       options: options
     });
 
-    CKEDITOR.replace('tentang');
-    CKEDITOR.replace('visimisi');
+
 </script>
 </body>
 </html>

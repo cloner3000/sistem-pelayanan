@@ -23,7 +23,10 @@ class CreateWebsTable extends Migration
             $table->string('deskripsi_slider1');
             $table->string('foto_slider1');
             $table->text('tentang');
-            $table->text('visi_misi');
+            $table->string('foto_tentang');
+            $table->string('tentang1');
+            $table->text('visi');
+            $table->text('misi');
             $table->string('tlp');
             $table->string('email');
             $table->string('fb')->default('#');
