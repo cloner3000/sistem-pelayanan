@@ -120,10 +120,10 @@ class DashboardController extends Controller
         if ($req->hasFile('foto_tentang')) {
             $foto2              = $req->file('foto_tentang');
             $nama2              = time().'.'.$foto2->getClientOriginalExtension();
-            $lokasi2            = public_path('/storage/slider');
+            $lokasi2            = public_path('/storage/tentang');
             $status2            = $foto2->move($lokasi2, $nama2);
             
-            $data->foto_tentang = $nama;
+            $data->foto_tentang = $nama2;
         }
 
         $data->nama_website      = $req->input('nama_website');

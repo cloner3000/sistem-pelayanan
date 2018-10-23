@@ -21,7 +21,7 @@ class WebSeeder extends Seeder
 			'deskripsi_slider1' => "Blablablablablablablablabla",
 			'foto_slider1'      => "1540040138.jpg",
 			'tentang'           => "BlablablablablablablablablaBlablablablablablablablablaBlablablablablablablablabla",
-			'foto_tentang'      => 	"1540040138.jpg",
+			'foto_tentang'      => 	"1540303278tentang.jpg",
 			'tentang1'          => "BlablablablablablablablablaBlablablablablablablablablaBlablablablablablablablabla",
 			'visi'              => "BlablablablablablablablablaBlablablablablablablablablaBlablablablablablablablabla",
 			'misi'              => "BlablablablablablablablablaBlablablablablablablablablaBlablablablablablablablabla",

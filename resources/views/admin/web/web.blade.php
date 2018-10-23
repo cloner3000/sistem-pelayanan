@@ -97,9 +97,7 @@
 		        <div class="box-body pad">
 		            <div class="form-group">
 		            	<label for="tentang1">Tentang website untuk posisi di bawah</label>
-		            	<textarea  name="tentang1" id="tentang1" class="form-control" rows="3" cols="80">
-		                {{$web->tentang1}}
-		            	</textarea>
+		            	<textarea  name="tentang1" id="tentang1" class="form-control" rows="3" cols="80">{{$web->tentang1}}</textarea>
 		            </div>
 		        </div>
 		    </div>

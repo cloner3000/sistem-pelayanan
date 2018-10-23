@@ -18,7 +18,7 @@ class StrukturSeeder extends Seeder
         	DB::table('strukturs')->insert([
 				'nama' => $f->name,
 				'jabatan' => $f->randomElement($jabatan),
-				'foto' => "foto",
+				'foto' => "1540301804.jpg",
 				'fb' => $f->word,
 				'twitter' => $f->word,
         	]);
