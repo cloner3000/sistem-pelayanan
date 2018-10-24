@@ -63,6 +63,21 @@
                   <li>
                     <a class="page-scroll" href="#struktur">Struktur Organisasi</a>
                   </li>
+                  @guest
+                    <li>
+                      <a class="page-scroll" href="{{ route('login') }}">Login</a>
+                    </li>
+                  @else
+                    <li>
+                      <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout').submit();">
+                        Logout
+                      </a>
+
+                      <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                      </form>
+                    </li>
+                  @endguest
                 </ul>
               </div>
             </nav>
