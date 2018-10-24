@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-Route::get('/','WebController@index');
+
 // Route::get('kades',function(){
 // 	return view('superadmin');
 // })->middleware('role:Kepala Desa');
@@ -30,6 +30,8 @@ Route::get('/','WebController@index');
 
 // Auth::routes();
 
+    Route::get('/','WebController@index');
+    
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
