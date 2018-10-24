@@ -42,13 +42,13 @@
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'kades','middleware' => 'role:User','name' => 'kades'], function(){
-    Route::resource('spp', 'SppController')->only(['store']);
-    Route::resource('ktp', 'KtpController')->only(['store']);
-    Route::resource('skk','SkkController')->only(['store']);
-    Route::resource('sptjm','SptjmController')->only(['store']);
+Route::group(['middleware' => 'role:User'], function(){
+    Route::resource('spp', 'SppController',['names' =>'user.spp'])->only(['store']);
+    Route::resource('ktp', 'KtpController',['names' =>'user.ktp'])->only(['store']);
+    Route::resource('skk','SkkController',['names' =>'user.skk'])->only(['store']);
+    Route::resource('sptjm','SptjmController',['names' =>'user.sptjm'])->only(['store']);
 });
 
 Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => 'kades'], function(){

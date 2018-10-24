@@ -216,15 +216,96 @@
         </div>
       </div>
 
+      <div class="modal fade" id="warning" role="dialog">
+        <div class="modal-dialog">
+        
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Perhatian</h4>
+            </div>
+            <div class="modal-body">
+              <p>Untuk melakukan pengajuan layanan anda harus login terlebih dahulu, jika anda belum memiliki akun anda dapat mendaftar di kantor desa dan menghubungi admin desa.</p>
+              <p class="text-center">
+                <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
       <div class="row text-center">
         <div class="services-contents">
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-id-card"></i>
-										</a>
+                  
+                  @guest
+                    <a class="services-icon" data-toggle="modal" data-target="#warning">
+                        <i class="fa fa-id-card"></i>
+                    </a>
+                  @else
+                    <a class="services-icon" href="#" data-toggle="modal" data-target="#ktp">
+                        <i class="fa fa-id-card"></i>
+                    </a>
+
+                    <div class="modal fade" id="ktp" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <form method="POST" action="{{ route('kades.ktp.update',$d->id) }}">
+                              {{ csrf_field() }}
+                              <input type="hidden" name="_method" value="PATCH">
+                              
+                              <h5>NIK</h5>
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                <input name="nik" type="text" class="form-control" placeholder="NIK" required>
+                              </div>
+
+                              <h5>Nama</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                  <input name="nama" type="text" class="form-control" placeholder="Nama" required>
+                              </div>
+
+                              <h5>No Kartu Keluarga</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
+                                  <input name="no_kk" type="text" class="form-control" placeholder="No Kartu Keluarga" required>
+                              </div>
+
+                              <h5>Alamat</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                  <input name="alamat" type="text" class="form-control" placeholder="Alamat" required>
+                              </div>
+
+                              <div class="modal-footer d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                              </div>
+                            </form>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  @endguest
+
                   <h4>Pendaftaran KTP</h4>
                   <p>
                     Lebih mudah,cepat,dan fleksibel dalam mengajukan surat permohonan pendaftaran KTP via website.
@@ -238,12 +319,41 @@
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-sticky-note"></i>
-										</a>
+                  
+                  @guest
+                    <a class="services-icon" data-toggle="modal" data-target="#warning">
+  											<i class="fa fa-sticky-note"></i>
+  									</a>
+                  @else
+                    <a class="services-icon" href="#">
+                        <i class="fa fa-sticky-note"></i>
+                    </a>
+
+                    <div class="modal fade" id="ktp" role="dialog">
+                      <div class="modal-dialog">
+                      
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <p>Some text in the modal.</p>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>                    
+                  @endguest
+
                   <h4>Surat Kelahiran</h4>
                   <p>
-                    Untukmengajukan Surat keterangan kelahiran anda dapat klik menu ini dan mohon isi form yang telah disediakan. 
+                    Untuk mengajukan Surat keterangan kelahiran anda dapat klik menu ini dan mohon isi form yang telah disediakan. 
                   </p>
                 </div>
               </div>
@@ -254,9 +364,37 @@
             <div class=" about-move">
               <div class="services-details">
                 <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-gavel"></i>
-										</a>
+                  
+                  @guest
+                    <a class="services-icon" data-toggle="modal" data-target="#warning">
+  											<i class="fa fa-gavel"></i>
+  									</a>
+                  @else
+                     <a class="services-icon" href="#">
+                        <i class="fa fa-gavel"></i>
+                    </a>
+                    <div class="modal fade" id="ktp" role="dialog">
+                      <div class="modal-dialog">
+                      
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <p>Some text in the modal.</p>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  @endguest
+
                   <h4>Surat Pertanggung Jawaban</h4>
                   <p>
                     will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
@@ -270,9 +408,37 @@
             <div class=" about-move">
               <div class="services-details">
                 <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-truck"></i>
-										</a>
+                  
+                  @guest
+                    <a class="services-icon" data-toggle="modal" data-target="#warning">
+  											<i class="fa fa-truck"></i>
+  									</a>
+                  @else
+                    <a class="services-icon" href="#">
+                        <i class="fa fa-truck"></i>
+                    </a>
+                    <div class="modal fade" id="ktp" role="dialog">
+                      <div class="modal-dialog">
+                      
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <p>Some text in the modal.</p>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  @endguest
+
                   <h4>Surat Pengantar Pindah</h4>
                   <p>
                     will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
