@@ -1,5 +1,5 @@
 # Multi Role Laravel
-Multi Role User, with Super Admin,Admin and User Permission.
+This service system is designed to make it easier for people to make administrative letters such as birth certificates, marriage letters, etc. based on laravel 5.5.
 ## What you need to install
 - [MySql-Server](https://dev.mysql.com/downloads/mysql/)
 - [Composer](https://getcomposer.org/)
@@ -8,8 +8,8 @@ Multi Role User, with Super Admin,Admin and User Permission.
 - [NIAT](https://id.wikipedia.org/wiki/Niat)
 
 ## How To Install
-1. Download this repository using git-CLI : `git clone https://github.com/dekiakbar/MultiRole.git`
-2. Change the directory to the project folder : `cd MultiRole`
+1. Download this repository using git-CLI : `git clone https://github.com/dekiakbar/sistem-pelayanan`
+2. Change the directory to the project folder : `cd sistem-pelayanan`
 3. Then install the composer, type this command on your terminal : `composer install`
 4. Skip this step if you are using window : `cp .env.example .env` 
 5. Then open the .env file and fill it with your database name, database user, and database password.
@@ -18,7 +18,7 @@ Multi Role User, with Super Admin,Admin and User Permission.
 8. Enjoy :D
 
 ## User and Password
-1. Superadmin 
+1. Kepala Desa 
 	- email : superadmin@superadmin.com 
 	- pass : superadmin123
 2. Superadmin 
