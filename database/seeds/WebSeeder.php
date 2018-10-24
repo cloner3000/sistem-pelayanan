@@ -24,9 +24,9 @@ class WebSeeder extends Seeder
            	<p>Halaman ini mendeskripsikan tempat fiksi yang disebutkan dalam&nbsp;anime&nbsp;dan&nbsp;manga&nbsp;<em>Naruto</em>. Negara-negara beroperasi sebagai wujud&nbsp;politik&nbsp;yang terpisah dan hampir semuanya adalah&nbsp;monarki, diatur oleh seorang tuan tanah yang memiliki kedudukan sejajar dengan pemimpin desa shinobi. Dunia Naruto mirip dengan&nbsp;feodal&nbsp;Jepang&nbsp;dalam bebrapa aspek; negara-negara tersebut menjaga keseimbangan di antara mereka melalui kekuatan. Perjanjian-perjanjian secara periodik ditandatangani, namun pada umumnya, perjanjian-perjanjian tidak berarti.Dalam&nbsp;manga&nbsp;<em>Naruto</em>, desa para shinobi (忍の里) atau desa-desa tersembunyi (隠れ里) adalah desa-desa ninja yang berperan sebagai kekuatan militer untuk negara mereka. Desa desa ini disebut desa tersembunyi karena berada jauh dari pusat peradaban negara tempat desa itu berada.&nbsp;</p>",
 
 			'foto_tentang'      => 	"1540303278tentang.jpg",
-			'tentang1'          => "BlablablablablablablablablaBlablablablablablablablablaBlablablablablablablablabla",
-			'visi'              => "BlablablablablablablablablaBlablablablablablablablablaBlablablablablablablablabla",
-			'misi'              => "BlablablablablablablablablaBlablablablablablablablablaBlablablablablablablablabla",
+			'tentang1'          => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus necessitatibus ipsum consequatur quia exercitationem facilis recusandae nihil, sequi tempore dignissimos voluptas dolor et, veniam laudantium facere, consectetur ipsam illo quisquam!",
+			'visi'              => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi voluptates porro dolor natus excepturi ipsam quos provident magni amet quo. Placeat et veniam, necessitatibus ipsum voluptatem non reprehenderit recusandae cum.",
+			'misi'              => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia doloribus ipsum repellat laboriosam ea aliquid, magnam nesciunt officia tempora aliquam! Consequatur, dolore autem cupiditate sed, eius ab voluptas pariatur id.",
 			'tlp'               => "099999999999",
 			'email'             => "admin@admin.com",
 			'fb'                => "contoh",

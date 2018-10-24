@@ -19,6 +19,6 @@ class WebController extends Controller
     	$skk = Skk::count();
     	$sptjm = Sptjm::count();
     	$spp = Spp::count();
-    	return view('welcome1',compact('web','strukturs','ktp','skk','sptjm','spp'));
+    	return view('index',compact('web','strukturs','ktp','skk','sptjm','spp'));
     }
 }
