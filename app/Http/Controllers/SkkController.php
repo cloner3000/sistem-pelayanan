@@ -60,7 +60,61 @@ class SkkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $skk = Skk::create([
+                'user_id'              => $request->input('user_id'),
+                'kabupaten'            => $request->input('kabupaten'),
+                'kecamatan'            => $request->input('kecamatan'),
+                'desa'                 => $request->input('desa'),
+                'nama_kepala_keluarga' => $request->input('nama_kepala_keluarga'),
+                'no_kk'                => $request->input('no_kk'),
+                'status'               => $request->input('status'),
+                
+                'b_nama'               => $request->input('b_nama'),
+                'b_jenis_kelamin'      => $request->input('b_jenis_kelamin'),
+                'b_tempat'             => $request->input('b_tempat'),
+                'b_tanggal'            => $request->input('b_tanggal'),
+                'b_jenis_kelahiran'    => $request->input('b_jenis_kelahiran'),
+                'b_kelahiran_ke'       => $request->input('b_kelahiran_ke'),
+                'b_berat'              => $request->input('b_berat'),
+                'b_panjang'            => $request->input('b_panjang'),
+                
+                'i_nik'                => $request->input('i_nik'),
+                'i_nama'               => $request->input('i_nama'),
+                'i_tanggal_lahir'      => $request->input('i_tanggal_lahir'),
+                'i_pekerjaan'          => $request->input('i_pekerjaan'),
+                'i_alamat'             => $request->input('i_alamat'),
+                'i_kewarganegaraan'    => $request->input('i_kewarganegaraan'),
+                'i_kebangsaan'         => $request->input('i_kebangsaan'),
+                'i_tanggal_perkawinan' => $request->input('i_tanggal_perkawinan'),
+                
+                'a_nik'                => $request->input('a_nik'),
+                'a_nama'               => $request->input('a_nama'),
+                'a_tanggal_lahir'      => $request->input('a_tanggal_lahir'),
+                'a_pekerjaan'          => $request->input('a_pekerjaan'),
+                'a_alamat'             => $request->input('a_alamat'),
+                'a_kewarganegaraan'    => $request->input('a_kewarganegaraan'),
+                'a_kebangsaan'         => $request->input('a_kebangsaan'),
+                'a_tanggal_perkawinan' => $request->input('a_tanggal_perkawinan'),
+                
+                'p_nik'                => $request->input('p_nik'),
+                'p_nama'               => $request->input('p_nama'),
+                'p_umur'               => $request->input('p_umur'),
+                'p_jenis_kelamin'      => $request->input('p_jenis_kelamin'),
+                'p_pekerjaan'          => $request->input('p_pekerjaan'),
+                'p_alamat'             => $request->input('p_alamat'),
+                
+                's1_nik'               => $request->input('s1_nik'),
+                's1_nama'              => $request->input('s1_nama'),
+                's1_umur'              => $request->input('s1_umur'),
+                's1_pekerjaan'         => $request->input('s1_pekerjaan'),
+                's1_alamat'            => $request->input('s1_alamat'),
+                
+                's2_nik'               => $request->input('s2_nik'),
+                's2_nama'              => $request->input('s2_nama'),
+                's2_umur'              => $request->input('s2_umur'),
+                's2_pekerjaan'         => $request->input('s2_pekerjaan'),
+                's2_alamat'            => $request->input('s2_alamat'),
+        ]);
     }
 
     /**
