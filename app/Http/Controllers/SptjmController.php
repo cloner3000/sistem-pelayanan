@@ -62,7 +62,39 @@ class SptjmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sptjm = Sptjm::create([
+            'user_id'    => $request->input('user_id'),
+            'status'     => $request->input('status'),
+            
+            'nama'       => $request->input('nama'),
+            'nik'        => $request->input('nik'),
+            'tempat'     => $request->input('tempat'),
+            'tanggal'    => $request->input('tanggal'),
+            'pekerjaan'  => $request->input('pekerjaan'),
+            'alamat'     => $request->input('alamat'),
+            
+            'nama1'      => $request->input('nama1'),
+            'nik1'       => $request->input('nik1'),
+            'tempat1'    => $request->input('tempat1'),
+            'tanggal1'   => $request->input('tanggal1'),
+            'pekerjaan1' => $request->input('pekerjaan1'),
+            'alamat1'    => $request->input('alamat1'),
+            
+            'nama2'      => $request->input('nama2'),
+            'nik2'       => $request->input('nik2'),
+            'tempat2'    => $request->input('tempat2'),
+            'tanggal2'   => $request->input('tanggal2'),
+            'pekerjaan2' => $request->input('pekerjaan2'),
+            'alamat2'    => $request->input('alamat2'),
+
+            's1_nama'    => $request->input('s1_nama'),
+            's1_nik'     => $request->input('s1_nik'),
+            's2_nama'    => $request->input('s2_nama'),
+            's2_nik'     => $request->input('s2_nik')
+        ]);
+
+        $sptjm->save();
+        return back();
     }
 
     /**

@@ -60,19 +60,20 @@ class KtpController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   $ktp = Ktp::create([
-            'user_id' => $request->input('user_id'),
-            'provinsi' => $request->input('provinsi'),
-            'kabupaten' => $request->input('kabupaten'),
-            'kecamatan' => $request->input('kecamatan'),
-            'desa' => $request->input('desa'),
-            'nama' => $request->input('nama'),
-            'permohonan' => $request->input('permohonan'),
-            'no_kk' => $request->input('no_kk'),
-            'nik' => $request->input('nik'),
-            'alamat' => $request->input('alamat'),
-            'status' => $request->input('status'),
-        ]);
+    {   $ktp =  Ktp::create([
+                    'user_id' => $request->input('user_id'),
+                    'provinsi' => $request->input('provinsi'),
+                    'kabupaten' => $request->input('kabupaten'),
+                    'kecamatan' => $request->input('kecamatan'),
+                    'desa' => $request->input('desa'),
+                    'nama' => $request->input('nama'),
+                    'permohonan' => $request->input('permohonan'),
+                    'no_kk' => $request->input('no_kk'),
+                    'nik' => $request->input('nik'),
+                    'alamat' => $request->input('alamat'),
+                    'status' => $request->input('status'),
+                ]);
+        $ktp->save();
         return back();
     }
 

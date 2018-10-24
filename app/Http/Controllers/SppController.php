@@ -59,8 +59,20 @@ class SppController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $spp = Spp::create([
+                    'user_id' => $request->input('user_id'),
+                    'nik' => $request->input('nik'),
+                    'nama' => $request->input('nama'),
+                    'no_kk' => $request->input('no_kk'),
+                    'kepala_keluarga' => $request->input('kepala_keluarga'),
+                    'alamat_sekarang' => $request->input('alamat_sekarang'),
+                    'alamat_tujuan' => $request->input('alamat_tujuan'),
+                    'jumlah_pindah' => $request->input('jumlah_pindah'),
+                    'status' => $request->input('status'),
+                ]);
+        $spp->save();
+        return back();
     }
 
     /**
