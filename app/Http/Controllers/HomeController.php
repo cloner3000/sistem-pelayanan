@@ -32,7 +32,7 @@ class HomeController extends Controller
         }
 
         if ($request->user()->hasRole('User')) {
-            return redirect('/user');
+            return redirect('/');
         }
 
         // $request->user()->authorizeRoles(['Super Admin','Admin','User']);
