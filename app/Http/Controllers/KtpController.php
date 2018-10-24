@@ -71,7 +71,6 @@ class KtpController extends Controller
                     'no_kk' => $request->input('no_kk'),
                     'nik' => $request->input('nik'),
                     'alamat' => $request->input('alamat'),
-                    'status' => $request->input('status'),
                 ]);
         $ktp->save();
         return back();

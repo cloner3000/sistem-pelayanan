@@ -67,7 +67,6 @@ class SkkController extends Controller
                     'desa'                 => $request->input('desa'),
                     'nama_kepala_keluarga' => $request->input('nama_kepala_keluarga'),
                     'no_kk'                => $request->input('no_kk'),
-                    'status'               => $request->input('status'),
                     
                     'b_nama'               => $request->input('b_nama'),
                     'b_jenis_kelamin'      => $request->input('b_jenis_kelamin'),

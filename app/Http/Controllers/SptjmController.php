@@ -64,7 +64,6 @@ class SptjmController extends Controller
     {
         $sptjm = Sptjm::create([
             'user_id'    => $request->input('user_id'),
-            'status'     => $request->input('status'),
             
             'nama'       => $request->input('nama'),
             'nik'        => $request->input('nik'),

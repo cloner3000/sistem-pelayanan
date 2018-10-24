@@ -69,7 +69,6 @@ class SppController extends Controller
                     'alamat_sekarang' => $request->input('alamat_sekarang'),
                     'alamat_tujuan' => $request->input('alamat_tujuan'),
                     'jumlah_pindah' => $request->input('jumlah_pindah'),
-                    'status' => $request->input('status'),
                 ]);
         $spp->save();
         return back();
