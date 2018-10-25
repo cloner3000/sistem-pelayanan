@@ -60,36 +60,36 @@ class SptjmController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
         $sptjm = Sptjm::create([
-            'user_id'    => $request->input('user_id'),
+            'user_id'    => Auth::id(),
             
-            'nama'       => $request->input('nama'),
-            'nik'        => $request->input('nik'),
-            'tempat'     => $request->input('tempat'),
-            'tanggal'    => $request->input('tanggal'),
-            'pekerjaan'  => $request->input('pekerjaan'),
-            'alamat'     => $request->input('alamat'),
+            'nama'       => $r->input('nama'),
+            'nik'        => $r->input('nik'),
+            'tempat'     => $r->input('tempat'),
+            'tanggal'    => date('Y-m-d',strtotime($r->input('tanggal'))),
+            'pekerjaan'  => $r->input('pekerjaan'),
+            'alamat'     => $r->input('alamat'),
             
-            'nama1'      => $request->input('nama1'),
-            'nik1'       => $request->input('nik1'),
-            'tempat1'    => $request->input('tempat1'),
-            'tanggal1'   => $request->input('tanggal1'),
-            'pekerjaan1' => $request->input('pekerjaan1'),
-            'alamat1'    => $request->input('alamat1'),
+            'nama1'      => $r->input('nama1'),
+            'nik1'       => $r->input('nik1'),
+            'tempat1'    => $r->input('tempat1'),
+            'tanggal1'   => date('Y-m-d',strtotime($r->input('tanggal1'))),
+            'pekerjaan1' => $r->input('pekerjaan1'),
+            'alamat1'    => $r->input('alamat1'),
             
-            'nama2'      => $request->input('nama2'),
-            'nik2'       => $request->input('nik2'),
-            'tempat2'    => $request->input('tempat2'),
-            'tanggal2'   => $request->input('tanggal2'),
-            'pekerjaan2' => $request->input('pekerjaan2'),
-            'alamat2'    => $request->input('alamat2'),
+            'nama2'      => $r->input('nama2'),
+            'nik2'       => $r->input('nik2'),
+            'tempat2'    => $r->input('tempat2'),
+            'tanggal2'   => date('Y-m-d',strtotime($r->input('tanggal2'))),
+            'pekerjaan2' => $r->input('pekerjaan2'),
+            'alamat2'    => $r->input('alamat2'),
 
-            's1_nama'    => $request->input('s1_nama'),
-            's1_nik'     => $request->input('s1_nik'),
-            's2_nama'    => $request->input('s2_nama'),
-            's2_nik'     => $request->input('s2_nik')
+            's1_nama'    => $r->input('s1_nama'),
+            's1_nik'     => $r->input('s1_nik'),
+            's2_nama'    => $r->input('s2_nama'),
+            's2_nik'     => $r->input('s2_nik')
         ]);
 
         $sptjm->save();
