@@ -1124,10 +1124,10 @@
   											<i class="fa fa-truck"></i>
   									</a>
                   @else
-                    <a class="services-icon" href="#">
+                    <a class="services-icon" data-toggle="modal" data-target="#spp">
                         <i class="fa fa-truck"></i>
                     </a>
-                    <div class="modal fade" id="ktp" role="dialog">
+                    <div class="modal fade" id="spp" role="dialog">
                       <div class="modal-dialog">
                       
                         <div class="modal-content">
@@ -1137,7 +1137,61 @@
                           </div>
                           <div class="modal-body">
 
-                            <p>Some text in the modal.</p>
+                            <form method="POST" action="{{ route('user.spp.store') }}">
+                              {{ csrf_field() }}
+                              <h5>NIK</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                  <input name="nik" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5>Nama</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                  <input name="nama" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5>No Kartu Keluarga</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
+                                  <input name="no_kk" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5>Nama Kepala Keluarga</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                  <input name="kepala_keluarga" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5>Alamat Sekarang</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                  <input name="alamat_sekarang" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5>Alamat Tujuan</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                  <input name="alamat_tujuan" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5>Jumlah</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                                  <input name="jumlah_pindah" type="number" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <div class="modal-footer d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                              </div>
+                            </form>
 
                           </div>
                           <div class="modal-footer">
