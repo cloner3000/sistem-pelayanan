@@ -68,13 +68,7 @@
   </header>
 
   <aside class="main-sidebar">
-    <section class="sidebar">
-{{--       <div class="user-panel">
-        <div class="pull-left" style="color: white;">
-          <p>{{Auth::user()->name}}</p>
-        </div>
-      </div> --}}
-     
+    <section class="sidebar">     
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU UTAMA</li>
         <li class="@yield('dashboard')">
@@ -209,9 +203,6 @@
   </div>
 
   <footer class="main-footer">
-    {{-- <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div> --}}
     <strong>Copyright &copy; {{date('Y')}} Made with <i class="fa fa-heart"></i>
       <a href="https://laravel.com">Laravel</a>.
     </strong> 

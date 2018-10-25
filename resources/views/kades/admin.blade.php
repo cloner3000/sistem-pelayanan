@@ -68,13 +68,7 @@
   </header>
 
   <aside class="main-sidebar">
-    <section class="sidebar">
-{{--       <div class="user-panel">
-        <div class="pull-left" style="color: white;">
-          <p>{{Auth::user()->name}}</p>
-        </div>
-      </div> --}}
-     
+    <section class="sidebar">     
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU UTAMA</li>
         <li class="@yield('dashboard')">

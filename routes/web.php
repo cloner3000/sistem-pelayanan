@@ -10,26 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/',function(){
-//     return view('welcome');
-// });
-
-
-// Route::get('kades',function(){
-// 	return view('superadmin');
-// })->middleware('role:Kepala Desa');
-
-// Route::get('admin',function(){
-// 	return view('admin.dashboard');
-// })->middleware('role:Admin')->name('admin');
-
-// Route::get('user',function(){
-// 	return view('user');
-// })->middleware('role:User');
-
-// Auth::routes();
-
     Route::get('/','WebController@index');
     
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
