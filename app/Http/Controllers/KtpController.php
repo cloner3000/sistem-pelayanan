@@ -60,8 +60,9 @@ class KtpController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   $ktp =  Ktp::create([
-                    'user_id' => $request->input('user_id'),
+    {   
+        $ktp =  Ktp::create([
+                    'user_id' => Auth::id(),
                     'provinsi' => $request->input('provinsi'),
                     'kabupaten' => $request->input('kabupaten'),
                     'kecamatan' => $request->input('kecamatan'),
