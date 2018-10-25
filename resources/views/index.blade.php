@@ -875,10 +875,10 @@
   											<i class="fa fa-gavel"></i>
   									</a>
                   @else
-                     <a class="services-icon" href="#">
+                     <a class="services-icon" href="#" data-toggle="modal" data-target="#sptjm">
                         <i class="fa fa-gavel"></i>
                     </a>
-                    <div class="modal fade" id="ktp" role="dialog">
+                    <div class="modal fade" id="sptjm" role="dialog">
                       <div class="modal-dialog">
                       
                         <div class="modal-content">
@@ -888,7 +888,199 @@
                           </div>
                           <div class="modal-body">
 
-                            <p>Some text in the modal.</p>
+                          <form method="POST" action="{{ route('user.sptjm.store') }}">
+                            {{ csrf_field() }}
+
+                            <h5>NIK</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                <input name="nik" type="text" class="form-control"  required >
+                            </div>
+                            <br>
+
+                            <h5>Nama</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="nama" type="text" class="form-control"  required >
+                            </div>
+                            <br>
+
+                            <h5>Pekerjaan</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                <select class="form-control" name="pekerjaan">
+                                  <option value="pns">Pegawai Negeri Sipil</option>
+                                  <option value="wiraswasta">Wiraswasta</option>
+                                  <option value="pelajar">Pelajar</option>
+                                  <option value="mahasiswa">Mahasiswa</option>
+                                  <option value="karyawan">Karyawan</option>
+                                  <option value="programmer">Programmer</option>
+                                  <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+                                  <option value="lain-lain">Lain-Lain</option>
+                                </select>
+                            </div>
+                            <br>
+
+                            <h5>Tempat Lahir</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+                                <input name="tempat" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Tanggal Lahir</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                <input name="tanggal" type="text" id="tl" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Alamat</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                <input name="alamat" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <hr></hr>
+                            <h5>NIK</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                <input name="nik1" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Nama</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="nama1" type="text" class="form-control"  required >
+                            </div>
+                            <br>
+
+                            <h5>Pekerjaan</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                <select class="form-control" name="pekerjaan1">
+                                  <option value="pns">Pegawai Negeri Sipil</option>
+                                  <option value="wiraswasta">Wiraswasta</option>
+                                  <option value="pelajar">Pelajar</option>
+                                  <option value="mahasiswa">Mahasiswa</option>
+                                  <option value="karyawan">Karyawan</option>
+                                  <option value="programmer">Programmer</option>
+                                  <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+                                  <option value="lain-lain">Lain-Lain</option>
+                                </select>
+                            </div>
+                            <br>
+
+                            <h5>Tempat Lahir</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+                                <input name="tempat1" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Tanggal Lahir</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                <input name="tanggal1" type="text" id="tl1" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Alamat</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                <input name="alamat1" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <hr></hr>
+                            <h5>NIK</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                <input name="nik2" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Nama</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="nama2" type="text" class="form-control"  required >
+                            </div>
+                            <br>
+
+                            <h5>Pekerjaan</h5>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                              <select class="form-control" name="pekerjaan2">
+                                <option value="pns">Pegawai Negeri Sipil</option>
+                                <option value="wiraswasta">Wiraswasta</option>
+                                <option value="pelajar">Pelajar</option>
+                                <option value="mahasiswa">Mahasiswa</option>
+                                <option value="karyawan">Karyawan</option>
+                                <option value="programmer">Programmer</option>
+                                <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+                                <option value="lain-lain">Lain-Lain</option>
+                              </select>
+                            </div>
+                            <br>
+
+                            <h5>Tempat Lahir</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+                                <input name="tempat2" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Tanggal Lahir</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                <input name="tanggal2" type="text" id="tl2" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Alamat</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                <input name="alamat2" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <hr></hr>
+                            <h5>NIK</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                <input name="s1_nik" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Nama</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="s1_nama" type="text" class="form-control"  required >
+                            </div>
+                            <br>
+
+                            <h5>NIK</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                <input name="s2_nik" type="text" class="form-control" required >
+                            </div>
+                            <br>
+
+                            <h5>Nama</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="s2_nama" type="text" class="form-control"  required >
+                            </div>
+                            <br>
+
+                            <div class="modal-footer d-flex justify-content-center">
+                              <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                            <br>
+
+                          </form>
 
                           </div>
                           <div class="modal-footer">
