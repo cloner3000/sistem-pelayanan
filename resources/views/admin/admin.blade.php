@@ -132,7 +132,7 @@
 
         <li class="treeview @yield('skk')">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Data Surat Kelahiran</span>
+            <i class="fa fa-child"></i> <span>Data Surat Kelahiran</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
