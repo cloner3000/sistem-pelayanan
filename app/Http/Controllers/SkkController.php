@@ -23,7 +23,7 @@ class SkkController extends Controller
         }
     }
 
-     public function indexAcc(Request $req)
+    public function indexAcc(Request $req)
     {
         $datas = Skk::with('user')->where('status','acc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {

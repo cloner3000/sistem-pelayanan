@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Pengaduan;
+use Auth;
 class PengaduanController extends Controller
 {
     /**
@@ -12,11 +13,27 @@ class PengaduanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        //
+        $datas = Pengaduan::where('status','pending')->paginate(10);
+        return view('admin.pengaduan.index',compact('datas'))->with('no',($req->input('page',1)-1)*1);
     }
 
+    public function indexAcc(Request $req)
+    {
+        $datas = Pengaduan::with('user')->where('status','acc')->paginate(10);
+            return view('admin.pengaduan.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+    }
+
+    public function acc(Request $req)
+    {
+        $data = Pengaduan::findOrFail($req->id);
+
+        $data->status = "acc";
+
+        $data->save();
+        return back();
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -39,7 +56,7 @@ class PengaduanController extends Controller
             'user_id' => $req->input('user_id'),
             'nama' => $req->input('nama'),
             'nik' => $req->input('nik'),
-            'tanggal_lahit' => $req->input('tanggal_lahit'),
+            'tanggal_lahir' => $req->input('tanggal_lahir'),
             'pekerjaan' => $req->input('pekerjaan'),
             'alamat' => $req->input('alamat'),
             'sasaran' => $req->input('sasaran'),
@@ -86,7 +103,7 @@ class PengaduanController extends Controller
         $data->user_id = $req->input('user_id');
         $data->nama = $req->input('nama');
         $data->nik = $req->input('nik');
-        $data->tanggal_lahit = $req->input('tanggal_lahit');
+        $data->tanggal_lahir = $req->input('tanggal_lahir');
         $data->pekerjaan = $req->input('pekerjaan');
         $data->alamat = $req->input('alamat');
         $data->sasaran = $req->input('sasaran');

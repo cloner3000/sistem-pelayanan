@@ -1,5 +1,5 @@
 @extends('admin.admin')
-@section('judul','Daftar Surat Pindah Yang Telah Di Terima')
+@section('judul','Daftar Surat Keterangan Kelahiran')
 
 @section('skk','active')
 @section('riwayatSkk','active')
@@ -11,7 +11,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Daftar Surat Pindah Yang Telah Di Terima</li>
+        <li class="active">Daftar Surat Keterangan Kelahiran</li>
       </ol>
     </section>
 
@@ -22,7 +22,7 @@
     			<div class="box">
 
 		            <div class="box-header">
-		              <h3 class="box-title">Daftar Surat Pindah Yang Telah Di Terima</h3>
+		              <h3 class="box-title">Daftar Surat Keterangan Kelahiran</h3>
 		            </div>
 		            
 		            <div class="box-body table-responsive no-padding">

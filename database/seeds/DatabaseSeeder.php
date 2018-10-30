@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
         $this->call(WebSeeder::class);
         //Seeder data Struktur
         $this->call(StrukturSeeder::class);
+        //Seeder data Pengaduan
+        $this->call(PengaduanSeeder::class);
 
     }
 }

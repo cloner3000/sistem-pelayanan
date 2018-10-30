@@ -99,6 +99,11 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::get('sptjm/acc','SptjmController@indexAcc')->name('sptjm.indexAcc');
     Route::resource('sptjm','SptjmController')->except(['edit']);
 
+    //route CRUD data Pengaduan
+    Route::post('pengaduan/acc','PengaduanController@acc')->name('pengaduan.acc');
+    Route::get('pengaduan/acc','PengaduanController@indexAcc')->name('pengaduan.indexAcc');
+    Route::resource('pengaduan','PengaduanController')->except(['edit']);
+
     Route::get('/riwayat','DashboardController@riwayat')->name('riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('hapus_riwayat');
 

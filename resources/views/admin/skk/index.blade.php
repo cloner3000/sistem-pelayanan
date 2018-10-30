@@ -374,7 +374,6 @@
 						                		<h5>Jenis Kelamin</h5>
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
-								              		{{-- <input name="p_jenis_kelamin" type="text" class="form-control" required value="{{$d->p_jenis_kelamin}}"> --}}
 								              		<select class="form-control" name="p_jenis_kelamin">
 								              			<option value="laki-laki">Laki-laki</option>
 								              			<option value="perempuan">Perempuan</option>
@@ -384,7 +383,6 @@
 								            	<h5>Pekerjaan</h5>
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-								              		{{-- <input name="p_pekerjaan" type="text" class="form-control" required value="{{$d->p_pekerjaan}}"> --}}
 								              		<select class="form-control" name="p_pekerjaan">
 								              			<option value="pns">Pegawai Negeri Sipil</option>
 								              			<option value="wiraswasta">Wiraswasta</option>
