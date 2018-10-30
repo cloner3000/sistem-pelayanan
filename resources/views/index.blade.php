@@ -344,8 +344,6 @@
                               </div>
                               <br>
 
-                             
-
                               <div class="modal-footer d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary">Kirim</button>
                               </div>
@@ -1260,12 +1258,12 @@
         <div class="team-top">
 
           @foreach($strukturs as $s)
-            <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-3 col-xs-12" >
               <div class="single-team-member">
                 <div class="team-img">
                   <a href="#">
-                      <img src="{{asset('storage/struktur/'.$s->foto)}}" alt="">
-                    </a>
+                    <img src="{{asset('storage/struktur/'.$s->foto)}}" style="height: 250px;width: 100%;">
+                  </a>
                   <div class="team-social-icon text-center">
                     <ul>
                       <li style="margin-left: 20px;">

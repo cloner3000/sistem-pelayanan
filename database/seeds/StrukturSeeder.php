@@ -16,7 +16,10 @@ class StrukturSeeder extends Seeder
             'Dudin Saepudin','Beni Lesmana, S.IP','Dede Abdillah, S.HI'
         );
 
-        $foto = array();
+        $foto = array(
+            '1540934634.jpeg','1540934671.jpeg','1540934683.jpeg','1540934702.jpeg','1540934717.jpeg',
+            '1540934726.jpeg','1540934649.jpeg'
+        );
         
         $jabatan = array(
             'Kepala Urusan perencanaan','Kepala Dusun Malinggut 1','Kepala Urusan Administrasi Umum dan Tata Usaha',
@@ -27,7 +30,7 @@ class StrukturSeeder extends Seeder
              DB::table('strukturs')->insert([
                 'nama' => $n,
                 'jabatan' => $jabatan[$key],
-                'foto' => "1540301804.jpg",
+                'foto' => $foto[$key],
                 'fb' => '#',
                 'twitter' => '#',
             ]);
