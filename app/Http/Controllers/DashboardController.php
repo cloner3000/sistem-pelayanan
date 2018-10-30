@@ -150,10 +150,15 @@ class DashboardController extends Controller
     {
         $datas = Struktur::paginate(12);
 
+        $jabatan = array(
+            'Kepala Urusan perencanaan','Kepala Dusun Malinggut 1','Kepala Urusan Administrasi Umum dan Tata Usaha',
+            'Kepala Urusan Keuangan / Bendahara Desa','Kepala dusun Malinggut 2','Sekretaris Desa','Kepala Seksi Pelayanan'
+        );
+
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.struktur.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.struktur.index',compact('datas','jabatan'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.struktur.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.struktur.index',compact('datas','jabatan'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

@@ -84,9 +84,17 @@
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 				              		<select class="form-control" name="jabatan" required>
-				              			<option value="kepala desa">Kepala Desa</option>
-				              			<option value="sekretaris">Sekretaris</option>
-				              			<option value="bendahara">Bendahara</option>
+				              			@foreach($jabatan as $j)
+				              				@if($d->jabatan == $j)
+				              					<option value="{{$d->jabatan}}" selected>
+						              				{{ucwords($d->jabatan)}}
+						              			</option>
+				              				@else
+				              					<option value="{{$j}}">
+						              				{{ucwords($j)}}
+						              			</option>
+				              				@endif
+				              			@endforeach
 				              		</select>
 				            	</div>
 

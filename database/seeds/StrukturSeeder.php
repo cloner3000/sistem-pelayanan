@@ -11,17 +11,26 @@ class StrukturSeeder extends Seeder
      */
     public function run()
     {
-        $f 		= Faker\factory::create('id_ID');
-        $limit 	= 12;
-        $jabatan = array('Kepala Desa','Sekertaris','Bendahara');
-        for ($i=0; $i < $limit; $i++) { 
-        	DB::table('strukturs')->insert([
-				'nama' => $f->name,
-				'jabatan' => $f->randomElement($jabatan),
-				'foto' => "1540301804.jpg",
-				'fb' => $f->word,
-				'twitter' => $f->word,
-        	]);
+        $nama = array(
+            'Fahmi pamungkas','Iwan R. Maulana','Cici Endas Rahmatika, A.Md','Hastiti Tresna Ayu',
+            'Dudin Saepudin','Beni Lesmana, S.IP','Dede Abdillah, S.HI'
+        );
+
+        $foto = array();
+        
+        $jabatan = array(
+            'Kepala Urusan perencanaan','Kepala Dusun Malinggut 1','Kepala Urusan Administrasi Umum dan Tata Usaha',
+            'Kepala Urusan Keuangan / Bendahara Desa','Kepala dusun Malinggut 2','Sekretaris Desa','Kepala Seksi Pelayanan'
+        );
+
+        foreach ($nama as $key => $n) {
+             DB::table('strukturs')->insert([
+                'nama' => $n,
+                'jabatan' => $jabatan[$key],
+                'foto' => "1540301804.jpg",
+                'fb' => '#',
+                'twitter' => '#',
+            ]);
         }
     }
 }
