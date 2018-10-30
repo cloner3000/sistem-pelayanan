@@ -19,7 +19,7 @@ class CreatePengaduansTable extends Migration
             $table->string('status')->default('pending');
             $table->string('nama');
             $table->string('nik');
-            $table->string('tanggal_lahir');
+            $table->date('tanggal_lahir');
             $table->string('pekerjaan');
             $table->string('alamat');
             $table->string('sasaran');

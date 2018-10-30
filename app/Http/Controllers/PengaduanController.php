@@ -16,13 +16,21 @@ class PengaduanController extends Controller
     public function index(Request $req)
     {
         $datas = Pengaduan::where('status','pending')->paginate(10);
-        return view('admin.pengaduan.index',compact('datas'))->with('no',($req->input('page',1)-1)*1);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.pengaduan.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.pengaduan.index',compact('datas'))->with('no',($req->input('page',1)-1)*1);
+        }   
     }
 
     public function indexAcc(Request $req)
     {
         $datas = Pengaduan::with('user')->where('status','acc')->paginate(10);
+         if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.pengaduan.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
             return view('admin.pengaduan.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     public function acc(Request $req)
@@ -97,18 +105,18 @@ class PengaduanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
         $data = Pengaduan::findOrFail($id);
-        $data->user_id = $req->input('user_id');
-        $data->nama = $req->input('nama');
-        $data->nik = $req->input('nik');
-        $data->tanggal_lahir = $req->input('tanggal_lahir');
-        $data->pekerjaan = $req->input('pekerjaan');
-        $data->alamat = $req->input('alamat');
-        $data->sasaran = $req->input('sasaran');
-        $data->isi = $req->input('isi');
-        $data->alternatif = $req->input('alternatif');
+        $data->user_id       = Auth::id();
+        $data->nama          = $req->input('nama');
+        $data->nik           = $req->input('nik');
+        $data->tanggal_lahir = date('Y-m-d',strtotime($req->input('tanggal_lahir')));
+        $data->pekerjaan     = $req->input('pekerjaan');
+        $data->alamat        = $req->input('alamat');
+        $data->sasaran       = $req->input('sasaran');
+        $data->isi           = $req->input('isi');
+        $data->alternatif    = $req->input('alternatif');
 
         $data->save();
         return back();
@@ -123,7 +131,7 @@ class PengaduanController extends Controller
     public function destroy($id)
     {
         $data = Pengaduan::findOrFail($id);
-        $data->detele();
+        $data->delete();
         return back();
     }
 }

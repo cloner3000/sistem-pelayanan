@@ -175,6 +175,30 @@
             </li>
           </ul>
         </li>
+
+        <li class="treeview @yield('pengaduan')">
+          <a href="#">
+            <i class="fa fa-gavel"></i> <span>Data Pengaduan</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@yield('pengajuanPengaduan')">
+              <a href="{{ route('kades.pengaduan.index') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Pengajuan
+              </a>
+            </li>
+            <li class="@yield('riwayatPengaduan')">
+              <a href="{{ route('kades.pengaduan.acc') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Riwayat Pengajuan
+              </a>
+            </li>
+          </ul>
+        </li>
+
         <li class="@yield('struktur')">
           <a href="{{ route('kades.struktur') }}">
             <i class="fa fa-briefcase"></i>
