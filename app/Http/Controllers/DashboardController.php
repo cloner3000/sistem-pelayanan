@@ -152,7 +152,7 @@ class DashboardController extends Controller
 
         $jabatan = array(
             'Kepala Desa','Kepala Urusan perencanaan','Kepala Dusun Malinggut 1',
-            'Kepala Urusan Administrasi Umum dan Tata Usaha','Kepala Urusan Keuangan / Bendahara Desa',
+            'Kepala Urusan Administrasi Umum','Kepala Urusan Keuangan',
             'Kepala dusun Malinggut 2','Sekretaris Desa','Kepala Seksi Pelayanan',
             'Kepala Dusun Malinggut 3','Kepala Seksi Pemerintahan','Kepala Dusun Sukamaju','Kasi Kesejahteraan'
         );
