@@ -23,7 +23,7 @@ class PengaduanSeeder extends Seeder
 				'nama' => $f->name,
 				'nik' => $f->randomNumber($nbDigits = NULL, $strict = false),
 				'tanggal_lahir' => $f->date($format = 'Y-m-d', $max = 'now'),
-				'pekerjaan' => $f->randomElement($status),
+				'pekerjaan' => $f->randomElement($pekerjaan),
 				'alamat' => $f->address,
 				'sasaran' => $f->randomElement($sasaran),
 				'status' => $f->randomElement($status),

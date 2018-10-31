@@ -42,7 +42,7 @@
 								<td>{{++$no}}</td>
 			                  	<td>{{$data->nama}}</td>
 			                  	<td>{{$data->nik}}</td>
-			                  	<td>{{$data->tanggal_lahit}}</td>
+			                  	<td>{{$data->tanggal_lahir}}</td>
 			                  	<td>{{$data->pekerjaan}}</td>
 			                  	<td>{{$data->alamat}}</td>
 			                  	<td>{{$data->sasaran}}</td>

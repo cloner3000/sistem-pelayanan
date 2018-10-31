@@ -30,7 +30,7 @@
 						<th>No</th>
 						<th>Nama</th>
 		                <th>NIK</th>
-		                <th>Tanggal Lahit</th>
+		                <th>Tanggal Lahir</th>
 		                <th>Pekerjaan</th>
 		                <th>Alamat</th>
 		                <th>Sasaran</th>
