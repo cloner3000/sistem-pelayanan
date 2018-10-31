@@ -15,7 +15,7 @@ class PengaduanController extends Controller
      */
     public function index(Request $req)
     {
-        $datas = Pengaduan::where('status','pending')->paginate(10);
+        $datas = Pengaduan::where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.pengaduan.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
         }else{
@@ -25,7 +25,7 @@ class PengaduanController extends Controller
 
     public function indexAcc(Request $req)
     {
-        $datas = Pengaduan::with('user')->where('status','acc')->paginate(10);
+        $datas = Pengaduan::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
          if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.pengaduan.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
         }else{

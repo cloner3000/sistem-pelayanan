@@ -15,7 +15,7 @@ class SkkController extends Controller
      */
     public function index(Request $req)
     {
-        $datas = Skk::with('user')->where('status','pending')->paginate(10);
+        $datas = Skk::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.skk.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
         }else{
@@ -25,7 +25,7 @@ class SkkController extends Controller
 
     public function indexAcc(Request $req)
     {
-        $datas = Skk::with('user')->where('status','acc')->paginate(10);
+        $datas = Skk::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.skk.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
         }else{
