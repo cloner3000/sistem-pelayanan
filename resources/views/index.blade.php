@@ -209,6 +209,7 @@
 
   <div id="pelayanan" class="services-area area-padding">
     <div class="container">
+      
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="section-headline services-head text-center">
@@ -348,6 +349,7 @@
                               <div class="modal-footer d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary">Kirim</button>
                               </div>
+
                             </form>
 
                           </div>
@@ -863,19 +865,25 @@
               </div>
             </div>
           </div>
-          
-          <div class="col-md-6 col-sm-6 col-xs-12">
+
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="services-contents">
+
+          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
                   
                   @guest
                     <a class="services-icon" data-toggle="modal" data-target="#warning">
-                        <i class="fa fa-id-card"></i>
+                        <i class="fa fa-phone"></i>
                     </a>
                   @else
                     <a class="services-icon" data-toggle="modal" data-target="#pengaduan">
-                        <i class="fa fa-id-card"></i>
+                        <i class="fa fa-phone"></i>
                     </a>
 
                     <div class="modal fade" id="pengaduan" role="dialog">
@@ -897,18 +905,21 @@
                                   <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
                                   <input name="nik" type="text" class="form-control" required >
                               </div>
+                              <br>
 
                               <h5>Nama</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                   <input name="nama" type="text" class="form-control" required >
                               </div>
+                              <br>
                               
                               <h5>Tanggal Lahir</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
                                   <input name="tanggal_lahir" type="text" id="l_pengaduan" class="form-control" required>
                               </div>
+                              <br>
 
                               <h5>Pekerjaan</h5>
                               <div class="input-group">
@@ -924,30 +935,35 @@
                                     <option value="lain-lain">Lain-Lain</option>
                                   </select>
                               </div>
+                              <br>
                               
                               <h5>Sasaran</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
                                   <input name="sasaran" type="text" class="form-control" required >
                               </div>
+                              <br>
 
                               <h5>Alamat</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
                                   <input name="alamat" type="text" class="form-control" required >
                               </div>
+                              <br>
 
                               <h5>Pengaduan</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
                                   <textarea name="isi" class="form-control" required></textarea>
                               </div>
+                              <br>
 
                               <h5>Alternatif</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
                                   <textarea name="alternatif" class="form-control" required ></textarea>
                               </div>
+                              <br>
 
                               <div class="modal-footer d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary">Kirim</button>
@@ -972,6 +988,12 @@
               </div>
             </div>
           </div>
+
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="services-contents">
 
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class=" about-move">
@@ -1322,6 +1344,7 @@
 
         </div>
       </div>
+
     </div>
   </div>
 
@@ -1471,7 +1494,7 @@
   <script src="{{ asset('web/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
   <script type="text/javascript">
     $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });

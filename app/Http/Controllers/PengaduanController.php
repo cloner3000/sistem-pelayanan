@@ -64,7 +64,7 @@ class PengaduanController extends Controller
             'user_id' => Auth::id(),
             'nama' => $req->input('nama'),
             'nik' => $req->input('nik'),
-            'tanggal_lahir' => $req->input('tanggal_lahir'),
+            'tanggal_lahir' => date('Y-m-d',strtotime($req->input('tanggal_lahir'))),
             'pekerjaan' => $req->input('pekerjaan'),
             'alamat' => $req->input('alamat'),
             'sasaran' => $req->input('sasaran'),
