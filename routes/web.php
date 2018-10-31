@@ -43,27 +43,27 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //route CRUD data pelayanan surat pindah
     Route::post('spp/acc','SppController@acc')->name('kades.spp.acc');
     Route::get('spp/acc','SppController@indexAcc')->name('kades.spp.indexAcc');
-    Route::resource('spp', 'SppController',['names' =>'kades.spp'])->except(['edit']);
+    Route::resource('spp', 'SppController',['names' =>'kades.spp'])->except(['edit','create']);
 
     //route CRUD data ktp
     Route::post('ktp/acc','KtpController@acc')->name('kades.ktp.acc');
     Route::get('ktp/acc','KtpController@indexAcc')->name('kades.ktp.indexAcc');
-    Route::resource('ktp', 'KtpController',['names' =>'kades.ktp'])->except(['edit']);
+    Route::resource('ktp', 'KtpController',['names' =>'kades.ktp'])->except(['edit','create']);
 
     //route Crud data surat Kelahiran
     Route::post('skk/acc','SkkController@acc')->name('kades.skk.acc');
     Route::get('skk/acc','SkkController@indexAcc')->name('kades.skk.indexAcc');
-    Route::resource('skk','SkkController',['names' =>'kades.skk'])->except(['edit']);
+    Route::resource('skk','SkkController',['names' =>'kades.skk'])->except(['edit','create']);
 
     //route CRUD data sptjm
     Route::post('sptjm/acc','SptjmController@acc')->name('kades.sptjm.acc');
     Route::get('sptjm/acc','SptjmController@indexAcc')->name('kades.sptjm.indexAcc');
-    Route::resource('sptjm','SptjmController',['names' =>'kades.sptjm'])->except(['edit']);
+    Route::resource('sptjm','SptjmController',['names' =>'kades.sptjm'])->except(['edit','create']);
 
     //route CRUD data Pengaduan
     Route::post('pengaduan/acc','PengaduanController@acc')->name('kades.pengaduan.acc');
     Route::get('pengaduan/acc','PengaduanController@indexAcc')->name('kades.pengaduan.indexAcc');
-    Route::resource('pengaduan','PengaduanController',['names' => 'kades.pengaduan'])->except(['edit']);
+    Route::resource('pengaduan','PengaduanController',['names' => 'kades.pengaduan'])->except(['edit','create']);
 
     //route data Riwayat pengunjung
     Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');
@@ -88,27 +88,27 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     //route CRUD data pelayanan surat pindah
     Route::post('spp/acc','SppController@acc')->name('spp.acc');
     Route::get('spp/acc','SppController@indexAcc')->name('spp.indexAcc');
-    Route::resource('spp', 'SppController')->except(['edit']);
+    Route::resource('spp', 'SppController')->except(['edit','create']);
 
     //route CRUD data ktp
     Route::post('ktp/acc','KtpController@acc')->name('ktp.acc');
     Route::get('ktp/acc','KtpController@indexAcc')->name('ktp.indexAcc');
-    Route::resource('ktp', 'KtpController')->except(['edit']);
+    Route::resource('ktp', 'KtpController')->except(['edit','create']);
 
     //route Crud data surat Kelahiran
     Route::post('skk/acc','SkkController@acc')->name('skk.acc');
     Route::get('skk/acc','SkkController@indexAcc')->name('skk.indexAcc');
-    Route::resource('skk','SkkController')->except(['edit']);
+    Route::resource('skk','SkkController')->except(['edit','create']);
 
     //route CRUD data sptjm
     Route::post('sptjm/acc','SptjmController@acc')->name('sptjm.acc');
     Route::get('sptjm/acc','SptjmController@indexAcc')->name('sptjm.indexAcc');
-    Route::resource('sptjm','SptjmController')->except(['edit']);
+    Route::resource('sptjm','SptjmController')->except(['edit','create']);
 
     //route CRUD data Pengaduan
     Route::post('pengaduan/acc','PengaduanController@acc')->name('pengaduan.acc');
     Route::get('pengaduan/acc','PengaduanController@indexAcc')->name('pengaduan.indexAcc');
-    Route::resource('pengaduan','PengaduanController')->except(['edit']);
+    Route::resource('pengaduan','PengaduanController')->except(['edit','create']);
 
     Route::get('/riwayat','DashboardController@riwayat')->name('riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('hapus_riwayat');

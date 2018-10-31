@@ -152,7 +152,8 @@ class DashboardController extends Controller
 
         $jabatan = array(
             'Kepala Urusan perencanaan','Kepala Dusun Malinggut 1','Kepala Urusan Administrasi Umum dan Tata Usaha',
-            'Kepala Urusan Keuangan / Bendahara Desa','Kepala dusun Malinggut 2','Sekretaris Desa','Kepala Seksi Pelayanan'
+            'Kepala Urusan Keuangan / Bendahara Desa','Kepala dusun Malinggut 2','Sekretaris Desa','Kepala Seksi Pelayanan',
+            'Kepala Dusun Malinggut 3','Kepala Seksi Pemerintahan','Kepala Dusun Sukamaju','Kasi Kesejahteraan'
         );
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
