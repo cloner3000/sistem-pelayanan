@@ -24,7 +24,7 @@ class CreateWebsTable extends Migration
             $table->string('foto_slider1');
             $table->text('tentang');
             $table->string('foto_tentang');
-            $table->string('tentang1');
+            $table->text('tentang1');
             $table->text('visi');
             $table->text('misi');
             $table->string('tlp');
