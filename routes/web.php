@@ -29,6 +29,7 @@ Route::group(['middleware' => 'role:User'], function(){
     Route::resource('ktp', 'KtpController',['names' =>'user.ktp'])->only(['store']);
     Route::resource('skk','SkkController',['names' =>'user.skk'])->only(['store']);
     Route::resource('sptjm','SptjmController',['names' =>'user.sptjm'])->only(['store']);
+    Route::resource('pengaduan','PengaduanController',['names' =>'user.pengaduan'])->only(['store']);
 });
 
 Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => 'kades'], function(){

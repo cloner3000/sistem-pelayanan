@@ -61,7 +61,7 @@ class PengaduanController extends Controller
     public function store(Request $req)
     {
         $data = Pengaduan::create([
-            'user_id' => $req->input('user_id'),
+            'user_id' => Auth::id(),
             'nama' => $req->input('nama'),
             'nik' => $req->input('nik'),
             'tanggal_lahir' => $req->input('tanggal_lahir'),

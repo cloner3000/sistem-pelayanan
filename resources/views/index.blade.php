@@ -241,6 +241,7 @@
 
       <div class="row text-center">
         <div class="services-contents">
+
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="about-move">
               <div class="services-details">
@@ -857,6 +858,115 @@
                   <h4>Surat Kelahiran</h4>
                   <p>
                     Untuk mengajukan Surat keterangan kelahiran anda dapat klik menu ini dan mohon isi form yang telah disediakan. 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  
+                  @guest
+                    <a class="services-icon" data-toggle="modal" data-target="#warning">
+                        <i class="fa fa-id-card"></i>
+                    </a>
+                  @else
+                    <a class="services-icon" data-toggle="modal" data-target="#pengaduan">
+                        <i class="fa fa-id-card"></i>
+                    </a>
+
+                    <div class="modal fade" id="pengaduan" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Form Pengaduan</h4>
+                          </div>
+
+                          <div class="modal-body">
+
+                            <form method="POST" action="{{ route('user.pengaduan.store') }}">
+                              {{ csrf_field() }}
+
+                              <h5>NIK</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                  <input name="nik" type="text" class="form-control" required >
+                              </div>
+
+                              <h5>Nama</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                  <input name="nama" type="text" class="form-control" required >
+                              </div>
+                              
+                              <h5>Tanggal Lahir</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                  <input name="tanggal_lahir" type="text" id="l_pengaduan" class="form-control" required>
+                              </div>
+
+                              <h5>Pekerjaan</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                  <select class="form-control" name="pekerjaan">
+                                    <option value="pns">Pegawai Negeri Sipil</option>
+                                    <option value="wiraswasta">Wiraswasta</option>
+                                    <option value="pelajar">Pelajar</option>
+                                    <option value="mahasiswa">Mahasiswa</option>
+                                    <option value="karyawan">Karyawan</option>
+                                    <option value="programmer">Programmer</option>
+                                    <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+                                    <option value="lain-lain">Lain-Lain</option>
+                                  </select>
+                              </div>
+                              
+                              <h5>Sasaran</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                  <input name="sasaran" type="text" class="form-control" required >
+                              </div>
+
+                              <h5>Alamat</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                  <input name="alamat" type="text" class="form-control" required >
+                              </div>
+
+                              <h5>Pengaduan</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                  <textarea name="isi" class="form-control" required></textarea>
+                              </div>
+
+                              <h5>Alternatif</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                  <textarea name="alternatif" class="form-control" required ></textarea>
+                              </div>
+
+                              <div class="modal-footer d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">Kirim</button>
+                              </div>
+                            </form>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  @endguest
+
+                  <h4>Surat Pengaduan</h4>
+                  <p>
+                    Jika anda ingin mengajukan pengaduan silah kan klik dan isi form yang muncul.
                   </p>
                 </div>
               </div>
