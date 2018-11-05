@@ -14,6 +14,7 @@ use App\Struktur;
 
 use Carbon\Carbon;
 use Auth;
+use Image;
 
 class DashboardController extends Controller
 {
@@ -85,45 +86,43 @@ class DashboardController extends Controller
         $data  = Web::findOrFail($id);
 
         if ($req->hasFile('foto_slider') && $req->hasFile('foto_slider1')) {
-            
-            $foto               = $req->file('foto_slider');
-            $nama               = time().'.'.$foto->getClientOriginalExtension();
-            $lokasi             = public_path('/storage/slider');
-            $status             = $foto->move($lokasi, $nama);
-            
-            $foto1              = $req->file('foto_slider1');
-            $nama1              = (time()+1).'.'.$foto1->getClientOriginalExtension();
-            $lokasi1            = public_path('/storage/slider');
-            $status1            = $foto1->move($lokasi1, $nama1);
-            
-            $data->foto_slider  = $nama;
-            $data->foto_slider1 = $nama1;
+            $foto = Image::make($req->file('foto_slider'))->fit(600,360)->encode('jpg');
+            $nama = md5($foto->__toString());
+            $lokasi = "storage/slider/{$nama}.jpg";
+            $foto->save(public_path($lokasi));
+
+            $foto1 = Image::make($req->file('foto_slider1'))->fit(600,360)->encode('jpg');
+            $nama1 = md5($foto1->__toString());
+            $lokasi1 = "storage/slider/{$nama1}.jpg";
+            $foto1->save(public_path($lokasi1));
+
+            $data->foto_slider = $nama.".jpg";
+            $data->foto_slider1 = $nama1.".jpg";
 
         }elseif($req->hasFile('foto_slider')){
+            $foto = Image::make($req->file('foto_slider'))->fit(600,360)->encode('jpg');
+            $nama = md5($foto->__toString());
+            $lokasi = "storage/slider/{$nama}.jpg";
+            $foto->save(public_path($lokasi));
 
-            $foto              = $req->file('foto_slider');
-            $nama              = time().'.'.$foto->getClientOriginalExtension();
-            $lokasi            = public_path('/storage/slider');
-            $status            = $foto->move($lokasi, $nama);
-            
-            $data->foto_slider = $nama;
+            $data->foto_slider = $nama.".jpg";
 
         }elseif($req->hasFile('foto_slider1')){
-            $foto1              = $req->file('foto_slider1');
-            $nama1              = time().'.'.$foto1->getClientOriginalExtension();
-            $lokasi1            = public_path('/storage/slider');
-            $status1            = $foto1->move($lokasi1, $nama1);
-            
-            $data->foto_slider1 = $nama1;
+            $foto = Image::make($req->file('foto_slider1'))->fit(600,360)->encode('jpg');
+            $nama = md5($foto->__toString());
+            $lokasi = "storage/slider/{$nama}.jpg";
+            $foto->save(public_path($lokasi));
+
+            $data->foto_slider1 = $nama.".jpg";
         }
 
         if ($req->hasFile('foto_tentang')) {
-            $foto2              = $req->file('foto_tentang');
-            $nama2              = time().'.'.$foto2->getClientOriginalExtension();
-            $lokasi2            = public_path('/storage/tentang');
-            $status2            = $foto2->move($lokasi2, $nama2);
-            
-            $data->foto_tentang = $nama2;
+            $foto = Image::make($req->file('foto_tentang'))->fit(600,360)->encode('jpg');
+            $nama = md5($foto->__toString());
+            $lokasi = "storage/tentang/{$nama}.jpg";
+            $foto->save(public_path($lokasi));
+
+            $data->foto_tentang = $nama.".jpg";
         }
 
         $data->nama_website      = $req->input('nama_website');
