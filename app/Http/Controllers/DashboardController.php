@@ -168,12 +168,12 @@ class DashboardController extends Controller
         $data = Struktur::findOrFail($id);
 
         if($req->hasFile('foto')){
-            $foto = Image::make($req->file('foto_tentang'))->fit(600,360)->encode('jpg');
+            $foto = Image::make($req->file('foto'))->fit(600,360)->encode('jpg');
             $nama = md5($foto->__toString());
             $lokasi = "storage/struktur/{$nama}.jpg";
             $foto->save(public_path($lokasi));
             
-            $data->foto        = $nama;
+            $data->foto        = $nama.".jpg";
         }
 
         $data->nama    = $req->input('nama');
