@@ -324,11 +324,9 @@
     };
 
     var options     = {
-      //seting responsive pie chart
       maintainAspectRatio  : true,
     }
 
-    //Gambar Pie Chart
     var myDoughnutChart = new Chart(pieChartCanvas, {
       type: 'pie',
       data: data,

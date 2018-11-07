@@ -237,7 +237,7 @@
 
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-<script type="text/javascript" charset="utf-8" async defer>
+<script type="text/javascript">
   CKEDITOR.replace('tentang');
   CKEDITOR.replace('visi');
   CKEDITOR.replace('misi');
@@ -326,18 +326,14 @@
     };
 
     var options     = {
-      //seting responsive pie chart
       maintainAspectRatio  : true,
-    }
+    };
 
-    //Gambar Pie Chart
     var myDoughnutChart = new Chart(pieChartCanvas, {
       type: 'pie',
       data: data,
       options: options
     });
-
-
 </script>
 </body>
 </html>
