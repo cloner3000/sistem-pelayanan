@@ -10,6 +10,45 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('list-folder-contents', function() {
+    // The human readable folder name to get the contents of...
+    // For simplicity, this folder is assumed to exist in the root directory.
+    $folder = 'tentang';
+    // Get root directory contents...
+    $contents = collect(Storage::cloud()->listContents('/', false));
+    // Find the folder you are looking for...
+    $dir = $contents->where('type', '=', 'dir')
+        ->where('filename', '=', $folder)
+        ->first(); // There could be duplicate directory names!
+    if ( ! $dir) {
+        return 'No such folder!';
+    }
+    // Get the files inside the folder...
+    $files = collect(Storage::cloud()->listContents($dir['path'], false))
+        ->where('type', '=', 'file');
+    return $files->mapWithKeys(function($file) {
+        $filename = $file['filename'].'.'.$file['extension'];
+        $path = $file['path'];
+        // Use the path to download each file via a generated link..
+        // Storage::cloud()->get($file['path']);
+        return [$path];
+    });
+});
+
+Route::get('newest', function() {
+    $filename = '6249d93e3223fb15563a1dd612d0ab93.jpg';
+    $dir = '1GbRMvea33-6AKC9XGeh7X4CUKQnVdCc0';
+    $recursive = false; // Get subdirectories also?
+    $file = collect(Storage::cloud()->listContents($dir, $recursive))
+        ->where('type', '=', 'file')
+        ->where('filename', '=', pathinfo($filename, PATHINFO_FILENAME))
+        ->where('extension', '=', pathinfo($filename, PATHINFO_EXTENSION))
+        ->sortBy('timestamp')
+        ->last();
+    return $file['basename'];
+});
+
     Route::get('/','WebController@index');
     
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

@@ -91,8 +91,13 @@
   <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides">
-        <img src="{{asset('storage/slider/'.$web->foto_slider)}}" alt="" title="#slider-direction-1" />
-        <img src="{{asset('storage/slider/'.$web->foto_slider1)}}" alt="" title="#slider-direction-2" />
+        {{-- uncoment this if you using local storage 
+          <img src="{{asset('storage/slider/'.$web->foto_slider)}}" alt="" title="#slider-direction-1" />
+          <img src="{{asset('storage/slider/'.$web->foto_slider1)}}" alt="" title="#slider-direction-2" /> 
+        --}}
+      
+          <img src="https://docs.google.com/uc?id={{$web->foto_slider}}" alt="" title="#slider-direction-1" />
+          <img src="https://docs.google.com/uc?id={{$web->foto_slider1}}" alt="" title="#slider-direction-2" />
       </div>
 
       <div id="slider-direction-1" class="slider-direction slider-one">
@@ -147,7 +152,11 @@
           <div class="well-left">
             <div class="single-well">
               <a href="#">
-								  <img src="{{asset('storage/tentang/'.$web->foto_tentang)}}" alt="">
+								  {{--
+                    uncoment this if you use local storage 
+                    <img src="{{asset('storage/tentang/'.$web->foto_tentang)}}" alt=""> 
+                  --}}
+                  <img src="https://docs.google.com/uc?id={{$web->foto_tentang}}" alt="">
 								</a>
             </div>
           </div>
@@ -1395,7 +1404,10 @@
               <div class="single-team-member">
                 <div class="team-img">
                   <a href="#">
-                    <img src="{{asset('storage/struktur/'.$s->foto)}}" style="height: 250px;width: 100%;">
+                    {{-- 
+                      <img src="{{asset('storage/struktur/'.$s->foto)}}" style="height: 250px;width: 100%;"> 
+                      --}}
+                    <img src="https://docs.google.com/uc?id={{$s->foto}}" style="height: 250px;width: 100%;"> 
                   </a>
                   <div class="team-social-icon text-center">
                     <ul>

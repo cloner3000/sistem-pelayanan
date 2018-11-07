@@ -16,6 +16,11 @@ use Carbon\Carbon;
 use Auth;
 use Image;
 
+use League\Flysystem\Filesystem;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
+use Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter;
+
 class DashboardController extends Controller
 {
     public function indexAdmin()
@@ -87,42 +92,142 @@ class DashboardController extends Controller
 
         if ($req->hasFile('foto_slider') && $req->hasFile('foto_slider1')) {
             $foto = Image::make($req->file('foto_slider'))->fit(600,360)->encode('jpg');
-            $nama = md5($foto->__toString());
-            $lokasi = "storage/slider/{$nama}.jpg";
-            $foto->save(public_path($lokasi));
+            $nama = md5($foto->__toString()).".jpg";
 
             $foto1 = Image::make($req->file('foto_slider1'))->fit(600,360)->encode('jpg');
-            $nama1 = md5($foto1->__toString());
-            $lokasi1 = "storage/slider/{$nama1}.jpg";
-            $foto1->save(public_path($lokasi1));
+            $nama1 = md5($foto1->__toString()).".jpg";
 
-            $data->foto_slider = $nama.".jpg";
-            $data->foto_slider1 = $nama1.".jpg";
+            // uncoment if you use local storage
+            // $lokasi = "storage/slider/{$nama}";
+            // $foto->save(public_path($lokasi));
+            // $data->foto_slider = $nama;
+            
+            // uncoment if you use local storage
+            // $lokasi1 = "storage/slider/{$nama1}";
+            // $foto1->save(public_path($lokasi1));
+            // $data->foto_slider1 = $nama1;
+
+            $lokasi = '/';
+            $recursive = false;
+            $contents = collect(Storage::cloud()->listContents($lokasi, $recursive));
+            $lokasi = $contents->where('type', '=', 'dir')
+                ->where('filename', '=', 'slider')
+                ->first();
+
+            if ( ! $lokasi) {
+                return 'Directory does not exist!';
+            }
+
+            Storage::cloud()->put($lokasi['path']."/".$nama, $foto);
+            $file = collect(Storage::cloud()->listContents($lokasi['basename'], $recursive))
+                ->where('type', '=', 'file')
+                ->where('filename', '=', pathinfo($nama, PATHINFO_FILENAME))
+                ->where('extension', '=', pathinfo($nama, PATHINFO_EXTENSION))
+                ->sortBy('timestamp')
+                ->last();
+            $data->foto_slider = $file['basename'];
+
+            Storage::cloud()->put($lokasi['path']."/".$nama1, $foto1);
+            $file1 = collect(Storage::cloud()->listContents($lokasi['basename'], $recursive1))
+                ->where('type', '=', 'file')
+                ->where('filename', '=', pathinfo($nama1, PATHINFO_FILENAME))
+                ->where('extension', '=', pathinfo($nama1, PATHINFO_EXTENSION))
+                ->sortBy('timestamp')
+                ->last();
+            $data->foto_slider1 = $file1['basename'];
 
         }elseif($req->hasFile('foto_slider')){
             $foto = Image::make($req->file('foto_slider'))->fit(600,360)->encode('jpg');
-            $nama = md5($foto->__toString());
-            $lokasi = "storage/slider/{$nama}.jpg";
-            $foto->save(public_path($lokasi));
+            $nama = md5($foto->__toString()).".jpg";
+            
+            // uncoment if you use local storage
+            // $lokasi = "storage/slider/{$nama}";
+            // $foto->save(public_path($lokasi));
+            // $data->foto_slider = $nama;
 
-            $data->foto_slider = $nama.".jpg";
+            $lokasi = '/';
+            $recursive = false;
+            $contents = collect(Storage::cloud()->listContents($lokasi, $recursive));
+            $lokasi = $contents->where('type', '=', 'dir')
+                ->where('filename', '=', 'slider')
+                ->first();
+
+            if ( ! $lokasi) {
+                return 'Directory does not exist!';
+            }
+
+            Storage::cloud()->put($lokasi['path']."/".$nama, $foto);
+
+            $file = collect(Storage::cloud()->listContents($lokasi['basename'], $recursive))
+                ->where('type', '=', 'file')
+                ->where('filename', '=', pathinfo($nama, PATHINFO_FILENAME))
+                ->where('extension', '=', pathinfo($nama, PATHINFO_EXTENSION))
+                ->sortBy('timestamp')
+                ->last();
+
+            $data->foto_slider = $file['basename'];
 
         }elseif($req->hasFile('foto_slider1')){
             $foto = Image::make($req->file('foto_slider1'))->fit(600,360)->encode('jpg');
-            $nama = md5($foto->__toString());
-            $lokasi = "storage/slider/{$nama}.jpg";
-            $foto->save(public_path($lokasi));
+            $nama = md5($foto->__toString()).".jpg";
 
-            $data->foto_slider1 = $nama.".jpg";
+            // uncoment if you use local storage
+            // $lokasi = "storage/slider/{$nama}";
+            // $foto->save(public_path($lokasi));
+            // $data->foto_slider1 = $nama;
+
+            $lokasi = '/';
+            $recursive = false;
+            $contents = collect(Storage::cloud()->listContents($lokasi, $recursive));
+            $lokasi = $contents->where('type', '=', 'dir')
+                ->where('filename', '=', 'slider')
+                ->first();
+
+            if ( ! $lokasi) {
+                return 'Directory does not exist!';
+            }
+
+            Storage::cloud()->put($lokasi['path']."/".$nama, $foto);
+            $file = collect(Storage::cloud()->listContents($lokasi['basename'], $recursive))
+                ->where('type', '=', 'file')
+                ->where('filename', '=', pathinfo($nama, PATHINFO_FILENAME))
+                ->where('extension', '=', pathinfo($nama, PATHINFO_EXTENSION))
+                ->sortBy('timestamp')
+                ->last();
+
+            $data->foto_slider1 = $file['basename'];
         }
 
         if ($req->hasFile('foto_tentang')) {
             $foto = Image::make($req->file('foto_tentang'))->fit(600,360)->encode('jpg');
-            $nama = md5($foto->__toString());
-            $lokasi = "storage/tentang/{$nama}.jpg";
-            $foto->save(public_path($lokasi));
+            $nama = md5($foto->__toString()).".jpg";
 
-            $data->foto_tentang = $nama.".jpg";
+            //uncoment if you use local storage 
+            // $lokasi = "storage/tentang/{$nama}.jpg";
+            // $foto->save(public_path($lokasi));
+            // $data->foto_tentang = $nama.".jpg";
+
+            $lokasi = '/';
+            $recursive = false;
+            $contents = collect(Storage::cloud()->listContents($lokasi, $recursive));
+            $lokasi = $contents->where('type', '=', 'dir')
+                ->where('filename', '=', 'tentang')
+                ->first();
+
+            if ( ! $lokasi) {
+                return 'Directory does not exist!';
+            }
+
+            Storage::cloud()->put($lokasi['path']."/".$nama, $foto);
+
+            $file = collect(Storage::cloud()->listContents($lokasi['basename'], $recursive))
+                ->where('type', '=', 'file')
+                ->where('filename', '=', pathinfo($nama, PATHINFO_FILENAME))
+                ->where('extension', '=', pathinfo($nama, PATHINFO_EXTENSION))
+                ->sortBy('timestamp')
+                ->last();
+
+            $data->foto_tentang = $file['basename'];
         }
 
         $data->nama_website      = $req->input('nama_website');
@@ -169,11 +274,34 @@ class DashboardController extends Controller
 
         if($req->hasFile('foto')){
             $foto = Image::make($req->file('foto'))->fit(600,360)->encode('jpg');
-            $nama = md5($foto->__toString());
-            $lokasi = "storage/struktur/{$nama}.jpg";
-            $foto->save(public_path($lokasi));
+            $nama = md5($foto->__toString()).".jpg";
             
-            $data->foto        = $nama.".jpg";
+            //uncoment if you use local storage 
+            // $lokasi = "storage/struktur/{$nama}.jpg";
+            // $foto->save(public_path($lokasi));
+            // $data->foto        = $nama;
+            
+            $lokasi = '/';
+            $recursive = false;
+            $contents = collect(Storage::cloud()->listContents($lokasi, $recursive));
+            $lokasi = $contents->where('type', '=', 'dir')
+                ->where('filename', '=', 'struktur')
+                ->first();
+
+            if ( ! $lokasi) {
+                return 'Directory does not exist!';
+            }
+
+            Storage::cloud()->put($lokasi['path']."/".$nama, $foto);
+
+            $file = collect(Storage::cloud()->listContents($lokasi['basename'], $recursive))
+                ->where('type', '=', 'file')
+                ->where('filename', '=', pathinfo($nama, PATHINFO_FILENAME))
+                ->where('extension', '=', pathinfo($nama, PATHINFO_EXTENSION))
+                ->sortBy('timestamp')
+                ->last();
+
+            $data->foto        = $file['basename'];
         }
 
         $data->nama    = $req->input('nama');
