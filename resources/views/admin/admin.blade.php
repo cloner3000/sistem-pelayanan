@@ -6,7 +6,7 @@
   <title>Admin | @yield('judul')</title>
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/app.css') }}">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -235,7 +235,7 @@
 
 </div>
 
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+<script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
   CKEDITOR.replace('tentang');

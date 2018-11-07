@@ -12,19 +12,19 @@
 
   <link href="{{secure_asset('web/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-  <link href="{{asset('web/lib/nivo-slider/css/nivo-slider.css')}}" rel="stylesheet">
-  <link href="{{asset('web/lib/owlcarousel/owl.carousel.css')}}" rel="stylesheet">
-  <link href="{{asset('web/lib/owlcarousel/owl.transitions.css')}}" rel="stylesheet">
-  <link href="{{asset('web/lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-  <link href="{{asset('web/lib/animate/animate.min.css')}}" rel="stylesheet">
-  <link href="{{asset('web/lib/venobox/venobox.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/lib/nivo-slider/css/nivo-slider.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/lib/owlcarousel/owl.carousel.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/lib/owlcarousel/owl.transitions.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/lib/animate/animate.min.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/lib/venobox/venobox.css')}}" rel="stylesheet">
 
-  <link href="{{asset('web/css/nivo-slider-theme.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/css/nivo-slider-theme.css')}}" rel="stylesheet">
 
-  <link href="{{asset('web/css/style.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/css/style.css')}}" rel="stylesheet">
 
-  <link href="{{asset('web/css/responsive.css')}}" rel="stylesheet">
-  <link href="{{asset('web/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/css/responsive.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -92,8 +92,8 @@
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides">
         {{-- uncoment this if you using local storage 
-          <img src="{{asset('storage/slider/'.$web->foto_slider)}}" alt="" title="#slider-direction-1" />
-          <img src="{{asset('storage/slider/'.$web->foto_slider1)}}" alt="" title="#slider-direction-2" /> 
+          <img src="{{secure_asset('storage/slider/'.$web->foto_slider)}}" alt="" title="#slider-direction-1" />
+          <img src="{{secure_asset('storage/slider/'.$web->foto_slider1)}}" alt="" title="#slider-direction-2" /> 
         --}}
       
           <img src="https://docs.google.com/uc?id={{$web->foto_slider}}" alt="" title="#slider-direction-1" />
@@ -154,7 +154,7 @@
               <a href="#">
 								  {{--
                     uncoment this if you use local storage 
-                    <img src="{{asset('storage/tentang/'.$web->foto_tentang)}}" alt=""> 
+                    <img src="{{secure_asset('storage/tentang/'.$web->foto_tentang)}}" alt=""> 
                   --}}
                   <img src="https://docs.google.com/uc?id={{$web->foto_tentang}}" alt="">
 								</a>
@@ -1405,7 +1405,7 @@
                 <div class="team-img">
                   <a href="#">
                     {{-- 
-                      <img src="{{asset('storage/struktur/'.$s->foto)}}" style="height: 250px;width: 100%;"> 
+                      <img src="{{secure_asset('storage/struktur/'.$s->foto)}}" style="height: 250px;width: 100%;"> 
                       --}}
                     <img src="https://docs.google.com/uc?id={{$s->foto}}" style="height: 250px;width: 100%;"> 
                   </a>
@@ -1487,20 +1487,20 @@
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-  <script src="{{asset('web/lib/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('web/lib/bootstrap/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('web/lib/owlcarousel/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('web/lib/venobox/venobox.min.js')}}"></script>
-  <script src="{{asset('web/lib/knob/jquery.knob.js')}}"></script>
-  <script src="{{asset('web/lib/wow/wow.min.js')}}"></script>
-  <script src="{{asset('web/lib/parallax/parallax.js')}}"></script>
-  <script src="{{asset('web/lib/easing/easing.min.js')}}"></script>
-  <script src="{{asset('web/lib/nivo-slider/js/jquery.nivo.slider.js')}}" type="text/javascript"></script>
-  <script src="{{asset('web/lib/appear/jquery.appear.js')}}"></script>
-  <script src="{{asset('web/lib/isotope/isotope.pkgd.min.js')}}"></script>
-  <script src="{{asset('web/js/main.js')}}"></script>
-  <script src="{{ asset('web/js/moment.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('web/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+  <script src="{{secure_asset('web/lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{secure_asset('web/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script src="{{secure_asset('web/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+  <script src="{{secure_asset('web/lib/venobox/venobox.min.js')}}"></script>
+  <script src="{{secure_asset('web/lib/knob/jquery.knob.js')}}"></script>
+  <script src="{{secure_asset('web/lib/wow/wow.min.js')}}"></script>
+  <script src="{{secure_asset('web/lib/parallax/parallax.js')}}"></script>
+  <script src="{{secure_asset('web/lib/easing/easing.min.js')}}"></script>
+  <script src="{{secure_asset('web/lib/nivo-slider/js/jquery.nivo.slider.js')}}" type="text/javascript"></script>
+  <script src="{{secure_asset('web/lib/appear/jquery.appear.js')}}"></script>
+  <script src="{{secure_asset('web/lib/isotope/isotope.pkgd.min.js')}}"></script>
+  <script src="{{secure_asset('web/js/main.js')}}"></script>
+  <script src="{{ secure_asset('web/js/moment.js') }}" type="text/javascript"></script>
+  <script src="{{ secure_asset('web/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
   <script type="text/javascript">
     $(function () {
         $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan').datetimepicker({
