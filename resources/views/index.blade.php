@@ -10,7 +10,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
 
-  <link href="{{asset('web/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('web/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
   <link href="{{asset('web/lib/nivo-slider/css/nivo-slider.css')}}" rel="stylesheet">
   <link href="{{asset('web/lib/owlcarousel/owl.carousel.css')}}" rel="stylesheet">
@@ -1498,9 +1498,6 @@
   <script src="{{asset('web/lib/nivo-slider/js/jquery.nivo.slider.js')}}" type="text/javascript"></script>
   <script src="{{asset('web/lib/appear/jquery.appear.js')}}"></script>
   <script src="{{asset('web/lib/isotope/isotope.pkgd.min.js')}}"></script>
-
-  <script src="{{asset('web/contactform/contactform.js')}}"></script>
-
   <script src="{{asset('web/js/main.js')}}"></script>
   <script src="{{ asset('web/js/moment.js') }}" type="text/javascript"></script>
   <script src="{{ asset('web/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
