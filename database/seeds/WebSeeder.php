@@ -13,12 +13,12 @@ class WebSeeder extends Seeder
     {
 
         DB::table('webs')->insert([
-			'nama_website'      => "Contoh",
-			'judul_slider'      => "Contoh judul",
-			'deskripsi_slider'  => "Blablablablablablablablabla",
+			'nama_website'      => "Konoha",
+			'judul_slider'      => "Konoha",
+			'deskripsi_slider'  => "Desa Fiksi dalam naruto",
 			'foto_slider'       => "1o8-ZmI1Bjx22VRHipRNSofnNQJEbNFz4",
-			'judul_slider1'     => "Contoh judul",
-			'deskripsi_slider1' => "Blablablablablablablablabla",
+			'judul_slider1'     => "Konoha",
+			'deskripsi_slider1' => "Desa Fiksi dalam naruto",
 			'foto_slider1'      => "1j2nXcoa55aSOG7CKBgMwcbMHfR5CvYxu",
 			'tentang'           => "<h3>KONOHA GAKURE</h3>\r\n\r\n
            	<p>Halaman ini mendeskripsikan tempat fiksi yang disebutkan dalam&nbsp;anime&nbsp;dan&nbsp;manga&nbsp;<em>Naruto</em>. Negara-negara beroperasi sebagai wujud&nbsp;politik&nbsp;yang terpisah dan hampir semuanya adalah&nbsp;monarki, diatur oleh seorang tuan tanah yang memiliki kedudukan sejajar dengan pemimpin desa shinobi. Dunia Naruto mirip dengan&nbsp;feodal&nbsp;Jepang&nbsp;dalam bebrapa aspek; negara-negara tersebut menjaga keseimbangan di antara mereka melalui kekuatan. Perjanjian-perjanjian secara periodik ditandatangani, namun pada umumnya, perjanjian-perjanjian tidak berarti.Dalam&nbsp;manga&nbsp;<em>Naruto</em>, desa para shinobi (忍の里) atau desa-desa tersembunyi (隠れ里) adalah desa-desa ninja yang berperan sebagai kekuatan militer untuk negara mereka. Desa desa ini disebut desa tersembunyi karena berada jauh dari pusat peradaban negara tempat desa itu berada.&nbsp;</p>",
