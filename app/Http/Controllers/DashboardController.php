@@ -128,7 +128,7 @@ class DashboardController extends Controller
             $data->foto_slider = $file['basename'];
 
             Storage::cloud()->put($lokasi['path']."/".$nama1, $foto1);
-            $file1 = collect(Storage::cloud()->listContents($lokasi['basename'], $recursive1))
+            $file1 = collect(Storage::cloud()->listContents($lokasi['basename'], $recursive))
                 ->where('type', '=', 'file')
                 ->where('filename', '=', pathinfo($nama1, PATHINFO_FILENAME))
                 ->where('extension', '=', pathinfo($nama1, PATHINFO_EXTENSION))
