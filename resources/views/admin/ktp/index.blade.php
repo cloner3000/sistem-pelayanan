@@ -57,7 +57,6 @@
 					                    <i class="fa fa-check"></i>
 					                    Acc
 					                </a>
-
 					                <form id="{{md5($data->id.'acc')}}" action="{{ route('ktp.acc') }}" method="POST" style="display: none;">
 					                    {{ csrf_field() }}
 					                    <input type="hidden" name="id" value="{{$data->id}}">

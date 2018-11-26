@@ -51,7 +51,12 @@
 				                  		<span class="label label-success">{{$data->status}}</span>
 				                  	</td>
 				                  	<td>
-										<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'skk')}}" >
+				                  		<a class="btn btn-xs btn-primary" href="{{ route('spp.show',$data->id) }}">
+											<i class="fa fa-file-alt"></i>
+											 PDF
+										</a>
+										<br>
+										<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'skk')}}" style="margin-top: 10px;">
 											<i class="fa fa-edit"></i>
 											Edit
 										</a>

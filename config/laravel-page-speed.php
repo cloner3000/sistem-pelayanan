@@ -54,7 +54,17 @@ return [
         '*.iso',
         '*.flv',
         '*.m4v',
-        '*.torrent'
+        '*.torrent',
+        'admin/spp/*',
+        'admin/ktp/*',
+        'admin/skk/*',
+        'admin/sptjm/*',
+        'admin/pengaduan/*',
+        'kades/spp/*',
+        'kades/ktp/*',
+        'kades/skk/*',
+        'kades/sptjm/*',
+        'kades/pengaduan/*',
     ],
 
 ];
