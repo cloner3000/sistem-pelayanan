@@ -72,7 +72,8 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //route CRUD data Sktm
     Route::post('acc/sktm','SktmController@acc')->name('kades.sktm.acc');
     Route::get('acc/sktm','SktmController@indexAcc')->name('kades.sktm.indexAcc');
-    Route::resource('sktm','SktmController',['names' => 'kades.sktm'])->except(['edit','create']);
+    Route::resource('sktm','SktmController',['names' => 'kades.sktm'])->except(['show','edit','create']);
+    Route::get('sktm/{sktm}/{user_id}','SktmController@show')->name('kades.sktm.show');
 
     //route data Riwayat pengunjung
     Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');

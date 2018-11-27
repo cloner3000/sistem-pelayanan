@@ -67,7 +67,7 @@
 	<div class="center">
 		<p>Kepala Desa Warnajati</p>
 		<br><br><br><br>
-		<h4><u>DEDE Abdullah,S.HI</u></h4>
+		<h4><u>{{$user->name}}</u></h4>
 	</div>
 	<br><br><br><br><br><br>
 @endsection

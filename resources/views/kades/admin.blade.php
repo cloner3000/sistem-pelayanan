@@ -261,6 +261,15 @@
 <script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
+    $('#penanggungJawab').change(function(){
+
+      var url = ($('#sktmpdf').data('url')+'/'+$(this).children('option:selected').data('id'));
+      window.location.assign(url);
+
+    });
+
+</script>
+<script type="text/javascript">
   CKEDITOR.replace('tentang');
   CKEDITOR.replace('visi');
   CKEDITOR.replace('misi');

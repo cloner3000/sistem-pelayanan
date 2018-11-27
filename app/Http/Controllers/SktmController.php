@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Sktm;
 use Auth;
 use PDF;
+use App\User;
 class SktmController extends Controller
 {
     /**
@@ -25,10 +26,16 @@ class SktmController extends Controller
 
     public function indexAcc(Request $req){
         $datas = Sktm::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
+        $user = User::whereHas('roles',function($q){
+                    $q->where('role_id',3);
+                })->orWhereHas('roles',function($q){
+                    $q->where('role_id',2);
+                })->get();
+
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sktm.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sktm.indexAcc',compact('datas','user'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sktm.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sktm.indexAcc',compact('datas','user'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
@@ -76,10 +83,17 @@ class SktmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$user_id)
     {
         $data = Sktm::findOrFail($id);
-        $pdf   = PDF::loadView('pdf.kades.sktm',compact('data'))->setPaper('a4','portrait');
+        $user = User::with('roles')->findOrFail($user_id);
+        if ($user->roles->first()->id == 3) {
+            $pdf   = PDF::loadView('pdf.kades.sktm',compact('data','user'))->setPaper('a4','portrait');
+        }elseif ($user->roles->first()->id == 2){
+            $pdf   = PDF::loadView('pdf.perwakilan.sktm',compact('data','user'))->setPaper('a4','portrait');
+        }else{
+            return abort(404);
+        }
         return $pdf->stream($data->nama.'.pdf');
     }
 
