@@ -261,15 +261,17 @@
 <script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
+  CKEDITOR.replace('tentang');
+  CKEDITOR.replace('visi');
+  CKEDITOR.replace('misi');
+</script>
+<script type="text/javascript">
     $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sktm_tl').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });
-
-    CKEDITOR.replace('tentang');
-    CKEDITOR.replace('visimisi');
-
+    
     var ctx = document.getElementById("areaChart");
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -348,7 +350,7 @@
 
     var options     = {
       maintainAspectRatio  : true,
-    }
+    };
 
     var myDoughnutChart = new Chart(pieChartCanvas, {
       type: 'pie',
