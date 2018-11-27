@@ -65,6 +65,7 @@ return [
         'kades/skk/*',
         'kades/sptjm/*',
         'kades/pengaduan/*',
+        'test',
     ],
 
 ];

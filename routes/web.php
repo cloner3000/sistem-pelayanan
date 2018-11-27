@@ -11,7 +11,7 @@
 |
 */
     Route::get('test',function(){
-        return PDF::loadHTML('Hello World!')->stream('download.pdf');
+        return PDF::loadView('pdf.kematian')->stream('kematian.pdf');
     });
     
     Route::get('/','WebController@index');
