@@ -11,7 +11,7 @@
 |
 */
     Route::get('test',function(){
-        return PDF::loadView('pdf.kematian')->stream('kematian.pdf');
+        return PDF::loadView('pdf.perwakilan.sktm')->setPaper('a4','potrait')->stream('kematian.pdf');
     });
     
     Route::get('/','WebController@index');

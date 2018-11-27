@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
         $this->call(StrukturSeeder::class);
         //Seeder data Pengaduan
         $this->call(PengaduanSeeder::class);
+        //Seeder data Surat tidak mampu
+        $this->call(SktmSeeder::class);
 
     }
 }
