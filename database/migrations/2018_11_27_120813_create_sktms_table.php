@@ -26,6 +26,9 @@ class CreateSktmsTable extends Migration
             $table->string('agama');
             $table->string('pekerjaan');
             $table->string('alamat');
+            $table->string('keperluan');
+            $table->string('n_ayah');
+            $table->string('n_ibu');
             $table->timestamps();
         });
 

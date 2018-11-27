@@ -132,7 +132,7 @@
 
         <li class="treeview @yield('skk')">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Data Surat Kelahiran</span>
+            <i class="fa fa-child"></i> <span>Data Surat Kelahiran</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -146,6 +146,29 @@
             </li>
             <li class="@yield('riwayatSkk')">
               <a href="{{ route('kades.skk.acc') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Riwayat Pengajuan
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="treeview @yield('sktm')">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Data Surat Tidak Mampu</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@yield('pengajuanSktm')">
+              <a href="{{ route('kades.sktm.index') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Pengajuan
+              </a>
+            </li>
+            <li class="@yield('riwayatSktm')">
+              <a href="{{ route('kades.sktm.acc') }}">
                 <i class="fa fa-dot-circle"></i> 
                 Riwayat Pengajuan
               </a>

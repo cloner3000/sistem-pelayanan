@@ -28,6 +28,9 @@ class SktmSeeder extends Seeder
 				'agama' => "islam",
 				'pekerjaan' => $f->randomElement($pekerjaan),
 				'alamat' => $f->address,
+                'keperluan'=> "Sekolah",
+                'n_ayah'=> $f->name,
+                'n_ibu'=> $f->name,
 				'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         	]);

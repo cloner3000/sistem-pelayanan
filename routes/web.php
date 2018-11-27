@@ -69,6 +69,11 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     Route::get('acc/pengaduan','PengaduanController@indexAcc')->name('kades.pengaduan.indexAcc');
     Route::resource('pengaduan','PengaduanController',['names' => 'kades.pengaduan'])->except(['edit','create']);
 
+    //route CRUD data Sktm
+    Route::post('acc/sktm','SktmController@acc')->name('kades.sktm.acc');
+    Route::get('acc/sktm','SktmController@indexAcc')->name('kades.sktm.indexAcc');
+    Route::resource('sktm','SktmController',['names' => 'kades.sktm'])->except(['edit','create']);
+
     //route data Riwayat pengunjung
     Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('kades.hapus_riwayat');
