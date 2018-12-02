@@ -1,4 +1,4 @@
-@extends('kades.admin')
+@extends('admin.admin')
 @section('judul','Daftar Surat Keterangan Tidak Mampu Yang Telah Diterima')
 
 @section('sktm','active')
@@ -7,10 +7,10 @@
 	<section class="content-header">
       <h1>
         Dashboard
-        <small>Kepala Desa</small>
+        <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('kades.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Daftar Surat Keterangan Tidak Mampu Yang Telah Diterima</li>
       </ol>
     </section>
@@ -49,7 +49,11 @@
 				                  		<span class="label label-success">{{$data->status}}</span>
 				                  	</td>
 				                  	<td>
-										<a class="btn btn-xs btn-primary" id="sktmpdf" data-url="{{ route('kades.sktm.show',['sktm'=> $data->id,'user_id' => '']) }}"  data-toggle="modal" data-target="#{{md5($data->id.'sktmpdf')}}">
+				                  		{{-- <a class="btn btn-xs btn-primary" href="{{ route('kades.sktm.show',$data->id) }}">
+											<i class="fa fa-file-alt"></i>
+											 PDF
+										</a> --}}
+										<a class="btn btn-xs btn-primary" id="sktmpdf" data-url="{{ route('sktm.show',['sktm'=> $data->id,'user_id' => '']) }}"  data-toggle="modal" data-target="#{{md5($data->id.'sktmpdf')}}">
 											<i class="fa fa-file-alt"></i>
 											 PDF
 										</a>
@@ -64,7 +68,7 @@
 						                    Hapus
 						                </a>
 
-						                <form id="{{md5($data->id.'hapus')}}" action="{{ route('kades.sktm.destroy',$data->id) }}" method="POST" style="display: none;">
+						                <form id="{{md5($data->id.'hapus')}}" action="{{ route('sktm.destroy',$data->id) }}" method="POST" style="display: none;">
 						                    {{ csrf_field() }}
 						                    <input type="hidden" name="_method" value="DELETE">
 						                </form>
@@ -123,7 +127,7 @@
 			            </div>
 			            <div class="modal-body">
 
-				            <form method="POST" action="{{ route('kades.sktm.update',$d->id) }}">
+				            <form method="POST" action="{{ route('sktm.update',$d->id) }}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								

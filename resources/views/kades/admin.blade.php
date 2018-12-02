@@ -155,7 +155,7 @@
 
         <li class="treeview @yield('sktm')">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Data Surat Tidak Mampu</span>
+            <i class="fa fa-file-invoice-dollar"></i> <span>Data Surat Tidak Mampu</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -169,6 +169,29 @@
             </li>
             <li class="@yield('riwayatSktm')">
               <a href="{{ route('kades.sktm.acc') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Riwayat Pengajuan
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="treeview @yield('skematian')">
+          <a href="#">
+            <i class="fa fa-book-dead"></i> <span>Data Surat Kematian</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@yield('pengajuanSkematian')">
+              <a href="{{ route('kades.skematian.index') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Pengajuan
+              </a>
+            </li>
+            <li class="@yield('riwayatSkematian')">
+              <a href="{{ route('kades.skematian.acc') }}">
                 <i class="fa fa-dot-circle"></i> 
                 Riwayat Pengajuan
               </a>
@@ -268,6 +291,13 @@
 
     });
 
+    $('#penanggungJawab').change(function(){
+
+      var url = ($('#skematianpdf').data('url')+'/'+$(this).children('option:selected').data('id'));
+      window.location.assign(url);
+
+    });
+
 </script>
 <script type="text/javascript">
   CKEDITOR.replace('tentang');
@@ -276,7 +306,7 @@
 </script>
 <script type="text/javascript">
     $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sktm_tl').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sktm_tl,#l_kematian,#l_kematian_pelapor,#w_kematian').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });

@@ -4,7 +4,7 @@
 
 @section('nomor')
 	<h5><u>SURAT KETERANGAN TIDAK MAMPU</u></h5>
-	<p>Nomor : 421/.../{{romawi($data->created_at->format('m'))}}/{{$data->created_at->format('Y')}}</p>
+	<p>Nomor : 421/{{$data->id}}/{{romawi($data->created_at->format('m'))}}/</p>
 @endsection
 
 @section('isi')

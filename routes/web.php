@@ -11,7 +11,7 @@
 |
 */
     Route::get('test',function(){
-        return PDF::loadView('pdf.perwakilan.sktm')->setPaper('a4','potrait')->stream('kematian.pdf');
+        return PDF::loadView('pdf.kades.kematian')->setPaper('a4','potrait')->stream('kematian.pdf');
     });
     
     Route::get('/','WebController@index');
@@ -75,6 +75,12 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     Route::resource('sktm','SktmController',['names' => 'kades.sktm'])->except(['show','edit','create']);
     Route::get('sktm/{sktm}/{user_id}','SktmController@show')->name('kades.sktm.show');
 
+    //route CRUD data Skematian
+    Route::post('acc/skematian','SkematianController@acc')->name('kades.skematian.acc');
+    Route::get('acc/skematian','SkematianController@indexAcc')->name('kades.skematian.indexAcc');
+    Route::resource('skematian','SkematianController',['names' => 'kades.skematian'])->except(['show','edit','create']);
+    Route::get('skematian/{skematian}/{user_id}','SkematianController@show')->name('kades.skematian.show');
+
     //route data Riwayat pengunjung
     Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('kades.hapus_riwayat');
@@ -114,6 +120,18 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::post('acc/sptjm','SptjmController@acc')->name('sptjm.acc');
     Route::get('acc/sptjm','SptjmController@indexAcc')->name('sptjm.indexAcc');
     Route::resource('sptjm','SptjmController')->except(['edit','create']);
+
+    //route CRUD data sktm
+    Route::post('acc/sktm','SktmController@acc')->name('sktm.acc');
+    Route::get('acc/sktm','SktmController@indexAcc')->name('sktm.indexAcc');
+    Route::resource('sktm','SktmController')->except(['show','edit','create']);
+    Route::get('sktm/{sktm}/{user_id}','SktmController@show')->name('sktm.show');
+
+    //route CRUD data Skematian
+    Route::post('acc/skematian','SkematianController@acc')->name('skematian.acc');
+    Route::get('acc/skematian','SkematianController@indexAcc')->name('skematian.indexAcc');
+    Route::resource('skematian','SkematianController',['names' => 'skematian'])->except(['show','edit','create']);
+    Route::get('skematian/{skematian}/{user_id}','SkematianController@show')->name('skematian.show');
 
     //route CRUD data Pengaduan
     Route::post('acc/pengaduan','PengaduanController@acc')->name('pengaduan.acc');

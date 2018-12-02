@@ -35,5 +35,7 @@ class DatabaseSeeder extends Seeder
         //Seeder data Surat tidak mampu
         $this->call(SktmSeeder::class);
 
+        $this->call(SkematianSeeder::class);
+
     }
 }
