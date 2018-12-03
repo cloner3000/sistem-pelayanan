@@ -1,5 +1,5 @@
 @extends('pdf.kades.master')
-@section('judul','Judul')
+@section('judul','Surat Keterangan Kelahiran | '.$data->nama)
 
 @section('nomor')
 	<h5><u>SURAT KETERANGAN KENAL LAHIR</u></h5>

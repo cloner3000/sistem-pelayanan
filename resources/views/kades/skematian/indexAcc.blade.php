@@ -51,7 +51,7 @@
 				                  		<span class="label label-success">{{$data->status}}</span>
 				                  	</td>
 				                  	<td>
-				                  		<a class="btn btn-xs btn-primary" id="skematianpdf" data-url="{{ route('kades.skematian.show',['skematian'=> $data->id,'user_id' => '']) }}"  data-toggle="modal" data-target="#{{md5($data->id.'skematianpdf')}}" style="margin-bottom: 10px;">
+				                  		<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'skematianpdf')}}" style="margin-bottom: 10px;">
 											<i class="fa fa-file-alt"></i>
 											 PDF
 										</a>
@@ -100,7 +100,7 @@
 							<h5>Pilih Penanggung Jawab Surat</h5>
 				            <div class="input-group">
 				              	<span class="input-group-addon"><i class="fa fa-hammer"></i></span>
-				              	<select id="penanggungJawab" class="form-control">
+				              	<select id="penanggungJawab" data-url="{{ route('kades.skematian.show',['skematian'=> $d->id,'user_id' => '']) }}" class="form-control" onchange="getData(this)">
 				              		@foreach($user as $u)
 				              			<option data-id="{{$u->id}}">{{$u->name}}</option>
 				              		@endforeach

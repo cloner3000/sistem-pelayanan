@@ -199,6 +199,29 @@
           </ul>
         </li>
 
+        <li class="treeview @yield('sk')">
+          <a href="#">
+            <i class="fa fa-file-contract"></i> <span>Data Surat Kematian</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@yield('pengajuanSk')">
+              <a href="{{ route('kades.sk.index') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Pengajuan
+              </a>
+            </li>
+            <li class="@yield('riwayatSk')">
+              <a href="{{ route('kades.sk.acc') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Riwayat Pengajuan
+              </a>
+            </li>
+          </ul>
+        </li>
+
         <li class="treeview @yield('sptjm')">
           <a href="#">
             <i class="fa fa-table"></i> <span>Data SPTJM</span>
@@ -284,20 +307,10 @@
 <script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
-    $('#penanggungJawab').change(function(){
-
-      var url = ($('#sktmpdf').data('url')+'/'+$(this).children('option:selected').data('id'));
-      window.location.assign(url);
-
-    });
-
-    $('#penanggungJawab').change(function(){
-
-      var url = ($('#skematianpdf').data('url')+'/'+$(this).children('option:selected').data('id'));
-      window.location.assign(url);
-
-    });
-
+  function getData(data){
+    var url = ($(data).data('url')+'/'+$(data).children('option:selected').data('id'));
+    window.location.assign(url);
+  }
 </script>
 <script type="text/javascript">
   CKEDITOR.replace('tentang');

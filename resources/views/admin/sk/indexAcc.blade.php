@@ -1,8 +1,8 @@
 @extends('admin.admin')
 @section('judul','Daftar Pengajuan Surat Keterangan Yang Telah Diterima')
 
-@section('sktm','active')
-@section('riwayatSktm','active')
+@section('sk','active')
+@section('riwayatSk','active')
 @section('isi')
 	<section class="content-header">
       <h1>
@@ -94,7 +94,7 @@
 			        <div class="modal-content">
 			            <div class="modal-header text-center">
 			                <h4 class="modal-title w-100 font-weight-bold">
-			                	Ubah Data Surat Keterangan Tidak Mampu
+			                	Ubah Data Surat Keterangan
 				                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close">
 				                    <span aria-hidden="true">&times;</span>
 				                </button>

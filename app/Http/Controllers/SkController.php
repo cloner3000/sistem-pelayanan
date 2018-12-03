@@ -151,6 +151,8 @@ class SkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Sk::findOrFail($id);
+        $data->delete();
+        return back();
     }
 }

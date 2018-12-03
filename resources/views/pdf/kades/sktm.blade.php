@@ -1,6 +1,6 @@
 @extends('pdf.kades.master')
 
-@section('judul','Surat Keterangan')
+@section('judul','Surat Keterangan Tidak Mampu | '.$data->nama)
 
 @section('nomor')
 	<h5><u>SURAT KETERANGAN TIDAK MAMPU</u></h5>

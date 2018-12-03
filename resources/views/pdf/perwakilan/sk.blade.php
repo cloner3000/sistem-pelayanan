@@ -1,5 +1,5 @@
 @extends('pdf.perwakilan.master')
-@section('judul','Surat Keterangan')
+@section('judul','Surat Keterangan | '.$data->nama)
 
 @section('nomor')
 	<h5><u>SURAT KETERANGAN</u></h5>
