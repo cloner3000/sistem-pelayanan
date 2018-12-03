@@ -16,7 +16,7 @@ class SkematianSeeder extends Seeder
         $f = factory::create('id_ID');
         for ($i=0; $i < $limit; $i++) { 
         	Skematian::insert([
-				'user_id' =>1,
+				'user_id' =>3,
 				'nama' =>$f->name,
 				'status' => $f->randomElement(['acc','pending']),
 				'nik' =>$f->unixTime($max='now'),

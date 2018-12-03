@@ -20,6 +20,7 @@ class SktmSeeder extends Seeder
         	DB::table('sktms')->insert([
 				'user_id' => 3,
 				'nama' => $f->name,
+                'status' => $f->randomElement(array('acc','pending')),
 				'jenis_kelamin' => $f->randomElement(array('laki-laki','perempuan')),
 				'nik' => $f->randomNumber($nbDigits = NULL, $strict = false),
 				'tempat' => "sukabumi",

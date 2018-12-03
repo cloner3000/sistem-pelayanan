@@ -19,6 +19,7 @@ class SkkSeeder extends Seeder
         	DB::table('skks')->insert([
 
         		'user_id' => 3,
+                'status' => $f->randomElement(array('acc','pending')),
         		'kabupaten' =>$f->state,
         		'kecamatan' =>$f->city,
         		'desa' =>$f->citySuffix,

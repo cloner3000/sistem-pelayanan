@@ -17,7 +17,8 @@ class SkSeeder extends Seeder
 
         for ($i=0; $i < $limit; $i++) { 
 			Sk::insert([
-				'user_id' => 1,
+				'user_id' => 3,
+				'status' => $f->randomElement(array('acc','pending')),
 				'nama' => $f->name,
 				'jenis_kelamin' => $f->randomElement(['laki-laki','perempuan']),
 				'nik' => $f->unixTime($max='now'),
