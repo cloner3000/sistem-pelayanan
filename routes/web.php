@@ -25,10 +25,10 @@
     Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-
     Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'role:User'], function(){
+    
     Route::resource('spp', 'SppController',['names' =>'user.spp'])->only(['store']);
     Route::resource('ktp', 'KtpController',['names' =>'user.ktp'])->only(['store']);
     Route::resource('skk','SkkController',['names' =>'user.skk'])->only(['store']);
@@ -81,6 +81,12 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     Route::resource('skematian','SkematianController',['names' => 'kades.skematian'])->except(['show','edit','create']);
     Route::get('skematian/{skematian}/{user_id}','SkematianController@show')->name('kades.skematian.show');
 
+    //route CRUD data Keterangan
+    Route::post('acc/sk','SkController@acc')->name('kades.sk.acc');
+    Route::get('acc/sk','SkController@indexAcc')->name('kades.sk.indexAcc');
+    Route::resource('sk','SkController',['names' => 'kades.sk'])->except(['show','edit','create']);
+    Route::get('sk/{sk}/{user_id}','SkController@show')->name('kades.sk.show');
+
     //route data Riwayat pengunjung
     Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('kades.hapus_riwayat');
@@ -132,6 +138,12 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::get('acc/skematian','SkematianController@indexAcc')->name('skematian.indexAcc');
     Route::resource('skematian','SkematianController',['names' => 'skematian'])->except(['show','edit','create']);
     Route::get('skematian/{skematian}/{user_id}','SkematianController@show')->name('skematian.show');
+
+    //route CRUD data Keterangan
+    Route::post('acc/sk','SkController@acc')->name('sk.acc');
+    Route::get('acc/sk','SkController@indexAcc')->name('sk.indexAcc');
+    Route::resource('sk','SkController',['names' => 'sk'])->except(['show','edit','create']);
+    Route::get('sk/{sk}/{user_id}','SkController@show')->name('sk.show');
 
     //route CRUD data Pengaduan
     Route::post('acc/pengaduan','PengaduanController@acc')->name('pengaduan.acc');

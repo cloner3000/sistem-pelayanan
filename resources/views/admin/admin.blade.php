@@ -299,7 +299,7 @@
 </script>
 <script type="text/javascript">
     $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sktm_tl,#l_kematian,#l_kematian_pelapor,#w_kematian').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sktm_tl,#l_kematian,#l_kematian_pelapor,#w_kematian,#sk_tl').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });

@@ -22,7 +22,7 @@
     			<div class="box">
 
 	            <div class="box-header">
-	              <h3 class="box-title">Daftar Surat Pindah Yang Telah Di Terima</h3>
+	              <h3 class="box-title">Daftar Surat Permohonan KTP Yang Telah Di Terima</h3>
 	            </div>
 	            <div class="box-body table-responsive no-padding">
 	              <table class="table table-hover">

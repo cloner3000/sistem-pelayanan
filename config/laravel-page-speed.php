@@ -62,6 +62,8 @@ return [
         'admin/sptjm/*',
         'admin/pengaduan/*',
         'admin/skematian/*',
+        'admin/sk/*',
+        'kades/sk/*',
         'kades/skematian/*',
         'kades/spp/*',
         'kades/ktp/*',

@@ -28,7 +28,7 @@ class SkSeeder extends Seeder
 				'pekerjaan' => $f->randomElement(['pns','wiraswasta']),
 				'alamat' => $f->address,
 				'keperluan' => $f->randomElement(['domisili tempat tinggal']),
-				'keterangan' => 'bpergian keluar kota',
+				'keterangan' => 'bepergian keluar kota',
 			]);
         }
     }
