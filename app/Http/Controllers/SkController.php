@@ -7,6 +7,7 @@ use Auth;
 use App\Sk;
 use App\User;
 use Carbon\Carbon;
+use PDF;
 class SkController extends Controller
 {
     /**
@@ -92,7 +93,7 @@ class SkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$user_id)
     {
         $data = Sk::findOrFail($id);
         $user = User::with('roles')->findOrFail($user_id);

@@ -13,7 +13,7 @@
 
 			<div class="row">
 				<div class="col-md-3">Nama Lengkap</div>
-				<div class="col-md-5">: {{$data->nama}}</div>
+				<div class="col-md-5">: <strong>{{$data->nama}}</strong></div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">NIK</div>

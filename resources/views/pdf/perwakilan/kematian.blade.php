@@ -3,11 +3,6 @@
 @section('nomor')
 	<h5>UNTUK YANG BERSANGKUTAN</h5>
 	<h5><u>SURAT KETERANGAN KEMATIAN</u></h5>
-	<p>Nomor : 474.3/.../XI/2018</p>
-@endsection
-@section('nomor')
-	<h5>UNTUK YANG BERSANGKUTAN</h5>
-	<h5><u>SURAT KETERANGAN KEMATIAN</u></h5>
 	<p>Nomor : 474.3/{{$data->id}}/{{romawi(date('m',strtotime($data->created_at)))}}/{{date('Y',strtotime($data->created_at))}}</p>
 @endsection
 @section('isi')

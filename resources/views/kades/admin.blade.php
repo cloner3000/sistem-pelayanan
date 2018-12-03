@@ -201,7 +201,7 @@
 
         <li class="treeview @yield('sk')">
           <a href="#">
-            <i class="fa fa-file-contract"></i> <span>Data Surat Kematian</span>
+            <i class="fa fa-file-contract"></i> <span>Data Surat Keterangan</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
