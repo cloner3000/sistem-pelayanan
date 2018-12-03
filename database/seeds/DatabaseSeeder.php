@@ -34,8 +34,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PengaduanSeeder::class);
         //Seeder data Surat tidak mampu
         $this->call(SktmSeeder::class);
-
+        //Seeder data Surat kematian
         $this->call(SkematianSeeder::class);
+        //Seeder data Surat keterangan
+        $this->call(SkSeeder::class);
 
     }
 }
