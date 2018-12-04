@@ -1,17 +1,17 @@
-@extends('admin.admin')
-@section('judul','Daftar Surat Keterangan Tidak Mampu Yang Telah Diterima')
+@extends('kades.admin')
+@section('judul','Daftar Pengajuan Surat Keterangan Yang Telah Diterima')
 
-@section('sktm','active')
-@section('riwayatSktm','active')
+@section('sk','active')
+@section('riwayatSk','active')
 @section('isi')
 	<section class="content-header">
       <h1>
         Dashboard
-        <small>Admin</small>
+        <small>Kepala Desa</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Daftar Surat Keterangan Tidak Mampu Yang Telah Diterima</li>
+        <li><a href="{{ route('kades.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Daftar Pengajuan Surat Keterangan Yang Telah Diterima</li>
       </ol>
     </section>
 
@@ -22,7 +22,7 @@
     			<div class="box">
 
 		            <div class="box-header">
-		              <h3 class="box-title">Daftar Surat Keterangan Tidak Mampu Yang Telah Diterima</h3>
+		              <h3 class="box-title">Daftar Pengajuan Surat Keterangan Yang Telah Diterima</h3>
 		            </div>
 		            
 		            <div class="box-body table-responsive no-padding">
@@ -34,6 +34,7 @@
 			                <th>Tempat Tanggal Lahir</th>
 			                <th>Jenis Kelamin</th>
 			                <th>Tujuan</th>
+			                <th>Keterangan</th>
 			                <th>Status</th>
 			                <th>Aksi</th>
 		                </tr>
@@ -45,16 +46,17 @@
 				                  	<td>{{$data->tempat}}, {{$data->tanggal}}</td> 
 				                  	<td>{{$data->jenis_kelamin}}</td>
 				                  	<td>{{$data->keperluan}}</td>
+				                  	<td>{{$data->keterangan}}</td>
 				                  	<td>
 				                  		<span class="label label-success">{{$data->status}}</span>
 				                  	</td>
 				                  	<td>
-										<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'sktmpdf')}}">
+										<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'skpdf')}}">
 											<i class="fa fa-file-alt"></i>
 											 PDF
 										</a>
 										<br>
-										<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'sktm')}}" style="margin-top: 10px;">
+										<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'sk')}}" style="margin-top: 10px;">
 											<i class="fa fa-edit"></i>
 											Edit
 										</a>
@@ -64,7 +66,7 @@
 						                    Hapus
 						                </a>
 
-						                <form id="{{md5($data->id.'hapus')}}" action="{{ route('sktm.destroy',$data->id) }}" method="POST" style="display: none;">
+						                <form id="{{md5($data->id.'hapus')}}" action="{{ route('kades.sk.destroy',$data->id) }}" method="POST" style="display: none;">
 						                    {{ csrf_field() }}
 						                    <input type="hidden" name="_method" value="DELETE">
 						                </form>
@@ -83,8 +85,7 @@
     	</div>
 
     	@foreach($datas as $d)
-    		
-    		<div class="modal fade" id="{{md5($d->id.'sktmpdf')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    		<div class="modal fade" id="{{md5($d->id.'skpdf')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    <div class="modal-dialog" role="document">
 			        <div class="modal-content">
 			            <div class="modal-header text-center">
@@ -99,7 +100,7 @@
 							<h5>Pilih Penanggung Jawab Surat</h5>
 				            <div class="input-group">
 				              	<span class="input-group-addon"><i class="fa fa-hammer"></i></span>
-				              	<select id="penanggungJawab" class="form-control" data-url="{{ route('sktm.show',['sktm'=> $d->id,'user_id' => '']) }}" onchange="getData(this)">
+				              	<select class="form-control" data-url="{{ route('kades.sk.show',['sk'=> $d->id,'user_id' => '']) }}" onchange="getData(this);">
 				              		@foreach($user as $u)
 				              			<option data-id="{{$u->id}}">{{$u->name}}</option>
 				              		@endforeach
@@ -109,13 +110,12 @@
 			        </div>
 			    </div>
 			</div>
-
-			<div class="modal fade" id="{{md5($d->id.'sktm')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal fade" id="{{md5($d->id.'sk')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    <div class="modal-dialog modal-lg" role="document">
 			        <div class="modal-content">
 			            <div class="modal-header text-center">
 			                <h4 class="modal-title w-100 font-weight-bold">
-			                	Ubah Data Surat Keterangan Tidak Mampu
+			                	Ubah Data Surat Keterangan
 				                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close">
 				                    <span aria-hidden="true">&times;</span>
 				                </button>
@@ -123,7 +123,7 @@
 			            </div>
 			            <div class="modal-body">
 
-				            <form method="POST" action="{{ route('sktm.update',$d->id) }}">
+				            <form method="POST" action="{{ route('kades.sk.update',$d->id) }}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								
@@ -163,7 +163,7 @@
 							    <h5>Tanggal Lahir</h5>
 							    <div class="input-group">
 							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-							      	<input name="tanggal" type="text" id="sktm_tl" class="form-control" required value="{{date('d-m-Y', strtotime($d->tanggal))}}">
+							      	<input name="tanggal" type="text" id="sk_tl" class="form-control" required value="{{date('d-m-Y', strtotime($d->tanggal))}}">
 							    </div>
 
 							    <h5>Agama</h5>
@@ -192,18 +192,12 @@
 				              		<input name="keperluan" type="text" class="form-control" required value="{{$d->keperluan}}">
 				            	</div>
 
-				            	<h5>Nama Ayah</h5>
+				            	<h5>Keterangan</h5>
 				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="n_ayah" type="text" class="form-control" required value="{{$d->n_ayah}}">
+				              		<span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
+				              		<input name="keterangan" type="text" class="form-control" required value="{{$d->keterangan}}">
 				            	</div>
-
-				            	<h5>Nama Ibu</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="n_ibu" type="text" class="form-control" required value="{{$d->n_ibu}}">
-				            	</div>
-
+				            	
 				            	<div class="modal-footer d-flex justify-content-center">
 				               		<button type="submit" class="btn btn-primary">Simpan</button>
 				              	</div>
