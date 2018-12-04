@@ -24,7 +24,7 @@ class SkkSeeder extends Seeder
         		'kecamatan' =>$f->city,
         		'desa' =>$f->citySuffix,
         		'nama_kepala_keluarga' =>$f->name,
-        		'no_kk' =>$f->randomNumber($nbDigits = NULL, $strict = false),
+        		'no_kk' =>$f->unixTime($max='now'),
     	
     			'b_nama' =>$f->name,
     			'b_jenis_kelamin' =>$f->randomElement($jenis),
