@@ -20,7 +20,7 @@ class SppSeeder extends Seeder
         for ($i=0; $i < $limit; $i++) { 
         	DB::table('spps')->insert([
         		'user_id' => 3,
-        		'nik' => $faker->randomNumber($nbDigits = NULL, $strict = false),
+        		'nik' => $faker->unixTime($max='now'),
         		'nama' => $faker->name,
         		'no_kk' => $faker->randomNumber($nbDigits = NULL, $strict = false),
         		'kepala_keluarga' => $faker->name,

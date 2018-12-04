@@ -21,7 +21,7 @@ class PengaduanSeeder extends Seeder
         	DB::table('pengaduans')->insert([
         		'user_id' => 3,
 				'nama' => $f->name,
-				'nik' => $f->randomNumber($nbDigits = NULL, $strict = false),
+				'nik' => $f->unixTime($max='now'),
 				'tanggal_lahir' => $f->date($format = 'Y-m-d', $max = 'now'),
 				'pekerjaan' => $f->randomElement($pekerjaan),
 				'alamat' => $f->address,

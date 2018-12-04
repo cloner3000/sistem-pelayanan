@@ -35,7 +35,7 @@ class SkkSeeder extends Seeder
     			'b_berat' =>$f->NumberBetween($min=1,$max=4),
     			'b_panjang' =>$f->NumberBetween($min=30,$max=60),
     
-    			'i_nik' =>$f->randomNumber($nbDigits = NULL, $strict = false),
+    			'i_nik' =>$f->unixTime($max='now'),
     			'i_nama' =>$f->name($gender="female"),
     			'i_tanggal_lahir' =>$f->date($format = 'Y-m-d', $max = 'now'),
     			'i_pekerjaan' =>$f->jobTitle,
@@ -44,7 +44,7 @@ class SkkSeeder extends Seeder
     			'i_kebangsaan' => "Indonesia",
     			'i_tanggal_perkawinan' =>$f->date($format = 'Y-m-d', $max = 'now'),
     	
-    			'a_nik' =>$f->randomNumber($nbDigits = NULL, $strict = false),
+    			'a_nik' =>$f->unixTime($max='now'),
     			'a_nama' =>$f->name($gender="male"),
     			'a_tanggal_lahir' =>$f->date($format = 'Y-m-d', $max = 'now'),
     			'a_pekerjaan' =>$f->jobTitle,
@@ -53,20 +53,20 @@ class SkkSeeder extends Seeder
     			'a_kebangsaan' => "Indonesia",
     			'a_tanggal_perkawinan' =>$f->date($format = 'Y-m-d', $max = 'now'),
     	
-    			'p_nik' =>$f->randomNumber($nbDigits = NULL, $strict = false),
+    			'p_nik' =>$f->unixTime($max='now'),
     			'p_nama' =>$f->name,
     			'p_umur' =>$f->NumberBetween($min=19,$max=40),
     			'p_jenis_kelamin' =>$f->randomElement($jenis),
     			'p_pekerjaan' =>$f->jobTitle,
     			'p_alamat' =>$f->address,
     	
-    			's1_nik' =>$f->randomNumber($nbDigits = NULL, $strict = false),
+    			's1_nik' =>$f->unixTime($max='now'),
     			's1_nama' =>$f->name,
     			's1_umur' =>$f->NumberBetween($min=19,$max=40),
     			's1_pekerjaan' =>$f->jobTitle,
     			's1_alamat' =>$f->address,
     	
-    			's2_nik' =>$f->randomNumber($nbDigits = NULL, $strict = false),
+    			's2_nik' =>$f->unixTime($max='now'),
     			's2_nama' =>$f->name,
     			's2_umur' =>$f->NumberBetween($min=19,$max=40),
     			's2_pekerjaan' =>$f->jobTitle,

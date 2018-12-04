@@ -49,7 +49,7 @@
 				                  		<span class="label label-success">{{$data->status}}</span>
 				                  	</td>
 				                  	<td>
-										<a class="btn btn-xs btn-primary" id="sktmpdf" data-url="{{ route('kades.sktm.show',['sktm'=> $data->id,'user_id' => '']) }}"  data-toggle="modal" data-target="#{{md5($data->id.'sktmpdf')}}">
+										<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'sktmpdf')}}">
 											<i class="fa fa-file-alt"></i>
 											 PDF
 										</a>
@@ -99,7 +99,7 @@
 							<h5>Pilih Penanggung Jawab Surat</h5>
 				            <div class="input-group">
 				              	<span class="input-group-addon"><i class="fa fa-hammer"></i></span>
-				              	<select id="penanggungJawab" class="form-control">
+				              	<select id="penanggungJawab" class="form-control" data-url="{{ route('kades.sktm.show',['sktm'=> $d->id,'user_id' => '']) }}" onchange="getData(this)">
 				              		@foreach($user as $u)
 				              			<option data-id="{{$u->id}}">{{$u->name}}</option>
 				              		@endforeach
