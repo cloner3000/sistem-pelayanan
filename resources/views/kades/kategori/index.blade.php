@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('kades.admin')
 @section('judul','Daftar Kategori Postingan')
 
 @section('blog','active')
@@ -7,7 +7,7 @@
 	<section class="content-header">
       <h1>
         Dashboard
-        <small>Admin</small>
+        <small>Kepala Desa</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -42,7 +42,7 @@
 						            </div>
 						            <div class="modal-body mx-3">
 
-							            <form method="POST" action="{{ route('kategori.store') }}">
+							            <form method="POST" action="{{ route('kades.kategori.store') }}">
 											{{ csrf_field() }}
 											
 											<h5>Nama Kategori</h5>
@@ -87,7 +87,7 @@
 					                    Hapus
 					                    </a>
 
-					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('kategori.destroy',$data->id) }}" method="POST" style="display: none;">
+					                    <form id="{{md5($data->id.'hapus')}}" action="{{ route('kades.kategori.destroy',$data->id) }}" method="POST" style="display: none;">
 					                        {{ csrf_field() }}
 					                        <input type="hidden" name="_method" value="DELETE">
 					                    </form>
@@ -117,7 +117,7 @@
 			            </div>
 			            <div class="modal-body mx-3">
 
-				            <form method="POST" action="{{ route('kategori.update',$d->id) }}">
+				            <form method="POST" action="{{ route('kades.kategori.update',$d->id) }}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								

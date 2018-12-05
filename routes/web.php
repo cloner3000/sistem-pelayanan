@@ -87,6 +87,9 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     Route::resource('sk','SkController',['names' => 'kades.sk'])->except(['show','edit','create']);
     Route::get('sk/{sk}/{user_id}','SkController@show')->name('kades.sk.show');
 
+    //Route CRUD Kategori
+    Route::resource('kategori','KategoriController',['names' => 'kades.kategori'])->except(['show','edit','create']);
+
     //route data Riwayat pengunjung
     Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('kades.hapus_riwayat');

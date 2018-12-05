@@ -268,6 +268,29 @@
           </ul>
         </li>
 
+         <li class="treeview @yield('blog')">
+          <a href="#">
+            <i class="fa fa-globe"></i><span>Pengaturan Blog</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@yield('post')">
+              <a href="">
+                <i class="fa fa-dot-circle"></i> 
+                Postingan
+              </a>
+            </li>
+            <li class="@yield('kategori')">
+              <a href="{{ route('kades.kategori.index') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Kategori Postingan
+              </a>
+            </li>
+          </ul>
+        </li>
+
         <li class="@yield('struktur')">
           <a href="{{ route('kades.struktur') }}">
             <i class="fa fa-briefcase"></i>

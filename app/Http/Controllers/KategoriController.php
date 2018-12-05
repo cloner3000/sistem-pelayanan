@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kategori;
+use App\User;
+use Auth;
 class KategoriController extends Controller
 {
     /**
@@ -14,7 +16,11 @@ class KategoriController extends Controller
     public function index(Request $req)
     {
         $datas = Kategori::paginate(10);
-        return view('admin.kategori.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.kategori.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.kategori.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     /**
