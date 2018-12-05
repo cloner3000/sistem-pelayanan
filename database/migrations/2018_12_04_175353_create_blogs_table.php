@@ -16,16 +16,19 @@ class CreateBlogsTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('kategori_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('slug')->unique();
             $table->string('judul');
             $table->text('isi');
             $table->string('deskripsi');
-            $table->text('meta_keyword');
-            $table->text('meta_deskripsi');
             $table->string('foto');
-            $table->string('status');
+            $table->string('status')->default('pending');
             $table->timestamps();
-            $table->timestamps();
+        });
+
+        Schema::table('blogs',function($t){
+            $t->foreign('kategori_id')->references('id')->on('kategoris')->onUpdate('cascade')->onDelete('cascade');
+            $t->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
