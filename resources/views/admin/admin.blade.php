@@ -268,7 +268,7 @@
           </ul>
         </li>
 
-        <li class="treeview @yield('blog')">
+         <li class="treeview @yield('blog')">
           <a href="#">
             <i class="fa fa-globe"></i><span>Pengaturan Blog</span>
             <span class="pull-right-container">
@@ -276,10 +276,16 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="@yield('post')">
-              <a href="">
+            <li class="@yield('indexPost')">
+              <a href="{{ route('blog.index') }}">
                 <i class="fa fa-dot-circle"></i> 
-                Postingan
+                Daftar Postingan
+              </a>
+            </li>
+            <li class="@yield('createPost')">
+              <a href="{{ route('blog.create') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Buat Postingan
               </a>
             </li>
             <li class="@yield('kategori')">

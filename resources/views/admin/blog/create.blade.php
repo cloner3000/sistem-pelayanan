@@ -1,4 +1,4 @@
-@extends('kades.admin')
+@extends('admin.admin')
 @section('judul','Tambah Postingan')
 
 @section('blog','active')
@@ -7,7 +7,7 @@
 	<section class="content-header">
       <h1>
         Dashboard
-        <small>Kepala Desa</small>
+        <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
@@ -16,7 +16,7 @@
     </section>
 
     <section class="content">
-		<form action="{{ route('kades.blog.store') }}" method="post" enctype="multipart/form-data">
+		<form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
 			{{csrf_field()}}
 
 		    <div class="box box-primary">

@@ -1,4 +1,4 @@
-@extends('kades.admin')
+@extends('admin.admin')
 @section('judul','Daftar Postingan')
 
 @section('blog','active')
@@ -7,10 +7,10 @@
 	<section class="content-header">
       <h1>
         Dashboard
-        <small>Kepala Desa</small>
+        <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('kades.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Daftar Postingan</li>
       </ol>
     </section>
@@ -51,7 +51,7 @@
 										 Lihat
 									</a>
 									
-									<a class="btn btn-xs btn-info" href="{{ route('kades.blog.edit',$data->id) }}" style="margin-left: 5px;">
+									<a class="btn btn-xs btn-info" href="{{ route('blog.edit',$data->id) }}" style="margin-left: 5px;">
 										<i class="fa fa-edit"></i>
 										 Edit
 									</a>
@@ -61,7 +61,7 @@
 					                    Hapus
 					                </a>
 
-					                <form id="{{md5($data->id.'hapus')}}" action="{{ route('kades.blog.destroy',$data->id) }}" method="POST" style="display: none;">
+					                <form id="{{md5($data->id.'hapus')}}" action="{{ route('blog.destroy',$data->id) }}" method="POST" style="display: none;">
 					                    {{ csrf_field() }}
 					                    <input type="hidden" name="_method" value="DELETE">
 					                </form>

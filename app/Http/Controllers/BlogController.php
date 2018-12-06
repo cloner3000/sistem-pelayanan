@@ -125,7 +125,12 @@ class BlogController extends Controller
         $data->isi         = $req->input('isi');
         $data->deskripsi   = $req->input('deskripsi');
         $data->save();
-        return redirect()->route('kades.blog.index');    
+
+         if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return redirect()->route('kades.blog.index');
+         }else {
+            return redirect()->route('blog.index');
+         }    
     }
 
     /**

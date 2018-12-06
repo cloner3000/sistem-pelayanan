@@ -276,10 +276,16 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="@yield('post')">
-              <a href="">
+            <li class="@yield('indexPost')">
+              <a href="{{ route('kades.blog.index') }}">
                 <i class="fa fa-dot-circle"></i> 
-                Postingan
+                Daftar Postingan
+              </a>
+            </li>
+            <li class="@yield('createPost')">
+              <a href="{{ route('kades.blog.create') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Buat Postingan
               </a>
             </li>
             <li class="@yield('kategori')">
