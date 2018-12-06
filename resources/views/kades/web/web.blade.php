@@ -156,8 +156,8 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-								<button type="submit" class="btn btn-sm btn-info">Save</button>
-							</div>
+							<button type="submit" class="btn btn-sm btn-info">Save</button>
+						</div>
 					</div>
 				</div>
 

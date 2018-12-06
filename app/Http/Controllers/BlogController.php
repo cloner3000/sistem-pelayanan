@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Blog;
+use App\Kategori;
+use App\User;
+use Auth;
+use Image;
 class BlogController extends Controller
 {
     /**
@@ -11,9 +15,14 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        //
+        $datas = Blog::paginate(10);
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.blog.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }else{
+            return view('admin.blog.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+        }
     }
 
     /**
@@ -23,7 +32,12 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        $datas = Kategori::all();
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.blog.create',compact('datas'));
+        }else{
+            return view('admin.blog.create',compact('datas'));
+        }
     }
 
     /**
@@ -32,9 +46,28 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        if ($req->hasFile('foto')) {
+            $foto = Image::make($req->file('foto'))->fit(1366,720)->encode('jpg');
+            $nama = md5($foto->__toString()).".jpg";
+
+            $lokasi = "storage/blog/{$nama}";
+            $foto->save(public_path($lokasi));
+
+            $data = Blog::create([
+                    'kategori_id' => $req->input('kategori_id'),
+                    'user_id'     => Auth::id(),
+                    'slug'        => slugify($req->input('judul')),
+                    'judul'       => $req->input('judul'),
+                    'isi'         => $req->input('isi'),
+                    'deskripsi'   => $req->input('deskripsi'),
+                    'foto'        => $nama,
+                ]);
+            $data->save();  
+        }
+
+        return back();     
     }
 
     /**
@@ -79,6 +112,9 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Blog::findOrFail($id);
+        unlink($data->foto);
+        $data->delete();
+        return back();
     }
 }

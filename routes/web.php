@@ -11,7 +11,7 @@
 |
 */
     Route::get('test',function(){
-        return PDF::loadView('pdf.kades.kematian')->setPaper('a4','potrait')->stream('kematian.pdf');
+        return view('kades.blog.create');
     });
     
     Route::get('/','WebController@index');
@@ -90,6 +90,9 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //Route CRUD Kategori
     Route::resource('kategori','KategoriController',['names' => 'kades.kategori'])->except(['show','edit','create']);
 
+    //Route CRUD Post
+    Route::resource('blog','BlogController',['names' => 'kades.blog']);
+
     //route data Riwayat pengunjung
     Route::get('/riwayat','DashboardController@riwayat')->name('kades.riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('kades.hapus_riwayat');
@@ -155,6 +158,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
 
     //Route CRUD Kategori
     Route::resource('kategori','KategoriController')->except(['show','edit','create']);
+
+    //Route CRUD Post
+    Route::resource('blog','BlogController');
 
     Route::get('/riwayat','DashboardController@riwayat')->name('riwayat');
     Route::post('/riwayat','DashboardController@hapus_riwayat')->name('hapus_riwayat');

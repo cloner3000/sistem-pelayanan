@@ -20,9 +20,8 @@ class CreateBlogsTable extends Migration
             $table->string('slug')->unique();
             $table->string('judul');
             $table->text('isi');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('foto');
-            $table->string('status')->default('pending');
             $table->timestamps();
         });
 

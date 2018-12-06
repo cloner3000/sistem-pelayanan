@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     protected $fillable = [
-    	'kategori_id','slug','judul','isi','deskripsi','foto','status'
+    	'kategori_id','slug','judul','isi','deskripsi','foto','user_id'
     ];
 
     protected $table = 'blogs';
