@@ -17,7 +17,7 @@ class BlogController extends Controller
      */
     public function index(Request $req)
     {
-        $datas = Blog::paginate(10);
+        $datas = Blog::with('users','kategoris')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.blog.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
         }else{
@@ -89,7 +89,13 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Blog::findOrFail($id);
+        $kategori = Kategori::all();
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.blog.edit',compact('data','kategori'));
+        }else{
+            return view('admin.blog.edit',compact('data','kategori'));
+        }
     }
 
     /**
@@ -99,9 +105,27 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $data = Blog::findOrFail($id);
+         if ($req->hasFile('foto')) {
+            $foto = Image::make($req->file('foto'))->fit(1366,720)->encode('jpg');
+            $nama = md5($foto->__toString()).".jpg";
+
+            $lokasi = "storage/blog/{$nama}";
+            $foto->save(public_path($lokasi));
+            unlink(public_path('storage/blog').'/'.$data->foto);
+            $data->foto        = $nama;
+        }
+
+        $data->kategori_id = $req->input('kategori_id');
+        $data->user_id     = Auth::id();
+        $data->slug        = slugify($req->input('judul'));
+        $data->judul       = $req->input('judul');
+        $data->isi         = $req->input('isi');
+        $data->deskripsi   = $req->input('deskripsi');
+        $data->save();
+        return redirect()->route('kades.blog.index');    
     }
 
     /**
@@ -113,7 +137,7 @@ class BlogController extends Controller
     public function destroy($id)
     {
         $data = Blog::findOrFail($id);
-        unlink($data->foto);
+        unlink(public_path('storage/blog'),$data->foto);
         $data->delete();
         return back();
     }

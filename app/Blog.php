@@ -13,10 +13,10 @@ class Blog extends Model
     protected $table = 'blogs';
 
     public function kategoris(){
-    	return $this->belongsTo('App\Kategori');
+    	return $this->belongsTo('App\Kategori','kategori_id');
     }
 
     public function users(){
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\User','user_id');
     }
 }

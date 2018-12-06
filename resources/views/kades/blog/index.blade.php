@@ -39,19 +39,19 @@
 			            	<tr>
 								<td>{{++$no}}</td>
 			                  	<td>{{$data->judul}}</td>
-			                  	<td>{{$data->kategori_id}}</td>
+			                  	<td>{{$data->kategoris->nama}}</td>
 			                  	<td>
-			                  		<img src="{{ asset('storage/blog').'/'.$data->foto}}" class="img-thumbnail">
+			                  		<img src="{{ asset('storage/blog').'/'.$data->foto}}" class="img-thumbnail" style="width: auto;height: 50px;">
 			                  	</td>
 			                  	<td>{{$data->slug}}</td>
-			                  	<td>{{$data->user_id}}</td>
+			                  	<td>{{$data->users->name}}</td>
 			                  	<td>
-			                  		<a class="btn btn-xs btn-primary" href="{{ route('kades.blog.show',$data->id) }}">
+			                  		<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'blog')}}" >
 										<i class="fa fa-search"></i>
 										 Lihat
 									</a>
 									
-									<a class="btn btn-xs btn-info" style="margin-left: 5px;" data-toggle="modal" data-target="#{{md5($data->id.'blog')}}" >
+									<a class="btn btn-xs btn-info" href="{{ route('kades.blog.edit',$data->id) }}" style="margin-left: 5px;">
 										<i class="fa fa-edit"></i>
 										 Edit
 									</a>
@@ -80,19 +80,43 @@
     	</div>
 
 		@foreach($datas as $d)
-			<div class="modal fade" id="{{md5($d->id.'ktp')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			    <div class="modal-dialog" role="document">
+			<div class="modal fade" id="{{md5($d->id.'blog')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog modal-lg" role="document" style="width: 90%;">
 			        <div class="modal-content">
 			            <div class="modal-header text-center">
-			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Permohonan KTP</h4>
+			                <h4 class="modal-title w-100 font-weight-bold">Preview Posting</h4>
 			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			                    <span aria-hidden="true">&times;</span>
 			                </button>
 			            </div>
 			            <div class="modal-body mx-3">
+							<div class="container">
 
-				            
+						      <div class="row">
+						        <div class="col-lg-12">
+						          <h5><strong>Judul :</strong> {{$d->judul}}</h5>
+						          <hr>
+						          <p>
+						            <strong>Diposting Oleh :</strong> {{$d->user_id}}
+						          </p>
 
+						          <hr>
+						          <p><strong>Diposting pada :</strong> {{$d->created_at}}</p>
+
+						          <hr>
+						          <p>
+						          	<strong>Foto Posting :</strong>
+						          	<img class="img-thumbnail" src="{{ asset('storage/blog').'/'.$d->foto }}" style="width: 10%;height:auto;">
+						          </p>
+						          <hr>
+						          <p><strong>Desktipsi :</strong>{{$d->deskripsi}}</p>
+								  <hr>
+								  <br>
+						          	{!!$d->isi!!}
+						          <hr>
+
+						        </div>
+						    </div>
 			            </div>
 			        </div>
 			    </div>
