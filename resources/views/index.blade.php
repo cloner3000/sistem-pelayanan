@@ -138,6 +138,81 @@
     </div>
   </div>
 
+  <div id="berita" class="about-area area-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="section-headline text-center">
+            <h2>Berita Terbaru</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        
+        <div class="carousel slide" id="berita-slide">
+          <div class="carousel-inner">
+
+            @foreach($news as $i => $news)
+            
+              @if($i == 0)
+                <div class="item active">
+                  <ul class="thumbnails">
+                    
+                    @foreach($news as $n)
+                      <li class="col-sm-3">
+                        <div class="fff">
+                          <div class="thumbnail">
+                            <a href="#"><img src="{{ asset('storage/blog').'/'.$n->foto }}" alt=""></a>
+                          </div>
+                          <div class="caption">
+                            <h6>{{$n->judul}}</h6>
+                            <p>{{$n->deskripsi}}</p>
+                            <a class="btn btn-mini" href="#">» Selanjutnya</a>
+                          </div>
+                        </div>
+                      </li>
+                    @endforeach
+
+                  </ul>
+                </div>
+              @else
+                <div class="item">
+                  <ul class="thumbnails">
+                    
+                    @foreach($news as $n)
+                      <li class="col-sm-3">
+                        <div class="fff">
+                          <div class="thumbnail">
+                            <a href="#"><img src="{{ asset('storage/blog').'/'.$n->foto }}" alt=""></a>
+                          </div>
+                          <div class="caption">
+                            <h6>{{$n->judul}}</h6>
+                            <p>{{$n->deskripsi}}</p>
+                            <a class="btn btn-mini" href="#">» Selanjutnya</a>
+                          </div>
+                        </div>
+                      </li>
+                    @endforeach
+
+                  </ul>
+                </div>
+              @endif
+
+            @endforeach
+          </div>
+
+          <nav>
+            <ul class="control-box pager">
+              <li><a data-slide="prev" href="#berita-slide" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+              <li><a data-slide="next" href="#berita-slide" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <div id="tentang" class="about-area area-padding">
     <div class="container">
       <div class="row">

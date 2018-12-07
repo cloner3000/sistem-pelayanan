@@ -9,6 +9,7 @@ use App\Ktp;
 use App\Skk;
 use App\Sptjm;
 use App\Spp;
+use App\Blog;
 class WebController extends Controller
 {
     public function index()
@@ -19,6 +20,8 @@ class WebController extends Controller
     	$skk = Skk::count();
     	$sptjm = Sptjm::count();
     	$spp = Spp::count();
-    	return view('index',compact('web','strukturs','ktp','skk','sptjm','spp'));
+
+        $news = Blog::with('users','kategoris')->orderBy('updated_at','asc')->get()->chunk(4);
+    	return view('index',compact('web','strukturs','ktp','skk','sptjm','spp','news'));
     }
 }

@@ -40,6 +40,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SkSeeder::class);
         //Seeder data Kategori blog
         $this->call(KategoriSeeder::class);
+        //Seeder data Blog
+        $this->call(BlogSeeder::class);
 
     }
 }

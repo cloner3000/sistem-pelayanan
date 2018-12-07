@@ -50,13 +50,13 @@
 										<i class="fa fa-search"></i>
 										 Lihat
 									</a>
-									
-									<a class="btn btn-xs btn-info" href="{{ route('kades.blog.edit',$data->id) }}" style="margin-left: 5px;">
+									<br>
+									<a class="btn btn-xs btn-info" href="{{ route('kades.blog.edit',$data->id) }}" style="margin-bottom: 5px;">
 										<i class="fa fa-edit"></i>
 										 Edit
 									</a>
-																		
-									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin-left: 5px;">
+									<br>									
+									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin-bottom: 5px;">
 					                    <i class="fa fa-trash"></i>
 					                    Hapus
 					                </a>
