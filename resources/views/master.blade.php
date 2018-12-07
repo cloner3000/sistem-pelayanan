@@ -24,7 +24,7 @@
   <div id="preloader"></div>
   
   <header>
-    <div id="sticker" class="header-area">
+    <div id="sticker" class="header-area" style="background-color: black;">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12">
@@ -136,13 +136,12 @@
 
   <script src="{{secure_asset('web/lib/jquery/jquery.min.js')}}"></script>
   <script src="{{secure_asset('web/lib/bootstrap/js/bootstrap.min.js')}}"></script>
-  <script src="{{secure_asset('web/lib/nivo-slider/js/jquery.nivo.slider.js')}}" type="text/javascript"></script>
-  <script src="{{secure_asset('web/js/main.js')}}"></script>
   <script type="text/javascript">
-    $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan').datetimepicker({
-           format:'DD-MM-YYYY HH:mm:ss',
-        });
+     $(window).on('load', function() {
+      var pre_loader = $('#preloader');
+      pre_loader.fadeOut('slow', function() {
+        $(this).remove();
+      });
     });
   </script>
 </body>
