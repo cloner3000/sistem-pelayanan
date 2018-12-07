@@ -18,7 +18,7 @@
 	          		</div>
 					<div class="col-md-4">
 						<div class="pull-right">
-							<a href="" title="">
+							<a href="{{ route('kategori',$post->kategoris->slug) }}" title="">
 								<span class="label label-primary">{{$post->kategoris->nama}}</span> 
 							</a>
 						</div>
