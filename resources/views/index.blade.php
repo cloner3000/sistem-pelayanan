@@ -165,12 +165,12 @@
                       <li class="col-sm-3">
                         <div class="fff">
                           <div class="thumbnail">
-                            <a href="#"><img src="{{ asset('storage/blog').'/'.$n->foto }}" alt=""></a>
+                            <a href="{{ route('detail',$n->slug) }}"><img src="{{ asset('storage/blog').'/'.$n->foto }}" alt=""></a>
                           </div>
                           <div class="caption">
                             <h6>{{$n->judul}}</h6>
                             <p>{{$n->deskripsi}}</p>
-                            <a class="btn btn-mini" href="#">» Selanjutnya</a>
+                            <a class="btn btn-mini" href="{{ route('detail',$n->slug) }}">» Selanjutnya</a>
                           </div>
                         </div>
                       </li>
@@ -186,12 +186,12 @@
                       <li class="col-sm-3">
                         <div class="fff">
                           <div class="thumbnail">
-                            <a href="#"><img src="{{ asset('storage/blog').'/'.$n->foto }}" alt=""></a>
+                            <a href="{{ route('detail',$n->slug) }}"><img src="{{ asset('storage/blog').'/'.$n->foto }}" alt=""></a>
                           </div>
                           <div class="caption">
                             <h6>{{$n->judul}}</h6>
                             <p>{{$n->deskripsi}}</p>
-                            <a class="btn btn-mini" href="#">» Selanjutnya</a>
+                            <a class="btn btn-mini" href="{{ route('detail',$n->slug) }}">» Selanjutnya</a>
                           </div>
                         </div>
                       </li>

@@ -43,7 +43,7 @@
               </div>
               <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="active">
+                  <li>
                     <a class="page-scroll" href="{{ route('/') }}#home">Home</a>
                   </li>
                   <li>
@@ -55,7 +55,7 @@
                   <li>
                     <a class="page-scroll" href="{{ route('/') }}#struktur">Struktur Organisasi</a>
                   </li>
-                  <li>
+                  <li class="active">
                     <a class="page-scroll" href="{{ route('/') }}#struktur">Berita</a>
                   </li>
                   @guest
