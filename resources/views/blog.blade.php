@@ -15,19 +15,23 @@
 				    	<div class="post-body">
 				    		<div class="row">
 				    			<div class="col-md-4">
-				    				<a href=""><img src="{{ asset('storage/blog').'/'.$p->foto }}" class="img-thumbnail"></a>
+				    				<a href="{{ route('detail',$p->slug) }}">
+				    					<img src="{{ asset('storage/blog').'/'.$p->foto }}" class="img-thumbnail">
+				    				</a>
 				    			</div>
 				    			<div class="col-md-8">
-				    				<a href=""><h4>{{$p->judul}}</h4></a>
+				    				<a href="{{ route('detail',$p->slug) }}">
+				    					<h4>{{$p->judul}}</h4>
+				    				</a>
 								    <p>{{$p->deskripsi}}</p>
 								    <p class="pull-left">
-								    	<a href="" class="">Selengkapnya</a>
+								    	<a href="{{ route('detail',$p->slug) }}" class="">Selengkapnya</a>
 								    </p>
 				    			</div>
 				    			<div class="post-footer">
 									<span class="badge">Diposting : {{date('d-m-Y H:i:s',strtotime($p->created_at))}}</span>
 									<div class="pull-right"> 
-										<a href="" title=""><span class="label label-primary">{{$p->kategoris->nama}}</span> </a>
+										<a href="{{ route('kategori',$p->kategoris->slug) }}" title=""><span class="label label-primary">{{$p->kategoris->nama}}</span> </a>
 									</div>         
 								</div>
 				    		</div>
@@ -45,10 +49,13 @@
 		            <h6 class="panel-heading">Cari</h6>
 		            <div class="panel-body">
 		              <div class="input-group">
-		                <input type="text" class="form-control" placeholder="Cari Berita">
-		                <span class="input-group-btn">
-		                  <button class="btn btn-secondary" type="button">Cari</button>
-		                </span>
+		                <form action="{{ route('cari') }}" method="post">
+		                	{{csrf_field()}}
+		                	<input type="text" class="form-control" placeholder="Cari Berita">
+			                <span class="input-group-btn">
+			                  <button class="btn btn-secondary" type="submit">Cari</button>
+			                </span>
+		                </form>
 		              </div>
 		            </div>
 		        </div>
@@ -57,49 +64,15 @@
 		            <h6 class="panel-heading">Kategori</h6>
 		            <div class="panel-body">
 			            <div class="row">
-			                <div class="col-lg-6">
-				                <ul class="list-unstyled">
-				                	<li>
-				                	  <a href="#">Web Design</a>
-				                	</li>
-				                </ul>
-			                </div>
-			                <div class="col-lg-6">
-				                <ul class="list-unstyled">
-				                	<li>
-				                	  <a href="#">Web Design</a>
-				                	</li>
-				                </ul>
-			                </div>
-			                <div class="col-lg-6">
-				                <ul class="list-unstyled">
-				                	<li>
-				                	  <a href="#">Web Design</a>
-				                	</li>
-				                </ul>
-			                </div>
-			                <div class="col-lg-6">
-				                <ul class="list-unstyled">
-				                	<li>
-				                	  <a href="#">Web Design</a>
-				                	</li>
-				                </ul>
-			                </div>
-			                <div class="col-lg-6">
-				                <ul class="list-unstyled">
-				                	<li>
-				                	  <a href="#">Web Design</a>
-				                	</li>
-				                </ul>
-			                </div>
-			                <div class="col-lg-6">
-				                <ul class="list-unstyled">
-				                	<li>
-				                	  <a href="#">Web Design</a>
-				                	</li>
-				                </ul>
-			                </div>
-
+			                @foreach($kategoris as $k)
+			                	<div class="col-lg-6">
+					                <ul class="list-unstyled">
+					                	<li>
+					                	  <a href="{{ route('kategori',$k->slug) }}">{{$k->nama}}</a>
+					                	</li>
+					                </ul>
+				                </div>
+			                @endforeach
 			            </div>
 		            </div>
 		        </div>

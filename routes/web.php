@@ -10,9 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('berita','WebController@blogIndex')->name('berita');
     Route::get('/','WebController@index')->name('/');
     
+    //Route Blog
+    Route::get('berita','WebController@blogIndex')->name('berita');
+    Route::get('berita/{slug}','WebController@blogDetail')->name('detail');
+    Route::get('berita/kategori/{slug}','WebController@kategori')->name('kategori');
+    Route::post('berita','WebController@cari')->name('cari');
+
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');

@@ -10,6 +10,7 @@ use App\Skk;
 use App\Sptjm;
 use App\Spp;
 use App\Blog;
+use App\Kategori;
 class WebController extends Controller
 {
     public function index()
@@ -29,6 +30,32 @@ class WebController extends Controller
     {
         $web = Web::firstOrFail();
         $posts = Blog::with('users','kategoris')->orderBy('updated_at','asc')->paginate(3);
-        return view('blog',compact('web','posts'))->with('no',($req->input('page',1)-1)*10);
+        $kategoris = Kategori::all();
+        return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);
+    }
+
+    public function blogDetail($slug)
+    {
+        $web = Web::firstOrFail();
+        $post = Blog::where('slug',$slug)->with('users','kategoris')->firstOrFail();
+        $kategoris = Kategori::all();
+        return view('blogDetail',compact('web','post','kategoris')); 
+    }
+
+    public function kategori(Request $req,$slug)
+    {   
+        $k = Kategori::where('slug',$slug)->firstOrFail();
+        $web = Web::firstOrFail();
+        $posts = Blog::where('kategori_id',$k->id)->with('users','kategoris')->orderBy('updated_at','asc')->paginate(3);
+        $kategoris = Kategori::all();
+        return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);
+    }
+
+    public function cari(Request $req)
+    {
+        $web = Web::firstOrFail();
+        $posts = Blog::where('judul','LIKE',$req->input('cari'))->with('users','kategoris')->orderBy('updated_at','asc')->paginate(3);
+        $kategoris = Kategori::all();
+        return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);
     }
 }
