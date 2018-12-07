@@ -53,8 +53,16 @@ class WebController extends Controller
 
     public function cari(Request $req)
     {
+        $q = $req->input('cari');
         $web = Web::firstOrFail();
-        $posts = Blog::where('judul','LIKE',$req->input('cari'))->with('users','kategoris')->orderBy('updated_at','asc')->paginate(3);
+        $posts = Blog::WhereHas('kategoris',function($c) use($q){
+                    $c->where('nama','LIKE', '%'.$q.'%');
+                 })
+                 ->orWhere('judul','LIKE', '%'.$q.'%')
+                 ->orWhere('slug','LIKE', '%'.$q.'%')
+                 ->with('users','kategoris')
+                 ->orderBy('updated_at','asc')
+                 ->paginate(3);
         $kategoris = Kategori::all();
         return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);
     }

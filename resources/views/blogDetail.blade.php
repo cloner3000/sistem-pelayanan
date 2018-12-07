@@ -40,15 +40,15 @@
 		        <div class="panel panel-info">
 		            <h6 class="panel-heading">Cari</h6>
 		            <div class="panel-body">
-		              <div class="input-group">
 		                <form action="{{ route('cari') }}" method="post">
 		                	{{csrf_field()}}
-		                	<input type="text" class="form-control" placeholder="Cari Berita">
-			                <span class="input-group-btn">
-			                  <button class="btn btn-secondary" type="submit">Cari</button>
-			                </span>
+		                	<div class="input-group">
+			                	<input type="text" name="cari" class="form-control" placeholder="Cari Berita">
+				                <span class="input-group-btn">
+				                  <button class="btn btn-secondary" type="submit">Cari</button>
+				                </span>
+		              		</div>
 		                </form>
-		              </div>
 		            </div>
 		        </div>
 
@@ -60,7 +60,7 @@
 			                	<div class="col-lg-6">
 					                <ul class="list-unstyled">
 					                	<li>
-					                	  <a href="#">{{$k->nama}}</a>
+					                	  <a href="{{ route('kategori',$k->slug) }}">{{$k->nama}}</a>
 					                	</li>
 					                </ul>
 				                </div>
