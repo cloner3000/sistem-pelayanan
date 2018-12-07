@@ -24,4 +24,11 @@ class WebController extends Controller
         $news = Blog::with('users','kategoris')->orderBy('updated_at','asc')->get()->chunk(4);
     	return view('index',compact('web','strukturs','ktp','skk','sptjm','spp','news'));
     }
+
+    public function blogIndex(Request $req)
+    {
+        $web = Web::firstOrFail();
+        $posts = Blog::with('users','kategoris')->orderBy('updated_at','asc')->paginate(3);
+        return view('blog',compact('web','posts'))->with('no',($req->input('page',1)-1)*10);
+    }
 }

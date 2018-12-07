@@ -64,6 +64,9 @@
                   <li>
                     <a class="page-scroll" href="#struktur">Struktur Organisasi</a>
                   </li>
+                  <li>
+                    <a class="page-scroll" href="{{ route('berita') }}">Berita</a>
+                  </li>
                   @guest
                     <li>
                       <a class="page-scroll" href="{{ route('login') }}">Login</a>
@@ -153,7 +156,7 @@
           <div class="carousel-inner">
 
             @foreach($news as $i => $news)
-            
+
               @if($i == 0)
                 <div class="item active">
                   <ul class="thumbnails">
