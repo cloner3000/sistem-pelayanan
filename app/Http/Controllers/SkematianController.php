@@ -58,7 +58,28 @@ class SkematianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Skematian::create([
+            'user_id'         => Auth::id(),
+            'nama'            => $request->input('nama'),
+            'nik'             => $request->input('nik'),
+            'jenis_kelamin'   => $request->input('jenis_kelamin'),
+            'tanggal_lahir'   => date('Y-m-d',strtotime($request->input('tanggal_lahir'))),
+            'agama'           => $request->input('agama'),
+            'alamat'          => $request->input('alamat'),
+            'waktu'           => date('Y-m-d',strtotime($request->input('waktu'))),
+            'tempat'          => $request->input('tempat'),
+            'penyebab'        => $request->input('penyebab'),
+            'p_nik'           => $request->input('p_nik'),
+            'p_nama'          => $request->input('p_nama'),
+            'p_tanggal'       => date('Y-m-d',strtotime($request->input('p_tanggal'))),
+            'p_tempat'        => $request->input('p_tempat'),
+            'p_pekerjaan'     => $request->input('p_pekerjaan'),
+            'p_alamat'        => $request->input('p_alamat'),
+            'p_pekerjaan'     => $request->input('p_pekerjaan'),
+        ]);
+
+        $data->save();
+        return back();
     }
 
     /**

@@ -66,13 +66,14 @@ class SkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
         $sk = Sk::create([
             'user_id'    => Auth::id(),
             
             'nama'            => $r->input('nama'),
             'nik'             => $r->input('nik'),
+            'jenis_kelamin'   => $r->input('jenis_kelamin'),
             'tempat'          => $r->input('tempat'),
             'tanggal'         => date('Y-m-d',strtotime($r->input('tanggal'))),
             'pekerjaan'       => $r->input('pekerjaan'),
@@ -108,17 +109,6 @@ class SkController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -131,6 +121,7 @@ class SkController extends Controller
 
             $data->nama            = $r->input('nama');
             $data->nik             = $r->input('nik');
+            $data->jenis_kelamin   = $r->input('jenis_kelamin');
             $data->tempat          = $r->input('tempat');
             $data->tanggal         = date('Y-m-d',strtotime($r->input('tanggal')));
             $data->pekerjaan       = $r->input('pekerjaan');

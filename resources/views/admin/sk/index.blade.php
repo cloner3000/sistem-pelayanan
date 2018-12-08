@@ -133,6 +133,15 @@
 								  	</select>
 								</div>
 
+								<h5>Jenis Kelamin</h5>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-profile"></i></span>
+								  	<select class="form-control" name="jenis_kelamin">
+								  		<option value="laki-laki">Laki-laki</option>
+								  		<option value="perempuan">Perempuan</option>
+								  	</select>
+								</div>
+
 								<h5>Tempat Lahir</h5>
 								<div class="input-group">
 								  	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>

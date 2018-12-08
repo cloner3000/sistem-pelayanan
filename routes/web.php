@@ -36,6 +36,9 @@ Route::group(['middleware' => 'role:User'], function(){
     Route::resource('skk','SkkController',['names' =>'user.skk'])->only(['store']);
     Route::resource('sptjm','SptjmController',['names' =>'user.sptjm'])->only(['store']);
     Route::resource('pengaduan','PengaduanController',['names' =>'user.pengaduan'])->only(['store']);
+    Route::resource('sk','SkController',['names' =>'user.sk'])->only(['store']);
+    Route::resource('skematian','SkematianController',['names' =>'user.skematian'])->only(['store']);
+
 });
 
 Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => 'kades'], function(){

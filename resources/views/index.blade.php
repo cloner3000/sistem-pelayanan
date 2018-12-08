@@ -165,7 +165,7 @@
                       <li class="col-sm-3">
                         <div class="fff">
                           <div class="thumbnail">
-                            <a href="{{ route('detail',$n->slug) }}"><img src="{{ asset('storage/blog').'/'.$n->foto }}" alt=""></a>
+                            <a href="{{ route('detail',$n->slug) }}"><img src="{{ asset('storage/blog').'/'.$n->foto }}"></a>
                           </div>
                           <div class="caption">
                             <h6>{{$n->judul}}</h6>
@@ -330,7 +330,7 @@
       <div class="row text-center">
         <div class="services-contents">
 
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="col-md-3 col-sm-3 col-xs-12">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -458,7 +458,149 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  
+                  @guest
+                    <a class="services-icon" data-toggle="modal" data-target="#warning">
+                        <i class="fa fa-file"></i>
+                    </a>
+                  @else
+                    <a class="services-icon" data-toggle="modal" data-target="#sk">
+                        <i class="fa fa-file"></i>
+                    </a>
+
+                    <div class="modal fade" id="sk" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Form Surat Keterangan</h4>
+                          </div>
+
+                          <div class="modal-body">
+
+                            <form method="POST" action="{{ route('user.sk.store') }}">
+                              {{ csrf_field() }}
+                              
+                              <h5 class="text-left">NIK</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                  <input name="nik" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Nama</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                  <input name="nama" type="text" class="form-control"  required>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Pekerjaan</h5>
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                <select class="form-control" name="pekerjaan">
+                                  <option value="pns">Pegawai Negeri Sipil</option>
+                                  <option value="wiraswasta">Wiraswasta</option>
+                                  <option value="pelajar">Pelajar</option>
+                                  <option value="mahasiswa">Mahasiswa</option>
+                                  <option value="karyawan">Karyawan</option>
+                                  <option value="programmer">Programmer</option>
+                                  <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+                                  <option value="lain-lain">Lain-Lain</option>
+                                </select>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Jenis Kelamin</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                  <select class="form-control" name="jenis_kelamin">
+                                    <option value="laki-laki">Laki-laki</option>
+                                    <option value="perempuan">Perempuan</option>
+                                  </select>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Tempat Lahir</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+                                  <input name="tempat" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Tanggal Lahir</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                  <input name="tanggal" type="text" id="sk_tl" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Agama</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                  <input name="agama" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Alamat</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                  <input name="alamat" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Kewarganegaraan</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                  <input name="kewarganegaraan" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Tujuan</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
+                                  <input name="keperluan" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <h5 class="text-left">Keterangan</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
+                                  <input name="keterangan" type="text" class="form-control" required>
+                              </div>
+                              <br>
+
+                              <div class="modal-footer d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                              </div>
+                            </form>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  @endguest
+
+                  <h4>Pendaftaran Surat Keterangan</h4>
+                  <p>
+                    Lebih mudah,cepat,dan fleksibel dalam mengajukan surat permohonan pendaftaran KTP via website.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-3 col-xs-12">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -953,13 +1095,7 @@
             </div>
           </div>
 
-        </div>
-      </div>
-
-      <div class="row text-center">
-        <div class="services-contents">
-
-          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
+          <div class="col-md-3 col-sm-3 col-xs-12">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -987,28 +1123,28 @@
                             <form method="POST" action="{{ route('user.pengaduan.store') }}">
                               {{ csrf_field() }}
 
-                              <h5>NIK</h5>
+                              <h5 class="text-left">NIK</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
                                   <input name="nik" type="text" class="form-control" required >
                               </div>
                               <br>
 
-                              <h5>Nama</h5>
+                              <h5 class="text-left">Nama</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                   <input name="nama" type="text" class="form-control" required >
                               </div>
                               <br>
                               
-                              <h5>Tanggal Lahir</h5>
+                              <h5 class="text-left">Tanggal Lahir</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
                                   <input name="tanggal_lahir" type="text" id="l_pengaduan" class="form-control" required>
                               </div>
                               <br>
 
-                              <h5>Pekerjaan</h5>
+                              <h5 class="text-left">Pekerjaan</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                                   <select class="form-control" name="pekerjaan">
@@ -1024,28 +1160,28 @@
                               </div>
                               <br>
                               
-                              <h5>Sasaran</h5>
+                              <h5 class="text-left">Sasaran</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
                                   <input name="sasaran" type="text" class="form-control" required >
                               </div>
                               <br>
 
-                              <h5>Alamat</h5>
+                              <h5 class="text-left">Alamat</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
                                   <input name="alamat" type="text" class="form-control" required >
                               </div>
                               <br>
 
-                              <h5>Pengaduan</h5>
+                              <h5 class="text-left">Pengaduan</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
                                   <textarea name="isi" class="form-control" required></textarea>
                               </div>
                               <br>
 
-                              <h5>Alternatif</h5>
+                              <h5 class="text-left">Alternatif</h5>
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
                                   <textarea name="alternatif" class="form-control" required ></textarea>
@@ -1082,7 +1218,7 @@
       <div class="row text-center">
         <div class="services-contents">
 
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="col-md-3 col-sm-3 col-xs-12">
             <div class=" about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -1324,14 +1460,14 @@
 
                   <h4>Surat Pertanggung Jawaban</h4>
                   <p>
-                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+                    Untuk membuat surat pertanggung jawaban untuk keterangan pasangan yang sah, pilih menu ini dan isi form.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="col-md-3 col-sm-3 col-xs-12">
             <div class=" about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -1422,7 +1558,219 @@
 
                   <h4>Surat Pengantar Pindah</h4>
                   <p>
-                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+                    Untuk mengajukan surat pindah silahkan pilih pelayanan ini.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  
+                  @guest
+                    <a class="services-icon" data-toggle="modal" data-target="#warning">
+                        <i class="fa fa-truck"></i>
+                    </a>
+                  @else
+                    <a class="services-icon" data-toggle="modal" data-target="#kematian">
+                        <i class="fa fa-truck"></i>
+                    </a>
+                    <div class="modal fade" id="kematian" role="dialog">
+                      <div class="modal-dialog modal-lg">
+                      
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Form Surat Keterangan Kematian</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <form method="POST" action="{{ route('user.skematian.store') }}">
+                              {{ csrf_field() }}
+
+                              <div class="panel panel-info">
+                                <div class="panel-heading"><strong>Data Orang Meninggal</strong></div>
+                                  <div class="panel-body">
+                                    <div class="row">
+
+                                      <div class="col-md-6">
+
+                                        <h5 class="text-left">Nama</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input name="nama" type="text" class="form-control" required>
+                                        </div>
+                                        <br>
+                                        
+                                        <h5 class="text-left">NIK</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                            <input name="nik" type="number" class="form-control" required>
+                                        </div>
+                                        <br>
+
+                                        <h5 class="text-left">Jenis Kelamin</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
+                                            <select class="form-control" name="jenis_kelamin">
+                                              <option value="laki-laki">Laki-laki</option>
+                                              <option value="perempuan">Perempuan</option>
+                                            </select>
+                                        </div>
+                                        <br>
+                                      </div>
+
+                                      <div class="col-md-6">
+                                        <h5 class="text-left">Tanggal Lahir</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                            <input name="tanggal_lahir" type="text" id="l_kematian" class="form-control" required>
+                                        </div>
+                                        <br>
+                                      
+                                        <h5 class="text-left">Agama</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                            <input name="agama" type="text" class="form-control" required>
+                                        </div>
+                                        <br>
+
+                                        <h5 class="text-left">Alamat</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                            <input name="alamat" type="text" class="form-control" required>
+                                        </div>
+                                        <br>
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="panel panel-info">
+                                  <div class="panel-heading"><strong>Terjadinya Peristiwa</strong></div>
+                                  <div class="panel-body">
+
+                                    <h5 class="text-left">Tanggal</h5>
+                                    <div class="input-group">
+                                      <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                      <input name="waktu" type="text" id="w_kematian" class="form-control" required>
+                                    </div>
+                                    <br>
+
+                                    <h5 class="text-left">Tempat</h5>
+                                    <div class="input-group">
+                                          <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                          <input name="tempat" type="text" class="form-control" required>
+                                    </div>
+                                    <br>
+
+                                    <h5 class="text-left">Penyebab</h5>
+                                    <div class="input-group">
+                                      <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                      <input name="penyebab" type="text" class="form-control" required>
+                                    </div>
+                                    <br>
+
+                                  </div>
+                                </div>
+
+                                <div class="panel panel-info">
+                                  <div class="panel-heading"><strong>Pelapor</strong></div>
+                                  <div class="panel-body">
+                                    <div class="row">
+
+                                      <div class="col-md-6">
+
+                                        <h5 class="text-left">NIK</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                            <input name="p_nik" type="number" class="form-control" required>
+                                        </div>
+                                        <br>
+
+                                        <h5 class="text-left">Nama</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input name="p_nama" type="text" class="form-control" required>
+                                        </div>
+                                        <br>
+
+                                        <h5 class="text-left">Tanggal Lahir</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input name="p_tanggal" type="text" id="l_kematian_pelapor" class="form-control">
+                                        </div>
+                                        <br>
+
+                                      </div>
+                                      <div class="col-md-6">
+
+                                        <h5 class="text-left">Tempat Lahir</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                            <input name="p_tempat" type="text" class="form-control" required>
+                                        </div>
+                                        <br>
+
+                                        <h5 class="text-left">Pekerjaan</h5>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                            <select class="form-control" name="p_pekerjaan">
+                                              <option value="pns">Pegawai Negeri Sipil</option>
+                                              <option value="wiraswasta">Wiraswasta</option>
+                                              <option value="pelajar">Pelajar</option>
+                                              <option value="mahasiswa">Mahasiswa</option>
+                                              <option value="karyawan">Karyawan</option>
+                                              <option value="programmer">Programmer</option>
+                                              <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+                                              <option value="lain-lain">Lain-Lain</option>
+                                            </select>
+                                        </div>
+                                        <br>
+
+                                        <h5 class="text-left">Alamat</h5>
+                                        <div class="input-group">
+                                          <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                          <input name="p_alamat" type="text" class="form-control" required>
+                                        </div>
+                                        <br>
+
+                                        <h5 class="text-left">Hubungan</h5>
+                                        <div class="input-group">
+                                          <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                          <select class="form-control" name="p_pekerjaan">
+                                            <option value="anak kandung">Anak Kandung</option>
+                                          </select>
+                                        </div>
+                                        <br>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="modal-footer d-flex justify-content-center">
+                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  @endguest
+
+                  <h4>Surat Keterangan Kematian</h4>
+                  <p>
+                    Untuk melaporkan seseorang meninggal silahakn pilih menu ini dan isi form.
                   </p>
                 </div>
               </div>
@@ -1581,7 +1929,7 @@
   <script src="{{ secure_asset('web/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
   <script type="text/javascript">
     $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sk_tl').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });
