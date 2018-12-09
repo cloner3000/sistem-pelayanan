@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Spp;
 use Auth;
 use PDF;
+use DB;
 class SppController extends Controller
 {
     /**

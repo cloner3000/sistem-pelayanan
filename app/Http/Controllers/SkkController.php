@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Skk;
 use Auth;
 use PDF;
+use DB;
 class SkkController extends Controller
 {
     /**

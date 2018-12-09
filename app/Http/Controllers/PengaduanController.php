@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Pengaduan;
 use Auth;
-
+use DB;
 class PengaduanController extends Controller
 {
     /**

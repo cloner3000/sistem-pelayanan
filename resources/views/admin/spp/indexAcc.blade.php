@@ -21,9 +21,26 @@
     		<div class="col-xs-12">
     			<div class="box">
 
-	            <div class="box-header">
-	              <h3 class="box-title">Daftar Surat Pindah Yang Telah Di Terima</h3>
-	            </div>
+		            <div class="box-header">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<h4>Daftar Surat Pengantar Pindah</h4>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<form class="navbar-form navbar-form pull-right">
+									<div class="form-group">
+										<label>Pilih Data :&nbsp;</label>
+										<select name="export" class="form-control">
+											@foreach($export as $x)
+												<option value="{{$x->month.'-'.$x->year}}">{{bulan($x->month).' - '.$x->year}}</option>
+											@endforeach
+										</select>
+										<button type="submit" class="btn btn-sm btn-info" style="margin-left: 5px;">Download</button>
+									</div>
+								</form>
+							</div>
+						</div>
+		            </div>
 	            <div class="box-body table-responsive no-padding">
 	              <table class="table table-hover">
 	                <tr>

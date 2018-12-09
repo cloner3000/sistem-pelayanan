@@ -7,6 +7,7 @@ use App\Sktm;
 use Auth;
 use PDF;
 use App\User;
+use DB;
 class SktmController extends Controller
 {
     /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Sptjm;
 use Auth;
+use DB;
 use PDF;
 class SptjmController extends Controller
 {

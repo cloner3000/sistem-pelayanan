@@ -8,6 +8,7 @@ use App\Sk;
 use App\User;
 use Carbon\Carbon;
 use PDF;
+use DB;
 class SkController extends Controller
 {
     /**

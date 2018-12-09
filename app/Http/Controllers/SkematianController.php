@@ -7,6 +7,7 @@ use App\Skematian;
 use Auth;
 use PDF;
 use App\User;
+use DB;
 class SkematianController extends Controller
 {
     /**
