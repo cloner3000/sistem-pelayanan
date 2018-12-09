@@ -1,0 +1,30 @@
+<table>
+    <thead>
+    <tr>
+        <th>Provinsi</th>
+        <th>Kabupaten</th>
+        <th>Kecamatan</th>
+        <th>Desa</th>
+        <th>Nama</th>
+        <th>Permohonan</th>
+        <th>No KK</th>
+        <th>NIK</th>
+        <th>Alamat</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach($datas as $d)
+            <tr>
+                <td>{{$d->provinsi}}</td>
+                <td>{{$d->kabupaten}}</td>
+                <td>{{$d->kecamatan}}</td>
+                <td>{{$d->desa}}</td>
+                <td>{{$d->nama}}</td>
+                <td>{{$d->permohonan}}</td>
+                <td>{{$d->no_kk}}</td>
+                <td>{{$d->nik}}</td>
+                <td>{{$d->alamat}}</td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>

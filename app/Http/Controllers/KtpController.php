@@ -8,6 +8,7 @@ use Auth;
 use PDF;
 use App\Struktur;
 use DB;
+use Excel;
 class KtpController extends Controller
 {
     /**
@@ -52,8 +53,11 @@ class KtpController extends Controller
     public function csv(Request $r)
     {
         $q = explode('-', $r->input('export'));
-        $data = Ktp::whereRaw('YEAR(created_at) ='.$q[0])->whereRaw('MONTH(created_at) ='.$q[1])->get();
-        dd($data);
+        $datas = Ktp::whereRaw('YEAR(created_at) ='.$q[0])->whereRaw('MONTH(created_at) ='.$q[1])->get();
+        return Excel::loadView('excel.ktp',compact('datas'))
+                        ->setTitle("Laporan Bulanan")
+                        ->sheet(bulan($q[1]).'-'.$q[0])
+                        ->export('xls');
     }
 
     /**
