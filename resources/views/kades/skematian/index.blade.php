@@ -231,7 +231,7 @@
 								            	<h5>Hubungan</h5>
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-								              		<select class="form-control" name="p_pekerjaan">
+								              		<select class="form-control" name="p_hubungan">
 								              			<option value="anak kandung">Anak Kandung</option>
 								              		</select>
 								            	</div>

@@ -528,14 +528,14 @@
 
                               <h5 class="text-left">Tempat Lahir</h5>
                               <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+                                  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                   <input name="tempat" type="text" class="form-control" required>
                               </div>
                               <br>
 
                               <h5 class="text-left">Tanggal Lahir</h5>
                               <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                   <input name="tanggal" type="text" id="sk_tl" class="form-control" required>
                               </div>
                               <br>
@@ -700,7 +700,7 @@
 
                                         <h5>Tempat Lahir</h5>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-map"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                             <input name="b_tempat" type="text" class="form-control" required >
                                         </div>
                                         <br>
@@ -1139,7 +1139,7 @@
                               
                               <h5 class="text-left">Tanggal Lahir</h5>
                               <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                   <input name="tanggal_lahir" type="text" id="l_pengaduan" class="form-control" required>
                               </div>
                               <br>
@@ -1276,14 +1276,14 @@
 
                             <h6>Tempat Lahir</h6>
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                 <input name="tempat" type="text" class="form-control" required >
                             </div>
                             <br>
 
                             <h6>Tanggal Lahir</h6>
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 <input name="tanggal" type="text" id="tl" class="form-control" required >
                             </div>
                             <br>
@@ -1331,14 +1331,14 @@
 
                             <h6>Tempat Lahir</h6>
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                 <input name="tempat1" type="text" class="form-control" required >
                             </div>
                             <br>
 
                             <h6>Tanggal Lahir</h6>
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 <input name="tanggal1" type="text" id="tl1" class="form-control" required >
                             </div>
                             <br>
@@ -1386,14 +1386,14 @@
 
                             <h6>Tempat Lahir</h6>
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                 <input name="tempat2" type="text" class="form-control" required >
                             </div>
                             <br>
 
                             <h6>Tanggal Lahir</h6>
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 <input name="tanggal2" type="text" id="tl2" class="form-control" required >
                             </div>
                             <br>
@@ -1572,11 +1572,11 @@
                   
                   @guest
                     <a class="services-icon" data-toggle="modal" data-target="#warning">
-                        <i class="fa fa-truck"></i>
+                        <i class="fa fa-ambulance"></i>
                     </a>
                   @else
                     <a class="services-icon" data-toggle="modal" data-target="#kematian">
-                        <i class="fa fa-truck"></i>
+                        <i class="fa fa-ambulance"></i>
                     </a>
                     <div class="modal fade" id="kematian" role="dialog">
                       <div class="modal-dialog modal-lg">
@@ -1626,7 +1626,7 @@
                                       <div class="col-md-6">
                                         <h5 class="text-left">Tanggal Lahir</h5>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                             <input name="tanggal_lahir" type="text" id="l_kematian" class="form-control" required>
                                         </div>
                                         <br>
@@ -1701,7 +1701,7 @@
 
                                         <h5 class="text-left">Tanggal Lahir</h5>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                             <input name="p_tanggal" type="text" id="l_kematian_pelapor" class="form-control">
                                         </div>
                                         <br>
@@ -1711,7 +1711,7 @@
 
                                         <h5 class="text-left">Tempat Lahir</h5>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                             <input name="p_tempat" type="text" class="form-control" required>
                                         </div>
                                         <br>
@@ -1742,7 +1742,7 @@
                                         <h5 class="text-left">Hubungan</h5>
                                         <div class="input-group">
                                           <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-                                          <select class="form-control" name="p_pekerjaan">
+                                          <select class="form-control" name="p_hubungan">
                                             <option value="anak kandung">Anak Kandung</option>
                                           </select>
                                         </div>
@@ -1754,7 +1754,7 @@
                                 </div>
 
                                 <div class="modal-footer d-flex justify-content-center">
-                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                                  <button type="submit" class="btn btn-primary">Kirim</button>
                                 </div>
                             </form>
 
@@ -1776,6 +1776,143 @@
               </div>
             </div>
           </div>
+          
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  
+                  @guest
+                    <a class="services-icon" data-toggle="modal" data-target="#warning">
+                        <i class="fa fa-balance-scale"></i>
+                    </a>
+                  @else
+                    <a class="services-icon" data-toggle="modal" data-target="#sktm">
+                        <i class="fa fa-balance-scale"></i>
+                    </a>
+                    <div class="modal fade" id="sktm" role="dialog">
+                      <div class="modal-dialog">
+                      
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Form Surat Keterangan Tidak Mampu</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <form method="POST" action="{{ route('user.sktm.store') }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="_method" value="PATCH">
+                            
+                            <h5 class="text-left">NIK</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                <input name="nik" type="text" class="form-control" required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Nama</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="nama" type="text" class="form-control"  required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Pekerjaan</h5>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                              <select class="form-control" name="pekerjaan">
+                                <option value="pns">Pegawai Negeri Sipil</option>
+                                <option value="wiraswasta">Wiraswasta</option>
+                                <option value="pelajar">Pelajar</option>
+                                <option value="mahasiswa">Mahasiswa</option>
+                                <option value="karyawan">Karyawan</option>
+                                <option value="programmer">Programmer</option>
+                                <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
+                                <option value="lain-lain">Lain-Lain</option>
+                              </select>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Tempat Lahir</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                <input name="tempat" type="text" class="form-control" required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Tanggal Lahir</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input name="tanggal" type="text" id="sktm_tl" class="form-control" required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Agama</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                <input name="agama" type="text" class="form-control" required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Alamat</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                <input name="alamat" type="text" class="form-control" required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Kewarganegaraan</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                <input name="kewarganegaraan" type="text" class="form-control" required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Tujuan</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
+                                <input name="keperluan" type="text" class="form-control" required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Nama Ayah</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="n_ayah" type="text" class="form-control" required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Nama Ibu</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="n_ibu" type="text" class="form-control" required>
+                            </div>
+                            <br>
+
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                          </form>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  @endguest
+
+                  <h4>Surat Keterangan Tidak Mampu</h4>
+                  <p>
+                    Untuk mengajukan surat keterangan tidak mampu silahkan pilih pelayanan ini.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> 
 
         </div>
       </div>
@@ -1929,7 +2066,7 @@
   <script src="{{ secure_asset('web/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
   <script type="text/javascript">
     $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sk_tl').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sk_tl,#sktm_tl').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });

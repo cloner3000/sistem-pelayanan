@@ -76,6 +76,7 @@ class SkematianController extends Controller
             'p_pekerjaan'     => $request->input('p_pekerjaan'),
             'p_alamat'        => $request->input('p_alamat'),
             'p_pekerjaan'     => $request->input('p_pekerjaan'),
+            'p_hubungan'      => $request->input('p_hubungan'),
         ]);
 
         $data->save();
@@ -130,6 +131,7 @@ class SkematianController extends Controller
         $data->p_pekerjaan     = $request->input('p_pekerjaan');
         $data->p_alamat        = $request->input('p_alamat');
         $data->p_pekerjaan     = $request->input('p_pekerjaan');
+        $data->p_hubungan      = $request->input('p_hubungan');
 
         $data->save();
         return back();
