@@ -7,6 +7,7 @@ use App\Skk;
 use Auth;
 use PDF;
 use DB;
+use Excel;
 class SkkController extends Controller
 {
     /**
@@ -46,16 +47,16 @@ class SkkController extends Controller
         $data->save();
         return back();
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
+    public function csv(Request $r)
+    {
+        $q = explode('-', $r->input('export'));
+        $datas = Skk::whereRaw('YEAR(created_at) ='.$q[1])->whereRaw('MONTH(created_at) ='.$q[0])->get();
+        return Excel::loadView('excel.skk',compact('datas'))
+                        ->setTitle("Laporan Bulanan")
+                        ->sheet(bulan($q[1]).'-'.$q[0])
+                        ->export('xls');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -71,7 +72,6 @@ class SkkController extends Controller
                     'desa'                 => $r->input('desa'),
                     'nama_kepala_keluarga' => $r->input('nama_kepala_keluarga'),
                     'no_kk'                => $r->input('no_kk'),
-                    
                     'b_nama'               => $r->input('b_nama'),
                     'b_jenis_kelamin'      => $r->input('b_jenis_kelamin'),
                     'b_tempat'             => $r->input('b_tempat'),
@@ -80,7 +80,6 @@ class SkkController extends Controller
                     'b_kelahiran_ke'       => $r->input('b_kelahiran_ke'),
                     'b_berat'              => $r->input('b_berat'),
                     'b_panjang'            => $r->input('b_panjang'),
-                    
                     'i_nik'                => $r->input('i_nik'),
                     'i_nama'               => $r->input('i_nama'),
                     'i_tanggal_lahir'      => date('Y-m-d',strtotime($r->input('i_tanggal_lahir'))),
@@ -89,7 +88,6 @@ class SkkController extends Controller
                     'i_kewarganegaraan'    => $r->input('i_kewarganegaraan'),
                     'i_kebangsaan'         => $r->input('i_kebangsaan'),
                     'i_tanggal_perkawinan' => date('Y-m-d',strtotime($r->input('i_tanggal_perkawinan'))),
-                    
                     'a_nik'                => $r->input('a_nik'),
                     'a_nama'               => $r->input('a_nama'),
                     'a_tanggal_lahir'      => date('Y-m-d',strtotime($r->input('a_tanggal_lahir'))),
@@ -98,20 +96,17 @@ class SkkController extends Controller
                     'a_kewarganegaraan'    => $r->input('a_kewarganegaraan'),
                     'a_kebangsaan'         => $r->input('a_kebangsaan'),
                     'a_tanggal_perkawinan' => date('Y-m-d',strtotime($r->input('a_tanggal_perkawinan'))),
-                    
                     'p_nik'                => $r->input('p_nik'),
                     'p_nama'               => $r->input('p_nama'),
                     'p_umur'               => $r->input('p_umur'),
                     'p_jenis_kelamin'      => $r->input('p_jenis_kelamin'),
                     'p_pekerjaan'          => $r->input('p_pekerjaan'),
                     'p_alamat'             => $r->input('p_alamat'),
-                    
                     's1_nik'               => $r->input('s1_nik'),
                     's1_nama'              => $r->input('s1_nama'),
                     's1_umur'              => $r->input('s1_umur'),
                     's1_pekerjaan'         => $r->input('s1_pekerjaan'),
                     's1_alamat'            => $r->input('s1_alamat'),
-                    
                     's2_nik'               => $r->input('s2_nik'),
                     's2_nama'              => $r->input('s2_nama'),
                     's2_umur'              => $r->input('s2_umur'),

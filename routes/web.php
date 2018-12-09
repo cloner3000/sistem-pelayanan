@@ -136,6 +136,10 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::post('acc/skk','SkkController@acc')->name('skk.acc');
     Route::get('acc/skk','SkkController@indexAcc')->name('skk.indexAcc');
     Route::resource('skk','SkkController')->except(['edit','create']);
+    Route::post('export/skk','SkkController@csv')->name('skk.export');
+    Route::get('export/skk',function(){
+        return abort(404);
+    });
 
     //route CRUD data sptjm
     Route::post('acc/sptjm','SptjmController@acc')->name('sptjm.acc');
