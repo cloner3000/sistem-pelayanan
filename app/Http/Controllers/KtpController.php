@@ -48,10 +48,11 @@ class KtpController extends Controller
         return back();
     }
 
-    // public function csv(Request $request)
-    // {
-    //     Ktp::
-    // }
+    public function csv(Request $r)
+    {
+        $q = explode('-', $r->input('export'));
+        dd($q);
+    }
 
     /**
      * Store a newly created resource in storage.

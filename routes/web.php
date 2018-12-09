@@ -127,6 +127,10 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::post('acc/ktp','KtpController@acc')->name('ktp.acc');
     Route::get('acc/ktp','KtpController@indexAcc')->name('ktp.indexAcc');
     Route::resource('ktp', 'KtpController')->except(['edit','create']);
+    Route::post('export/ktp','KtpController@csv')->name('ktp.export');
+    Route::get('export/ktp',function(){
+        return abort(404);
+    });
 
     //route Crud data surat Kelahiran
     Route::post('acc/skk','SkkController@acc')->name('skk.acc');
