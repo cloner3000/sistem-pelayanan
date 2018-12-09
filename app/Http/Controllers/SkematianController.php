@@ -28,7 +28,8 @@ class SkematianController extends Controller
     public function indexAcc(Request $req)
     {
         $datas = Skematian::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
-        $export = Skematian::select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
+        $export = Skematian::whereRaw('status = "acc"')
+                  ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
         $user = User::whereHas('roles',function($q){
                     $q->where('role_id',3);

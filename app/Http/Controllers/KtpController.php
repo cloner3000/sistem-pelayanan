@@ -28,7 +28,8 @@ class KtpController extends Controller
     public function indexAcc(Request $req)
     {
         $datas = Ktp::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
-        $export = Ktp::select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
+        $export = Ktp::whereRaw('status = "acc"')
+                  ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
@@ -51,7 +52,8 @@ class KtpController extends Controller
     public function csv(Request $r)
     {
         $q = explode('-', $r->input('export'));
-        dd($q);
+        $data = Ktp::whereRaw('YEAR(created_at) ='.$q[0])->whereRaw('MONTH(created_at) ='.$q[1])->get();
+        dd($data);
     }
 
     /**

@@ -27,7 +27,8 @@ class SktmController extends Controller
 
     public function indexAcc(Request $req){
         $datas = Sktm::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
-        $export = Sktm::select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
+        $export = Sktm::whereRaw('status = "acc"')
+                  ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
         $user = User::whereHas('roles',function($q){
                     $q->where('role_id',3);
