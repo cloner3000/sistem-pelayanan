@@ -716,7 +716,7 @@
                                       <div class="col-md-6">
                                         <h5>Jenis Kelahiran</h5>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-hospital"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-question"></i></span>
                                             <input name="b_jenis_kelahiran" type="text" class="form-control" required >
                                         </div>
                                         <br>
@@ -730,7 +730,7 @@
 
                                         <h5>Berat</h5>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-weight-hanging"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-question"></i></span>
                                             <input name="b_berat" type="number" class="form-control" required >
                                             <span class="input-group-addon">KG</span>
                                         </div>
@@ -738,7 +738,7 @@
 
                                         <h5>Panjang</h5>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-ruler"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-question"></i></span>
                                             <input name="b_panjang" type="number" class="form-control" required >
                                             <span class="input-group-addon">CM</span>
                                         </div>
@@ -810,7 +810,7 @@
                                         <h5>Kewarganegaraan</h5>
                                         <br>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-flag"></i></span>
                                             <input name="i_kewarganegaraan" type="text" class="form-control" required >
                                         </div>
                                         <br>
@@ -818,7 +818,7 @@
                                         <h5>Kebangsaan</h5>
                                         <br>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-users"></i></span>
                                             <input name="i_kebangsaan" type="text" class="form-control" required >
                                         </div>
                                         <br>
@@ -884,13 +884,13 @@
                                         <br>
                                         <h5>Kewarganegaraan</h5>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-flag"></i></span>
                                             <input name="a_kewarganegaraan" type="text" class="form-control" required >
                                         </div>
                                         <br>
                                         <h5>Kebangsaan</h5>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-users"></i></span>
                                             <input name="a_kebangsaan" type="text" class="form-control" required >
                                         </div>
                                         <br>
