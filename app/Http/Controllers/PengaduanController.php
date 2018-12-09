@@ -27,10 +27,12 @@ class PengaduanController extends Controller
     public function indexAcc(Request $req)
     {
         $datas = Pengaduan::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
+        $export = Pengaduan::select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
+                  ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
          if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.pengaduan.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.pengaduan.indexAcc',compact('datas','export'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.pengaduan.indexAcc',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.pengaduan.indexAcc',compact('datas','export'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

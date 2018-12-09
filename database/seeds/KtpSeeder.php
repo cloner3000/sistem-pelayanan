@@ -29,8 +29,8 @@ class KtpSeeder extends Seeder
                 'nik' => $faker->randomNumber($nbDigits = NULL, $strict = false),
                 'alamat' => $faker->address,
                 'status' => $faker->randomElement($status),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'created_at' => $faker->date($format = 'Y-m-d', $max = 'now'),
+                'updated_at' => $faker->date($format = 'Y-m-d', $max = 'now'),
             ]);
         }
     }

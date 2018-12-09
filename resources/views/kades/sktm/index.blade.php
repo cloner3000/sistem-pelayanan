@@ -116,6 +116,15 @@
 				              		<input name="nama" type="text" class="form-control"  required value="{{$d->nama}}">
 				            	</div>
 
+				            	<h5 class="text-left">Jenis Kelamin</h5>
+	                            <div class="input-group">
+	                                <span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
+	                                <select name="jenis_kelamin" class="form-control"  required>
+	                                  <option value="laki-laki">Laki-laki</option>
+	                                  <option value="perempuan">Perempuan</option>
+	                                </select>
+	                            </div>
+
 				            	<h5>Pekerjaan</h5>
 								<div class="input-group">
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>

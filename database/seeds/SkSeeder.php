@@ -30,6 +30,8 @@ class SkSeeder extends Seeder
 				'alamat' => $f->address,
 				'keperluan' => $f->randomElement(['domisili tempat tinggal']),
 				'keterangan' => 'bepergian keluar kota',
+				'created_at' => $f->date($format = 'Y-m-d', $max = 'now'),
+				'updated_at' => $f->date($format = 'Y-m-d', $max = 'now'),
 			]);
         }
     }

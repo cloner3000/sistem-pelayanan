@@ -34,6 +34,8 @@ class SkematianSeeder extends Seeder
 				'p_pekerjaan' =>$f->randomElement(['Buruh','Wiraswasta','PNS']),
 				'p_alamat' =>$f->address,
 				'p_hubungan' =>$f->randomElement(['kerabat','Anak kandung','Ibu','Ayah']),
+				'created_at' => $f->date($format = 'Y-m-d', $max = 'now'),
+				'updated_at' => $f->date($format = 'Y-m-d', $max = 'now'),
         	]);
         }
     }

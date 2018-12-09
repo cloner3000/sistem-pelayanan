@@ -518,7 +518,7 @@
 
                               <h5 class="text-left">Jenis Kelamin</h5>
                               <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                  <span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
                                   <select class="form-control" name="jenis_kelamin">
                                     <option value="laki-laki">Laki-laki</option>
                                     <option value="perempuan">Perempuan</option>
@@ -1802,7 +1802,6 @@
 
                             <form method="POST" action="{{ route('user.sktm.store') }}">
                             {{ csrf_field() }}
-                            <input type="hidden" name="_method" value="PATCH">
                             
                             <h5 class="text-left">NIK</h5>
                             <div class="input-group">
@@ -1815,6 +1814,16 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input name="nama" type="text" class="form-control"  required>
+                            </div>
+                            <br>
+
+                            <h5 class="text-left">Jenis Kelamin</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
+                                <select name="jenis_kelamin" class="form-control"  required>
+                                  <option value="laki-laki">Laki-laki</option>
+                                  <option value="perempuan">Perempuan</option>
+                                </select>
                             </div>
                             <br>
 
