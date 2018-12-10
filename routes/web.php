@@ -153,7 +153,8 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     //route CRUD data pelayanan surat pindah
     Route::post('acc/spp','SppController@acc')->name('spp.acc');
     Route::get('acc/spp','SppController@indexAcc')->name('spp.indexAcc');
-    Route::resource('spp', 'SppController')->except(['edit','create']);
+    Route::resource('spp', 'SppController')->except(['show','edit','create']);
+    Route::get('spp/{spp}/{user_id}','SppController@show')->name('spp.show');
     Route::post('export/spp','SppController@csv')->name('spp.export');
     Route::get('export/spp',function(){
         return abort(404);
@@ -162,7 +163,8 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     //route CRUD data ktp
     Route::post('acc/ktp','KtpController@acc')->name('ktp.acc');
     Route::get('acc/ktp','KtpController@indexAcc')->name('ktp.indexAcc');
-    Route::resource('ktp', 'KtpController')->except(['edit','create']);
+    Route::resource('ktp', 'KtpController')->except(['show','edit','create']);
+    Route::get('ktp/{ktp}/{user_id}','KtpController@show')->name('ktp.show');
     Route::post('export/ktp','KtpController@csv')->name('ktp.export');
     Route::get('export/ktp',function(){
         return abort(404);
@@ -171,7 +173,8 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     //route Crud data surat Kelahiran
     Route::post('acc/skk','SkkController@acc')->name('skk.acc');
     Route::get('acc/skk','SkkController@indexAcc')->name('skk.indexAcc');
-    Route::resource('skk','SkkController')->except(['edit','create']);
+    Route::resource('skk','SkkController')->except(['show','edit','create']);
+    Route::get('skk/{skk}/{user_id}','SkkController@show')->name('skk.show');
     Route::post('export/skk','SkkController@csv')->name('skk.export');
     Route::get('export/skk',function(){
         return abort(404);
@@ -180,7 +183,8 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     //route CRUD data sptjm
     Route::post('acc/sptjm','SptjmController@acc')->name('sptjm.acc');
     Route::get('acc/sptjm','SptjmController@indexAcc')->name('sptjm.indexAcc');
-    Route::resource('sptjm','SptjmController')->except(['edit','create']);
+    Route::resource('sptjm','SptjmController')->except(['show','edit','create']);
+    Route::get('sptjm/{sptjm}/{user_id}','SptjmController@show')->name('sptjm.show');
     Route::post('export/sptjm','SptjmController@csv')->name('sptjm.export');
     Route::get('export/sptjm',function(){
         return abort(404);

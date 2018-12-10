@@ -9,6 +9,7 @@ use Auth;
 use DB;
 use PDF;
 use Excel;
+use App\User;
 class SptjmController extends Controller
 {
     /**
@@ -32,10 +33,15 @@ class SptjmController extends Controller
         $export = Sptjm::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
+        $user = User::whereHas('roles',function($q){
+                    $q->where('role_id',3);
+                })->orWhereHas('roles',function($q){
+                    $q->where('role_id',2);
+                })->get();
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sptjm.indexAcc',compact('datas','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sptjm.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sptjm.indexAcc',compact('datas','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sptjm.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

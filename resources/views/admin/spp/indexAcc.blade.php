@@ -70,10 +70,11 @@
 			                  		<span class="label label-success">{{$data->status}}</span>
 			                  	</td>
 			                  	<td>
-			                  		<a class="btn btn-xs btn-primary" href="{{ route('spp.show',$data->id) }}">
+			                  		<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'spppdf')}}">
 										<i class="fa fa-file-alt"></i>
 										 PDF
 									</a>
+									<br>
 									<a class="btn btn-xs btn-info" style="margin-top: 10px;" data-toggle="modal" data-target="#{{md5($data->id.'spp')}}" >
 										<i class="fa fa-edit"></i>
 										 Edit
@@ -103,6 +104,32 @@
     	</div>
 
     	@foreach($datas as $d)
+    		<div class="modal fade" id="{{md5($d->id.'spppdf')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog" role="document">
+			        <div class="modal-content">
+			            <div class="modal-header text-center">
+			                <h4 class="modal-title w-100 font-weight-bold">
+			                	Penanggung Jawab Surat
+				                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close">
+				                    <span aria-hidden="true">&times;</span>
+				                </button>
+			                </h4>
+			            </div>
+			            <div class="modal-body">
+							<h5>Pilih Penanggung Jawab Surat</h5>
+				            <div class="input-group">
+				              	<span class="input-group-addon"><i class="fa fa-hammer"></i></span>
+				              	<select class="form-control" data-url="{{ route('spp.show',['spp'=> $d->id,'user_id' => '']) }}" onchange="getData(this);">
+				              		@foreach($user as $u)
+				              			<option data-id="{{$u->id}}">{{$u->name}}</option>
+				              		@endforeach
+				              	</select>
+				            </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+
 			<div class="modal fade" id="{{md5($d->id.'spp')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    <div class="modal-dialog" role="document">
 			        <div class="modal-content">

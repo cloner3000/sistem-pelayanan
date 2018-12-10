@@ -29,7 +29,7 @@ class SkController extends Controller
 
     public function indexAcc(Request $req){
         $datas = Sk::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
-       $export = Sk::whereRaw('status = "acc"')
+        $export = Sk::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
         $user = User::whereHas('roles',function($q){

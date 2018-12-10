@@ -118,7 +118,7 @@
 							<h5>Pilih Penanggung Jawab Surat</h5>
 				            <div class="input-group">
 				              	<span class="input-group-addon"><i class="fa fa-hammer"></i></span>
-				              	<select class="form-control" data-url="{{ route('sk.show',['sktm'=> $d->id,'user_id' => '']) }}" onchange="getData(this);">
+				              	<select class="form-control" data-url="{{ route('sk.show',['sk'=> $d->id,'user_id' => '']) }}" onchange="getData(this);">
 				              		@foreach($user as $u)
 				              			<option data-id="{{$u->id}}">{{$u->name}}</option>
 				              		@endforeach

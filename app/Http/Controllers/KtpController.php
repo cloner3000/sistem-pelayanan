@@ -9,6 +9,7 @@ use PDF;
 use App\Struktur;
 use DB;
 use Excel;
+use App\User;
 class KtpController extends Controller
 {
     /**
@@ -33,10 +34,16 @@ class KtpController extends Controller
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
 
+        $user = User::whereHas('roles',function($q){
+                    $q->where('role_id',3);
+                })->orWhereHas('roles',function($q){
+                    $q->where('role_id',2);
+                })->get();
+
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.ktp.indexAcc',compact('datas','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.ktp.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.ktp.indexAcc',compact('datas','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.ktp.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
@@ -92,7 +99,7 @@ class KtpController extends Controller
      */
     public function show($id)
     {
-        $s      = Struktur::where('jabatan','Sekertaris')->first()->nama;
+        $s      = Struktur::where('jabatan','Sekretaris Desa')->firstOrFail()->nama;
         $data   = Ktp::findOrFail($id);
         $pdf    = PDF::loadView('pdf.ktp', compact('data','s'));
         return $pdf->stream($data->nama.".pdf");

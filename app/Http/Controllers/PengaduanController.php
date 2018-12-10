@@ -8,6 +8,7 @@ use App\Pengaduan;
 use Auth;
 use DB;
 use Excel;
+use App\User;
 class PengaduanController extends Controller
 {
     /**
@@ -31,10 +32,17 @@ class PengaduanController extends Controller
         $export = Pengaduan::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
-         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.pengaduan.indexAcc',compact('datas','export'))->with('no',($req->input('page',1)-1)*10);
+
+        $user = User::whereHas('roles',function($q){
+                    $q->where('role_id',3);
+                })->orWhereHas('roles',function($q){
+                    $q->where('role_id',2);
+                })->get();
+
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.pengaduan.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.pengaduan.indexAcc',compact('datas','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.pengaduan.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
