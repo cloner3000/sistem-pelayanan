@@ -8,6 +8,7 @@ use App\Sptjm;
 use Auth;
 use DB;
 use PDF;
+use Excel;
 class SptjmController extends Controller
 {
     /**
@@ -46,6 +47,16 @@ class SptjmController extends Controller
 
         $data->save();
         return back();
+    }
+
+    public function csv(Request $r)
+    {
+        $q = explode('-', $r->input('export'));
+        $datas = Sptjm::whereRaw('YEAR(created_at) ='.$q[1])->whereRaw('MONTH(created_at) ='.$q[0])->get();
+        return Excel::loadView('excel.sptjm',compact('datas'))
+                        ->setTitle("Laporan Bulanan")
+                        ->sheet(bulan($q[1]).'-'.$q[0])
+                        ->export('xls');
     }
 
     /**

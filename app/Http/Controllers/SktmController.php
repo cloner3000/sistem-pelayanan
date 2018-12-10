@@ -53,6 +53,16 @@ class SktmController extends Controller
         return back();
     }
 
+    public function csv(Request $r)
+    {
+        $q = explode('-', $r->input('export'));
+        $datas = Sktm::whereRaw('YEAR(created_at) ='.$q[1])->whereRaw('MONTH(created_at) ='.$q[0])->get();
+        return Excel::loadView('excel.sktm',compact('datas'))
+                        ->setTitle("Laporan Bulanan")
+                        ->sheet(bulan($q[1]).'-'.$q[0])
+                        ->export('xls');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
