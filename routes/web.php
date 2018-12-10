@@ -53,44 +53,76 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     Route::post('acc/spp','SppController@acc')->name('kades.spp.acc');
     Route::get('acc/spp','SppController@indexAcc')->name('kades.spp.indexAcc');
     Route::resource('spp', 'SppController',['names' =>'kades.spp'])->except(['edit','create']);
+    Route::post('export/spp','SppController@csv')->name('kades.spp.export');
+    Route::get('export/spp',function(){
+        return abort(404);
+    });
 
     //route CRUD data ktp
     Route::post('acc/ktp','KtpController@acc')->name('kades.ktp.acc');
     Route::get('acc/ktp','KtpController@indexAcc')->name('kades.ktp.indexAcc');
     Route::resource('ktp', 'KtpController',['names' =>'kades.ktp'])->except(['edit','create']);
+    Route::post('export/ktp','KtpController@csv')->name('kades.ktp.export');
+    Route::get('export/ktp',function(){
+        return abort(404);
+    });
 
     //route Crud data surat Kelahiran
     Route::post('acc/skk','SkkController@acc')->name('kades.skk.acc');
     Route::get('acc/skk','SkkController@indexAcc')->name('kades.skk.indexAcc');
     Route::resource('skk','SkkController',['names' =>'kades.skk'])->except(['edit','create']);
+    Route::post('export/skk','SkkController@csv')->name('kades.skk.export');
+    Route::get('export/skk',function(){
+        return abort(404);
+    });
 
     //route CRUD data sptjm
     Route::post('acc/sptjm','SptjmController@acc')->name('kades.sptjm.acc');
     Route::get('acc/sptjm','SptjmController@indexAcc')->name('kades.sptjm.indexAcc');
     Route::resource('sptjm','SptjmController',['names' =>'kades.sptjm'])->except(['edit','create']);
+    Route::post('export/sptjm','SptjmController@csv')->name('kades.sptjm.export');
+    Route::get('export/sptjm',function(){
+        return abort(404);
+    });
 
     //route CRUD data Pengaduan
     Route::post('acc/pengaduan','PengaduanController@acc')->name('kades.pengaduan.acc');
     Route::get('acc/pengaduan','PengaduanController@indexAcc')->name('kades.pengaduan.indexAcc');
     Route::resource('pengaduan','PengaduanController',['names' => 'kades.pengaduan'])->except(['edit','create']);
+    Route::post('export/pengaduan','PengaduanController@csv')->name('kades.pengaduan.export');
+    Route::get('export/pengaduan',function(){
+        return abort(404);
+    });
 
     //route CRUD data Sktm
     Route::post('acc/sktm','SktmController@acc')->name('kades.sktm.acc');
     Route::get('acc/sktm','SktmController@indexAcc')->name('kades.sktm.indexAcc');
     Route::resource('sktm','SktmController',['names' => 'kades.sktm'])->except(['show','edit','create']);
     Route::get('sktm/{sktm}/{user_id}','SktmController@show')->name('kades.sktm.show');
+    Route::post('export/sktm','SktmController@csv')->name('kades.sktm.export');
+    Route::get('export/sktm',function(){
+        return abort(404);
+    });
 
     //route CRUD data Skematian
     Route::post('acc/skematian','SkematianController@acc')->name('kades.skematian.acc');
     Route::get('acc/skematian','SkematianController@indexAcc')->name('kades.skematian.indexAcc');
     Route::resource('skematian','SkematianController',['names' => 'kades.skematian'])->except(['show','edit','create']);
     Route::get('skematian/{skematian}/{user_id}','SkematianController@show')->name('kades.skematian.show');
+    Route::post('export/skematian','SkematianController@csv')->name('kades.skematian.export');
+    Route::get('export/skematian',function(){
+        return abort(404);
+    });
 
     //route CRUD data Keterangan
     Route::post('acc/sk','SkController@acc')->name('kades.sk.acc');
     Route::get('acc/sk','SkController@indexAcc')->name('kades.sk.indexAcc');
     Route::resource('sk','SkController',['names' => 'kades.sk'])->except(['show','edit','create']);
     Route::get('sk/{sk}/{user_id}','SkController@show')->name('kades.sk.show');
+    Route::post('export/sk','SkController@csv')->name('kades.sk.export');
+    Route::get('export/sk',function(){
+        return abort(404);
+    });
 
     //Route CRUD Kategori
     Route::resource('kategori','KategoriController',['names' => 'kades.kategori'])->except(['show','edit','create']);
