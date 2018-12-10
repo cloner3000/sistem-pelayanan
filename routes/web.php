@@ -184,6 +184,10 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::post('acc/pengaduan','PengaduanController@acc')->name('pengaduan.acc');
     Route::get('acc/pengaduan','PengaduanController@indexAcc')->name('pengaduan.indexAcc');
     Route::resource('pengaduan','PengaduanController')->except(['edit','create']);
+    Route::post('export/pengaduan','PengaduanController@csv')->name('pengaduan.export');
+    Route::get('export/pengaduan',function(){
+        return abort(404);
+    });
 
     //Route CRUD Kategori
     Route::resource('kategori','KategoriController')->except(['show','edit','create']);

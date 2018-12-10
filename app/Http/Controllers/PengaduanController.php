@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Pengaduan;
 use Auth;
 use DB;
+use Excel;
 class PengaduanController extends Controller
 {
     /**
@@ -46,14 +47,15 @@ class PengaduanController extends Controller
         $data->save();
         return back();
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function csv(Request $r)
     {
-        //
+        $q = explode('-', $r->input('export'));
+        $datas = Pengaduan::whereRaw('YEAR(created_at) ='.$q[1])->whereRaw('MONTH(created_at) ='.$q[0])->get();
+        return Excel::loadView('excel.pengaduan',compact('datas'))
+                        ->setTitle("Laporan Bulanan")
+                        ->sheet(bulan($q[1]).'-'.$q[0])
+                        ->export('xls');
     }
 
     /**
@@ -89,17 +91,6 @@ class PengaduanController extends Controller
     public function show($id)
     {
         //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-
     }
 
     /**
