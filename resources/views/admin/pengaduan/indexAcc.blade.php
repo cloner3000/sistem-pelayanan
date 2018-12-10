@@ -33,7 +33,7 @@
 									<label>Pilih Data :&nbsp;</label>
 									<select name="export" class="form-control">
 										@foreach($export as $x)
-											<option value="{{$x->month.'-'.$x->year}}">{{bulan($x->month).' - '.$x->year}}</option>
+											<option value="{{$x->month.'-'.$x->year}}">{{$x->year.' - '.bulan($x->month)}}</option>
 										@endforeach
 									</select>
 									<button type="submit" class="btn btn-sm btn-info" style="margin-left: 5px;">Download</button>
