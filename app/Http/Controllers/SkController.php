@@ -9,6 +9,7 @@ use App\User;
 use Carbon\Carbon;
 use PDF;
 use DB;
+use Excel;
 class SkController extends Controller
 {
     /**
@@ -54,14 +55,14 @@ class SkController extends Controller
         return back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function csv(Request $r)
     {
-        //
+        $q = explode('-', $r->input('export'));
+        $datas = Sk::whereRaw('YEAR(created_at) ='.$q[1])->whereRaw('MONTH(created_at) ='.$q[0])->get();
+        return Excel::loadView('excel.sk',compact('datas'))
+                        ->setTitle("Laporan Bulanan")
+                        ->sheet(bulan($q[1]).'-'.$q[0])
+                        ->export('xls');
     }
 
     /**

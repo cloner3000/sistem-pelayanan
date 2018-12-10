@@ -175,6 +175,10 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::get('acc/sk','SkController@indexAcc')->name('sk.indexAcc');
     Route::resource('sk','SkController',['names' => 'sk'])->except(['show','edit','create']);
     Route::get('sk/{sk}/{user_id}','SkController@show')->name('sk.show');
+    Route::post('export/sk','SkController@csv')->name('sk.export');
+    Route::get('export/sk',function(){
+        return abort(404);
+    });
 
     //route CRUD data Pengaduan
     Route::post('acc/pengaduan','PengaduanController@acc')->name('pengaduan.acc');
