@@ -8,6 +8,7 @@ use Auth;
 use PDF;
 use App\User;
 use DB;
+use Excel;
 class SkematianController extends Controller
 {
     /**
@@ -52,6 +53,16 @@ class SkematianController extends Controller
 
         $data->save();
         return back();
+    }
+
+    public function csv(Request $r)
+    {
+        $q = explode('-', $r->input('export'));
+        $datas = Skematian::whereRaw('YEAR(created_at) ='.$q[1])->whereRaw('MONTH(created_at) ='.$q[0])->get();
+        return Excel::loadView('excel.skematian',compact('datas'))
+                        ->setTitle("Laporan Bulanan")
+                        ->sheet(bulan($q[1]).'-'.$q[0])
+                        ->export('xls');
     }
 
     /**

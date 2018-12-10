@@ -165,6 +165,10 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::get('acc/skematian','SkematianController@indexAcc')->name('skematian.indexAcc');
     Route::resource('skematian','SkematianController',['names' => 'skematian'])->except(['show','edit','create']);
     Route::get('skematian/{skematian}/{user_id}','SkematianController@show')->name('skematian.show');
+    Route::post('export/skematian','SkematianController@csv')->name('skematian.export');
+    Route::get('export/skematian',function(){
+        return abort(404);
+    });
 
     //route CRUD data Keterangan
     Route::post('acc/sk','SkController@acc')->name('sk.acc');
