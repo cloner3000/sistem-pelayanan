@@ -7,6 +7,7 @@ use App\Spp;
 use Auth;
 use PDF;
 use DB;
+use Excel;
 class SppController extends Controller
 {
     /**
@@ -46,14 +47,15 @@ class SppController extends Controller
         $data->save();
         return back();
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $req)
+
+    public function csv(Request $r)
     {
-        
+        $q = explode('-', $r->input('export'));
+        $datas = Spp::whereRaw('YEAR(created_at) ='.$q[1])->whereRaw('MONTH(created_at) ='.$q[0])->get();
+        return Excel::loadView('excel.spp',compact('datas'))
+                        ->setTitle("Laporan Bulanan")
+                        ->sheet(bulan($q[1]).'-'.$q[0])
+                        ->export('xls');
     }
 
     /**

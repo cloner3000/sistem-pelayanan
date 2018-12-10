@@ -122,6 +122,10 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     Route::post('acc/spp','SppController@acc')->name('spp.acc');
     Route::get('acc/spp','SppController@indexAcc')->name('spp.indexAcc');
     Route::resource('spp', 'SppController')->except(['edit','create']);
+    Route::post('export/spp','SppController@csv')->name('spp.export');
+    Route::get('export/spp',function(){
+        return abort(404);
+    });
 
     //route CRUD data ktp
     Route::post('acc/ktp','KtpController@acc')->name('ktp.acc');
