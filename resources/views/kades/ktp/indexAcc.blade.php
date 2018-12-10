@@ -67,7 +67,7 @@
 			                  		<span class="label label-success">{{$data->status}}</span>
 			                  	</td>
 			                  	<td>
-			                  		<a class="btn btn-xs btn-primary" href="{{ route('kades.ktp.show',$data->id) }}">
+			                  		<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'ktppdf')}}">
 										<i class="fa fa-file-alt"></i>
 										 PDF
 									</a>
@@ -101,6 +101,32 @@
     	</div>
 
 		@foreach($datas as $d)
+			<div class="modal fade" id="{{md5($d->id.'ktppdf')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog" role="document">
+			        <div class="modal-content">
+			            <div class="modal-header text-center">
+			                <h4 class="modal-title w-100 font-weight-bold">
+			                	Penanggung Jawab Surat
+				                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close">
+				                    <span aria-hidden="true">&times;</span>
+				                </button>
+			                </h4>
+			            </div>
+			            <div class="modal-body">
+							<h5>Pilih Penanggung Jawab Surat</h5>
+				            <div class="input-group">
+				              	<span class="input-group-addon"><i class="fa fa-hammer"></i></span>
+				              	<select class="form-control" data-url="{{ route('kades.ktp.show',['ktp'=> $d->id,'user_id' => '']) }}" onchange="getData(this);">
+				              		@foreach($user as $u)
+				              			<option data-id="{{$u->id}}">{{$u->name}}</option>
+				              		@endforeach
+				              	</select>
+				            </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+
 			<div class="modal fade" id="{{md5($d->id.'ktp')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    <div class="modal-dialog" role="document">
 			        <div class="modal-content">

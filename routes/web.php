@@ -52,7 +52,8 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //route CRUD data pelayanan surat pindah
     Route::post('acc/spp','SppController@acc')->name('kades.spp.acc');
     Route::get('acc/spp','SppController@indexAcc')->name('kades.spp.indexAcc');
-    Route::resource('spp', 'SppController',['names' =>'kades.spp'])->except(['edit','create']);
+    Route::resource('spp', 'SppController',['names' =>'kades.spp'])->except(['show','edit','create']);
+    Route::get('spp/{spp}/{user_id}','SppController@show')->name('kades.spp.show');
     Route::post('export/spp','SppController@csv')->name('kades.spp.export');
     Route::get('export/spp',function(){
         return abort(404);
@@ -61,7 +62,8 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //route CRUD data ktp
     Route::post('acc/ktp','KtpController@acc')->name('kades.ktp.acc');
     Route::get('acc/ktp','KtpController@indexAcc')->name('kades.ktp.indexAcc');
-    Route::resource('ktp', 'KtpController',['names' =>'kades.ktp'])->except(['edit','create']);
+    Route::resource('ktp', 'KtpController',['names' =>'kades.ktp'])->except(['show','edit','create']);
+    Route::get('ktp/{ktp}/{user_id}','KtpController@show')->name('kades.ktp.show');
     Route::post('export/ktp','KtpController@csv')->name('kades.ktp.export');
     Route::get('export/ktp',function(){
         return abort(404);
@@ -70,7 +72,8 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //route Crud data surat Kelahiran
     Route::post('acc/skk','SkkController@acc')->name('kades.skk.acc');
     Route::get('acc/skk','SkkController@indexAcc')->name('kades.skk.indexAcc');
-    Route::resource('skk','SkkController',['names' =>'kades.skk'])->except(['edit','create']);
+    Route::resource('skk','SkkController',['names' =>'kades.skk'])->except(['show','edit','create']);
+    Route::get('skk/{skk}/{user_id}','SkkController@show')->name('kades.skk.show');
     Route::post('export/skk','SkkController@csv')->name('kades.skk.export');
     Route::get('export/skk',function(){
         return abort(404);
@@ -79,7 +82,8 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //route CRUD data sptjm
     Route::post('acc/sptjm','SptjmController@acc')->name('kades.sptjm.acc');
     Route::get('acc/sptjm','SptjmController@indexAcc')->name('kades.sptjm.indexAcc');
-    Route::resource('sptjm','SptjmController',['names' =>'kades.sptjm'])->except(['edit','create']);
+    Route::resource('sptjm','SptjmController',['names' =>'kades.sptjm'])->except(['show','edit','create']);
+    Route::get('sptjm/{sptjm}/{user_id}','SptjmController@show')->name('kades.sptjm.show');
     Route::post('export/sptjm','SptjmController@csv')->name('kades.sptjm.export');
     Route::get('export/sptjm',function(){
         return abort(404);
