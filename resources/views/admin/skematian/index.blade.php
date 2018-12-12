@@ -228,6 +228,22 @@
 								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								              		<select class="form-control" name="p_hubungan">
 								              			<option value="anak kandung">Anak Kandung</option>
+								              			<option value="ibu">Ibu</option>
+								              			<option value="ayah kandung">Ayah Kandung</option>
+								              			<option value="nenek">Nenek</option>
+								              			<option value="kakek">kakek</option>
+								              			<option value="bibi">Bibi</option>
+								              			<option value="paman">Paman</option>
+								              			<option value="tante">Tante</option>
+								              			<option value="om">Om</option>
+								              			<option value="keponakan">Keponakan</option>
+								              			<option value="sepupu">Sepupu</option>
+								              			<option value="saudara tiri">Saudara Tiri</option>
+								              			<option value="ibu tiri">Ibu Tiri</option>
+								              			<option value="ayah tiri">Ayah Tiri</option>
+								              			<option value="anak tiri">Anak Tiri</option>
+								              			<option value="kerabat">Kerabat</option>
+								              			<option value="tetangga">Tetangga</option>
 								              		</select>
 								            	</div>
 						                	</div>
