@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use PDF;
 use DB;
 use Excel;
+use App\Pekerjaan;
 class SkController extends Controller
 {
     /**
@@ -19,15 +20,18 @@ class SkController extends Controller
      */
     public function index(Request $req)
     {
-         $datas = Sk::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
+        $ps = Pekerjaan::all();
+        $datas = Sk::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sk.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sk.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sk.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sk.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
-    public function indexAcc(Request $req){
+    public function indexAcc(Request $req)
+    {
+        $ps = Pekerjaan::all();
         $datas = Sk::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
         $export = Sk::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
@@ -39,9 +43,9 @@ class SkController extends Controller
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sk.indexAcc',compact('datas','user','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sk.indexAcc',compact('datas','user','export','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sk.indexAcc',compact('datas','user','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sk.indexAcc',compact('datas','user','export','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

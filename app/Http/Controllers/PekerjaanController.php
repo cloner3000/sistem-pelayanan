@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Pekerjaan;
+use App\Pekerjaan;
 class PekerjaanController extends Controller
 {
     /**
@@ -33,7 +34,7 @@ class PekerjaanController extends Controller
     {
         $data = Pekerjaan::insert([
             'nama' => $request->input('nama'),
-            'slug' => slugify($request->input('nama')),
+            'slug' => strtolower($request->input('nama')),
         ]);
         return back();
     }
@@ -49,7 +50,7 @@ class PekerjaanController extends Controller
     {
         $data = Pekerjaan::findOrFail($id);
         $data->nama = $request->input('nama');
-        $data->slug = slugify($request->input('nama'));
+        $data->slug = strtolower($request->input('nama'));
         $data->save();
         return back();
     }

@@ -9,6 +9,7 @@ use PDF;
 use App\User;
 use DB;
 use Excel;
+use App\Pekerjaan;
 class SktmController extends Controller
 {
     /**
@@ -18,15 +19,18 @@ class SktmController extends Controller
      */
     public function index(Request $req)
     {
+        $ps = Pekerjaan::all();
         $datas = Sktm::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sktm.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sktm.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sktm.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sktm.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
-    public function indexAcc(Request $req){
+    public function indexAcc(Request $req)
+    {
+        $ps = Pekerjaan::all();
         $datas = Sktm::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
         $export = Sktm::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
@@ -38,9 +42,9 @@ class SktmController extends Controller
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sktm.indexAcc',compact('datas','user','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sktm.indexAcc',compact('datas','user','export','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sktm.indexAcc',compact('datas','user','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sktm.indexAcc',compact('datas','user','export','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

@@ -9,6 +9,7 @@ use Auth;
 use DB;
 use Excel;
 use App\User;
+use App\Pekerjaan;
 class PengaduanController extends Controller
 {
     /**
@@ -18,16 +19,18 @@ class PengaduanController extends Controller
      */
     public function index(Request $req)
     {
+        $ps = Pekerjaan::all();
         $datas = Pengaduan::where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.pengaduan.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.pengaduan.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.pengaduan.index',compact('datas'))->with('no',($req->input('page',1)-1)*1);
+            return view('admin.pengaduan.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*1);
         }   
     }
 
     public function indexAcc(Request $req)
     {
+        $ps = Pekerjaan::all();
         $datas = Pengaduan::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
         $export = Pengaduan::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
@@ -40,9 +43,9 @@ class PengaduanController extends Controller
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.pengaduan.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.pengaduan.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.pengaduan.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.pengaduan.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

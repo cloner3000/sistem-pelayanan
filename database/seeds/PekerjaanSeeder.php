@@ -23,7 +23,7 @@ class PekerjaanSeeder extends Seeder
         foreach ($p as $key => $v) {
         	DB::table('pekerjaans')->insert([
         		'nama' =>$v,
-        		'slug' =>slugify($v),
+        		'slug' =>strtolower($v),
         	]);
         }
     }

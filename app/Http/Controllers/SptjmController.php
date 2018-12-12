@@ -10,6 +10,7 @@ use DB;
 use PDF;
 use Excel;
 use App\User;
+use App\Pekerjaan;
 class SptjmController extends Controller
 {
     /**
@@ -19,16 +20,18 @@ class SptjmController extends Controller
      */
    public function index(Request $req)
     {
+        $ps = Pekerjaan::all();
         $datas = Sptjm::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sptjm.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sptjm.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sptjm.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sptjm.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
     public function indexAcc(Request $req)
     {
+        $ps = Pekerjaan::all();
         $datas = Sptjm::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
         $export = Sptjm::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
@@ -39,9 +42,9 @@ class SptjmController extends Controller
                     $q->where('role_id',2);
                 })->get();
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sptjm.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sptjm.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sptjm.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sptjm.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

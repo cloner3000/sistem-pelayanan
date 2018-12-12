@@ -9,6 +9,7 @@ use PDF;
 use DB;
 use Excel;
 use App\User;
+use App\Pekerjaan;
 class SppController extends Controller
 {
     /**
@@ -18,11 +19,12 @@ class SppController extends Controller
      */
     public function index(Request $req)
     {
+        $ps = Pekerjaan::all();
         $datas = Spp::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.spp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.spp.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.spp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.spp.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
@@ -39,9 +41,9 @@ class SppController extends Controller
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.spp.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.spp.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.spp.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.spp.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

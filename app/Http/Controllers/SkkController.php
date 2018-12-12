@@ -9,6 +9,7 @@ use PDF;
 use DB;
 use Excel;
 use App\User;
+use App\Pekerjaan;
 class SkkController extends Controller
 {
     /**
@@ -18,16 +19,18 @@ class SkkController extends Controller
      */
     public function index(Request $req)
     {
+        $ps = Pekerjaan::all();
         $datas = Skk::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.skk.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.skk.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.skk.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.skk.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
     public function indexAcc(Request $req)
     {
+        $ps = Pekerjaan::all();
         $datas = Skk::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
         $export = Skk::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
@@ -40,9 +43,9 @@ class SkkController extends Controller
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.skk.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.skk.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.skk.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.skk.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
@@ -153,7 +156,7 @@ class SkkController extends Controller
         $data->b_nama            = $req->input('b_nama');
         $data->b_jenis_kelamin   = $req->input('b_jenis_kelamin');
         $data->b_tempat          = $req->input('b_tempat');
-        $data->b_tanggal         = date('Y-m-d',strtotime($request->input('tanggal')));
+        $data->b_tanggal         = date('Y-m-d',strtotime($req->input('tanggal')));
         $data->b_jenis_kelahiran = $req->input('b_jenis_kelahiran');
         $data->b_kelahiran_ke    = $req->input('b_kelahiran_ke');
         $data->b_berat           = $req->input('b_berat');
@@ -161,21 +164,21 @@ class SkkController extends Controller
 
         $data->i_nik                = $req->input('i_nik');
         $data->i_nama               = $req->input('i_nama');
-        $data->i_tanggal_lahir      = date('Y-m-d',strtotime($request->input('i_tanggal_lahir')));
+        $data->i_tanggal_lahir      = date('Y-m-d',strtotime($req->input('i_tanggal_lahir')));
         $data->i_pekerjaan          = $req->input('i_pekerjaan');
         $data->i_alamat             = $req->input('i_alamat');
         $data->i_kewarganegaraan    = $req->input('i_kewarganegaraan');
         $data->i_kebangsaan         = $req->input('i_kebangsaan');
-        $data->i_tanggal_perkawinan = date('Y-m-d',strtotime($request->input('i_tanggal_perkawinan')));
+        $data->i_tanggal_perkawinan = date('Y-m-d',strtotime($req->input('i_tanggal_perkawinan')));
         
         $data->a_nik                = $req->input('a_nik');
         $data->a_nama               = $req->input('a_nama');
-        $data->a_tanggal_lahir      = date('Y-m-d',strtotime($request->input('a_tanggal_lahir')));
+        $data->a_tanggal_lahir      = date('Y-m-d',strtotime($req->input('a_tanggal_lahir')));
         $data->a_pekerjaan          = $req->input('a_pekerjaan');
         $data->a_alamat             = $req->input('a_alamat');
         $data->a_kewarganegaraan    = $req->input('a_kewarganegaraan');
         $data->a_kebangsaan         = $req->input('a_kebangsaan');
-        $data->a_tanggal_perkawinan = date('Y-m-d',strtotime($request->input('a_tanggal_perkawinan')));
+        $data->a_tanggal_perkawinan = date('Y-m-d',strtotime($req->input('a_tanggal_perkawinan')));
         
         $data->p_nik                = $req->input('p_nik');
         $data->p_nama               = $req->input('p_nama');

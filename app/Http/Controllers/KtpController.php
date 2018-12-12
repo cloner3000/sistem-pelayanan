@@ -10,6 +10,7 @@ use App\Struktur;
 use DB;
 use Excel;
 use App\User;
+use App\Pekerjaan;
 class KtpController extends Controller
 {
     /**
@@ -21,9 +22,9 @@ class KtpController extends Controller
     {
         $datas = Ktp::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.ktp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.ktp.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.ktp.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.ktp.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
@@ -41,9 +42,9 @@ class KtpController extends Controller
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.ktp.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.ktp.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.ktp.indexAcc',compact('datas','export','user'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.ktp.indexAcc',compact('datas','export','user','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

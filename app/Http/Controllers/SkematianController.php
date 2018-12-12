@@ -9,6 +9,7 @@ use PDF;
 use App\User;
 use DB;
 use Excel;
+use App\Pekerjaan;
 class SkematianController extends Controller
 {
     /**
@@ -18,16 +19,18 @@ class SkematianController extends Controller
      */
     public function index(Request $req)
     {
-         $datas = Skematian::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
+        $ps = Pekerjaan::all();
+        $datas = Skematian::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.skematian.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.skematian.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.skematian.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.skematian.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
     public function indexAcc(Request $req)
     {
+        $ps = Pekerjaan::all();
         $datas = Skematian::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
         $export = Skematian::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
@@ -39,9 +42,9 @@ class SkematianController extends Controller
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.skematian.indexAcc',compact('datas','user','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.skematian.indexAcc',compact('datas','user','export','ps'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.skematian.indexAcc',compact('datas','user','export'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.skematian.indexAcc',compact('datas','user','export','ps'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

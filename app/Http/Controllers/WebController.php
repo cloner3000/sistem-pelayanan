@@ -11,6 +11,7 @@ use App\Sptjm;
 use App\Spp;
 use App\Blog;
 use App\Kategori;
+use App\Pekerjaan;
 class WebController extends Controller
 {
     public function index()
@@ -21,9 +22,10 @@ class WebController extends Controller
     	$skk = Skk::count();
     	$sptjm = Sptjm::count();
     	$spp = Spp::count();
+        $ps = Pekerjaan::all();
 
         $news = Blog::with('users','kategoris')->orderBy('updated_at','asc')->get()->chunk(4);
-    	return view('index',compact('web','strukturs','ktp','skk','sptjm','spp','news'));
+    	return view('index',compact('web','strukturs','ktp','skk','sptjm','spp','news','ps'));
     }
 
     public function blogIndex(Request $req)

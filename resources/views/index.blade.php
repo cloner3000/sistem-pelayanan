@@ -504,14 +504,9 @@
                               <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                                 <select class="form-control" name="pekerjaan">
-                                  <option value="pns">Pegawai Negeri Sipil</option>
-                                  <option value="wiraswasta">Wiraswasta</option>
-                                  <option value="pelajar">Pelajar</option>
-                                  <option value="mahasiswa">Mahasiswa</option>
-                                  <option value="karyawan">Karyawan</option>
-                                  <option value="programmer">Programmer</option>
-                                  <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                  <option value="lain-lain">Lain-Lain</option>
+                                  @foreach($ps as $p)
+                                    <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                  @endforeach
                                 </select>
                               </div>
                               <br>
@@ -782,17 +777,10 @@
                                         <br>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-                                            {{-- <input name="i_pekerjaan" type="text" class="form-control" required }"> 
-                                            --}}
                                             <select class="form-control" name="i_pekerjaan">
-                                              <option value="pns">Pegawai Negeri Sipil</option>
-                                              <option value="wiraswasta">Wiraswasta</option>
-                                              <option value="pelajar">Pelajar</option>
-                                              <option value="mahasiswa">Mahasiswa</option>
-                                              <option value="karyawan">Karyawan</option>
-                                              <option value="programmer">Programmer</option>
-                                              <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                              <option value="lain-lain">Lain-Lain</option>
+                                              @foreach($ps as $p)
+                                                <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                              @endforeach
                                             </select>
                                         </div>
                                         <br>
@@ -862,15 +850,10 @@
                                         <h5>Pekerjaan</h5>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-                                            {{-- <input name="a_pekerjaan" type="text" class="form-control" required }"> --}}
                                             <select class="form-control" name="a_pekerjaan">
-                                              <option value="pns">Pegawai Negeri Sipil</option>
-                                              <option value="wiraswasta">Wiraswasta</option>
-                                              <option value="pelajar">Pelajar</option>
-                                              <option value="mahasiswa">Mahasiswa</option>
-                                              <option value="karyawan">Karyawan</option>
-                                              <option value="programmer">Programmer</option>
-                                              <option value="lain-lain">Lain-Lain</option>
+                                              @foreach($ps as $p)
+                                                <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                              @endforeach
                                             </select>
                                         </div>
                                         <br>
@@ -944,16 +927,10 @@
                                       <h5>Pekerjaan</h5>
                                       <div class="input-group">
                                           <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-                                          {{-- <input name="p_pekerjaan" type="text" class="form-control" required }"> --}}
                                           <select class="form-control" name="p_pekerjaan">
-                                            <option value="pns">Pegawai Negeri Sipil</option>
-                                            <option value="wiraswasta">Wiraswasta</option>
-                                            <option value="pelajar">Pelajar</option>
-                                            <option value="mahasiswa">Mahasiswa</option>
-                                            <option value="karyawan">Karyawan</option>
-                                            <option value="programmer">Programmer</option>
-                                            <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                            <option value="lain-lain">Lain-Lain</option>
+                                            @foreach($ps as $p)
+                                              <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                            @endforeach
                                           </select>
                                       </div>
                                       <br>
@@ -997,14 +974,9 @@
                                       <div class="input-group">
                                           <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                                           <select class="form-control" name="s1_pekerjaan">
-                                            <option value="pns">Pegawai Negeri Sipil</option>
-                                            <option value="wiraswasta">Wiraswasta</option>
-                                            <option value="pelajar">Pelajar</option>
-                                            <option value="mahasiswa">Mahasiswa</option>
-                                            <option value="karyawan">Karyawan</option>
-                                            <option value="programmer">Programmer</option>
-                                            <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                            <option value="lain-lain">Lain-Lain</option>
+                                            @foreach($ps as $p)
+                                              <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                            @endforeach
                                           </select>
                                       </div>
                                       <br>
@@ -1047,16 +1019,10 @@
                                       <h5>Pekerjaan</h5>
                                       <div class="input-group">
                                           <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-                                          {{-- <input name="s2_pekerjaan" type="text" class="form-control" required }"> --}}
                                           <select class="form-control" name="s2_pekerjaan">
-                                            <option value="pns">Pegawai Negeri Sipil</option>
-                                            <option value="wiraswasta">Wiraswasta</option>
-                                            <option value="pelajar">Pelajar</option>
-                                            <option value="mahasiswa">Mahasiswa</option>
-                                            <option value="karyawan">Karyawan</option>
-                                            <option value="programmer">Programmer</option>
-                                            <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                            <option value="lain-lain">Lain-Lain</option>
+                                            @foreach($ps as $p)
+                                              <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                            @endforeach
                                           </select>
                                       </div>
                                       <br>
@@ -1148,14 +1114,9 @@
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                                   <select class="form-control" name="pekerjaan">
-                                    <option value="pns">Pegawai Negeri Sipil</option>
-                                    <option value="wiraswasta">Wiraswasta</option>
-                                    <option value="pelajar">Pelajar</option>
-                                    <option value="mahasiswa">Mahasiswa</option>
-                                    <option value="karyawan">Karyawan</option>
-                                    <option value="programmer">Programmer</option>
-                                    <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                    <option value="lain-lain">Lain-Lain</option>
+                                    @foreach($ps as $p)
+                                      <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                    @endforeach
                                   </select>
                               </div>
                               <br>
@@ -1262,14 +1223,9 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                                 <select class="form-control" name="pekerjaan">
-                                  <option value="pns">Pegawai Negeri Sipil</option>
-                                  <option value="wiraswasta">Wiraswasta</option>
-                                  <option value="pelajar">Pelajar</option>
-                                  <option value="mahasiswa">Mahasiswa</option>
-                                  <option value="karyawan">Karyawan</option>
-                                  <option value="programmer">Programmer</option>
-                                  <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                  <option value="lain-lain">Lain-Lain</option>
+                                  @foreach($ps as $p)
+                                    <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                  @endforeach
                                 </select>
                             </div>
                             <br>
@@ -1317,14 +1273,9 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                                 <select class="form-control" name="pekerjaan1">
-                                  <option value="pns">Pegawai Negeri Sipil</option>
-                                  <option value="wiraswasta">Wiraswasta</option>
-                                  <option value="pelajar">Pelajar</option>
-                                  <option value="mahasiswa">Mahasiswa</option>
-                                  <option value="karyawan">Karyawan</option>
-                                  <option value="programmer">Programmer</option>
-                                  <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                  <option value="lain-lain">Lain-Lain</option>
+                                  @foreach($ps as $p)
+                                    <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                  @endforeach
                                 </select>
                             </div>
                             <br>
@@ -1372,14 +1323,9 @@
                             <div class="input-group">
                               <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                               <select class="form-control" name="pekerjaan2">
-                                <option value="pns">Pegawai Negeri Sipil</option>
-                                <option value="wiraswasta">Wiraswasta</option>
-                                <option value="pelajar">Pelajar</option>
-                                <option value="mahasiswa">Mahasiswa</option>
-                                <option value="karyawan">Karyawan</option>
-                                <option value="programmer">Programmer</option>
-                                <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                <option value="lain-lain">Lain-Lain</option>
+                                  @foreach($ps as $p)
+                                    <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                  @endforeach
                               </select>
                             </div>
                             <br>
@@ -1720,14 +1666,9 @@
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                                             <select class="form-control" name="p_pekerjaan">
-                                              <option value="pns">Pegawai Negeri Sipil</option>
-                                              <option value="wiraswasta">Wiraswasta</option>
-                                              <option value="pelajar">Pelajar</option>
-                                              <option value="mahasiswa">Mahasiswa</option>
-                                              <option value="karyawan">Karyawan</option>
-                                              <option value="programmer">Programmer</option>
-                                              <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                              <option value="lain-lain">Lain-Lain</option>
+                                              @foreach($ps as $p)
+                                                <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                              @endforeach
                                             </select>
                                         </div>
                                         <br>
@@ -1831,14 +1772,9 @@
                             <div class="input-group">
                               <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                               <select class="form-control" name="pekerjaan">
-                                <option value="pns">Pegawai Negeri Sipil</option>
-                                <option value="wiraswasta">Wiraswasta</option>
-                                <option value="pelajar">Pelajar</option>
-                                <option value="mahasiswa">Mahasiswa</option>
-                                <option value="karyawan">Karyawan</option>
-                                <option value="programmer">Programmer</option>
-                                <option value="ibu rumah tangga">Ibu Rumah Tangga</option>
-                                <option value="lain-lain">Lain-Lain</option>
+                                  @foreach($ps as $p)
+                                    <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                  @endforeach
                               </select>
                             </div>
                             <br>
