@@ -1949,6 +1949,7 @@
     <div class="footer-area">
       <div class="container">
         <div class="row">
+          
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="footer-content">
               <div class="footer-head">
@@ -1973,6 +1974,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="footer-content">
               <div class="footer-head">
@@ -1991,6 +1993,17 @@
         </div>
       </div>
     </div>
+
+    <div class="container">
+      <div class="row" style="margin-top: 10px;margin-bottom: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <strong>Copyright &copy; {{date('Y')}} <a href="{{ route('/') }}">{{$web->nama_website}}</a>. Developed by 
+            <a href="mailto:dekiakbar@linuxmail.org"> Deki</a>.
+          </strong>
+        </div>
+      </div>
+    </div>
+
   </footer>
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

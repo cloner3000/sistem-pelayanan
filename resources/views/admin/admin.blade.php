@@ -332,8 +332,9 @@
   </div>
 
   <footer class="main-footer">
-    <strong>Copyright &copy; {{date('Y')}} Made with <i class="fa fa-heart"></i>
-      <a href="https://laravel.com">Laravel</a>.
+    <strong>Copyright &copy; {{date('Y')}} Made with 
+      <i class="fa fa-heart"></i> <a href="https://laravel.com"> Laravel</a>. Developed by 
+      <a href="mailto:dekiakbar@linuxmail.org"> Deki</a>.
     </strong> 
     All rights reserved.
   </footer>
