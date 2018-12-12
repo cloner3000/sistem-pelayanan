@@ -296,6 +296,13 @@
             </li>
           </ul>
         </li>
+        
+        <li class="@yield('profesi')">
+          <a href="{{ route('kades.profesi.index') }}">
+            <i class="fa fa-briefcase"></i>
+            <span>Pengaturan Profesi</span>
+          </a>
+        </li>
 
         <li class="@yield('struktur')">
           <a href="{{ route('kades.struktur') }}">

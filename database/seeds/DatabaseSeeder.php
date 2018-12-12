@@ -42,6 +42,8 @@ class DatabaseSeeder extends Seeder
         $this->call(KategoriSeeder::class);
         //Seeder data Blog
         $this->call(BlogSeeder::class);
+        //Seeder Pekerjaan
+        $this->call(PekerjaanSeeder::class);
 
     }
 }

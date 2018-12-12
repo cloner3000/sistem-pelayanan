@@ -131,6 +131,9 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //Route CRUD Kategori
     Route::resource('kategori','KategoriController',['names' => 'kades.kategori'])->except(['show','edit','create']);
 
+    //Route CRUD Profesi
+    Route::resource('profesi','PekerjaanController',['names' => 'kades.profesi'])->except(['show','edit','create']);
+
     //Route CRUD Post
     Route::resource('blog','BlogController',['names' => 'kades.blog']);
 
@@ -235,6 +238,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
 
     //Route CRUD Kategori
     Route::resource('kategori','KategoriController')->except(['show','edit','create']);
+
+    //Route CRUD Profesi
+    Route::resource('profesi','PekerjaanController')->except(['show','edit','create']);
 
     //Route CRUD Post
     Route::resource('blog','BlogController');

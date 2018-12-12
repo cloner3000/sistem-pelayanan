@@ -297,6 +297,13 @@
           </ul>
         </li>
 
+        <li class="@yield('profesi')">
+          <a href="{{ route('profesi.index') }}">
+            <i class="fa fa-briefcase"></i>
+            <span>Pengaturan Profesi</span>
+          </a>
+        </li>
+
         <li class="@yield('struktur')">
           <a href="{{ route('admin.struktur') }}">
             <i class="fa fa-briefcase"></i>
