@@ -60,7 +60,7 @@
 				            	<tr>
 				                  	<td>{{++$no}}</td>
 				                  	<td>{{$data->b_nama}}</td>
-				                  	<td>{{$data->b_tempat}}, {{$data->b_tanggal}}</td> 
+				                  	<td>{{$data->b_tempat}}, {{date('d-m-Y',strtotime($data->b_tanggal))}}</td> 
 				                  	<td>{{$data->a_nama}}</td>
 				                  	<td>{{$data->i_nama}}</td>
 				                  	<td>{{$data->b_jenis_kelamin}}</td>

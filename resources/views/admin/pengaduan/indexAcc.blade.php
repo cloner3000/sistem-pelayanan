@@ -48,7 +48,7 @@
 						<th>No</th>
 						<th>Nama</th>
 		                <th>NIK</th>
-		                <th>Tanggal Lahit</th>
+		                <th>Tanggal Lahir</th>
 		                <th>Pekerjaan</th>
 		                <th>Alamat</th>
 		                <th>Sasaran</th>
@@ -60,7 +60,7 @@
 								<td>{{++$no}}</td>
 			                  	<td>{{$data->nama}}</td>
 			                  	<td>{{$data->nik}}</td>
-			                  	<td>{{$data->tanggal_lahir}}</td>
+			                  	<td>{{date('d-m-Y',strtotime($data->tanggal))}}</td>
 			                  	<td>{{$data->pekerjaan}}</td>
 			                  	<td>{{$data->alamat}}</td>
 			                  	<td>{{$data->sasaran}}</td>

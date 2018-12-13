@@ -41,7 +41,7 @@
 			                  	<td>{{++$no}}</td>
 			                  	<td>{{$data->nama}}</td>
 			                  	<td>{{$data->nik}}</td>
-			                  	<td>{{$data->tempat}}, {{$data->tanggal}}</td> 
+			                  	<td>{{$data->tempat}}, {{date('d-m-Y',strtotime($data->tanggal))}}</td> 
 			                  	<td>{{$data->jenis_kelamin}}</td>
 			                  	<td>{{$data->keperluan}}</td>
 			                  	<td>

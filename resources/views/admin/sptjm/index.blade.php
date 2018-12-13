@@ -41,7 +41,7 @@
 			                  	<td>{{++$no}}</td>
 			                  	<td>{{$data->nik}}</td>
 			                  	<td>{{$data->nama}}</td>
-			                  	<td>{{$data->tempat}},{{$data->tanggal}}</td>
+			                  	<td>{{$data->tempat}},{{date('d-m-Y',strtotime($data->tanggal))}}</td>
 			                  	<td>{{ucfirst($data->pekerjaan)}}</td>
 			                  	<td>{{$data->alamat}}</td>
 			                  	<td>
