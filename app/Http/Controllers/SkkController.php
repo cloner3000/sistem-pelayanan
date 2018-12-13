@@ -161,10 +161,17 @@ class SkkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$user_id)
     {
         $data = Skk::findOrFail($id);
-        $pdf = PDF::loadView('pdf.skk',compact('data'))->setPaper('legal');
+        $user = User::with('roles')->findOrFail($user_id);
+        if ($user->roles->first()->id == 3) {
+            $pdf   = PDF::loadView('pdf.kades.skk',compact('data','user'))->setPaper('legal','portrait');
+        }elseif ($user->roles->first()->id == 2){
+            $pdf   = PDF::loadView('pdf.perwakilan.skk',compact('data','user'))->setPaper('legal','portrait');
+        }else{
+            return abort(404);
+        }
         return $pdf->stream($data->nama.".pdf");
     }
 

@@ -11,7 +11,7 @@
 |
 */
     Route::get('test',function(){
-        return PDF::loadView('pdf.spp')->stream('test.pdf');
+        return PDF::loadView('pdf.pengaduan')->stream('test.pdf');
     });
 
     Route::get('/','WebController@index')->name('/');
@@ -96,7 +96,7 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //route CRUD data Pengaduan
     Route::post('acc/pengaduan','PengaduanController@acc')->name('kades.pengaduan.acc');
     Route::get('acc/pengaduan','PengaduanController@indexAcc')->name('kades.pengaduan.indexAcc');
-    Route::resource('pengaduan','PengaduanController',['names' => 'kades.pengaduan'])->except(['edit','create']);
+    Route::resource('pengaduan','PengaduanController',['names' => 'kades.pengaduan'])->except(['update','edit','create']);
     Route::post('export/pengaduan','PengaduanController@csv')->name('kades.pengaduan.export');
     Route::get('export/pengaduan',function(){
         return abort(404);
@@ -234,7 +234,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'
     //route CRUD data Pengaduan
     Route::post('acc/pengaduan','PengaduanController@acc')->name('pengaduan.acc');
     Route::get('acc/pengaduan','PengaduanController@indexAcc')->name('pengaduan.indexAcc');
-    Route::resource('pengaduan','PengaduanController')->except(['edit','create']);
+    Route::resource('pengaduan','PengaduanController')->except(['update','edit','create']);
     Route::post('export/pengaduan','PengaduanController@csv')->name('pengaduan.export');
     Route::get('export/pengaduan',function(){
         return abort(404);

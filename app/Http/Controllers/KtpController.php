@@ -124,11 +124,19 @@ class KtpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$user_id)
     {
-        $s      = Struktur::where('jabatan','Sekretaris Desa')->firstOrFail()->nama;
+        // $s      = Struktur::where('jabatan','Sekretaris Desa')->firstOrFail()->nama;
         $data   = Ktp::findOrFail($id);
-        $pdf    = PDF::loadView('pdf.ktp', compact('data','s'));
+        $user = User::with('roles')->findOrFail($user_id);
+        if ($user->roles->first()->id == 3) {
+            $pdf   = PDF::loadView('pdf.kades.ktp',compact('data','user'))->setPaper('a4','portrait');
+        }elseif ($user->roles->first()->id == 2){
+            $pdf   = PDF::loadView('pdf.perwakilan.ktp',compact('data','user'))->setPaper('a4','portrait');
+        }else{
+            return abort(404);
+        }
+        // $pdf    = PDF::loadView('pdf.ktp', compact('data','s'));
         return $pdf->stream($data->nama.".pdf");
     }
 

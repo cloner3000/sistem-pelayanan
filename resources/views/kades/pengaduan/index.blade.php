@@ -50,16 +50,11 @@
 			                  		<span class="label label-warning">{{$data->status}}</span>
 			                  	</td>
 			                  	<td>
-									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'pengaduan')}}" >
-										<i class="fa fa-edit"></i>
-										Edit
-									</a>
-									<br>
-									<a class="btn btn-xs btn-success" onclick="event.preventDefault();document.getElementById('{{md5($data->id."acc")}}').submit();" style="margin-top: 10px;">
+									<a class="btn btn-xs btn-success" onclick="event.preventDefault();document.getElementById('{{md5($data->id."acc")}}').submit();">
 					                    <i class="fa fa-check"></i>
 					                    Acc
 					                </a>
-
+									<br>
 					                <form id="{{md5($data->id.'acc')}}" action="{{ route('kades.pengaduan.acc') }}" method="POST" style="display: none;">
 					                    {{ csrf_field() }}
 					                    <input type="hidden" name="id" value="{{$data->id}}">

@@ -142,10 +142,17 @@ class SptjmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$user_id)
     {
         $data = Sptjm::findOrFail($id);
-        $pdf   = PDF::loadView('pdf.sptjm',compact('data'))->setPaper('legal','portrait');
+        $user = User::with('roles')->findOrFail($user_id);
+        if ($user->roles->first()->id == 3) {
+            $pdf   = PDF::loadView('pdf.kades.sptjm',compact('data','user'))->setPaper('legal','portrait');
+        }elseif ($user->roles->first()->id == 2){
+            $pdf   = PDF::loadView('pdf.perwakilan.sptjm',compact('data','user'))->setPaper('legal','portrait');
+        }else{
+            return abort(404);
+        }
         return $pdf->stream($data->nama.'.pdf');
     }
 

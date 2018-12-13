@@ -10,6 +10,7 @@ use DB;
 use Excel;
 use App\User;
 use App\Pekerjaan;
+use PDF;
 
 use App\Ktp;
 use App\Skk;
@@ -127,31 +128,8 @@ class PengaduanController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $req, $id)
-    {
-        $data = Pengaduan::findOrFail($id);
-        $data->user_id       = Auth::id();
-        $data->nama          = $req->input('nama');
-        $data->nik           = $req->input('nik');
-        $data->tanggal_lahir = date('Y-m-d',strtotime($req->input('tanggal_lahir')));
-        $data->pekerjaan     = $req->input('pekerjaan');
-        $data->alamat        = $req->input('alamat');
-        $data->sasaran       = $req->input('sasaran');
-        $data->isi           = $req->input('isi');
-        $data->alternatif    = $req->input('alternatif');
-
-        $data->save();
-        return back();
+      $data = Pengaduan::findOrFail($id);
+      return PDF::loadView('pdf.pengaduan',compact('data'))->setPaper('legal','potrait')->stream($data->nama.'.pdf');
     }
 
     /**

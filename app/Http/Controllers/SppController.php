@@ -125,7 +125,14 @@ class SppController extends Controller
     public function show($id)
     {
         $data = Spp::findOrFail($id);
-        $pdf = PDF::loadView('pdf.spp',compact('data'));
+        $user = User::with('roles')->findOrFail($user_id);
+        if ($user->roles->first()->id == 3) {
+            $pdf   = PDF::loadView('pdf.kades.spp',compact('data','user'))->setPaper('a4','portrait');
+        }elseif ($user->roles->first()->id == 2){
+            $pdf   = PDF::loadView('pdf.perwakilan.spp',compact('data','user'))->setPaper('a4','portrait');
+        }else{
+            return abort(404);
+        }
         return $pdf->stream($data->nama.".pdf");
     }
 

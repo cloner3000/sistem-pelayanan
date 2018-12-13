@@ -200,7 +200,7 @@
 				<br>
 				<br>
 				<br>
-				<span style="margin-left: 10%;">(  {{$s}}  )</span>
+				<span style="margin-left: 10%;">(  {{$user->name}}  )</span>
 			</div>
 		</div>
 	</div>
