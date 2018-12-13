@@ -348,7 +348,7 @@
 
         <li class="@yield('struktur')">
           <a href="{{ route('admin.struktur') }}">
-            <i class="fa fa-briefcase"></i>
+            <i class="fa fa-network-wired"></i>
             <span>Struktur Organisasi</span>
           </a>
         </li>

@@ -127,7 +127,7 @@
 				<br>
 				<span>: {{$data->nik}}</span>
 				<br>
-				<span>: {{$data->tempat}},{{date('d-m-Y', strtotime($data->tanggal))}}</span>
+				<span>: {{$data->tempat}},{{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</span>
 				<br>
 				<span>: {{$data->pekerjaan}}</span>
 				<br>
@@ -159,7 +159,7 @@
 				<br>
 				<span>: {{$data->nik1}}</span>
 				<br>
-				<span>: {{$data->tempat1}},{{date('d-m-Y', strtotime($data->tanggal1))}}</span>
+				<span>: {{$data->tempat1}},{{(date('d',strtotime($data->tanggal1)).' '.bulan(date('m',strtotime($data->tanggal1))).' '.date('Y',strtotime($data->tanggal1)))}}</span>
 				<br>
 				<span>: {{$data->pekerjaan1}}</span>
 				<br>
@@ -190,7 +190,7 @@
 				<br>
 				<span>: {{$data->nik2}}</span>
 				<br>
-				<span>: {{$data->tempat2}},{{date('d-m-Y', strtotime($data->tanggal2))}}</span>
+				<span>: {{$data->tempat2}},{{(date('d',strtotime($data->tanggal2)).' '.bulan(date('m',strtotime($data->tanggal2))).' '.date('Y',strtotime($data->tanggal2)))}}</span>
 				<br>
 				<span>: {{$data->pekerjaan2}}</span>
 				<br>

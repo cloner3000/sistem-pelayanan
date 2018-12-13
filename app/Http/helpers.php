@@ -68,7 +68,7 @@ function bulan($bulan){
     }elseif ($bulan == '10') {
         return 'Oktober';
     }elseif ($bulan == '11') {
-        return 'Nopember';
+        return 'November';
     }elseif ($bulan == '12') {
         return 'Desember';
     }

@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+    Route::get('test',function(){
+        return PDF::loadView('pdf.spp')->stream('test.pdf');
+    });
+
     Route::get('/','WebController@index')->name('/');
     
     //Route Blog

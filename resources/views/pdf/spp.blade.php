@@ -96,68 +96,70 @@
 <body>
 	<div class="container tengah">
 		<div class="tengah" style="text-align: center;">
-			<h3 class="judul" style="margin-left: 40px;">SURAT PENGANTAR PINDAH</h3>
 			<h3 class="judul" style="margin-left: 20px;margin-top: -5px;">
-				<u>ANTAR KABUPATEN/KOTA ATAU ANTAR PROVINSI</u>
+				<u>SURAT PENGADUAN MASYARAKAT</u>
 			</h3>
-			<span>NOMOR:.......................</span>
 		</div>
 	</div>
 	<br>
 	<br>
 
 	<div class="container">
-		<p>Yang bertanda tangan di bawah ini, menerangkan Permohonan Pindah Penduduk WNI dengan data sebagai berikut :</p>
+		<p>Yang bertanda tangan di bawah ini, menerangkan Permohonan Pengaduan Aspirasi dengan data sebagai berikut :</p>
 		
 		<div class="row">
-			<div class="col-md-5">
+			<div class="col-md-2">
 				<span>1. NIK</span>
 				<br>
 				<span>2. Nama Lengkap</span>
 				<br>
-				<span>3. Nomor Kartu Keluarga</span>
+				<span>3. Tanggal Lahir</span>
 				<br>
-				<span>4. Nama Kepala Keluarga</span>
+				<span>4. Pekerjaan</span>
 				<br>
-				<span>5. Alamat Sekarang</span>
+				<span>5. Alamat</span>
 				<br>
-				<span>6. Alamat Tujuan Pindah</span>
+				<span>6. Sasaran</span>
 				<br>
-				<span>7. Jumlah Keluarga Yang Pindah</span>
+				<span>7. Aspirasi</span>
+				<br>
+				<span>8. Alternatif</span>
+				<br>
 			</div>
-			<div class="col-md-7">
-				<span>: {{$data->nik}}</span>
+			<div class="col-md-8" style="word-wrap: break-word;">
+				<span>: 123123123</span>
 				<br>
-				<span>: {{$data->nama}}</span>
+				<span>: asdaslkdjlasjdlasd</span>
 				<br>
-				<span>: {{$data->no_kk}}</span>
+				<span>: salkdjaslkjdlkasdj</span>
 				<br>
-				<span>: {{$data->kepala_keluarga}}</span>
+				<span>: aslkdjlaksjdjas</span>
 				<br>
-				<span>: {{$data->alamat_sekarang}}</span>
+				<span>: sjdklajsdlkjalksdj</span>
 				<br>
-				<span>: {{$data->alamat_tujuan}}</span>
+				<span>: sakdjlasjkdjasldkjsa</span>
 				<br>
-				<span>: {{$data->jumlah_pindah}} Orang</span>
+				<span>: slkdjalkjdklajsdkjalskjdjkalsdjlasjdasdkasjdklasjdkasjdklasjdlkjaslkjdalskdjlaskdjklasdlkasdlkajslkdjasjdlasjdlkasjdlkjaslkdjlaskjdlkasjldkjalsdjlkasjdklasjdklasjdlaskjdlaskdjlaskjdlkasjdlkaslkdjklasjdlkjsalkdalksjdlksajdlkaslkdlaskjdlkasjdlkaskldjalksjdklaslkdjlkasdlkaslkdjaskdjkasljdkasldlkjsajdklsajdklsajdlksajdlkjasljdlaksjdkljaslkjdklasjdjlksajdlksajdlksalkdjsalkdjlsakjdlkasjlkdskaldjkasdkskdjksdkjskdsjkdjksjksjdksjdksjdksd</span>
+				<br>
+				<span>: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos placeat magnam corporis voluptatem culpa, neque, eaque nostrum inventore maxime amet, quibusdam quas. Nisi, quidem optio! Repudiandae, dicta quasi dignissimos modi.</span>
+				<br>
 			</div>
 		</div>
 		<div class="clear"></div>
 		<br>
-		<p>Adapun Permohonan Pindah Penduduk WNI yang bersangkutan sebagaimana terlampir. Demikian Surat Pengantar Pindah ini dibuat agar digunakan sebagaimana mestinya.</p>
+		<p>Adapun permohonan pengaduan aspirasi yang bersangkutan sebagaimana terlampir. demikian surat permohonan pengaduan aspirasi ini dibuat agar digunakan sebagaimana mestinya.</p>
 		<br>
 		<br>
 		<br>
 		<br>
 		<div style="float: right;">
-			<span>Warnajati,{{$data->created_at->format('d-m-Y')}}</span>
-			<br>
-			<span style="margin-left: 20px;">Camat Cibadak,</span>
+			<span style="margin-left: 20px;">Pengadu</span>
 			<br>
 			<br>
 			<br>
 			<br>
 			<br>
-			<span style="margin-left: 20px;">______________</span>
+			<span>______________</span>
 			<br>
 		</div>
 	</div>

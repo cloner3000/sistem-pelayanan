@@ -46,7 +46,7 @@
 			                  	<td>{{$data->slug}}</td>
 			                  	<td>{{$data->users->name}}</td>
 			                  	<td>
-			                  		<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'blog')}}" >
+			                  		<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'blog')}}" style="margin-bottom: 5px;">
 										<i class="fa fa-search"></i>
 										 Lihat
 									</a>
@@ -56,7 +56,7 @@
 										 Edit
 									</a>
 									<br>									
-									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin-bottom: 5px;">
+									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();">
 					                    <i class="fa fa-trash"></i>
 					                    Hapus
 					                </a>

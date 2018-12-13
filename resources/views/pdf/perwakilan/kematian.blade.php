@@ -25,7 +25,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3">Tanggal lahir/Umur</div>
-				<div class="col-md-5">: {{date('d-m-Y',strtotime($data->tanggal))}}</div>
+				<div class="col-md-5">: {{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Agama</div>
@@ -46,7 +46,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3">Tanggal</div>
-				<div class="col-md-5">: {{date('d-M-Y',strtotime($data->waktu))}}</div>
+				<div class="col-md-5">: {{(date('d',strtotime($data->waktu)).' '.bulan(date('m',strtotime($data->waktu))).' '.date('Y',strtotime($data->waktu)))}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Bertempat di</div>
@@ -71,7 +71,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3">Tanggal lahir/Umur</div>
-				<div class="col-md-5">: {{$data->p_tempat}}/{{date('d-m-Y',strtotime($data->p_tanggal))}}</div>
+				<div class="col-md-5">: {{$data->p_tempat}},{{(date('d',strtotime($data->p_tanggal)).' '.bulan(date('m',strtotime($data->p_tanggal))).' '.date('Y',strtotime($data->p_tanggal)))}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Pekerjaan</div>
@@ -88,7 +88,7 @@
 
 @section('kanan')
 	<p>Dibuat Di &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Warnajati</p>
-	<p><u>Pada Tanggal	&nbsp;: {{date('d M Y')}}</u></p>
+	<p><u>Pada Tanggal	&nbsp;: {{date('d ').bulan(date('m')).date(' Y')}}</u></p>
 	<br>
 	<div class="center">
 		<p>a.n Kepala Desa Warnajati</p>

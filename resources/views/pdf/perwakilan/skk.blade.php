@@ -176,7 +176,7 @@
 			</tr>
 			<tr>
 				<td class="width-30">4. Tempat Tanggal Lahir</td>
-				<td class="width-70">: {{$data->b_tempat}},{{date('d-m-Y',strtotime($data->tanggal))}}</td>
+				<td class="width-70">: {{$data->b_tempat}},{{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</td>
 			</tr>
 			<tr>
 				<td class="width-30">5. Pukul</td>
@@ -210,7 +210,7 @@
 			</tr>
 			<tr>
 				<td class="width-30">3. Tanggal Lahir / Umur</td>
-				<td class="width-70">: {{date('d-m-Y',strtotime($data->i_tanggal_lahir))}}</td>
+				<td class="width-70">: {{(date('d',strtotime($data->i_tanggal_lahir)).' '.bulan(date('m',strtotime($data->i_tanggal_lahir))).' '.date('Y',strtotime($data->i_tanggal_lahir)))}}</td>
 			</tr>
 			<tr>
 				<td class="width-30">4. Pekerjaan</td>
@@ -230,7 +230,7 @@
 			</tr>
 			<tr>
 				<td class="width-30">8. Tgl Pencatatan Perkawinan</td>
-				<td class="width-70">: {{date('d-m-Y',strtotime($data->i_tanggal_perkawinan))}}</td>
+				<td class="width-70">: {{(date('d',strtotime($data->i_tanggal_perkawinan)).' '.bulan(date('m',strtotime($data->i_tanggal_perkawinan))).' '.date('Y',strtotime($data->i_tanggal_perkawinan)))}}</td>
 			</tr>
 		</table>
 
@@ -248,7 +248,7 @@
 			</tr>
 			<tr>
 				<td class="width-30">3. Tanggal Lahir / Umur</td>
-				<td class="width-70">: {{date('d-m-Y',strtotime($data->a_tanggal_lahir))}}</td>
+				<td class="width-70">: {{(date('d',strtotime($data->a_tanggal_lahir)).' '.bulan(date('m',strtotime($data->a_tanggal_lahir))).' '.date('Y',strtotime($data->a_tanggal_lahir)))}}</td>
 			</tr>
 			<tr>
 				<td class="width-30">4. Pekerjaan</td>
@@ -268,7 +268,7 @@
 			</tr>
 			<tr>
 				<td class="width-30">8. Tgl Pencatatan Perkawinan</td>
-				<td class="width-70">: {{date('d-m-Y',strtotime($data->a_tanggal_perkawinan))}}</td>
+				<td class="width-70">: {{(date('d',strtotime($data->a_tanggal_perkawinan)).' '.bulan(date('m',strtotime($data->a_tanggal_perkawinan))).' '.date('Y',strtotime($data->a_tanggal_perkawinan)))}}</td>
 			</tr>
 		</table>
 

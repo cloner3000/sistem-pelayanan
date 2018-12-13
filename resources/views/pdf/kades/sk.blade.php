@@ -26,7 +26,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-3">Tempat Tgl. Lahir</div>
-			<div class="col-md-9">: {{$data->tempat}},{{$data->tanggal}}</div>
+			<div class="col-md-9">: {{$data->tempat}},{{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-3">Kewarganegaraan</div>
