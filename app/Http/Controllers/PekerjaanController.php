@@ -6,7 +6,15 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Pekerjaan;
-use App\Pekerjaan;
+
+use App\Ktp;
+use App\Skk;
+use App\Spp;
+use App\Pengaduan;
+use App\Sk;
+use App\Skematian;
+use App\Sktm;
+use App\Sptjm;
 class PekerjaanController extends Controller
 {
     /**
@@ -16,11 +24,20 @@ class PekerjaanController extends Controller
      */
     public function index(Request $req)
     {
+        $nKtp       = Ktp::where('status','=','pending')->count();
+        $nPengaduan = Pengaduan::where('status','=','pending')->count();
+        $nSk        = Sk::where('status','=','pending')->count();
+        $nSkematian = Skematian::where('status','=','pending')->count();
+        $nSkk       = Skk::where('status','=','pending')->count();
+        $nSktm      = Sktm::where('status','=','pending')->count();
+        $nSpp       = Spp::where('status','=','pending')->count();
+        $nSptjm     = Sptjm::where('status','=','pending')->count();
+        
         $datas = Pekerjaan::orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.profesi.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.profesi.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.profesi.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.profesi.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
@@ -32,6 +49,15 @@ class PekerjaanController extends Controller
      */
     public function store(Request $request)
     {
+        $nKtp       = Ktp::where('status','=','pending')->count();
+        $nPengaduan = Pengaduan::where('status','=','pending')->count();
+        $nSk        = Sk::where('status','=','pending')->count();
+        $nSkematian = Skematian::where('status','=','pending')->count();
+        $nSkk       = Skk::where('status','=','pending')->count();
+        $nSktm      = Sktm::where('status','=','pending')->count();
+        $nSpp       = Spp::where('status','=','pending')->count();
+        $nSptjm     = Sptjm::where('status','=','pending')->count();
+        
         $data = Pekerjaan::insert([
             'nama' => $request->input('nama'),
             'slug' => strtolower($request->input('nama')),

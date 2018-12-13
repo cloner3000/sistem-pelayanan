@@ -10,6 +10,14 @@ use App\User;
 use DB;
 use Excel;
 use App\Pekerjaan;
+
+use App\Ktp;
+use App\Skk;
+use App\Spp;
+use App\Pengaduan;
+use App\Sk;
+use App\Sktm;
+use App\Sptjm;
 class SkematianController extends Controller
 {
     /**
@@ -19,17 +27,35 @@ class SkematianController extends Controller
      */
     public function index(Request $req)
     {
+        $nKtp       = Ktp::where('status','=','pending')->count();
+        $nPengaduan = Pengaduan::where('status','=','pending')->count();
+        $nSk        = Sk::where('status','=','pending')->count();
+        $nSkematian = Skematian::where('status','=','pending')->count();
+        $nSkk       = Skk::where('status','=','pending')->count();
+        $nSktm      = Sktm::where('status','=','pending')->count();
+        $nSpp       = Spp::where('status','=','pending')->count();
+        $nSptjm     = Sptjm::where('status','=','pending')->count();
+        
         $ps = Pekerjaan::all();
         $datas = Skematian::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.skematian.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.skematian.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.skematian.index',compact('datas','ps'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.skematian.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
     public function indexAcc(Request $req)
     {
+        $nKtp       = Ktp::where('status','=','pending')->count();
+        $nPengaduan = Pengaduan::where('status','=','pending')->count();
+        $nSk        = Sk::where('status','=','pending')->count();
+        $nSkematian = Skematian::where('status','=','pending')->count();
+        $nSkk       = Skk::where('status','=','pending')->count();
+        $nSktm      = Sktm::where('status','=','pending')->count();
+        $nSpp       = Spp::where('status','=','pending')->count();
+        $nSptjm     = Sptjm::where('status','=','pending')->count();
+        
         $ps = Pekerjaan::all();
         $datas = Skematian::with('user')->where('status','acc')->orderBy('created_at','desc')->paginate(10);
         $export = Skematian::whereRaw('status = "acc"')
@@ -42,9 +68,9 @@ class SkematianController extends Controller
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.skematian.indexAcc',compact('datas','user','export','ps'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.skematian.indexAcc',compact('datas','user','export','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.skematian.indexAcc',compact('datas','user','export','ps'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.skematian.indexAcc',compact('datas','user','export','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

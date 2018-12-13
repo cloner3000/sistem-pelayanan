@@ -95,7 +95,7 @@
           </ul>
         </li>
 
-        <li class="treeview @yield('spp')">
+       {{--  <li class="treeview @yield('spp')">
           <a href="#">
             <i class="fa fa-people-carry"></i>
             <span>Data Surat Pindah</span>
@@ -111,14 +111,20 @@
               <a href="{{ route('kades.spp.indexAcc') }}"><i class="fa fa-dot-circle"></i>Riwayat Pengajuan</a>
             </li>
           </ul>
-        </li>
+        </li> --}}
 
         <li class="treeview @yield('ktp')">
           <a href="#">
             <i class="fa fa-id-card"></i> <span>Data Surat KTP</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            @if($nKtp > 0)
+              <span class="pull-right-container">
+                <small class="label pull-right bg-blue">{{$nKtp}}</small>
+              </span>
+            @else
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            @endif
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanKtp')">
@@ -133,9 +139,15 @@
         <li class="treeview @yield('skk')">
           <a href="#">
             <i class="fa fa-child"></i> <span>Data Surat Kelahiran</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            @if($nSkk > 0)
+              <span class="pull-right-container">
+                <small class="label pull-right bg-blue">{{$nSkk}}</small>
+              </span>
+            @else
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            @endif
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanSkk')">
@@ -155,10 +167,16 @@
 
         <li class="treeview @yield('sktm')">
           <a href="#">
-            <i class="fa fa-file-invoice-dollar"></i> <span>Data Surat Tidak Mampu</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <i class="fa fa-file-invoice-dollar"></i> <span>Data SKTM</span>
+            @if($nSktm > 0)
+              <span class="pull-right-container">
+                <small class="label pull-right bg-blue">{{$nSktm}}</small>
+              </span>
+            @else
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            @endif
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanSktm')">
@@ -179,9 +197,15 @@
         <li class="treeview @yield('skematian')">
           <a href="#">
             <i class="fa fa-book-dead"></i> <span>Data Surat Kematian</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            @if($nSkematian > 0)
+              <span class="pull-right-container">
+                <small class="label pull-right bg-blue">{{$nSkematian}}</small>
+              </span>
+            @else
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            @endif
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanSkematian')">
@@ -202,9 +226,15 @@
         <li class="treeview @yield('sk')">
           <a href="#">
             <i class="fa fa-file-contract"></i> <span>Data Surat Keterangan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            @if($nSk > 0)
+              <span class="pull-right-container">
+                <small class="label pull-right bg-blue">{{$nSk}}</small>
+              </span>
+            @else
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            @endif
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanSk')">
@@ -225,9 +255,15 @@
         <li class="treeview @yield('sptjm')">
           <a href="#">
             <i class="fa fa-table"></i> <span>Data SPTJM</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            @if($nSptjm > 0)
+              <span class="pull-right-container">
+                <small class="label pull-right bg-blue">{{$nSptjm}}</small>
+              </span>
+            @else
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            @endif
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanSptjm')">
@@ -248,9 +284,15 @@
         <li class="treeview @yield('pengaduan')">
           <a href="#">
             <i class="fa fa-gavel"></i> <span>Data Pengaduan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            @if($nPengaduan > 0)
+              <span class="pull-right-container">
+                <small class="label pull-right bg-blue">{{$nPengaduan}}</small>
+              </span>
+            @else
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            @endif
           </a>
           <ul class="treeview-menu">
             <li class="@yield('pengajuanPengaduan')">

@@ -8,6 +8,15 @@ use App\Kategori;
 use App\User;
 use Auth;
 use Image;
+
+use App\Ktp;
+use App\Skk;
+use App\Spp;
+use App\Pengaduan;
+use App\Sk;
+use App\Skematian;
+use App\Sktm;
+use App\Sptjm;
 class BlogController extends Controller
 {
     /**
@@ -17,11 +26,20 @@ class BlogController extends Controller
      */
     public function index(Request $req)
     {
+        $nKtp       = Ktp::where('status','=','pending')->count();
+        $nPengaduan = Pengaduan::where('status','=','pending')->count();
+        $nSk        = Sk::where('status','=','pending')->count();
+        $nSkematian = Skematian::where('status','=','pending')->count();
+        $nSkk       = Skk::where('status','=','pending')->count();
+        $nSktm      = Sktm::where('status','=','pending')->count();
+        $nSpp       = Spp::where('status','=','pending')->count();
+        $nSptjm     = Sptjm::where('status','=','pending')->count();
+        
         $datas = Blog::with('users','kategoris')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.blog.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.blog.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.blog.index',compact('datas'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.blog.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
@@ -32,11 +50,20 @@ class BlogController extends Controller
      */
     public function create()
     {
+        $nKtp       = Ktp::where('status','=','pending')->count();
+        $nPengaduan = Pengaduan::where('status','=','pending')->count();
+        $nSk        = Sk::where('status','=','pending')->count();
+        $nSkematian = Skematian::where('status','=','pending')->count();
+        $nSkk       = Skk::where('status','=','pending')->count();
+        $nSktm      = Sktm::where('status','=','pending')->count();
+        $nSpp       = Spp::where('status','=','pending')->count();
+        $nSptjm     = Sptjm::where('status','=','pending')->count();
+        
         $datas = Kategori::all();
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.blog.create',compact('datas'));
+            return view('kades.blog.create',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'));
         }else{
-            return view('admin.blog.create',compact('datas'));
+            return view('admin.blog.create',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'));
         }
     }
 
@@ -89,12 +116,21 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
+        $nKtp       = Ktp::where('status','=','pending')->count();
+        $nPengaduan = Pengaduan::where('status','=','pending')->count();
+        $nSk        = Sk::where('status','=','pending')->count();
+        $nSkematian = Skematian::where('status','=','pending')->count();
+        $nSkk       = Skk::where('status','=','pending')->count();
+        $nSktm      = Sktm::where('status','=','pending')->count();
+        $nSpp       = Spp::where('status','=','pending')->count();
+        $nSptjm     = Sptjm::where('status','=','pending')->count();
+        
         $data = Blog::findOrFail($id);
         $kategori = Kategori::all();
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.blog.edit',compact('data','kategori'));
+            return view('kades.blog.edit',compact('data','kategori','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'));
         }else{
-            return view('admin.blog.edit',compact('data','kategori'));
+            return view('admin.blog.edit',compact('data','kategori','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'));
         }
     }
 
