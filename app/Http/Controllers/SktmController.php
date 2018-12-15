@@ -60,7 +60,7 @@ class SktmController extends Controller
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
         
-        User::whereHas('roles',function($q){
+        $user = User::whereHas('roles',function($q){
                     $q->where('name','Kepala Desa');
                 })->orWhereHas('roles',function($q){
                     $q->where('name','Sekretaris Desa');

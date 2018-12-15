@@ -82,7 +82,7 @@
 				<div class="col-md-7">: {{$data->p_alamat}}</div>
 			</div>
 			<br>
-			<p>Hubungan dengan yang meninggal : Anak Kandung</p>	
+			<p>Hubungan dengan yang meninggal : {{ucfirst($data->p_hubungan)}}</p>	
 		</div>
 @endsection
 
