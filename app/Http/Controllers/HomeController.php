@@ -27,7 +27,47 @@ class HomeController extends Controller
             return redirect('/kades');
         }
 
-        if ($request->user()->hasRole('Admin')) {
+        if ($request->user()->hasRole('Sekretaris Desa')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Urusan Administrasi Umum')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Urusan Keuangan')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Urusan Perencanaan')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Seksi Pelayanan')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Seksi Pemerintahan')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Seksi Kesejahteraan')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Dusun Malinggut 1')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Dusun Malinggut 2')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Dusun Malinggut 3')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('Kepala Dusun Sukamaju')) {
             return redirect('/admin');
         }
 

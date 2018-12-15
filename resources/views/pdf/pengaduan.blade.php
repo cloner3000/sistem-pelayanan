@@ -122,7 +122,7 @@
 		<div class="row">
 			<div class="col-md-8"></div>
 			<div class="col-md-4">
-				Sukabumi, 14 Desember 2018
+				Sukabumi, {{date('d ',strtotime($data->created_at)).bulan(date('m',strtotime($data->created_at))).date(' Y',strtotime($data->created_at))}}
 			</div>
 		</div>
 		<br><br><br>
@@ -172,7 +172,7 @@
 		<div class="row">
 			<div class="col-md-7"></div>
 			<div class="col-md-4">
-				<p class="center">Sukabumi,{{date('d ').bulan(date('m')).date(' Y')}}</p>
+				<p class="center">Sukabumi,{{date('d ',strtotime($data->created_at)).bulan(date('m',strtotime($data->created_at))).date(' Y',strtotime($data->created_at))}}</p>
 				<br>
 				<p class="center">Pengadu,</p>
 				<br><br><br><br><br><br>

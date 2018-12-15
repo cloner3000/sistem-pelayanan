@@ -153,7 +153,12 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
 
 });
 
-Route::group(['prefix' => 'admin','middleware' => 'role:Admin','name' => 'admin'], function(){
+Route::group(['prefix' => 'admin',['middleware' => 
+        'role:Sekretaris Desa','role:Kepala Urusan Administrasi Umum','role:Kepala Urusan Keuangan',
+        'role:Kepala Urusan Perencanaan','role:Kepala Seksi Pelayanan','role:Kepala Seksi Pemerintahan',
+        'role:Kepala Seksi Kesejahteraan','role:Kepala Dusun Malinggut 1','role:Kepala Dusun Malinggut 2',
+        'role:Kepala Dusun Malinggut 3','role:Kepala Dusun Sukamaju'
+    ],'name' => 'admin'], function(){
 	
     Route::post('/','UserController@gantiPas')->name('admin.ganti_password');
     Route::get('/','DashboardController@indexAdmin')->name('admin.dashboard');

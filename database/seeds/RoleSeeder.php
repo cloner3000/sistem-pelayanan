@@ -18,9 +18,59 @@ class RoleSeeder extends Seeder
     	$role_employee->save();
 
     	$role_manager = new Role();
-    	$role_manager->name = 'Admin';
-    	$role_manager->deskripsi = 'Admin Sistem';
+    	$role_manager->name = 'Sekretaris Desa';
+    	$role_manager->deskripsi = 'Sekretaris Desa';
     	$role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Urusan Administrasi Umum';
+        $role_manager->deskripsi = 'Kepala Urusan Administrasi Umum';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Urusan Keuangan';
+        $role_manager->deskripsi = 'Kepala Urusan Keuangan';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Urusan Perencanaan';
+        $role_manager->deskripsi = 'Kepala Urusan Perencanaan';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Seksi Pelayanan';
+        $role_manager->deskripsi = 'Kepala Seksi Pelayanan';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Seksi Pemerintahan';
+        $role_manager->deskripsi = 'Kepala Seksi Pemerintahan';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Seksi Kesejahteraan';
+        $role_manager->deskripsi = 'Kepala Seksi Kesejahteraan';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Dusun Malinggut 1';
+        $role_manager->deskripsi = 'Kepala Dusun Malinggut 1';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Dusun Malinggut 2';
+        $role_manager->deskripsi = 'Kepala Dusun Malinggut 2';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Dusun Malinggut 3';
+        $role_manager->deskripsi = 'Kepala Dusun Malinggut 3';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Dusun Sukamaju';
+        $role_manager->deskripsi = 'Kepala Dusun Sukamaju';
+        $role_manager->save();
 
     	$role_manager = new Role();
     	$role_manager->name = 'Kepala Desa';
