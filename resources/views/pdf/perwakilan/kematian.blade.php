@@ -88,7 +88,7 @@
 
 @section('kanan')
 	<p>Dibuat Di &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Warnajati</p>
-	<p><u>Pada Tanggal	&nbsp;: {{date('d ').bulan(date('m')).date(' Y')}}</u></p>
+	<p><u>Pada Tanggal	&nbsp;: {{(date('d',strtotime($data->created_at)).' '.bulan(date('m',strtotime($data->created_at))).' '.date('Y',strtotime($data->created_at)))}}</u></p>
 	<br>
 	<div class="center">
 		<p>a.n Kepala Desa Warnajati</p>

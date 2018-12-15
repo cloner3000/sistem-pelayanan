@@ -149,7 +149,7 @@
 		<br>
 		<br>
 		<div style="float: right;">
-			<span>Warnajati,{{$data->created_at->format('d-m-Y')}}</span>
+			<span>Warnajati, {{(date('d',strtotime($data->created_at)).' '.bulan(date('m',strtotime($data->created_at))).' '.date('Y',strtotime($data->created_at)))}}</span>
 			<br>
 			<span style="margin-left: 20px;">Camat Cibadak,</span>
 			<br>

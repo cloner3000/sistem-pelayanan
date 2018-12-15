@@ -224,7 +224,7 @@
 				<span>NIK : {{$data->s1_nik}}</span>
 			</div>
 			<div class="col-md-6">
-				<span>Warnajati, {{$data->created_at->format('d-m-Y')}}</span>
+				<span>Warnajati, {{(date('d',strtotime($data->created_at)).' '.bulan(date('m',strtotime($data->created_at))).' '.date('Y',strtotime($data->created_at)))}}</span>
 				<br>
 				<span>Saya yang menyatakan,</span>
 				<br>

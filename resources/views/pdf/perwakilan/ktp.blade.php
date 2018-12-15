@@ -187,7 +187,7 @@
 			</div>
 			<div class="col-md-6 ">
 				<div class="right center">
-					<span>Warnajati,{{date('d ').bulan(date('m')).date(' Y')}}</span>
+					<span>Warnajati, {{(date('d',strtotime($data->created_at)).' '.bulan(date('m',strtotime($data->created_at))).' '.date('Y',strtotime($data->created_at)))}}</span>
 					<br>
 					<span>Pemohon</span>
 					<br>
