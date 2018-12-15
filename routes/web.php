@@ -33,6 +33,22 @@
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
     Route::get('/home', 'HomeController@index')->name('home');
 
+    //override LFM route
+    Route::get('laravel-filemanager',function(){abort(404);});
+    Route::get('laravel-filemanager/crop',function(){abort(404);});
+    Route::get('laravel-filemanager/cropimage',function(){abort(404);});
+    Route::get('laravel-filemanager/cropnewimage',function(){abort(404);});
+    Route::get('laravel-filemanager/delete',function(){abort(404);});
+    Route::get('laravel-filemanager/deletefolder',function(){abort(404);});
+    Route::get('laravel-filemanager/doresize',function(){abort(404);});
+    Route::get('laravel-filemanager/download',function(){abort(404);});
+    Route::get('laravel-filemanager/errors',function(){abort(404);});
+    Route::get('laravel-filemanager/files/{base_path}/{file_name}',function(){abort(404);});
+    Route::get('laravel-filemanager/folders',function(){abort(404);});
+    Route::get('laravel-filemanager/jsonitems',function(){abort(404);});
+    Route::get('laravel-filemanager/newfolder',function(){abort(404);});
+    Route::get('laravel-filemanager/rename',function(){abort(404);});
+    Route::get('laravel-filemanager/resize',function(){abort(404);});
 Route::group(['middleware' => 'role:User'], function(){
     
     // Route::resource('spp', 'SppController',['names' =>'user.spp'])->only(['store']);
@@ -262,5 +278,4 @@ Route::group(['prefix' => 'admin',['middleware' =>
 
     Route::get('struktur','DashboardController@indexStruktur')->name('admin.struktur');
     Route::patch('struktur/{id}','DashboardController@updateStruktur')->name('admin.struktur.update');
-
 });

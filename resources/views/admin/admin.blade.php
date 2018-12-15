@@ -385,6 +385,18 @@
 
 <script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript">
+    var route_prefix = "{{ url(config('lfm.url_prefix', config('lfm.prefix'))) }}";
+  </script>
+  <script type="text/javascript">
+    $('textarea[name=isi]').ckeditor({
+        height: 500,
+        filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token={{csrf_token()}}',
+        filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token={{csrf_token()}}'
+    });
+  </script>
+
 <script type="text/javascript">
   function getData(data){
     var url = ($(data).data('url')+'/'+$(data).children('option:selected').data('id'));

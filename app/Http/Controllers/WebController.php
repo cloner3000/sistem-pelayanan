@@ -24,14 +24,14 @@ class WebController extends Controller
     	$spp = Spp::count();
         $ps = Pekerjaan::all();
 
-        $news = Blog::with('users','kategoris')->orderBy('updated_at','asc')->get()->chunk(4);
+        $news = Blog::with('users','kategoris')->orderBy('updated_at','desc')->get()->chunk(4);
     	return view('index',compact('web','strukturs','ktp','skk','sptjm','spp','news','ps'));
     }
 
     public function blogIndex(Request $req)
     {
         $web = Web::firstOrFail();
-        $posts = Blog::with('users','kategoris')->orderBy('updated_at','asc')->paginate(3);
+        $posts = Blog::with('users','kategoris')->orderBy('updated_at','desc')->paginate(3);
         $kategoris = Kategori::all();
         return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);
     }
@@ -48,7 +48,7 @@ class WebController extends Controller
     {   
         $k = Kategori::where('slug',$slug)->firstOrFail();
         $web = Web::firstOrFail();
-        $posts = Blog::where('kategori_id',$k->id)->with('users','kategoris')->orderBy('updated_at','asc')->paginate(3);
+        $posts = Blog::where('kategori_id',$k->id)->with('users','kategoris')->orderBy('updated_at','desc')->paginate(3);
         $kategoris = Kategori::all();
         return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);
     }
@@ -63,7 +63,7 @@ class WebController extends Controller
                  ->orWhere('judul','LIKE', '%'.$q.'%')
                  ->orWhere('slug','LIKE', '%'.$q.'%')
                  ->with('users','kategoris')
-                 ->orderBy('updated_at','asc')
+                 ->orderBy('updated_at','desc')
                  ->paginate(3);
         $kategoris = Kategori::all();
         return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);

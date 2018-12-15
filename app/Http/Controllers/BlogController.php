@@ -35,7 +35,7 @@ class BlogController extends Controller
         $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
-        $datas = Blog::with('users','kategoris')->paginate(10);
+        $datas = Blog::with('users','kategoris')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.blog.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
