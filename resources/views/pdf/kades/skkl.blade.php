@@ -3,7 +3,7 @@
 
 @section('nomor')
 	<h5><u>SURAT KETERANGAN KENAL LAHIR</u></h5>
-	<p>Nomor : 474.1/.../XI/2018</p>
+	<p>Nomor : 474.1/{{$data->id}}/{{romawi(date('m',strtotime($data->created_at)))}}/{{date('Y',strtotime($data->created_at))}}</p>
 @endsection
 
 @section('isi')
@@ -13,45 +13,45 @@
 	<div class="content">
 		<div class="row">
 			<div class="col-md-2">Nama</div>
-			<div class="col-md-9">: <strong>OCIH</strong></div>
+			<div class="col-md-9">: <strong>{{$data->i_nik}}</strong></div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Tgl. Lahir/Umur</div>
-			<div class="col-md-9">: 52 Tahun</div>
+			<div class="col-md-9">: {{(date('d',strtotime($data->i_tanggal_lahir)).' '.bulan(date('m',strtotime($data->i_tanggal_lahir))).' '.date('Y',strtotime($data->i_tanggal_lahir)))}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Pekerjaan</div>
-			<div class="col-md-9">: Mengurus Rumah Tangga</div>
+			<div class="col-md-9">: {{ucfirst($data->i_pekerjaan) }}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Alamat</div>
-			<div class="col-md-9">: Jl Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sunt unde laudantium, nostrum sequi doloremque assumenda illo consequatur consectetur</div>
+			<div class="col-md-9">: {{$data->i_alamat}}</div>
 		</div>
 
 		<br><p>Isteri dari :</p><br>
 		
 		<div class="row">
 			<div class="col-md-2">Nama</div>
-			<div class="col-md-9">: <strong>OCIH</strong></div>
+			<div class="col-md-9">: <strong>{{$data->a_nama}}</strong></div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Tgl. Lahir/Umur</div>
-			<div class="col-md-9">: 52 Tahun</div>
+			<div class="col-md-9">: {{(date('d',strtotime($data->a_tanggal_lahir)).' '.bulan(date('m',strtotime($data->a_tanggal_lahir))).' '.date('Y',strtotime($data->a_tanggal_lahir)))}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Pekerjaan</div>
-			<div class="col-md-9">: Mengurus Rumah Tangga</div>
+			<div class="col-md-9">: {{ucfirst($data->a_pekerjaan) }}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Alamat</div>
-			<div class="col-md-9">: Jl Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sunt unde laudantium</div>
+			<div class="col-md-9">: {{$data->a_alamat}}</div>
 		</div>
 	</div>
 
-	<br><p>Pada Tanggal <strong>01-05-1980</strong> telah melahirkan seorang anak jenis kelamin Perempuan, anak ke 3 (tiga) dan diberi nama :</p>
+	<br><p>Pada Tanggal <strong>{{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</strong> telah melahirkan seorang anak jenis kelamin Perempuan, anak ke {{$data->b_kelahiran_ke}} dan diberi nama :</p>
 
 	<div class="center">
-		<h4>========== Elih Rosmiati ==========</h4>
+		<h4>========== {{$data->b_nama}} ==========</h4>
 	</div>
 
 	<br>
@@ -63,46 +63,38 @@
 	<div class="content">
 		<div class="row">
 			<div class="col-md-2"><span style="margin-left:-20px;">1.</span><span style="margin-left: 10px;">Nama</span></div>
-			<div class="col-md-7">: OCIH</div>
+			<div class="col-md-7">: {{$data->s1_nama}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Tgl. Lahir/Umur</div>
-			<div class="col-md-7">: 52 Tahun</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">Agama</div>
-			<div class="col-md-7">: Islam</div>
+			<div class="col-md-7">:{{$data->s1_umur}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Pekerjaan</div>
-			<div class="col-md-7">: Mengurus Rumah Tangga</div>
+			<div class="col-md-7">: {{$data->s1_pekerjaan}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Alamat</div>
-			<div class="col-md-7">: Jl Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sunt unde laudantium</div>
+			<div class="col-md-7">: {{$data->s1_alamat}}</div>
 		</div>
 		
 		<br>
 
 		<div class="row">
 			<div class="col-md-2"><span style="margin-left:-20px;">2.</span><span style="margin-left: 10px;">Nama</span></div>
-			<div class="col-md-7">: OCIH</div>
+			<div class="col-md-7">: {{$data->s2_nama}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Tgl. Lahir/Umur</div>
-			<div class="col-md-7">: 52 Tahun</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">Agama</div>
-			<div class="col-md-7">: Islam</div>
+			<div class="col-md-7">: {{$data->s2_umur}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Pekerjaan</div>
-			<div class="col-md-7">: Mengurus Rumah Tangga</div>
+			<div class="col-md-7">: {{$data->s2_pekerjaan}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Alamat</div>
-			<div class="col-md-7">: Jl Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sunt unde laudantium</div>
+			<div class="col-md-7">: {{$data->s2_alamat}}</div>
 		</div>
 	</div>
 	
@@ -120,12 +112,11 @@
 
 @section('kanan')
 	<p>Dibuat Di &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Warnajati</p>
-	<p><u>Pada Tanggal	&nbsp;: {{date('d M Y')}}</u></p>
+	<p><u>Pada Tanggal	&nbsp;: {{date('j ').bulan(date('m')).date(' Y')}}</u></p>
 	<br>
 	<div class="center">
-		<p>a.n Sekretaris Desa Warnajati</p>
-		<p>Kasi Pelayanan</p>
+		<p>Kepala Desa Warnajati</p>
 		<br><br><br><br>
-		<h4><u>DEDE Abdullah,S.HI</u></h4>
+		<h4><u>{{$user->name}}</u></h4>
 	</div>
 @endsection

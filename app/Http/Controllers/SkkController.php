@@ -173,12 +173,12 @@ class SkkController extends Controller
         $user = User::with('roles')->findOrFail($user_id);
         $r = $user->roles->first()->name;
         if ($r == 'Kepala Desa') {
-            $pdf   = PDF::loadView('pdf.kades.skk',compact('data','user'))->setPaper('legal','portrait');
+            $pdf   = PDF::loadView('pdf.kades.skkl',compact('data','user'))->setPaper('legal','portrait');
         }elseif (
             $r == 'Sekretaris Desa' || $r == 'Kepala Seksi Pelayanan' || 
             $r == 'Kepala Seksi Pemerintahan' || $r == 'Kepala Seksi Kesejahteraan'
         ){
-            $pdf   = PDF::loadView('pdf.perwakilan.skk',compact('data','user'))->setPaper('legal','portrait');
+            $pdf   = PDF::loadView('pdf.perwakilan.skkl',compact('data','user'))->setPaper('legal','portrait');
         }else{
             return abort(404);
         }

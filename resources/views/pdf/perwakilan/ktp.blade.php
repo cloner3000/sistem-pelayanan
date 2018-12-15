@@ -91,6 +91,9 @@
 		.col-md-1 {
 			width: 8.33333333%;
 		}	
+		.right{
+			width:85%;
+		}
 	</style>
 </head>
 <body>
@@ -182,25 +185,27 @@
 
 				</table>
 			</div>
-			<div class="col-md-6">
-				<span style="margin-left: 30px;">Warnajati,{{$data->created_at->format('d-m-Y')}}</span>
-				<br>
-				<span style="margin-left: 70px;">Pemohon</span>
-				<br>
-				<br>
-				<br>
-				<span style="margin-left: 30px;">(  {{$data->nama}}  )</span>
-				<br>
-				<br>
-				<span style="margin-left: 70px;">Mengetahui</span>
-				<br>
-				<span style="margin-left: 30px;">AN,Kepala Desa Warnajati</span>
-				<br>
-				<span style="margin-left: 80px;">Sekdes,</span>
-				<br>
-				<br>
-				<br>
-				<span style="margin-left: 10%;">(  {{$user->name}}  )</span>
+			<div class="col-md-6 ">
+				<div class="right center">
+					<span>Warnajati,{{date('d ').bulan(date('m')).date(' Y')}}</span>
+					<br>
+					<span>Pemohon</span>
+					<br>
+					<br>
+					<br>
+					<span>(  {{$data->nama}}  )</span>
+					<br>
+					<br>
+					<span>Mengetahui</span>
+					<br>
+					<span>a.n Kepala Desa Warnajati</span>
+					<br>
+					<span>{{$user->roles->first()->deskripsi}},</span>
+					<br>
+					<br>
+					<br>
+					<span>(  {{$user->name}}  )</span>
+				</div>
 			</div>
 		</div>
 	</div>
