@@ -157,7 +157,7 @@ Route::group(['prefix' => 'admin',['middleware' =>
         'role:Sekretaris Desa','role:Kepala Urusan Administrasi Umum','role:Kepala Urusan Keuangan',
         'role:Kepala Urusan Perencanaan','role:Kepala Seksi Pelayanan','role:Kepala Seksi Pemerintahan',
         'role:Kepala Seksi Kesejahteraan','role:Kepala Dusun Malinggut I','role:Kepala Dusun Malinggut II',
-        'role:Kepala Dusun Malinggut III','role:Kepala Dusun Malinggut IV','role:Kepala Dusun Sukamaju'
+        'role:Kepala Dusun Malinggut III','role:Kepala Dusun Sukamaju'
     ],'name' => 'admin'], function(){
 	
     Route::post('/','UserController@gantiPas')->name('admin.ganti_password');

@@ -68,11 +68,6 @@ class RoleSeeder extends Seeder
         $role_manager->save();
 
         $role_manager = new Role();
-        $role_manager->name = 'Kepala Dusun Malinggut IV';
-        $role_manager->deskripsi = 'Kepala Dusun Malinggut IV';
-        $role_manager->save();
-
-        $role_manager = new Role();
         $role_manager->name = 'Kepala Dusun Sukamaju';
         $role_manager->deskripsi = 'Kepala Dusun Sukamaju';
         $role_manager->save();
