@@ -22,9 +22,10 @@ class UserSeeder extends Seeder
 		$role_pelayanan     = Role::where('name', 'Kepala Seksi Pelayanan')->first();
 		$role_pemerintahan  = Role::where('name', 'Kepala Seksi Pemerintahan')->first();
 		$role_kesejahteraan = Role::where('name', 'Kepala Seksi Kesejahteraan')->first();
-		$role_malinggut1    = Role::where('name', 'Kepala Dusun Malinggut 1')->first();
-		$role_malinggut2    = Role::where('name', 'Kepala Dusun Malinggut 2')->first();
-		$role_malinggut3    = Role::where('name', 'Kepala Dusun Malinggut 3')->first();
+		$role_malinggut1    = Role::where('name', 'Kepala Dusun Malinggut I')->first();
+		$role_malinggut2    = Role::where('name', 'Kepala Dusun Malinggut II')->first();
+		$role_malinggut3    = Role::where('name', 'Kepala Dusun Malinggut III')->first();
+		$role_malinggut4    = Role::where('name', 'Kepala Dusun Malinggut IV')->first();
 		$role_sukamaju      = Role::where('name', 'Kepala Dusun Sukamaju')->first();
 		
 		$role_user          = Role::where('name', 'User')->first();
@@ -107,11 +108,18 @@ class UserSeeder extends Seeder
 	    $Admin10->roles()->attach($role_malinggut3);
 
 	    $Admin11 = new User();
-	    $Admin11->name = 'Kamal Chairil';
-	    $Admin11->email = 'kamal@admin.com';
+	    $Admin11->name = 'kadus 4';
+	    $Admin11->email = 'kadus4@admin.com';
 	    $Admin11->password = bcrypt('admin123');
 	    $Admin11->save();
-	    $Admin11->roles()->attach($role_sukamaju);
+	    $Admin11->roles()->attach($role_malinggut4);
+
+	    $Admin12 = new User();
+	    $Admin12->name = 'Kamal Chairil';
+	    $Admin12->email = 'kamal@admin.com';
+	    $Admin12->password = bcrypt('admin123');
+	    $Admin12->save();
+	    $Admin12->roles()->attach($role_sukamaju);
 
 	    $User = new User();
 	    $User->name = 'User';

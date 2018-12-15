@@ -62,10 +62,17 @@ class SkController extends Controller
         $export = Sk::whereRaw('status = "acc"')
                   ->select(DB::raw('count(id) as `data`'),DB::raw("MONTH(created_at) as month,YEAR(created_at) as year"))
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
-        $user = User::whereHas('roles',function($q){
-                    $q->where('role_id',3);
+        
+        User::whereHas('roles',function($q){
+                    $q->where('name','Kepala Desa');
                 })->orWhereHas('roles',function($q){
-                    $q->where('role_id',2);
+                    $q->where('name','Sekretaris Desa');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Seksi Pelayanan');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Seksi Pemerintahan');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Seksi Kesejahteraan');
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
@@ -133,9 +140,13 @@ class SkController extends Controller
     {
         $data = Sk::findOrFail($id);
         $user = User::with('roles')->findOrFail($user_id);
-        if ($user->roles->first()->id == 3) {
+        $r = $user->roles->first()->name;
+        if ($r == 'Kepala Desa') {
             $pdf   = PDF::loadView('pdf.kades.sk',compact('data','user'))->setPaper('a4','portrait');
-        }elseif ($user->roles->first()->id == 2){
+        }elseif (
+            $r == 'Sekretaris Desa' || $r == 'Kepala Seksi Pelayanan' || 
+            $r == 'Kepala Seksi Pemerintahan' || $r == 'Kepala Seksi Kesejahteraan'
+        ){
             $pdf   = PDF::loadView('pdf.perwakilan.sk',compact('data','user'))->setPaper('a4','portrait');
         }else{
             return abort(404);

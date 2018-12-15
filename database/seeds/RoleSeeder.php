@@ -53,18 +53,23 @@ class RoleSeeder extends Seeder
         $role_manager->save();
 
         $role_manager = new Role();
-        $role_manager->name = 'Kepala Dusun Malinggut 1';
-        $role_manager->deskripsi = 'Kepala Dusun Malinggut 1';
+        $role_manager->name = 'Kepala Dusun Malinggut I';
+        $role_manager->deskripsi = 'Kepala Dusun Malinggut I';
         $role_manager->save();
 
         $role_manager = new Role();
-        $role_manager->name = 'Kepala Dusun Malinggut 2';
-        $role_manager->deskripsi = 'Kepala Dusun Malinggut 2';
+        $role_manager->name = 'Kepala Dusun Malinggut II';
+        $role_manager->deskripsi = 'Kepala Dusun Malinggut II';
         $role_manager->save();
 
         $role_manager = new Role();
-        $role_manager->name = 'Kepala Dusun Malinggut 3';
-        $role_manager->deskripsi = 'Kepala Dusun Malinggut 3';
+        $role_manager->name = 'Kepala Dusun Malinggut III';
+        $role_manager->deskripsi = 'Kepala Dusun Malinggut III';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'Kepala Dusun Malinggut IV';
+        $role_manager->deskripsi = 'Kepala Dusun Malinggut IV';
         $role_manager->save();
 
         $role_manager = new Role();

@@ -64,9 +64,29 @@ class PengaduanController extends Controller
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
 
         $user = User::whereHas('roles',function($q){
-                    $q->where('role_id',3);
+                    $q->where('name','Kepala Desa');
                 })->orWhereHas('roles',function($q){
-                    $q->where('role_id',2);
+                    $q->where('name','Sekretaris Desa');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Urusan Administrasi Umum');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Urusan Keuangan');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Urusan Perencanaan');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Seksi Pelayanan');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Seksi Pemerintahan');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Seksi Kesejahteraan');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Dusun Malinggut 1');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Dusun Malinggut 2');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Dusun Malinggut 3');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Dusun Sukamaju');
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {

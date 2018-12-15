@@ -62,9 +62,15 @@ class KtpController extends Controller
                   ->groupby('month','year')->orderBy('year','desc')->orderBy('month','desc')->get();
 
         $user = User::whereHas('roles',function($q){
-                    $q->where('role_id',3);
+                    $q->where('name','Kepala Desa');
                 })->orWhereHas('roles',function($q){
-                    $q->where('role_id',2);
+                    $q->where('name','Sekretaris Desa');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Seksi Pelayanan');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Seksi Pemerintahan');
+                })->orWhereHas('roles',function($q){
+                    $q->where('name','Kepala Seksi Kesejahteraan');
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
@@ -126,17 +132,20 @@ class KtpController extends Controller
      */
     public function show($id,$user_id)
     {
-        // $s      = Struktur::where('jabatan','Sekretaris Desa')->firstOrFail()->nama;
         $data   = Ktp::findOrFail($id);
         $user = User::with('roles')->findOrFail($user_id);
-        if ($user->roles->first()->id == 3) {
+        $r = $user->roles->first()->name;
+        if ($r == 'Kepala Desa') {
             $pdf   = PDF::loadView('pdf.kades.ktp',compact('data','user'))->setPaper('a4','portrait');
-        }elseif ($user->roles->first()->id == 2){
+        }elseif (
+            $r == 'Sekretaris Desa' || $r == 'Kepala Seksi Pelayanan' || 
+            $r == 'Kepala Seksi Pemerintahan' || $r == 'Kepala Seksi Kesejahteraan'
+        ){
             $pdf   = PDF::loadView('pdf.perwakilan.ktp',compact('data','user'))->setPaper('a4','portrait');
         }else{
             return abort(404);
         }
-        // $pdf    = PDF::loadView('pdf.ktp', compact('data','s'));
+
         return $pdf->stream($data->nama.".pdf");
     }
 
