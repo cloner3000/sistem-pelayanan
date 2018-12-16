@@ -156,15 +156,30 @@
 					<td style="border:none;">PERMOHONAN KTP</td>
 					<td style="border:none;padding-right: 50px;"></td>
 					
-					<td style="">&nbsp;&nbsp;&nbsp;</td>
+					@php
+						if ($data->permohonan == 'baru'){
+							$a = 'x';
+							$b = '&nbsp;&nbsp;&nbsp;';
+							$c = '&nbsp;&nbsp;&nbsp;';
+						}elseif ($data->permohonan == 'perpanjangan') {
+							$a = '&nbsp;&nbsp;&nbsp;';
+							$b = 'x';
+							$c = '&nbsp;&nbsp;&nbsp;';
+						}elseif ($data->permohonan == 'penggantian') {
+							$a = '&nbsp;&nbsp;&nbsp;';
+							$b = '&nbsp;&nbsp;&nbsp;';
+							$c = 'x';
+						}	
+					@endphp
+					<td style="">{!!$a!!}</td>
 					<td>A. Baru</td>
 					<td style="border:none;padding-right: 50px;"></td>
 					
-					<td style="">&nbsp;&nbsp;&nbsp;</td>
+					<td style="">{!!$b!!}</td>
 					<td>B. Perpanjangan</td>
 					<td style="border:none;padding-right: 50px;"></td>
 					
-					<td style="">&nbsp;&nbsp;&nbsp;</td>
+					<td style="">{!!$c!!}</td>
 					<td>C. Penggantian</td>
 				</tr>
 			</tbody>
