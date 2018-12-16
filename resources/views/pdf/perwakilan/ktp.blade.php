@@ -273,7 +273,7 @@
 					<br>
 					<br>
 					<br>
-					<span>(  {{$user->name}}  )</span>
+					<span><u>{{$user->name}}</u></span>
 				</div>
 			</div>
 		</div>
