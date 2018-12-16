@@ -31,9 +31,6 @@ class DashboardController extends Controller
 {
     public function indexAdmin()
     {
-		$ktp     = Ktp::all();
-		$skk     = Skk::all();
-		$spp     = Spp::all();
 		$user    = User::all();
         
 		$mobile  = Pengunjung::where('platform','mobile')->count();
@@ -67,13 +64,17 @@ class DashboardController extends Controller
             $hit = "0,0,0,0,0,0,0,0,0,0,0,0";
         }
 
-    	$acc  = Ktp::where('status','acc')->count()+Skk::where('status','acc')->count()+Spp::where('status','acc')->count();
+    	$acc  = Ktp::where('status','acc')->count()+Skk::where('status','acc')->count()
+                +Pengaduan::where('status','acc')->count()+Sk::where('status','acc')->count()
+                +Skematian::where('status','acc')->count()+Sktm::where('status','acc')->count()
+                +Sptjm::where('status','acc')->count();
+
     	if (Auth::user()->roles->first()->name == "Kepala Desa") {
-    		return view('kades.dashboard',compact('ktp','skk','spp','user','acc','mobile','tab','desktop',
+    		return view('kades.dashboard',compact('user','acc','mobile','tab','desktop',
                 'hit','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'
             ));
     	}else{
-    		return view('admin.dashboard',compact('ktp','skk','spp','user','acc','mobile','tab','desktop',
+    		return view('admin.dashboard',compact('user','acc','mobile','tab','desktop',
                 'hit','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'
             ));
     	}

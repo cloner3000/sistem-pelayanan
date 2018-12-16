@@ -68,6 +68,19 @@
                     <a class="page-scroll" href="{{ route('berita') }}">Berita</a>
                   </li>
                   @guest
+                  @else
+                    @if(Auth::user()->roles->first()->name == 'Kepala Desa')
+                      <li>
+                        <a class="page-scroll" href="{{ route('kades.dashboard') }}">Dashboard</a>
+                      </li>
+                    @else
+                      <li>
+                        <a class="page-scroll" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                      </li> 
+                    @endif
+                  @endguest
+
+                  @guest
                     <li>
                       <a class="page-scroll" href="{{ route('login') }}">Login</a>
                     </li>

@@ -10,13 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('test',function(){
-       // return Browser::browserName();
-        // return Browser::userAgent();
-        // return Browser::platformName();
-        return  Browser::deviceFamily();
-    });
-
     Route::get('/','WebController@index')->name('/');
     
     //Route Blog
