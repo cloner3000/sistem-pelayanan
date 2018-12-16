@@ -25,15 +25,16 @@
 		}
 		.border{
 			border:1px solid;
+			width: 100%;
 		}
 		table {
 			border-collapse: collapse;
 			text-align: center;
-			width: 100%;
 		}
 		table, th, td {
 			border: 1px solid black;
 		}
+
 		.spacing{
 			height: 100px;
 		}
@@ -106,64 +107,132 @@
 			<li>3.Setelah Formulir ini diidi dan ditandatangani, harap diserahkan kembali ke kantor Desa Warnajati</li>
 		</ul>
 		
-		<div class="row">
-			<div class="col-md-4">
-				<span>PEMERINTAH PROVINSI</span>
-				<br>
-				<span>PEMERINTAH KABUPATEN</span>
-				<br>
-				<span>KECAMATAN</span>
-				<br>
-				<span>DESA</span>
-				<br>
-				<span>PERMOHONAN KTP</span>
-			</div>
-			<div class="col-md-3">
-				<span>3</span><span>2</span>
-				<br>
-				<span>0</span><span>2</span>
-				<br>
-				<span>1</span><span>1</span>
-				<br>
-				<span>-</span>
-				<br>
-				<span>-</span>
-			</div>
-			<div class="col-md-5">
-				<span>JAWA BARAT</span>
-				<br>
-				<span>SUKABUMI</span>
-				<br>
-				<span>CIBADAK</span>
-				<br>
-				<span>WARNAJATI</span>
-			</div>
-		</div>
-		<div class="clear"></div>
+		<table style="border:none">
+			<tbody>
+				<tr>
+					<td style="text-align:left;border:none;padding-right: 60px;">PEMERINTAH PROVINSI</td>
+					<td>3</td>
+					<td>2</td>
+					<td style="border:none;"></td>
+					<td style="border:none;"></td>
+					<td style="border:none;padding-right: 90px;"></td>
+					<td style="width: 100%;text-align:left;"><span style="padding-right: 150px;">JAWA BARAT</span></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;border:none;padding-right: 60px;">PEMERINTAH KABUPATEN</td>
+					<td>0</td>
+					<td>2</td>
+					<td style="border:none;"></td>
+					<td style="border:none;"></td>
+					<td style="border:none;padding-right: 90px;"></td>
+					<td style="width: 100%;text-align:left;"><span style="padding-right: 150px;">SUKABUMI</span></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;border:none;padding-right: 60px;">KECAMATAN</td>
+					<td>1</td>
+					<td>1</td>
+					<td style="border:none;"></td>
+					<td style="border:none;"></td>
+					<td style="border:none;padding-right: 90px;"></td>
+					<td style="width: 100%;text-align:left;"><span style="padding-right: 150px;">CIBADAK</span></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;border:none;padding-right: 60px;">DESA</td>
+					<td>&nbsp;&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;&nbsp;</td>
+					<td style="border:none;padding-right: 90px;"></td>
+					<td style="width: 100%;text-align:left;"><span style="padding-right: 150px;">WARNAJATI</span></td>	
+				</tr>
+			</tbody>
+		</table>
+
 		<br>
+		
+		<table style="border:none;">
+			<tbody>
+				<tr>
+					<td style="border:none;">PERMOHONAN KTP</td>
+					<td style="border:none;padding-right: 50px;"></td>
+					
+					<td style="">&nbsp;&nbsp;&nbsp;</td>
+					<td>A. Baru</td>
+					<td style="border:none;padding-right: 50px;"></td>
+					
+					<td style="">&nbsp;&nbsp;&nbsp;</td>
+					<td>B. Perpanjangan</td>
+					<td style="border:none;padding-right: 50px;"></td>
+					
+					<td style="">&nbsp;&nbsp;&nbsp;</td>
+					<td>C. Penggantian</td>
+				</tr>
+			</tbody>
+		</table>
+
 		<br>
-		<div class="row">
-			<div class="col-md-3">
-				<span>Nama Lengkap Pemohon</span>
-				<br>
-				<span>No KK Semula</span>
-				<br>
-				<span>NIK Pemohon</span>
-				<br>
-				<span>Alamat Pemohon</span>
-			</div>
-			<div class="col-md-9">
-				<span>{{$data->nama}}</span>
-				<br>
-				<span>{{$data->nik}}</span>
-				<br>
-				<span>{{$data->no_kk}}</span>
-				<br>
-				<span>{{$data->alamat}}</span>
-			</div>
-		</div>
-		<div class="clear"></div>
+		
+		<table style="border:none;max-width: 100%;font-size:10px;">
+			<tbody>
+				<tr>
+					<td style="text-align:left;width:80px;">1. Nama Lengkap</td>
+					<td style="border:none;width:1px;padding-right: 10px;"></td>
+					@php
+						$nama_ar = str_split($data->nama);
+					@endphp
+					@foreach($nama_ar as $n)
+						<td style="width: 10px;">{{ucfirst($n)}}</td>
+					@endforeach
+				</tr>
+			</tbody>
+		</table>
+		
 		<br>
+
+		<table style="border:none;max-width: 100%;font-size:10px;">
+			<tbody>				
+				<tr>
+					<td style="text-align:left;width:80px;">2. No KK Semula</td>
+					<td style="border:none;width:1px;padding-right: 10px;"></td>
+					@php
+						$nik = str_split($data->nik);
+					@endphp
+					@foreach($nik as $n)
+						<td style="width: 10px;">{{$n}}</td>
+					@endforeach
+				</tr>
+			</tbody>
+		</table>
+		
+		<br>
+
+		<table style="border:none;max-width: 100%;font-size:10px;">
+			<tbody>
+				<tr>
+					<td style="text-align:left;width:80px;">3. NIK Pemohon</td>
+					<td style="border:none;width:1px;padding-right: 10px;"></td>
+					@php
+						$no_kk = str_split($data->no_kk);
+					@endphp
+					@foreach($no_kk as $kk)
+						<td style="width: 10px;">{{ucfirst($kk)}}</td>
+					@endforeach
+				</tr>
+			</tbody>
+		</table>
+		
+		<br>
+
+		<table style="border:none;width: 100%;font-size:10px;">
+			<tbody>
+				<tr>
+					<td style="text-align:left;width:80px;">4. Alamat Pemohon</td>
+					<td style="border:none;width:1px;padding-right: 10px;"></td>
+					<td style="text-align:left;">{{$data->alamat}}</td>
+				</tr>
+			</tbody>
+		</table>
+	
 		<br>
 		<div class="row">
 			<div class="col-md-6">
