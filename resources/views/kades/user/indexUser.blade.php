@@ -34,7 +34,7 @@
 		                <th>Aksi</th>
 	                </tr>
 	                @foreach($datas as $data)
-	                	@if($data->roles->first()->name != "Kepala Desa" && $data->roles->first()->name != "Admin")
+	                	@if($data->roles->first()->name != "Kepala Desa" && $data->roles->first()->name == "User")
 		                	
 			            	<tr>
 			                  	<td>{{++$no}}</td>
