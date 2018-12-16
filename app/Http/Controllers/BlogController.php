@@ -178,7 +178,7 @@ class BlogController extends Controller
     public function destroy($id)
     {
         $data = Blog::findOrFail($id);
-        unlink(public_path('storage/blog'),$data->foto);
+        unlink(public_path('storage/blog/').$data->foto);
         $data->delete();
         return back();
     }

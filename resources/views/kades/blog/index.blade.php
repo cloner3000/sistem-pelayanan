@@ -30,9 +30,10 @@
 						<th>No</th>
 						<th>Judul</th>
 		                <th>Ketegori</th>
-		                <th>Image</th>
+		                <th>Foto</th>
 		                <th>Slug</th>
-		                <th>Pembuat</th>
+		                <th>Penulis</th>
+		                <th>Diposting</th>
 		                <th>Aksi</th>
 	                </tr>
 	                @foreach($datas as $data)
@@ -41,10 +42,11 @@
 			                  	<td>{{$data->judul}}</td>
 			                  	<td>{{$data->kategoris->nama}}</td>
 			                  	<td>
-			                  		<img src="{{ asset('storage/blog').'/'.$data->foto}}" class="img-thumbnail" style="width: auto;height: 50px;">
+			                  		<img src="{{ asset('storage/blog').'/'.$data->foto}}" class="img-thumbnail" style="width: 100px;height: auto;">
 			                  	</td>
 			                  	<td>{{$data->slug}}</td>
 			                  	<td>{{$data->users->name}}</td>
+			                  	<td>{{$data->created_at->format('d-m-Y')}}</td>
 			                  	<td>
 			                  		<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#{{md5($data->id.'blog')}}" style="margin-bottom: 5px;">
 										<i class="fa fa-search"></i>

@@ -82,7 +82,7 @@
 
 		        <div class="box-body pad">
 		            <div class="form-group">
-		            	<textarea id="tentang" name="isi" rows="10" cols="80" required></textarea>	
+		            	<textarea name="isi" rows="10" cols="80" required></textarea>	
 		            </div>
 		            <div class="form-group">
 		            	<button type="submit" class="btn btn-sm btn-info">Posting</button>	
