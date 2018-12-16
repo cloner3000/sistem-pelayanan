@@ -34,8 +34,6 @@
 		                <th>Aksi</th>
 	                </tr>
 	                @foreach($datas as $data)
-	                	@if($data->roles->first()->name != "Kepala Desa" && $data->roles->first()->name != "Admin")
-		                	
 			            	<tr>
 			                  	<td>{{++$no}}</td>
 			                  	<td>{{$data->name}}</td>
@@ -59,10 +57,9 @@
 					                    </form>
 			                  	</td>
 			                </tr>
-		                @endif
 	                @endforeach
 	              </table>
-	              <div class="pull-right">
+	              <div class="pull-right" style="margin-right: 10px;">
 	              	{!! $datas->render('vendor.pagination.default') !!}
 	              </div>
 	            </div>

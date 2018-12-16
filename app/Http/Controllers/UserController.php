@@ -73,9 +73,13 @@ class UserController extends Controller
         $nSktm      = Sktm::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
-        $datas = User::with('roles')->paginate(10); 
+        $datas = User::with('roles')->whereHas('roles',function($q){
+            $q->where('name','!=','Kepala Desa');
+        })->paginate(10);
+        
+        $datasK= User::paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.user.indexUser',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.user.indexUser',compact('datasK','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{       
             return view('admin.user.indexUser',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }

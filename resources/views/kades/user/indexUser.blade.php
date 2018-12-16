@@ -33,9 +33,7 @@
 		                <th>Hak Akses</th>
 		                <th>Aksi</th>
 	                </tr>
-	                @foreach($datas as $data)
-	                	@if($data->roles->first()->name != "Kepala Desa" && $data->roles->first()->name == "User")
-		                	
+	                @foreach($datasK as $data)
 			            	<tr>
 			                  	<td>{{++$no}}</td>
 			                  	<td>{{$data->name}}</td>
@@ -59,11 +57,10 @@
 					                    </form>
 			                  	</td>
 			                </tr>
-		                @endif
 	                @endforeach
 	              </table>
-	              <div class="pull-right">
-	              	{!! $datas->render('vendor.pagination.default') !!}
+	              <div class="pull-right" style="margin-right: 10px;">
+	              	{!! $datasK->render('vendor.pagination.default') !!}
 	              </div>
 	            </div>
 
@@ -72,7 +69,7 @@
     		</div>
     	</div>
 
-    	@foreach($datas as $d)
+    	@foreach($datasK as $d)
 			<div class="modal fade" id="{{md5($d->id.'user')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    <div class="modal-dialog" role="document">
 			        <div class="modal-content">
