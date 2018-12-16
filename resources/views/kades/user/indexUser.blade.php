@@ -44,11 +44,11 @@
 			                  		<span class="label label-success">{!!$data->roles->first()->name!!}</span>
 			                  	</td>
 			                  	<td>
-									<a class="btn btn-sm btn-info" data-toggle="modal" data-target="#{{md5($data->id.'user')}}" >
+									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'user')}}" style="margin: auto 5px;">
 										<i class="fa fa-edit"></i>
 										 Edit
 									</a>
-									<a class="btn btn-sm btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();">
+									<a class="btn btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('{{md5($data->id."hapus")}}').submit();" style="margin: auto 5px;">
 					                    <i class="fa fa-trash"></i>
 					                    Hapus
 					                    </a>

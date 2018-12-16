@@ -14,7 +14,6 @@ use PDF;
 
 use App\Ktp;
 use App\Skk;
-use App\Spp;
 use App\Sk;
 use App\Skematian;
 use App\Sktm;
@@ -34,15 +33,14 @@ class PengaduanController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
         $ps = Pekerjaan::all();
         $datas = Pengaduan::where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.pengaduan.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.pengaduan.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.pengaduan.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*1);
+            return view('admin.pengaduan.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*1);
         }   
     }
 
@@ -54,7 +52,6 @@ class PengaduanController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
         $ps = Pekerjaan::all();
@@ -90,9 +87,9 @@ class PengaduanController extends Controller
                 })->get();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.pengaduan.indexAcc',compact('datas','export','user','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.pengaduan.indexAcc',compact('datas','export','user','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.pengaduan.indexAcc',compact('datas','export','user','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.pengaduan.indexAcc',compact('datas','export','user','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

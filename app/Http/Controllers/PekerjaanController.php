@@ -9,7 +9,6 @@ use App\Pekerjaan;
 
 use App\Ktp;
 use App\Skk;
-use App\Spp;
 use App\Pengaduan;
 use App\Sk;
 use App\Skematian;
@@ -30,14 +29,13 @@ class PekerjaanController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
         $datas = Pekerjaan::orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.profesi.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.profesi.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.profesi.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.profesi.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
@@ -55,7 +53,6 @@ class PekerjaanController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
         $data = Pekerjaan::insert([

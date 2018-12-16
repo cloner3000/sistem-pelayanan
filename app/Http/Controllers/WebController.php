@@ -8,7 +8,6 @@ use App\Struktur;
 
 use App\Ktp;
 use App\Skk;
-use App\Spp;
 use App\Pengaduan;
 use App\Sk;
 use App\Skematian;

@@ -86,6 +86,20 @@
 		                {{$web->tentang}}
 		            </textarea>
 		        </div>
+				
+				<div class="box-body pad">
+					<div class="form-group">
+						<label for="foto_tentang">Foto Tentang</label>
+						<input name="foto_tentang" class="form-control" type="file" id="foto_tentang">
+						<p class="help-block">Gambar Untuk Desktipsi Website</p>
+					</div>
+				</div>
+		        <div class="box-body pad">
+		            <div class="form-group">
+		            	<label for="tentang1">Tentang website untuk posisi di bawah</label>
+		            	<textarea  name="tentang1" id="tentang1" class="form-control" rows="3" cols="80">{{$web->tentang1}}</textarea>
+		            </div>
+		        </div>
 		    </div>
 
 		    <div class="box box-info">
@@ -96,15 +110,26 @@
 		          <div class="pull-right box-tools">
 		            <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
 		                    title="Collapse">
-		              <i class="fa fa-minus"></i></button>
+		              <i class="fa fa-minus"></i>
+		          	</button>
 		          </div>
 		        </div>
 		        <div class="box-body pad">
-		            <textarea id="visimisi" name="visi_misi" rows="10" cols="80">
-		                {{$web->visi_misi}}
+		        	<label for="">Visi</label>
+		            <textarea id="visi" name="visi" rows="10" cols="80">
+		                {{$web->visi}}
+		            </textarea>
+		        </div>
+
+		        <div class="box-body pad">
+		        	<label for="">Misi</label>
+		            <textarea id="misi" name="misi" rows="10" cols="80">
+		                {{$web->misi}}
 		            </textarea>
 		        </div>
 		    </div>
+
+
 
 	    	<div class="box box-info">
 		        <div class="box-header with-border">
@@ -156,8 +181,8 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-							<button type="submit" class="btn btn-sm btn-info">Save</button>
-						</div>
+								<button type="submit" class="btn btn-sm btn-info">Save</button>
+							</div>
 					</div>
 				</div>
 

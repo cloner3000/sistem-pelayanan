@@ -14,7 +14,6 @@ use App\Pekerjaan;
 
 use App\Ktp;
 use App\Skk;
-use App\Spp;
 use App\Pengaduan;
 use App\Sk;
 use App\Skematian;
@@ -34,15 +33,14 @@ class SptjmController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
 
         $ps = Pekerjaan::all();
         $datas = Sptjm::with('user')->where('status','pending')->orderBy('created_at','desc')->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sptjm.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sptjm.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sptjm.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sptjm.index',compact('datas','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 
@@ -54,7 +52,6 @@ class SptjmController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
         $ps = Pekerjaan::all();
@@ -76,9 +73,9 @@ class SptjmController extends Controller
                 })->get();
                 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.sptjm.indexAcc',compact('datas','export','user','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.sptjm.indexAcc',compact('datas','export','user','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.sptjm.indexAcc',compact('datas','export','user','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.sptjm.indexAcc',compact('datas','export','user','ps','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

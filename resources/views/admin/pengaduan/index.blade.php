@@ -50,11 +50,10 @@
 			                  		<span class="label label-warning">{{$data->status}}</span>
 			                  	</td>
 			                  	<td>
-									<a class="btn btn-xs btn-success" onclick="event.preventDefault();document.getElementById('{{md5($data->id."acc")}}').submit();" style="margin-top: 10px;">
+									<a class="btn btn-xs btn-success" onclick="event.preventDefault();document.getElementById('{{md5($data->id."acc")}}').submit();">
 					                    <i class="fa fa-check"></i>
 					                    Acc
 					                </a>
-					                <br>
 					                <form id="{{md5($data->id.'acc')}}" action="{{ route('pengaduan.acc') }}" method="POST" style="display: none;">
 					                    {{ csrf_field() }}
 					                    <input type="hidden" name="id" value="{{$data->id}}">
@@ -82,85 +81,6 @@
 
     		</div>
     	</div>
-
-    	@foreach($datas as $d)
-			<div class="modal fade" id="{{md5($d->id.'pengaduan')}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			    <div class="modal-dialog" role="document">
-			        <div class="modal-content">
-			            <div class="modal-header text-center">
-			                <h4 class="modal-title w-100 font-weight-bold">Ubah Data Surat Pengaduan</h4>
-			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			                    <span aria-hidden="true">&times;</span>
-			                </button>
-			            </div>
-			            <div class="modal-body mx-3">
-
-				            <form method="POST" action="{{ route('pengaduan.update',$d->id) }}">
-								{{ csrf_field() }}
-								<input type="hidden" name="_method" value="PATCH">
-								
-								<h5>NIK</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
-				              		<input name="nik" type="text" class="form-control" required value="{{$d->nik}}">
-				            	</div>
-
-								<h5>Nama</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="nama" type="text" class="form-control" required value="{{$d->nama}}">
-				            	</div>
-								
-								<h5>Tanggal Lahir</h5>
-								<div class="input-group">
-								  	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-								  	<input name="tanggal_lahir" type="text" id="l_pengaduan" class="form-control" required value="{{date('d-m-Y', strtotime($d->tanggal_lahir))}}">
-								</div>
-
-								<h5>Pekerjaan</h5>
-								<div class="input-group">
-								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-								  	<select class="form-control" name="pekerjaan">
-								  		@foreach($ps as $p)
-								  			<option value="{{$p->slug}}">{{$p->nama}}</option>
-								  		@endforeach
-								  	</select>
-								</div>
-								
-								<h5>Sasaran</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-				              		<input name="sasaran" type="text" class="form-control" required value="{{$d->sasaran}}">
-				            	</div>
-
-				            	<h5>Alamat</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-				              		<input name="alamat" type="text" class="form-control" required value="{{$d->alamat}}">
-				            	</div>
-
-				            	<h5>Pengaduan</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-				              		<textarea name="isi" class="form-control" required>{{$d->isi}}</textarea>
-				            	</div>
-
-				            	<h5>Alternatif</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-				              		<textarea name="alternatif" class="form-control" required >{{$d->alternatif}}</textarea>
-				            	</div>
-
-				            	<div class="modal-footer d-flex justify-content-center">
-				               		<button type="submit" class="btn btn-primary">Simpan</button>
-				              	</div>
-							</form>
-
-			            </div>
-			        </div>
-			    </div>
-			</div>
-    	@endforeach
 
     </section>
 @endsection

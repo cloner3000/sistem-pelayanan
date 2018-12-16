@@ -25,7 +25,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>{{$nKtp+$nPengaduan+$nSk+$nSkematian+$nSkk+$nSktm+$nSpp+$nSptjm+$acc}}</h3>
+              <h3>{{$nKtp+$nPengaduan+$nSk+$nSkematian+$nSkk+$nSktm+$nSptjm+$acc}}</h3>
 
               <p>Pengajuan Pelayanan</p>
             </div>

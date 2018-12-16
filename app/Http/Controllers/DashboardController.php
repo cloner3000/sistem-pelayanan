@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Ktp;
 use App\Skk;
-use App\Spp;
 use App\Pengaduan;
 use App\Sk;
 use App\Skematian;
@@ -43,7 +42,6 @@ class DashboardController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
     	
     	$p = Pengunjung::orderByRaw('MONTH(created_at)','asc')
@@ -71,11 +69,11 @@ class DashboardController extends Controller
 
     	if (Auth::user()->roles->first()->name == "Kepala Desa") {
     		return view('kades.dashboard',compact('user','acc','mobile','tab','desktop',
-                'hit','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'
+                'hit','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'
             ));
     	}else{
     		return view('admin.dashboard',compact('user','acc','mobile','tab','desktop',
-                'hit','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'
+                'hit','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'
             ));
     	}
     }
@@ -90,13 +88,12 @@ class DashboardController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
 
     	if (Auth::user()->roles->first()->name == "Kepala Desa") {
-    		return view('kades.riwayat',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+    		return view('kades.riwayat',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
     	}else{
-    		return view('admin.riwayat',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+    		return view('admin.riwayat',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
     	}
     }
 
@@ -114,14 +111,13 @@ class DashboardController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
 
         $web = Web::firstOrFail(); 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.web.web',compact('web','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'));
+            return view('kades.web.web',compact('web','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'));
         }else{
-            return view('admin.web.web',compact('web','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'));
+            return view('admin.web.web',compact('web','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'));
         }
     }
 
@@ -306,13 +302,12 @@ class DashboardController extends Controller
         $nSkematian = Skematian::where('status','=','pending')->count();
         $nSkk       = Skk::where('status','=','pending')->count();
         $nSktm      = Sktm::where('status','=','pending')->count();
-        $nSpp       = Spp::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
 
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
-            return view('kades.struktur.index',compact('datas','jabatan','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('kades.struktur.index',compact('datas','jabatan','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
-            return view('admin.struktur.index',compact('datas','jabatan','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSpp','nSptjm'))->with('no',($req->input('page',1)-1)*10);
+            return view('admin.struktur.index',compact('datas','jabatan','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }
     }
 

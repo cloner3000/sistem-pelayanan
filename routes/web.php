@@ -45,9 +45,9 @@
     Route::get('laravel-filemanager/newfolder',function(){abort(404);});
     Route::get('laravel-filemanager/rename',function(){abort(404);});
     Route::get('laravel-filemanager/resize',function(){abort(404);});
+
 Route::group(['middleware' => 'role:User'], function(){
     
-    // Route::resource('spp', 'SppController',['names' =>'user.spp'])->only(['store']);
     Route::resource('ktp', 'KtpController',['names' =>'user.ktp'])->only(['store']);
     Route::resource('skk','SkkController',['names' =>'user.skk'])->only(['store']);
     Route::resource('sptjm','SptjmController',['names' =>'user.sptjm'])->only(['store']);
@@ -64,16 +64,6 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
 
     //route edit User
     Route::resource('pengguna','UserController',['names' =>'kades.pengguna'])->except(['show','edit']);
-
-    //route CRUD data pelayanan surat pindah
-    // Route::post('acc/spp','SppController@acc')->name('kades.spp.acc');
-    // Route::get('acc/spp','SppController@indexAcc')->name('kades.spp.indexAcc');
-    // Route::resource('spp', 'SppController',['names' =>'kades.spp'])->except(['show','edit','create']);
-    // Route::get('spp/{spp}/{user_id}','SppController@show')->name('kades.spp.show');
-    // Route::post('export/spp','SppController@csv')->name('kades.spp.export');
-    // Route::get('export/spp',function(){
-    //     return abort(404);
-    // });
 
     //route CRUD data ktp
     Route::post('acc/ktp','KtpController@acc')->name('kades.ktp.acc');
@@ -177,16 +167,6 @@ Route::group(['prefix' => 'admin',['middleware' =>
 
     //route edit User
     Route::resource('pengguna','UserController')->except(['show','edit']);
-
-    //route CRUD data pelayanan surat pindah
-    // Route::post('acc/spp','SppController@acc')->name('spp.acc');
-    // Route::get('acc/spp','SppController@indexAcc')->name('spp.indexAcc');
-    // Route::resource('spp', 'SppController')->except(['show','edit','create']);
-    // Route::get('spp/{spp}/{user_id}','SppController@show')->name('spp.show');
-    // Route::post('export/spp','SppController@csv')->name('spp.export');
-    // Route::get('export/spp',function(){
-    //     return abort(404);
-    // });
 
     //route CRUD data ktp
     Route::post('acc/ktp','KtpController@acc')->name('ktp.acc');
