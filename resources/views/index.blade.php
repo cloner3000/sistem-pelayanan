@@ -330,7 +330,7 @@
       <div class="row text-center">
         <div class="services-contents">
 
-          <div class="col-md-3 col-sm-3 col-xs-12">
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -458,7 +458,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-3 col-xs-12">
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -595,7 +595,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-3 col-xs-12">
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -1061,7 +1061,13 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-3 col-xs-12">
+        </div>
+      </div>
+      
+      <div class="row text-center">
+        <div class="services-contents">
+
+          <div class="col-md-4 col-sm-4 col-xs-12 col-md-offset-4 col-sm-offset-4">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -1175,11 +1181,10 @@
 
         </div>
       </div>
-
       <div class="row text-center">
         <div class="services-contents">
 
-          <div class="col-md-3 col-sm-3 col-xs-12">
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <div class=" about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -1413,105 +1418,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class=" about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  
-                  @guest
-                    <a class="services-icon" data-toggle="modal" data-target="#warning">
-  											<i class="fa fa-truck"></i>
-  									</a>
-                  @else
-                    <a class="services-icon" data-toggle="modal" data-target="#spp">
-                        <i class="fa fa-truck"></i>
-                    </a>
-                    <div class="modal fade" id="spp" role="dialog">
-                      <div class="modal-dialog">
-                      
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Form Surat Pengantar Pindah</h4>
-                          </div>
-                          <div class="modal-body">
-
-                            <form method="POST" action="{{ route('user.spp.store') }}">
-                              {{ csrf_field() }}
-                              <h5>NIK</h5>
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
-                                  <input name="nik" type="text" class="form-control" required>
-                              </div>
-                              <br>
-
-                              <h5>Nama</h5>
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                  <input name="nama" type="text" class="form-control" required>
-                              </div>
-                              <br>
-
-                              <h5>No Kartu Keluarga</h5>
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-id-card-alt"></i></span>
-                                  <input name="no_kk" type="text" class="form-control" required>
-                              </div>
-                              <br>
-
-                              <h5>Nama Kepala Keluarga</h5>
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
-                                  <input name="kepala_keluarga" type="text" class="form-control" required>
-                              </div>
-                              <br>
-
-                              <h5>Alamat Sekarang</h5>
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-                                  <input name="alamat_sekarang" type="text" class="form-control" required>
-                              </div>
-                              <br>
-
-                              <h5>Alamat Tujuan</h5>
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
-                                  <input name="alamat_tujuan" type="text" class="form-control" required>
-                              </div>
-                              <br>
-
-                              <h5>Jumlah</h5>
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                                  <input name="jumlah_pindah" type="number" class="form-control" required>
-                              </div>
-                              <br>
-
-                              <div class="modal-footer d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                              </div>
-                            </form>
-
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  @endguest
-
-                  <h4>Surat Pengantar Pindah</h4>
-                  <p>
-                    Untuk mengajukan surat pindah silahkan pilih pelayanan ini.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-3 col-xs-12">
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <div class=" about-move">
               <div class="services-details">
                 <div class="single-services">
@@ -1718,7 +1625,7 @@
             </div>
           </div>
           
-          <div class="col-md-3 col-sm-3 col-xs-12">
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <div class=" about-move">
               <div class="services-details">
                 <div class="single-services">
