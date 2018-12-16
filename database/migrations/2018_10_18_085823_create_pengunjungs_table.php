@@ -15,10 +15,10 @@ class CreatePengunjungsTable extends Migration
     {
         Schema::create('pengunjungs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('users');
-            $table->string('browsers');
-            $table->string('oses');
-            $table->string('platform');
+            $table->string('users')->nullable();
+            $table->string('browsers')->nullable();
+            $table->string('oses')->nullable();
+            $table->string('platform')->nullable();
             $table->timestamps();
         });
     }

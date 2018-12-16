@@ -11,7 +11,10 @@
 |
 */
     Route::get('test',function(){
-        return PDF::loadView('pdf.pengaduan')->stream('test.pdf');
+       // return Browser::browserName();
+        // return Browser::userAgent();
+        // return Browser::platformName();
+        return  Browser::deviceFamily();
     });
 
     Route::get('/','WebController@index')->name('/');

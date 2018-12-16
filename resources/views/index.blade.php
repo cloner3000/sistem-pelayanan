@@ -256,38 +256,43 @@
       <div class="container">
         <div class="row">
           <div class="skill-text">
+
             <div class="col-xs-12 col-sm-3 col-md-3 text-center">
               <div class="single-skill">
                 <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="{{100*($ktp/($spp+$sptjm+$skk+$ktp))}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h4 class="progress-h4">Data Formulir KTP</h4>
+                  <input type="text" class="knob" value="0" data-rel="{{100*($acc/($acc+$pending))-1}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
+                  <h4 class="progress-h4">Data Pelayanan Yang Telah Diproses</h4>
                 </div>
               </div>
             </div>
+
             <div class="col-xs-12 col-sm-3 col-md-3 text-center">
               <div class="single-skill">
                 <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="{{100*($spp/($spp+$sptjm+$skk+$ktp))}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h4 class="progress-h4">Data Formulir Surat Pindah</h4>
+                  <input type="text" class="knob" value="0" data-rel="{{100*($pending/($acc+$pending))}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
+                  <h4 class="progress-h4">Data Pelayanan Yang Belum Diproses</h4>
                 </div>
               </div>
             </div>
+
             <div class="col-xs-12 col-sm-3 col-md-3 text-center">
               <div class="single-skill">
                 <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="{{100*($skk/($spp+$sptjm+$skk+$ktp))}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h4 class="progress-h4">Daftar Formulir Surat Kelahiran</h4>
+                  <input type="text" class="knob" value="0" data-rel="{{100*($p_thisMonth/$p_total)}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
+                  <h4 class="progress-h4">Data Pengunjung Bulan Ini</h4>
                 </div>
               </div>
             </div>
+
             <div class="col-xs-12 col-sm-3 col-md-3 text-center">
               <div class="single-skill">
                 <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="{{100*($sptjm/($spp+$sptjm+$skk+$ktp))}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h4 class="progress-h4">Daftar Formulir Surat Menikah</h4>
+                  <input type="text" class="knob" value="0" data-rel="{{100*(($p_total-$p_thisMonth)/$p_total)}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
+                  <h4 class="progress-h4">Data Pengunjung Bulan Sebelumnya</h4>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

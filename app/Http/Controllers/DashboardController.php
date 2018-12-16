@@ -35,6 +35,7 @@ class DashboardController extends Controller
 		$skk     = Skk::all();
 		$spp     = Spp::all();
 		$user    = User::all();
+        
 		$mobile  = Pengunjung::where('platform','mobile')->count();
 		$tab     = Pengunjung::where('platform','tab')->count();
 		$desktop = Pengunjung::where('platform','desktop')->count();
