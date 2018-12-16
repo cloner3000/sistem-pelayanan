@@ -92,3 +92,16 @@
 		</form>
     </section>
 @endsection
+
+@section('ckUploadJS')
+	<script type="text/javascript">
+	  var route_prefix = "{{ url(config('lfm.url_prefix', config('lfm.prefix'))) }}";
+	</script>
+	<script type="text/javascript">
+	  $('textarea[name=isi]').ckeditor({
+	      height: 500,
+	      filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token={{csrf_token()}}',
+	      filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token={{csrf_token()}}'
+	  });
+	</script>
+@endsection

@@ -190,3 +190,11 @@
 		</form>
     </section>
 @endsection
+
+@section('webJS')
+	<script type="text/javascript">
+	  CKEDITOR.replace('tentang');
+	  CKEDITOR.replace('visi');
+	  CKEDITOR.replace('misi');
+	</script>
+@endsection

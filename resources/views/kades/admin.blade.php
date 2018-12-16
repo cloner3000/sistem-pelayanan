@@ -385,109 +385,28 @@
 
 <script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+
+@yield('ckUploadJS')
+
 <script type="text/javascript">
   function getData(data){
     var url = ($(data).data('url')+'/'+$(data).children('option:selected').data('id'));
     window.location.assign(url);
   }
 </script>
-<script type="text/javascript">
-  CKEDITOR.replace('tentang');
-  CKEDITOR.replace('visi');
-  CKEDITOR.replace('misi');
-</script>
+
+@yield('webJS')
+
 <script type="text/javascript">
     $(function () {
         $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sktm_tl,#l_kematian,#l_kematian_pelapor,#w_kematian').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });
-    
-    var ctx = document.getElementById("areaChart");
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: [
-              "Januari", "Februari", "Maret", "April", "Mei", "Juni","Juli",
-              "Agustus","September","Oktober","Nopember","Desember"
-            ],
-            datasets: [{
-                label: 'Pengunjung Website',
-                data: [@yield('dataBar')],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-
-    var pieChartCanvas = document.getElementById("pieChart");
-    data = {
-        datasets: [{
-            data: [@yield('data')],
-            backgroundColor: [
-              "#2ecc71",
-              "#3498db",
-              "#9b59b6",
-              "#f1c40f",
-              "#e74c3c",
-              "#34495e"
-            ],
-        }],
-        labels: [
-            'Desktop',
-            'Tab',
-            'Mobile'
-        ]
-    };
-
-    var options     = {
-      maintainAspectRatio  : true,
-    };
-
-    var myDoughnutChart = new Chart(pieChartCanvas, {
-      type: 'pie',
-      data: data,
-      options: options
-    });
 </script>
+
+@yield('dashboardJS')
+
 </body>
 </html>
