@@ -28,11 +28,7 @@ class drive extends Controller
         });
         $this->folder_id = Cache::get('folder_id');
     }
-    /**
-     * create folder in google drive.
-     *
-     * @return [type] [description]
-     */
+
     protected function create_folder()
     {
         $fileMetadata = new \Google_Service_Drive_DriveFile([
@@ -43,20 +39,6 @@ class drive extends Controller
         return $folder->id;
     }
 
-     /**
-     * remove duplicated files before adding new ones
-     * again thats because google use 'id' not 'name'.
-     *
-     * note that we cant search for files as bulk "a limitation in the drive Api it self"
-     * so instead we call this method from a loop with all the files we want to remove
-     *
-     * also note the some of the api methods are from the v2 even if we are using v3 in this example
-     * google docs are often mis-guiding
-     * https://developers.google.com/drive/v2/reference/
-     * https://developers.google.com/drive/v3/web/search-parameters
-     *
-     * @return [type] [description]
-     */
     protected function remove_duplicated($file)
     {
         $response = $this->service->files->listFiles([
@@ -66,13 +48,7 @@ class drive extends Controller
             return $this->service->files->delete($found->id);
         }
     }
-    /**
-     * this is the only method u need to call from ur controller.
-     *
-     * @param [type] $new_name [description]
-     *
-     * @return [type] [description]
-     */
+
     public function upload_files()
     {
         $adapter    = new GoogleDriveAdapter($this->service, Cache::get('folder_id'));

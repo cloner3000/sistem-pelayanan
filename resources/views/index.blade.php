@@ -1325,7 +1325,22 @@
                             <br>
                             
                             <hr>
-                              <h5>adalah suami/istri dari:</h5>
+                              <h5>Hubungan Pihak Pertama Dengan Pihak Kedua</h5>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-network-wired"></i></span>
+                                  <select class="form-control" name="hubungan">
+                                      <option value="suami" selected>Suami</option>
+                                      <option value="istri">Istri</option>
+                                  </select>
+                              </div>
+
+                              <h6>No Kartu Keluarga</h6>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                  <input name="no_kk" type="text" class="form-control" required >
+                              </div>
+
+                              <br>
                             <hr>
 
                             <h6>NIK</h6>
@@ -1371,6 +1386,47 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
                                 <input name="alamat2" type="text" class="form-control" required >
+                            </div>
+                            <br>
+                            
+                            <hr>
+
+                            <h5>Nama Anak</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="nama_anak" type="text" class="form-control" placeholder="Nama">
+                            </div>
+                            <br>
+
+                            <h5>Pekerjaan Anak</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                <select class="form-control" name="pekerjaan_anak">
+                                  @foreach($ps as $p)
+                                    <option value="{{$p->slug}}">{{$p->nama}}</option>
+                                  @endforeach
+                                </select>
+                            </div>
+                            <br>
+
+                            <h5>Tempat Lahir Anak</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+                                <input name="tempat_anak" type="text" class="form-control">
+                            </div>
+                            <br>
+
+                            <h5>Tanggal Lahir Anak</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                <input name="tanggal_anak" type="text" id="tl_anak" class="form-control">
+                            </div>
+                            <br>
+
+                            <h5>Alamat Anak</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+                                <input name="alamat_anak" type="text" class="form-control" placeholder="">
                             </div>
                             <br>
 

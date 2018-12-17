@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Sptjm extends Model
 {
     protected $fillable = [
-    	'user_id','status',
+    	'user_id','status','no_kk',
     	'nama','nik','tempat','tanggal','pekerjaan','alamat',
     	'nama1','nik1','tempat1','tanggal1','pekerjaan1','alamat1',
     	'nama2','nik2','tempat2','tanggal2','pekerjaan2','alamat2',
     	's1_nama','s1_nik',
-    	's2_nama','s2_nik'
+    	's2_nama','s2_nik',
+        'hubungan',
+        'nama_anak','tempat_anak','tanggal_anak','pekerjaan_anak','alamat_anak',
     ];
 
     protected $table = 'sptjms';

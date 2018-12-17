@@ -13,15 +13,15 @@
 
 			<div class="row">
 				<div class="col-md-3">Nama Lengkap</div>
-				<div class="col-md-5">: {{$data->nama}}</div>
+				<div class="col-md-5">: {{ucfirst($data->nama)}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">NIK</div>
-				<div class="col-md-5">: {{$data->nik}}</div>
+				<div class="col-md-5">: {{ucfirst($data->nik)}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Jenis kelamin</div>
-				<div class="col-md-5">: {{$data->jenis_kelamin}}</div>
+				<div class="col-md-5">: {{ucfirst($data->jenis_kelamin)}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Tanggal lahir/Umur</div>
@@ -29,11 +29,11 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3">Agama</div>
-				<div class="col-md-5">: {{$data->agama}}</div>
+				<div class="col-md-5">: {{ucfirst($data->agama)}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Alamat</div>
-				<div class="col-md-7">: {{$data->alamat}}</div>
+				<div class="col-md-7">: {{ucfirst($data->alamat)}}</div>
 			</div>
 
 			<br>
@@ -50,11 +50,11 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3">Bertempat di</div>
-				<div class="col-md-5">: {{$data->tempat}}</div>
+				<div class="col-md-5">: {{ucfirst($data->tempat)}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Penyebab Kematian</div>
-				<div class="col-md-5">: {{$data->penyebab}}</div>
+				<div class="col-md-5">: {{ucfirst($data->penyebab)}}</div>
 			</div>
 			
 			<br>
@@ -63,23 +63,23 @@
 			
 			<div class="row">
 				<div class="col-md-3">Nama</div>
-				<div class="col-md-5">: {{$data->p_nama}}</div>
+				<div class="col-md-5">: {{ucfirst($data->p_nama)}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">NIK</div>
-				<div class="col-md-5">: {{$data->p_nik}}</div>
+				<div class="col-md-5">: {{ucfirst($data->p_nik)}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Tanggal lahir/Umur</div>
-				<div class="col-md-5">: {{$data->p_tempat}},{{(date('d',strtotime($data->p_tanggal)).' '.bulan(date('m',strtotime($data->p_tanggal))).' '.date('Y',strtotime($data->p_tanggal)))}}</div>
+				<div class="col-md-5">: {{ucfirst($data->p_tempat)}},{{(date('d',strtotime($data->p_tanggal)).' '.bulan(date('m',strtotime($data->p_tanggal))).' '.date('Y',strtotime($data->p_tanggal)))}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Pekerjaan</div>
-				<div class="col-md-5">: {{$data->p_pekerjaan}}</div>
+				<div class="col-md-5">: {{ucfirst($data->p_pekerjaan)}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Alamat</div>
-				<div class="col-md-7">: {{$data->p_alamat}}</div>
+				<div class="col-md-7">: {{ucfirst($data->p_alamat)}}</div>
 			</div>
 			<br>
 			<p>Hubungan dengan yang meninggal : {{ucfirst($data->p_hubungan)}}</p>	

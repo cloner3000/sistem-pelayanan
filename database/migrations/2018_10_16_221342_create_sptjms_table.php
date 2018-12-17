@@ -17,6 +17,7 @@ class CreateSptjmsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('status')->default('pending');
+            $table->string('no_kk');
 
             $table->string('nama');
             $table->string('nik');
@@ -44,6 +45,14 @@ class CreateSptjmsTable extends Migration
 
             $table->string('s2_nama');
             $table->string('s2_nik');
+
+            $table->enum('hubungan',['suami','istri']);
+
+            $table->string('nama_anak')->nullable();
+            $table->string('tempat_anak')->nullable();
+            $table->date('tanggal_anak')->nullable();
+            $table->string('pekerjaan_anak')->nullable();
+            $table->string('alamat_anak')->nullable();
 
             $table->timestamps();
         });

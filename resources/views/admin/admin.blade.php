@@ -327,7 +327,7 @@
             <li class="@yield('createPost')">
               <a href="{{ route('blog.create') }}">
                 <i class="fa fa-dot-circle"></i> 
-                Buat Postingan
+                Tambah Postingan
               </a>
             </li>
             <li class="@yield('kategori')">
@@ -400,7 +400,7 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sktm_tl,#l_kematian,#l_kematian_pelapor,#w_kematian,#sk_tl').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#tl_anak,#l_pengaduan,#sktm_tl,#l_kematian,#l_kematian_pelapor,#w_kematian,#sk_tl').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });

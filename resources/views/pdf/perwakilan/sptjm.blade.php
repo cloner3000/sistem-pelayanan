@@ -123,20 +123,19 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<span>: {{$data->nama}}</span>
+				<span>: {{ucfirst($data->nama)}}</span>
 				<br>
 				<span>: {{$data->nik}}</span>
 				<br>
-				<span>: {{$data->tempat}},{{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</span>
+				<span>: {{ucfirst($data->tempat)}},{{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</span>
 				<br>
-				<span>: {{$data->pekerjaan}}</span>
+				<span>: {{ucfirst($data->pekerjaan)}}</span>
 				<br>
 				<span>: {{$data->alamat}}</span>
 			</div>
 		</div>
 		<div class="clear"></div>
 
-		<br>
 		<br>
 
 		<span>Menyatakan Bahwa:</span>
@@ -155,22 +154,22 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<span>: {{$data->nama1}}</span>
+				<span>: {{ucfirst($data->nama1)}}</span>
 				<br>
 				<span>: {{$data->nik1}}</span>
 				<br>
-				<span>: {{$data->tempat1}},{{(date('d',strtotime($data->tanggal1)).' '.bulan(date('m',strtotime($data->tanggal1))).' '.date('Y',strtotime($data->tanggal1)))}}</span>
+				<span>: {{ucfirst($data->tempat1)}},{{(date('d',strtotime($data->tanggal1)).' '.bulan(date('m',strtotime($data->tanggal1))).' '.date('Y',strtotime($data->tanggal1)))}}</span>
 				<br>
-				<span>: {{$data->pekerjaan1}}</span>
+				<span>: {{ucfirst($data->pekerjaan1)}}</span>
 				<br>
 				<span>: {{$data->alamat1}}</span>
 			</div>
 		</div>
 		<div class="clear"></div>
 		<br>
-		<br>
 
-		<span>Adalah suami/istri *)dari</span>
+		<span>Adalah {{ucfirst($data->hubungan)}} dari</span>
+
 		<div class="row">
 			<div class="col-md-3">
 				<div style="margin-left: 20px;">
@@ -186,13 +185,13 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<span>: {{$data->nama2}}</span>
+				<span>: {{ucfirst($data->nama2)}}</span>
 				<br>
 				<span>: {{$data->nik2}}</span>
 				<br>
-				<span>: {{$data->tempat2}},{{(date('d',strtotime($data->tanggal2)).' '.bulan(date('m',strtotime($data->tanggal2))).' '.date('Y',strtotime($data->tanggal2)))}}</span>
+				<span>: {{ucfirst($data->tempat2)}},{{(date('d',strtotime($data->tanggal2)).' '.bulan(date('m',strtotime($data->tanggal2))).' '.date('Y',strtotime($data->tanggal2)))}}</span>
 				<br>
-				<span>: {{$data->pekerjaan2}}</span>
+				<span>: {{ucfirst($data->pekerjaan2)}}</span>
 				<br>
 				<span>: {{$data->alamat2}}</span>
 			</div>
@@ -200,10 +199,38 @@
 		<div class="clear"></div>
 
 		<br>
-		<span>sebagaimana tercantum dalam Kartu Keluarga (KK) Nomor:...............</span>
+
+		@if(!empty($data->name))
+			<span>Dan memiliki Anak</span>
+
+			<div class="row">
+				<div class="col-md-3">
+					<div style="margin-left: 20px;">
+						<span>Nama</span>
+						<br>
+						<span>Tempat/Tanggal lahir</span>
+						<br>
+						<span>Pekerjaan</span>
+						<br>
+						<span>Alamat</span>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<span>: {{ucfirst($data->nama_anak)}}</span>
+					<br>
+					<span>: {{ucfirst($data->tempat_anak)}},{{(date('d',strtotime($data->tempat_anak)).' '.bulan(date('m',strtotime($data->tempat_anak))).' '.date('Y',strtotime($data->tempat_anak)))}}</span>
+					<br>
+					<span>: {{ucfirst($data->pekerjaan_anak)}}</span>
+					<br>
+					<span>: {{$data->alamat_anak}}</span>
+				</div>
+			</div>
+			<div class="clear"></div>
+		@endif
+
 		<br>
-		<br>
-		<br>
+		<span>sebagaimana tercantum dalam Kartu Keluarga (KK) Nomor &nbsp;:&nbsp;{{$data->no_kk}}</span>
+		<br><br>
 		<span><span style="margin-left: 20px;">Demikian surat pernyataan ini saya buat dengan sebenar-benarnya dan apabila dikemudian hari </span>ternyata pernyataan saya ini tidak benar, maka saya bersedian diproses secara hukum sesuai dengan peraturan perundang-undangan dan sokumen yang diterbitkan dari pernyataan ini menjadi tidak sah.</span>
 		<br>
 		<br>
@@ -213,13 +240,8 @@
 			<div class="col-md-6">
 				<br>
 				<span>Saksi I</span>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<span>({{$data->s1_nama}})</span>
+				<br><br><br><br><br>
+				<span>({{ucfirst($data->s1_nama)}})</span>
 				<br>
 				<span>NIK : {{$data->s1_nik}}</span>
 			</div>
@@ -227,13 +249,8 @@
 				<span>Warnajati, {{(date('d',strtotime($data->created_at)).' '.bulan(date('m',strtotime($data->created_at))).' '.date('Y',strtotime($data->created_at)))}}</span>
 				<br>
 				<span>Saya yang menyatakan,</span>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<span>({{$data->nama}})</span>
+				<br><br><br><br><br>
+				<span>({{ucfirst($data->nama)}})</span>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -241,30 +258,16 @@
 		<br>
 
 		<span>Saksi II</span>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<span>({{$data->s2_nama}})</span>
+		<br><br><br><br><br>
+		<span>({{ucfirst($data->s2_nama)}})</span>
 		<br>
 		<span>NIK : {{$data->s2_nik}}</span>
-		
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<br><br><br><br><br>
 
 		<div class="container">
 			<span>Keterangan :</span>
 			<br>
 			<span>Lampiran ini digunakan dalam hal perkawinan tidak dapat dibuktikan dengan akta perkawinan atau akta nikah.</span>
-			<br>
-			<span>*) Coret yang tidak perlu.</span>
-			<br>
-			<span>**) Ditulis nama Ibu Kota Kabupaten/Kota, Tanggal-Bulan-Tahun.</span>
 		</div>
 	</div>
 </body>

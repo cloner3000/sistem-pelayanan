@@ -143,19 +143,25 @@
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PATCH">
 								
-								<h5>NIK</h5>
+								<h5>No Kartu kelarga</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+				              		<input name="no_kk" type="text" class="form-control" placeholder="" required value="{{$d->nik}}">
+				            	</div>
+
+								<h5>NIK Pelapor</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
 				              		<input name="nik" type="text" class="form-control" placeholder="" required value="{{$d->nik}}">
 				            	</div>
 
-								<h5>Nama</h5>
+								<h5>Nama Pelapor</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
 				              		<input name="nama" type="text" class="form-control" placeholder="Nama" required value="{{$d->nama}}">
 				            	</div>
 
-				            	<h5>Pekerjaan</h5>
+				            	<h5>Pekerjaan Pelapor</h5>
 								<div class="input-group">
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								  	<select class="form-control" name="pekerjaan">
@@ -165,19 +171,19 @@
 								  	</select>
 								</div>
 
-								<h5>Tempat Lahir</h5>
+								<h5>Tempat Lahir Pelapor</h5>
 								<div class="input-group">
 								  	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
 								  	<input name="tempat" type="text" class="form-control" required value="{{$d->tempat}}">
 								</div>
 
-							    <h5>Tanggal Lahir</h5>
+							    <h5>Tanggal Lahir Pelapor</h5>
 							    <div class="input-group">
 							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
 							      	<input name="tanggal" type="text" id="tl" class="form-control" required value="{{date('d-m-Y', strtotime($d->tanggal))}}">
 							    </div>
 
-				            	<h5>Alamat</h5>
+				            	<h5>Alamat Pelapor</h5>
 				            	<div class="input-group">
 
 				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
@@ -186,19 +192,19 @@
 
 				            	<hr></hr>
 
-				            	<h5>NIK</h5>
+				            	<h5>NIK Pihak Pertama</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
 				              		<input name="nik1" type="text" class="form-control" placeholder="" required value="{{$d->nik1}}">
 				            	</div>
 
-								<h5>Nama</h5>
+								<h5>Nama Pihak Pertama</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
 				              		<input name="nama1" type="text" class="form-control" placeholder="Nama" required value="{{$d->nama1}}">
 				            	</div>
 
-				            	<h5>Pekerjaan</h5>
+				            	<h5>Pekerjaan Pihak Pertama</h5>
 								<div class="input-group">
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								  	<select class="form-control" name="pekerjaan1">
@@ -208,19 +214,19 @@
 								  	</select>
 								</div>
 
-								<h5>Tempat Lahir</h5>
+								<h5>Tempat Lahir Pihak Pertama</h5>
 								<div class="input-group">
 								  	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
 								  	<input name="tempat1" type="text" class="form-control" required value="{{$d->tempat1}}">
 								</div>
 
-							    <h5>Tanggal Lahir</h5>
+							    <h5>Tanggal Lahir Pihak Pertama</h5>
 							    <div class="input-group">
 							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
 							      	<input name="tanggal1" type="text" id="tl1" class="form-control" required value="{{date('d-m-Y', strtotime($d->tanggal1))}}">
 							    </div>
 
-				            	<h5>Alamat</h5>
+				            	<h5>Alamat Pihak Pertama</h5>
 				            	<div class="input-group">
 
 				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
@@ -228,20 +234,36 @@
 				            	</div>
 								
 								<hr></hr>
+								
+								<h5>Hubungan Pihak Pertama Dengan Pihak Kedua</h5>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-network-wired"></i></span>
+								  	<select class="form-control" name="hubungan">
+								  		@if($d->hubungan == 'suami')
+								  			<option value="suami" selected>Suami</option>
+								  			<option value="istri">Istri</option>
+								  		@elseif($d->hubungan == 'istri')
+								  			<option value="istri" selected>Istri</option>
+								  			<option value="suami">Suami</option>
+								  		@endif
+								  	</select>
+								</div>
+								
+								<hr></hr>
 
-								<h5>NIK</h5>
+								<h5>NIK Pihak Kedua</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
 				              		<input name="nik2" type="text" class="form-control" placeholder="" required value="{{$d->nik2}}">
 				            	</div>
 
-								<h5>Nama</h5>
+								<h5>Nama Pihak Kedua</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
 				              		<input name="nama2" type="text" class="form-control" placeholder="Nama" required value="{{$d->nama2}}">
 				            	</div>
 
-				            	<h5>Pekerjaan</h5>
+				            	<h5>Pekerjaan Pihak Kedua</h5>
 								<div class="input-group">
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								  	<select class="form-control" name="pekerjaan2">
@@ -251,19 +273,19 @@
 								  	</select>
 								</div>
 
-								<h5>Tempat Lahir</h5>
+								<h5>Tempat Lahir Pihak Kedua</h5>
 								<div class="input-group">
 								  	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
 								  	<input name="tempat2" type="text" class="form-control" required value="{{$d->tempat2}}">
 								</div>
 
-							    <h5>Tanggal Lahir</h5>
+							    <h5>Tanggal Lahir Pihak Kedua</h5>
 							    <div class="input-group">
 							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
 							      	<input name="tanggal2" type="text" id="tl2" class="form-control" required value="{{date('d-m-Y', strtotime($d->tanggal2))}}">
 							    </div>
 
-				            	<h5>Alamat</h5>
+				            	<h5>Alamat Pihak Kedua</h5>
 				            	<div class="input-group">
 
 				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
@@ -271,26 +293,63 @@
 				            	</div>
 
 				            	<hr></hr>
+								
+								<h5>Nama Anak</h5>
+				            	<div class="input-group">
+				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				              		<input name="nama_anak" type="text" class="form-control" placeholder="Nama" value="{{$d->nama_anak}}">
+				            	</div>
 
-				            	<h5>NIK</h5>
+				            	<h5>Pekerjaan Anak</h5>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								  	<select class="form-control" name="pekerjaan_anak">
+								  		@foreach($ps as $p)
+								  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  		@endforeach
+								  	</select>
+								</div>
+
+								<h5>Tempat Lahir Anak</h5>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
+								  	<input name="tempat_anak" type="text" class="form-control" value="{{$d->tempat_anak}}">
+								</div>
+
+							    <h5>Tanggal Lahir Anak</h5>
+							    <div class="input-group">
+							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+							      	<input name="tanggal_anak" type="text" id="tl_anak" class="form-control" value="{{date('d-m-Y', strtotime($d->tanggal_anak))}}">
+							    </div>
+
+				            	<h5>Alamat Anak</h5>
+				            	<div class="input-group">
+
+				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+				              		<input name="alamat_anak" type="text" class="form-control" placeholder="" value="{{$d->alamat_anak}}">
+				            	</div>
+
+				            	<hr></hr>
+
+				            	<h5>NIK Saksi 1</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
 				              		<input name="s1_nik" type="text" class="form-control" placeholder="" required value="{{$d->s1_nik}}">
 				            	</div>
 
-								<h5>Nama</h5>
+								<h5>Nama Saksi 1</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
 				              		<input name="s1_nama" type="text" class="form-control" placeholder="Nama" required value="{{$d->s1_nama}}">
 				            	</div>
 
-				            	<h5>NIK</h5>
+				            	<h5>NIK Saksi 2</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-id-card"></i></span>
 				              		<input name="s2_nik" type="text" class="form-control" placeholder="" required value="{{$d->s2_nik}}">
 				            	</div>
 
-								<h5>Nama</h5>
+								<h5>Nama Saksi 2</h5>
 				            	<div class="input-group">
 				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
 				              		<input name="s2_nama" type="text" class="form-control" placeholder="Nama" required value="{{$d->s2_nama}}">

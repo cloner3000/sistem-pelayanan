@@ -108,33 +108,42 @@ class SptjmController extends Controller
     public function store(Request $r)
     {
         $sptjm = Sptjm::create([
-            'user_id'    => Auth::id(),
+            'user_id'        => Auth::id(),
+            'no_kk'          => $r->input('no_kk'),
             
-            'nama'       => $r->input('nama'),
-            'nik'        => $r->input('nik'),
-            'tempat'     => $r->input('tempat'),
-            'tanggal'    => date('Y-m-d',strtotime($r->input('tanggal'))),
-            'pekerjaan'  => $r->input('pekerjaan'),
-            'alamat'     => $r->input('alamat'),
+            'nama'           => $r->input('nama'),
+            'nik'            => $r->input('nik'),
+            'tempat'         => $r->input('tempat'),
+            'tanggal'        => date('Y-m-d',strtotime($r->input('tanggal'))),
+            'pekerjaan'      => $r->input('pekerjaan'),
+            'alamat'         => $r->input('alamat'),
             
-            'nama1'      => $r->input('nama1'),
-            'nik1'       => $r->input('nik1'),
-            'tempat1'    => $r->input('tempat1'),
-            'tanggal1'   => date('Y-m-d',strtotime($r->input('tanggal1'))),
-            'pekerjaan1' => $r->input('pekerjaan1'),
-            'alamat1'    => $r->input('alamat1'),
+            'nama1'          => $r->input('nama1'),
+            'nik1'           => $r->input('nik1'),
+            'tempat1'        => $r->input('tempat1'),
+            'tanggal1'       => date('Y-m-d',strtotime($r->input('tanggal1'))),
+            'pekerjaan1'     => $r->input('pekerjaan1'),
+            'alamat1'        => $r->input('alamat1'),
             
-            'nama2'      => $r->input('nama2'),
-            'nik2'       => $r->input('nik2'),
-            'tempat2'    => $r->input('tempat2'),
-            'tanggal2'   => date('Y-m-d',strtotime($r->input('tanggal2'))),
-            'pekerjaan2' => $r->input('pekerjaan2'),
-            'alamat2'    => $r->input('alamat2'),
+            'nama2'          => $r->input('nama2'),
+            'nik2'           => $r->input('nik2'),
+            'tempat2'        => $r->input('tempat2'),
+            'tanggal2'       => date('Y-m-d',strtotime($r->input('tanggal2'))),
+            'pekerjaan2'     => $r->input('pekerjaan2'),
+            'alamat2'        => $r->input('alamat2'),
+            
+            's1_nama'        => $r->input('s1_nama'),
+            's1_nik'         => $r->input('s1_nik'),
+            's2_nama'        => $r->input('s2_nama'),
+            's2_nik'         => $r->input('s2_nik'),
 
-            's1_nama'    => $r->input('s1_nama'),
-            's1_nik'     => $r->input('s1_nik'),
-            's2_nama'    => $r->input('s2_nama'),
-            's2_nik'     => $r->input('s2_nik')
+            'hubungan'       => $r->input('hubungan'),
+            
+            'nama_anak'      => $r->input('nama_anak'),
+            'tempat_anak'    => $r->input('tempat_anak'),
+            'tanggal_anak'   => date('Y-m-d',strtotime($r->input('tanggal_anak'))),
+            'pekerjaan_anak' => $r->input('pekerjaan_anak'),
+            'alamat_anak'    => $r->input('alamat_anak'),
         ]);
 
         $sptjm->save();
@@ -177,32 +186,41 @@ class SptjmController extends Controller
     {
         $data = Sptjm::findOrFail($id);
 
-        $data->nama       = $request->input('nama');
-        $data->nik        = $request->input('nik');
-        $data->tempat     = $request->input('tempat');
-        $data->tanggal    = date('Y-m-d',strtotime($request->input('tanggal')));
-        $data->pekerjaan  = $request->input('pekerjaan');
-        $data->alamat     = $request->input('alamat');
+        $data->no_kk          = $request->input('no_kk');
+        $data->nama           = $request->input('nama');
+        $data->nik            = $request->input('nik');
+        $data->tempat         = $request->input('tempat');
+        $data->tanggal        = date('Y-m-d',strtotime($request->input('tanggal')));
+        $data->pekerjaan      = $request->input('pekerjaan');
+        $data->alamat         = $request->input('alamat');
         
-        $data->nama1      = $request->input('nama1');
-        $data->nik1       = $request->input('nik1');
-        $data->tempat1    = $request->input('tempat1');
-        $data->tanggal1   = date('Y-m-d',strtotime($request->input('tanggal1')));
-        $data->pekerjaan1 = $request->input('pekerjaan1');
-        $data->alamat1    = $request->input('alamat1');
+        $data->nama1          = $request->input('nama1');
+        $data->nik1           = $request->input('nik1');
+        $data->tempat1        = $request->input('tempat1');
+        $data->tanggal1       = date('Y-m-d',strtotime($request->input('tanggal1')));
+        $data->pekerjaan1     = $request->input('pekerjaan1');
+        $data->alamat1        = $request->input('alamat1');
         
-        $data->nama2      = $request->input('nama2');
-        $data->nik2       = $request->input('nik2');
-        $data->tempat2    = $request->input('tempat2');
-        $data->tanggal2   = date('Y-m-d',strtotime($request->input('tanggal2')));
-        $data->pekerjaan2 = $request->input('pekerjaan2');
-        $data->alamat2    = $request->input('alamat2');
+        $data->nama2          = $request->input('nama2');
+        $data->nik2           = $request->input('nik2');
+        $data->tempat2        = $request->input('tempat2');
+        $data->tanggal2       = date('Y-m-d',strtotime($request->input('tanggal2')));
+        $data->pekerjaan2     = $request->input('pekerjaan2');
+        $data->alamat2        = $request->input('alamat2');
         
-        $data->s1_nama    = $request->input('s1_nama');
-        $data->s1_nik     = $request->input('s1_nik');
+        $data->s1_nama        = $request->input('s1_nama');
+        $data->s1_nik         = $request->input('s1_nik');
         
-        $data->s1_nama    = $request->input('s1_nama');
-        $data->s1_nik     = $request->input('s1_nik');
+        $data->s1_nama        = $request->input('s1_nama');
+        $data->s1_nik         = $request->input('s1_nik');
+        
+        $data->hubungan       = $request->input('hubungan');
+        
+        $data->nama_anak      = $request->input('nama_anak');
+        $data->tempat_anak    = $request->input('tempat_anak');
+        $data->tanggal_anak   = date('Y-m-d',strtotime($request->input('tanggal_anak')));
+        $data->pekerjaan_anak = $request->input('pekerjaan_anak');
+        $data->alamat_anak    = $request->input('alamat_anak');
 
         $data->save();
         return back();
