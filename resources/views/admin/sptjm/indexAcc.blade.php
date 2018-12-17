@@ -165,7 +165,11 @@
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								  	<select class="form-control" name="pekerjaan">
 								  		@foreach($ps as $p)
-								  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@if($p->slug == $d->pekerjaan)
+												<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+								  			@else
+												<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@endif
 								  		@endforeach
 								  	</select>
 								</div>
@@ -208,7 +212,11 @@
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								  	<select class="form-control" name="pekerjaan1">
 								  		@foreach($ps as $p)
-								  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@if($p->slug == $d->pekerjaan1)
+												<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+								  			@else
+												<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@endif
 								  		@endforeach
 								  	</select>
 								</div>
@@ -267,7 +275,11 @@
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								  	<select class="form-control" name="pekerjaan2">
 								  		@foreach($ps as $p)
-								  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@if($p->slug == $d->pekerjaan2)
+												<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+								  			@else
+												<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@endif
 								  		@endforeach
 								  	</select>
 								</div>
@@ -304,7 +316,11 @@
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								  	<select class="form-control" name="pekerjaan_anak">
 								  		@foreach($ps as $p)
-								  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@if($p->slug == $d->pekerjaan_anak)
+												<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+								  			@else
+												<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@endif
 								  		@endforeach
 								  	</select>
 								</div>

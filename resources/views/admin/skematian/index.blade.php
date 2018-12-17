@@ -32,7 +32,6 @@
 		                <th>Tempat Tanggal Lahir</th>
 		                <th>Jenis Kelamin</th>
 		                <th>Agama</th>
-		                <th>Jenis Kelamin</th>
 		                <th>Pelapor</th>
 		                <th>Status</th>
 		                <th>Aksi</th>
@@ -44,8 +43,7 @@
 			                  	<td>{{$data->tempat}}, {{date('d-m-Y',strtotime($data->tanggal))}}</td> 
 			                  	<td>{{ucfirst($data->jenis_kelamin)}}</td>
 			                  	<td>{{ucfirst($data->agama)}}</td>
-			                  	<td>{{ucfirst($data->jenis_kelamin)}}</td>
-			                  	<td>{{$data->p_nama}}</td>
+			                  	<td>{{ucfirst($data->p_nama)}}</td>
 			                  	<td>
 			                  		<span class="label label-warning">{{$data->status}}</span>
 			                  	</td>
@@ -127,8 +125,13 @@
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
 								              		<select class="form-control" name="jenis_kelamin">
-								              			<option value="laki-laki">Laki-laki</option>
-								              			<option value="perempuan">Perempuan</option>
+								              			@if($d->jenis_kelamin == 'laki-laki')
+															<option value="laki-laki" selected>Laki-laki</option>
+												  			<option value="perempuan">Perempuan</option>
+												  		@else
+															<option value="laki-laki">Laki-laki</option>
+												  			<option value="perempuan" selected>Perempuan</option>
+												  		@endif
 								              		</select>
 								            	</div>
 											</div>
@@ -212,7 +215,11 @@
 								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								              		<select class="form-control" name="p_pekerjaan">
 								              			@foreach($ps as $p)
-												  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@if($p->slug == $d->p_pekerjaan)
+																<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+												  			@else
+																<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@endif
 												  		@endforeach
 								              		</select>
 								            	</div>

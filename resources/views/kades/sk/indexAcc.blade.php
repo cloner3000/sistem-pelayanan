@@ -59,12 +59,12 @@
 		                @foreach($datas as $data)
 				            	<tr>
 				                  	<td>{{++$no}}</td>
-				                  	<td>{{$data->nama}}</td>
+				                  	<td>{{ucfirst(str)($data->nama)}}</td>
 				                  	<td>{{$data->nik}}</td>
-				                  	<td>{{$data->tempat}}, {{date('d-m-Y',strtotime($data->tanggal))}}</td> 
-				                  	<td>{{$data->jenis_kelamin}}</td>
-				                  	<td>{{$data->keperluan}}</td>
-				                  	<td>{{$data->keterangan}}</td>
+				                  	<td>{{ucfirst(str)($data->tempat)}}, {{date('d-m-Y',strtotime($data->tanggal))}}</td> 
+				                  	<td>{{ucfirst(str)($data->jenis_kelamin)}}</td>
+				                  	<td>{{ucfirst(str)($data->keperluan)}}</td>
+				                  	<td>{{ucfirst(str)($data->keterangan)}}</td>
 				                  	<td>
 				                  		<span class="label label-success">{{$data->status}}</span>
 				                  	</td>
@@ -157,22 +157,31 @@
 				              		<input name="nama" type="text" class="form-control"  required value="{{$d->nama}}">
 				            	</div>
 
+				            	<h5>Jenis Kelamin</h5>
+								<div class="input-group">
+								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+								  	<select class="form-control" name="jenis_kelamin">
+								  		@if($d->jenis_kelamin == 'laki-laki')
+											<option value="laki-laki" selected>Laki-laki</option>
+								  			<option value="perempuan">Perempuan</option>
+								  		@else
+											<option value="laki-laki">Laki-laki</option>
+								  			<option value="perempuan" selected>Perempuan</option>
+								  		@endif
+								  	</select>
+								</div>
+
 				            	<h5>Pekerjaan</h5>
 								<div class="input-group">
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								  	<select class="form-control" name="pekerjaan">
 								  		@foreach($ps as $p)
-								  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@if($p->slug == $d->pekerjaan)
+												<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+								  			@else
+												<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@endif
 								  		@endforeach
-								  	</select>
-								</div>
-
-								<h5>Jenis Kelamin</h5>
-								<div class="input-group">
-								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-								  	<select class="form-control" name="jenis_kelamin">
-								  		<option value="laki-laki">Laki-laki</option>
-								  		<option value="perempuan">Perempuan</option>
 								  	</select>
 								</div>
 

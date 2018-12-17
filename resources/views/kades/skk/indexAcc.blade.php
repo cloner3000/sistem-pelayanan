@@ -202,8 +202,13 @@
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
 								              		<select class="form-control" name="b_jenis_kelamin">
-								              			<option value="laki-laki">Laki-laki</option>
-								              			<option value="perempuan">Perempuan</option>
+								              			@if($d->b_jenis_kelamin == 'laki-laki')
+															<option value="laki-laki" selected>Laki-laki</option>
+												  			<option value="perempuan">Perempuan</option>
+												  		@else
+															<option value="laki-laki">Laki-laki</option>
+												  			<option value="perempuan" selected>Perempuan</option>
+												  		@endif
 								              		</select>
 								            	</div>
 
@@ -278,7 +283,11 @@
 								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								              		<select class="form-control" name="i_pekerjaan">
 								              			@foreach($ps as $p)
-												  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@if($p->slug == $d->i_pekerjaan)
+																<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+												  			@else
+																<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@endif
 												  		@endforeach
 								              		</select>
 								            	</div>
@@ -339,8 +348,12 @@
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								              		<select class="form-control" name="a_pekerjaan">
-								              			@foreach($ps as $p)
-												  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+									              		@foreach($ps as $p)
+												  			@if($p->slug == $d->a_pekerjaan)
+																<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+												  			@else
+																<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@endif
 												  		@endforeach
 								              		</select>
 								            	</div>
@@ -402,8 +415,13 @@
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
 								              		<select class="form-control" name="p_jenis_kelamin">
-								              			<option value="laki-laki">Laki-laki</option>
-								              			<option value="perempuan">Perempuan</option>
+								              			@if($d->p_jenis_kelamin == 'laki-laki')
+															<option value="laki-laki" selected>Laki-laki</option>
+												  			<option value="perempuan">Perempuan</option>
+												  		@else
+															<option value="laki-laki">Laki-laki</option>
+												  			<option value="perempuan" selected>Perempuan</option>
+												  		@endif
 								              		</select>
 								            	</div>
 
@@ -411,8 +429,12 @@
 								            	<div class="input-group">
 								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								              		<select class="form-control" name="p_pekerjaan">
-								              			@foreach($ps as $p)
-												  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+									              		@foreach($ps as $p)
+												  			@if($p->slug == $d->p_pekerjaan)
+																<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+												  			@else
+																<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@endif
 												  		@endforeach
 								              		</select>
 								            	</div>
@@ -457,7 +479,11 @@
 								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								              		<select class="form-control" name="s1_pekerjaan">
 								              			@foreach($ps as $p)
-												  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@if($p->slug == $d->s1_pekerjaan)
+																<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+												  			@else
+																<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@endif
 												  		@endforeach
 								              		</select>
 								            	</div>
@@ -502,7 +528,11 @@
 								              		<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								              		<select class="form-control" name="s2_pekerjaan">
 								              			@foreach($ps as $p)
-												  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@if($p->slug == $d->s2_pekerjaan)
+																<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+												  			@else
+																<option value="{{$p->slug}}">{{$p->nama}}</option>
+												  			@endif
 												  		@endforeach
 								              		</select>
 								            	</div>

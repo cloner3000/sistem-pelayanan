@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Surat Pengaduan | {{$data->nama}}</title>
+	<title>Surat Pengaduan | {{ucfirst($data->nama)}}</title>
 	<style type="text/css" media="screen">
 		h1,h2,h3,h4,h5,h6{
 			padding: none;
@@ -150,21 +150,21 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3">Alamat</div>
-				<div class="col-md-7">: {{$data->alamat}}</div>
+				<div class="col-md-7">: {{ucfirst($data->alamat)}}</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">Sasaran</div>
-				<div class="col-md-7">: {{$data->sasaran}}</div>
+				<div class="col-md-7">: {{ucfirst($data->sasaran)}}</div>
 			</div>
 			<br>
 			<div class="row">
 				<div class="col-md-3">Isi Pengaduan</div>
-				<div class="col-md-8">: {{$data->isi}}</div>
+				<div class="col-md-8">: {{ucfirst($data->isi)}}</div>
 			</div>
 			<br>
 			<div class="row">
 				<div class="col-md-3">Alternatif Pengaduan</div>
-				<div class="col-md-8">: {{$data->alternatif}}</div>
+				<div class="col-md-8">: {{ucfirst($data->alternatif)}}</div>
 			</div>
 		</div>
 		

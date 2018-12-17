@@ -161,8 +161,13 @@
 	                            <div class="input-group">
 	                                <span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
 	                                <select name="jenis_kelamin" class="form-control"  required>
-	                                  <option value="laki-laki">Laki-laki</option>
-	                                  <option value="perempuan">Perempuan</option>
+	                                  @if($d->jenis_kelamin == 'laki-laki')
+											<option value="laki-laki" selected>Laki-laki</option>
+								  			<option value="perempuan">Perempuan</option>
+								  		@else
+											<option value="laki-laki">Laki-laki</option>
+								  			<option value="perempuan" selected>Perempuan</option>
+								  		@endif
 	                                </select>
 	                            </div>
 
@@ -171,7 +176,11 @@
 								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
 								  	<select class="form-control" name="pekerjaan">
 								  		@foreach($ps as $p)
-								  			<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@if($p->slug == $d->pekerjaan)
+												<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
+								  			@else
+												<option value="{{$p->slug}}">{{$p->nama}}</option>
+								  			@endif
 								  		@endforeach
 								  	</select>
 								</div>
