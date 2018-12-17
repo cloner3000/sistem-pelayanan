@@ -1,5 +1,5 @@
 @extends('pdf.perwakilan.master')
-@section('judul','Surat Keterangan Kematian | '.$data->nama)
+@section('judul','Surat Keterangan Kematian | '.ucfirst($data->nama))
 @section('nomor')
 	<h5>UNTUK YANG BERSANGKUTAN</h5>
 	<h5><u>SURAT KETERANGAN KEMATIAN</u></h5>

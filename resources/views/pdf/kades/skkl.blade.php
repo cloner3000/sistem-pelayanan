@@ -1,5 +1,5 @@
 @extends('pdf.kades.master')
-@section('judul','Surat Keterangan Kelahiran | '.$data->nama)
+@section('judul','Surat Keterangan Kelahiran | '.ucfirst($data->nama))
 
 @section('nomor')
 	<h5><u>SURAT KETERANGAN KENAL LAHIR</u></h5>
@@ -7,13 +7,13 @@
 @endsection
 
 @section('isi')
-	<p>Sekretaris Desa Warnajati Kecamatan Cibadak Kabupaten Sukabumi menerangkan bahwa :</p>
+	<p>Kepala Desa Warnajati Kecamatan Cibadak Kabupaten Sukabumi menerangkan bahwa :</p>
 	<br>
 
 	<div class="content">
 		<div class="row">
 			<div class="col-md-2">Nama</div>
-			<div class="col-md-9">: <strong>{{$data->i_nik}}</strong></div>
+			<div class="col-md-9">: <strong>{{ucfirst($data->i_nama)}}</strong></div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Tgl. Lahir/Umur</div>
@@ -25,14 +25,14 @@
 		</div>
 		<div class="row">
 			<div class="col-md-2">Alamat</div>
-			<div class="col-md-9">: {{$data->i_alamat}}</div>
+			<div class="col-md-9">: {{ucfirst($data->i_alamat)}}</div>
 		</div>
 
 		<br><p>Isteri dari :</p><br>
 		
 		<div class="row">
 			<div class="col-md-2">Nama</div>
-			<div class="col-md-9">: <strong>{{$data->a_nama}}</strong></div>
+			<div class="col-md-9">: <strong>{{ucfirst($data->a_nama)}}</strong></div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Tgl. Lahir/Umur</div>
@@ -44,14 +44,14 @@
 		</div>
 		<div class="row">
 			<div class="col-md-2">Alamat</div>
-			<div class="col-md-9">: {{$data->a_alamat}}</div>
+			<div class="col-md-9">: {{ucfirst($data->a_alamat)}}</div>
 		</div>
 	</div>
 
 	<br><p>Pada Tanggal <strong>{{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</strong> telah melahirkan seorang anak jenis kelamin Perempuan, anak ke {{$data->b_kelahiran_ke}} dan diberi nama :</p>
 
 	<div class="center">
-		<h4>========== {{$data->b_nama}} ==========</h4>
+		<h4>========== {{ucfirst($data->b_nama)}} ==========</h4>
 	</div>
 
 	<br>
@@ -63,26 +63,26 @@
 	<div class="content">
 		<div class="row">
 			<div class="col-md-2"><span style="margin-left:-20px;">1.</span><span style="margin-left: 10px;">Nama</span></div>
-			<div class="col-md-7">: {{$data->s1_nama}}</div>
+			<div class="col-md-7">: {{ucfirst($data->s1_nama)}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Tgl. Lahir/Umur</div>
-			<div class="col-md-7">:{{$data->s1_umur}}</div>
+			<div class="col-md-7">: {{$data->s1_umur}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Pekerjaan</div>
-			<div class="col-md-7">: {{$data->s1_pekerjaan}}</div>
+			<div class="col-md-7">: {{ucfirst($data->s1_pekerjaan)}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Alamat</div>
-			<div class="col-md-7">: {{$data->s1_alamat}}</div>
+			<div class="col-md-7">: {{ucfirst($data->s1_alamat)}}</div>
 		</div>
 		
 		<br>
 
 		<div class="row">
 			<div class="col-md-2"><span style="margin-left:-20px;">2.</span><span style="margin-left: 10px;">Nama</span></div>
-			<div class="col-md-7">: {{$data->s2_nama}}</div>
+			<div class="col-md-7">: {{ucfirst($data->s2_nama)}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Tgl. Lahir/Umur</div>
@@ -90,11 +90,11 @@
 		</div>
 		<div class="row">
 			<div class="col-md-2">Pekerjaan</div>
-			<div class="col-md-7">: {{$data->s2_pekerjaan}}</div>
+			<div class="col-md-7">: {{ucfirst($data->s2_pekerjaan)}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Alamat</div>
-			<div class="col-md-7">: {{$data->s2_alamat}}</div>
+			<div class="col-md-7">: {{ucfirst($data->s2_alamat)}}</div>
 		</div>
 	</div>
 	
@@ -117,6 +117,6 @@
 	<div class="center">
 		<p>Kepala Desa Warnajati</p>
 		<br><br><br><br>
-		<h4><u>{{$user->name}}</u></h4>
+		<h4><u>{{ucfirst($user->name)}}</u></h4>
 	</div>
 @endsection

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>KTP | {{$data->nama}}</title>
+	<title>KTP | {{ucfirst($data->nama)}}</title>
 	<style type="text/css" media="screen">
 		.judul{
 			margin-bottom: 5px;
@@ -228,7 +228,7 @@
 				<tr>
 					<td style="text-align:left;width:80px;">4. Alamat Pemohon</td>
 					<td style="border:none;width:1px;padding-right: 10px;"></td>
-					<td style="text-align:left;">{{$data->alamat}}</td>
+					<td style="text-align:left;">{{ucfirst($data->alamat)}}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -262,7 +262,7 @@
 					<br>
 					<br>
 					<br>
-					<span>(  {{$data->nama}}  )</span>
+					<span>(  {{ucfirst($data->nama)}}  )</span>
 					<br>
 					<br>
 					<span>Mengetahui,</span>
@@ -271,7 +271,7 @@
 					<br>
 					<br>
 					<br>
-					<span><u>{{$user->name}}</u></span>
+					<span><u>{{ucfirst($user->name)}}</u></span>
 				</div>
 			</div>
 		</div>

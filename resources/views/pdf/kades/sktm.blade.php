@@ -1,6 +1,6 @@
 @extends('pdf.kades.master')
 
-@section('judul','Surat Keterangan Tidak Mampu | '.$data->nama)
+@section('judul','Surat Keterangan Tidak Mampu | '.ucfirst($data->nama))
 
 @section('nomor')
 	<h5><u>SURAT KETERANGAN TIDAK MAMPU</u></h5>
@@ -14,11 +14,11 @@
 	<div class="content">
 		<div class="row">
 			<div class="col-md-2">Nama</div>
-			<div class="col-md-9">: <strong>{{$data->nama}}</strong></div>
+			<div class="col-md-9">: <strong>{{ucfirst($data->nama)}}</strong></div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Jenis Kelamin</div>
-			<div class="col-md-9">: {{$data->jenis_kelamin}}</div>
+			<div class="col-md-9">: {{ucfirst($data->jenis_kelamin)}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">NIK</div>
@@ -26,15 +26,15 @@
 		</div>
 		<div class="row">
 			<div class="col-md-2">Tempat Tgl. Lahir</div>
-			<div class="col-md-9">: {{$data->tempat}},{{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</div>
+			<div class="col-md-9">: {{ucfirst($data->tempat)}},{{(date('d',strtotime($data->tanggal)).' '.bulan(date('m',strtotime($data->tanggal))).' '.date('Y',strtotime($data->tanggal)))}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Kewarganegaraan</div>
-			<div class="col-md-9">: {{$data->kewarganegaraan}}</div>
+			<div class="col-md-9">: {{ucfirst($data->kewarganegaraan)}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Agama</div>
-			<div class="col-md-9">: {{$data->agama}}</div>
+			<div class="col-md-9">: {{ucfirst($data->agama)}}</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">Pekerjaan</div>
@@ -42,17 +42,17 @@
 		</div>
 		<div class="row">
 			<div class="col-md-2">Alamat</div>
-			<div class="col-md-9">: {{$data->alamat}}</div>
+			<div class="col-md-9">: {{ucfirst($data->alamat)}}</div>
 		</div>
 	</div>
 
-	<br><p>Adalah benar warga kami yang memohon Surat Keterangan Tidak Mampu kepada kami dalam rangka melengkapi persyaratan  <strong>{{$data->keperluan}}</strong></p><br>
+	<br><p>Adalah benar warga kami yang memohon Surat Keterangan Tidak Mampu kepada kami dalam rangka melengkapi persyaratan  <strong>{{ucfirst($data->keperluan)}}</strong></p><br>
 
 	<br><p>Keterangan ini kami berikan kepadanya, dengan berdasarkan sepengetahuan dan pertimbangan bahwa :</p><br>
 	
 	<div class="content">
 		<p>1. Surat pengantar dari Ketua RT/RW</p>
-		<p>2. Nama tersebut di atas adalah benar Warga Desa Warnajati anak kandung dari Bapak <strong>{{$data->n_ayah}}</strong> dan Ibu <strong>{{$data->n_ibu}}</strong> yang tergolong keluarga tidak mampu.</p>
+		<p>2. Nama tersebut di atas adalah benar Warga Desa Warnajati anak kandung dari Bapak <strong>{{ucfirst($data->n_ayah)}}</strong> dan Ibu <strong>{{ucfirst($data->n_ibu)}}</strong> yang tergolong keluarga tidak mampu.</p>
 	</div>
 
 	<br><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian keterangan ini dibuat agar dapat dipergunakan sebagaimana mestinya sesuai dengan peruntukannya dan dimohon kepada pihak yang bersangkutan kiranya dapat memberikan bantuan serta agar maklum.</p>
@@ -67,7 +67,7 @@
 	<div class="center">
 		<p>Kepala Desa Warnajati</p>
 		<br><br><br><br>
-		<h4><u>{{$user->name}}</u></h4>
+		<h4><u>{{ucfirst($user->name)}}</u></h4>
 	</div>
 	<br><br><br><br><br><br>
 @endsection
