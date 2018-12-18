@@ -14,7 +14,6 @@ class Sptjm extends Model
     	's1_nama','s1_nik',
     	's2_nama','s2_nik',
         'hubungan',
-        'nama_anak','tempat_anak','tanggal_anak','pekerjaan_anak','alamat_anak',
     ];
 
     protected $table = 'sptjms';

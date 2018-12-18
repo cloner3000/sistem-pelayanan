@@ -58,13 +58,7 @@ class SptjmSeeder extends Seeder
 				's2_nama'        => $f->name,
 				's2_nik'         => $f->randomNumber($nbDigits = NULL, $strict = false),
 				
-				'hubungan'       =>	$f->randomElement(['istri','suami']),
-				
-				'nama_anak'      =>	$f->name,
-				'tempat_anak'    =>	'sukabumi',
-				'tanggal_anak'   =>	$f->date($format = 'Y-m-d', $max = 'now'),
-				'pekerjaan_anak' =>	$f->randomElement($pekerjaan),
-				'alamat_anak'    =>	$f->address,
+				'hubungan'       =>	$f->randomElement(['istri','suami','anak kandung']),
 				
 				'created_at'     => $f->date($format = 'Y-m-d', $max = 'now'),
 				'updated_at'     => $f->date($format = 'Y-m-d', $max = 'now'),

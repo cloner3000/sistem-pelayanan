@@ -118,14 +118,13 @@
 </head>
 <body>
 	<div class="container">
-		<br>
 		<div class="row">
-			<div class="col-md-8"></div>
-			<div class="col-md-4">
-				Sukabumi, {{date('d ',strtotime($data->created_at)).bulan(date('m',strtotime($data->created_at))).date(' Y',strtotime($data->created_at))}}
+			<div class="col-md-1"></div>
+			<div class="col-md-9" style="text-align:center;">
+				<h2><strong>SURAT PENGADUAN/ASPIRASI MASYARAKAT</strong></h2>
 			</div>
 		</div>
-		<br><br><br>
+		<br><br><br><br>
 		<p>Dengan Hormat,</p>
 		<br>
 		<p>Saya yang bertanda tangan dibawah ini ingin menyampaikan pengaduan/aspirasi sebagai berikut :</p>
@@ -174,7 +173,7 @@
 			<div class="col-md-4">
 				<p class="center">Sukabumi,{{date('d ',strtotime($data->created_at)).bulan(date('m',strtotime($data->created_at))).date(' Y',strtotime($data->created_at))}}</p>
 				<br>
-				<p class="center">Pengadu,</p>
+				<p class="center">Pelapor,</p>
 				<br><br><br><br><br><br>
 				<p class="center"><strong>{{ucfirst($data->nama)}}</strong></p>
 			</div>

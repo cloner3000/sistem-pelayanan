@@ -146,7 +146,7 @@ class PengaduanController extends Controller
     public function show($id)
     {
       $data = Pengaduan::findOrFail($id);
-      return PDF::loadView('pdf.pengaduan',compact('data'))->setPaper('legal','potrait')->stream($data->nama.'.pdf');
+      return PDF::loadView('pdf.pengaduan',compact('data'))->setPaper('a4','potrait')->stream($data->nama.'.pdf');
     }
 
     /**

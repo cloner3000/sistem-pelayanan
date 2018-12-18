@@ -304,47 +304,6 @@
 				            	</div>
 
 				            	<hr></hr>
-								
-								<h5>Nama Anak</h5>
-				            	<div class="input-group">
-				              		<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				              		<input name="nama_anak" type="text" class="form-control" placeholder="Nama" value="{{$d->nama_anak}}">
-				            	</div>
-
-				            	<h5>Pekerjaan Anak</h5>
-								<div class="input-group">
-								  	<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-								  	<select class="form-control" name="pekerjaan_anak">
-								  		@foreach($ps as $p)
-								  			@if($p->slug == $d->pekerjaan_anak)
-												<option value="{{$p->slug}}" selected>{{$p->nama}}</option>
-								  			@else
-												<option value="{{$p->slug}}">{{$p->nama}}</option>
-								  			@endif
-								  		@endforeach
-								  	</select>
-								</div>
-
-								<h5>Tempat Lahir Anak</h5>
-								<div class="input-group">
-								  	<span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
-								  	<input name="tempat_anak" type="text" class="form-control" value="{{$d->tempat_anak}}">
-								</div>
-
-							    <h5>Tanggal Lahir Anak</h5>
-							    <div class="input-group">
-							      	<span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-							      	<input name="tanggal_anak" type="text" id="tl_anak" class="form-control" value="{{date('d-m-Y', strtotime($d->tanggal_anak))}}">
-							    </div>
-
-				            	<h5>Alamat Anak</h5>
-				            	<div class="input-group">
-
-				              		<span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-				              		<input name="alamat_anak" type="text" class="form-control" placeholder="" value="{{$d->alamat_anak}}">
-				            	</div>
-
-				            	<hr></hr>
 
 				            	<h5>NIK Saksi 1</h5>
 				            	<div class="input-group">

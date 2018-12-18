@@ -138,12 +138,6 @@ class SptjmController extends Controller
             's2_nik'         => $r->input('s2_nik'),
 
             'hubungan'       => $r->input('hubungan'),
-            
-            'nama_anak'      => $r->input('nama_anak'),
-            'tempat_anak'    => $r->input('tempat_anak'),
-            'tanggal_anak'   => date('Y-m-d',strtotime($r->input('tanggal_anak'))),
-            'pekerjaan_anak' => $r->input('pekerjaan_anak'),
-            'alamat_anak'    => $r->input('alamat_anak'),
         ]);
 
         $sptjm->save();
@@ -216,11 +210,11 @@ class SptjmController extends Controller
         
         $data->hubungan       = $request->input('hubungan');
         
-        $data->nama_anak      = $request->input('nama_anak');
-        $data->tempat_anak    = $request->input('tempat_anak');
-        $data->tanggal_anak   = date('Y-m-d',strtotime($request->input('tanggal_anak')));
-        $data->pekerjaan_anak = $request->input('pekerjaan_anak');
-        $data->alamat_anak    = $request->input('alamat_anak');
+        // $data->nama_anak      = $request->input('nama_anak');
+        // $data->tempat_anak    = $request->input('tempat_anak');
+        // $data->tanggal_anak   = date('Y-m-d',strtotime($request->input('tanggal_anak')));
+        // $data->pekerjaan_anak = $request->input('pekerjaan_anak');
+        // $data->alamat_anak    = $request->input('alamat_anak');
 
         $data->save();
         return back();

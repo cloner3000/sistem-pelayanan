@@ -46,13 +46,7 @@ class CreateSptjmsTable extends Migration
             $table->string('s2_nama');
             $table->string('s2_nik');
 
-            $table->enum('hubungan',['suami','istri']);
-
-            $table->string('nama_anak')->nullable();
-            $table->string('tempat_anak')->nullable();
-            $table->date('tanggal_anak')->nullable();
-            $table->string('pekerjaan_anak')->nullable();
-            $table->string('alamat_anak')->nullable();
+            $table->enum('hubungan',['suami','istri','anak kandung']);
 
             $table->timestamps();
         });

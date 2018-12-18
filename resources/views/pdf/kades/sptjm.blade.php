@@ -100,7 +100,11 @@
 				SURAT PERNYATAAN TANGGUNG JAWAB (SPTJM)
 			</h3>
 			<h3 class="judul" style="margin-left: 20px;margin-top: -5px;">
-				KEBENARAN SEBAGAI PASANGAN SUAMI ISTRI
+				@if($data->hubungan == 'suami' || $data->hubungan == 'istri')
+					KEBENARAN SEBAGAI PASANGAN SUAMI ISTRI
+				@elseif($data->hubungan == 'anak kandung')
+					KEBENARAN DATA KELAHIRAN
+				@endif
 			</h3>
 		</div>
 	</div>
@@ -199,35 +203,6 @@
 		<div class="clear"></div>
 
 		<br>
-
-		@if(!empty($data->name))
-			<span>Dan memiliki Anak</span>
-
-			<div class="row">
-				<div class="col-md-3">
-					<div style="margin-left: 20px;">
-						<span>Nama</span>
-						<br>
-						<span>Tempat/Tanggal lahir</span>
-						<br>
-						<span>Pekerjaan</span>
-						<br>
-						<span>Alamat</span>
-					</div>
-				</div>
-				<div class="col-md-9">
-					<span>: {{ucfirst($data->nama_anak)}}</span>
-					<br>
-					<span>: {{ucfirst($data->tempat_anak)}},{{(date('d',strtotime($data->tempat_anak)).' '.bulan(date('m',strtotime($data->tempat_anak))).' '.date('Y',strtotime($data->tempat_anak)))}}</span>
-					<br>
-					<span>: {{ucfirst($data->pekerjaan_anak)}}</span>
-					<br>
-					<span>: {{$data->alamat_anak}}</span>
-				</div>
-			</div>
-			<div class="clear"></div>
-		@endif
-
 		<br>
 		<span>sebagaimana tercantum dalam Kartu Keluarga (KK) Nomor &nbsp;:&nbsp;{{$data->no_kk}}</span>
 		<br><br>
