@@ -5,7 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\View;
+use App\Web;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -16,9 +17,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        Route::resourceVerbs([
-            'show' => 'spp/pdf/{spp}'
-        ]);
+        $w = Web::first();
+        View::share('w',$w);    
     }
 
     /**

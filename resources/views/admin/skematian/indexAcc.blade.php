@@ -7,7 +7,7 @@
 	<section class="content-header">
       <h1>
         Dashboard
-        <small>Kepala Desaaaa</small>
+        <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -32,6 +32,7 @@
 									<div class="form-group">
 										<label>Pilih Data :&nbsp;</label>
 										<select name="export" class="form-control">
+											<option disabled selected>Pilih Penanggung Jawab Surat</option>
 											@foreach($export as $x)
 												<option value="{{$x->month.'-'.$x->year}}">{{$x->year.' - '.bulan($x->month)}}</option>
 											@endforeach

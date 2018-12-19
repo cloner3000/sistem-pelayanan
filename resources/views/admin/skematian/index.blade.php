@@ -7,7 +7,7 @@
 	<section class="content-header">
       <h1>
         Dashboard
-        <small>Kepala Desa</small>
+        <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>

@@ -11,7 +11,9 @@
 |
 */
     Route::get('/','WebController@index')->name('/');
-    
+    Route::get('test',function(){
+        return Auth::user()->roles;
+    });
     //Route Blog
     Route::get('berita','WebController@blogIndex')->name('berita');
     Route::get('berita/{slug}','WebController@blogDetail')->name('detail');
@@ -155,103 +157,103 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
 
 });
 
-Route::group(['prefix' => 'admin',['middleware' => 
+Route::group(['prefix' => 'admin','middleware' => 
         'role:Sekretaris Desa','role:Kepala Urusan Administrasi Umum','role:Kepala Urusan Keuangan',
         'role:Kepala Urusan Perencanaan','role:Kepala Seksi Pelayanan','role:Kepala Seksi Pemerintahan',
         'role:Kepala Seksi Kesejahteraan','role:Kepala Dusun Malinggut I','role:Kepala Dusun Malinggut II',
         'role:Kepala Dusun Malinggut III','role:Kepala Dusun Sukamaju'
-    ],'name' => 'admin'], function(){
+    ,'name' => 'admin'], function(){
 	
-    Route::post('/','UserController@gantiPas')->name('admin.ganti_password');
-    Route::get('/','DashboardController@indexAdmin')->name('admin.dashboard');
+        Route::post('/','UserController@gantiPas')->name('admin.ganti_password');
+        Route::get('/','DashboardController@indexAdmin')->name('admin.dashboard');
 
-    //route edit User
-    Route::resource('pengguna','UserController')->except(['show','edit']);
+        //route edit User
+        Route::resource('pengguna','UserController')->except(['show','edit']);
 
-    //route CRUD data ktp
-    Route::post('acc/ktp','KtpController@acc')->name('ktp.acc');
-    Route::get('acc/ktp','KtpController@indexAcc')->name('ktp.indexAcc');
-    Route::resource('ktp', 'KtpController')->except(['show','edit','create']);
-    Route::get('ktp/{ktp}/{user_id}','KtpController@show')->name('ktp.show');
-    Route::post('export/ktp','KtpController@csv')->name('ktp.export');
-    Route::get('export/ktp',function(){
-        return abort(404);
-    });
+        //route CRUD data ktp
+        Route::post('acc/ktp','KtpController@acc')->name('ktp.acc');
+        Route::get('acc/ktp','KtpController@indexAcc')->name('ktp.indexAcc');
+        Route::resource('ktp', 'KtpController')->except(['show','edit','create']);
+        Route::get('ktp/{ktp}/{user_id}','KtpController@show')->name('ktp.show');
+        Route::post('export/ktp','KtpController@csv')->name('ktp.export');
+        Route::get('export/ktp',function(){
+            return abort(404);
+        });
 
-    //route Crud data surat Kelahiran
-    Route::post('acc/skk','SkkController@acc')->name('skk.acc');
-    Route::get('acc/skk','SkkController@indexAcc')->name('skk.indexAcc');
-    Route::resource('skk','SkkController')->except(['show','edit','create']);
-    Route::get('skk/{skk}/{user_id}','SkkController@show')->name('skk.show');
-    Route::post('export/skk','SkkController@csv')->name('skk.export');
-    Route::get('export/skk',function(){
-        return abort(404);
-    });
+        //route Crud data surat Kelahiran
+        Route::post('acc/skk','SkkController@acc')->name('skk.acc');
+        Route::get('acc/skk','SkkController@indexAcc')->name('skk.indexAcc');
+        Route::resource('skk','SkkController')->except(['show','edit','create']);
+        Route::get('skk/{skk}/{user_id}','SkkController@show')->name('skk.show');
+        Route::post('export/skk','SkkController@csv')->name('skk.export');
+        Route::get('export/skk',function(){
+            return abort(404);
+        });
 
-    //route CRUD data sptjm
-    Route::post('acc/sptjm','SptjmController@acc')->name('sptjm.acc');
-    Route::get('acc/sptjm','SptjmController@indexAcc')->name('sptjm.indexAcc');
-    Route::resource('sptjm','SptjmController')->except(['show','edit','create']);
-    Route::get('sptjm/{sptjm}/{user_id}','SptjmController@show')->name('sptjm.show');
-    Route::post('export/sptjm','SptjmController@csv')->name('sptjm.export');
-    Route::get('export/sptjm',function(){
-        return abort(404);
-    });
+        //route CRUD data sptjm
+        Route::post('acc/sptjm','SptjmController@acc')->name('sptjm.acc');
+        Route::get('acc/sptjm','SptjmController@indexAcc')->name('sptjm.indexAcc');
+        Route::resource('sptjm','SptjmController')->except(['show','edit','create']);
+        Route::get('sptjm/{sptjm}/{user_id}','SptjmController@show')->name('sptjm.show');
+        Route::post('export/sptjm','SptjmController@csv')->name('sptjm.export');
+        Route::get('export/sptjm',function(){
+            return abort(404);
+        });
 
-    //route CRUD data sktm
-    Route::post('acc/sktm','SktmController@acc')->name('sktm.acc');
-    Route::get('acc/sktm','SktmController@indexAcc')->name('sktm.indexAcc');
-    Route::resource('sktm','SktmController')->except(['show','edit','create']);
-    Route::get('sktm/{sktm}/{user_id}','SktmController@show')->name('sktm.show');
-    Route::post('export/sktm','SktmController@csv')->name('sktm.export');
-    Route::get('export/sktm',function(){
-        return abort(404);
-    });
+        //route CRUD data sktm
+        Route::post('acc/sktm','SktmController@acc')->name('sktm.acc');
+        Route::get('acc/sktm','SktmController@indexAcc')->name('sktm.indexAcc');
+        Route::resource('sktm','SktmController')->except(['show','edit','create']);
+        Route::get('sktm/{sktm}/{user_id}','SktmController@show')->name('sktm.show');
+        Route::post('export/sktm','SktmController@csv')->name('sktm.export');
+        Route::get('export/sktm',function(){
+            return abort(404);
+        });
 
-    //route CRUD data Skematian
-    Route::post('acc/skematian','SkematianController@acc')->name('skematian.acc');
-    Route::get('acc/skematian','SkematianController@indexAcc')->name('skematian.indexAcc');
-    Route::resource('skematian','SkematianController',['names' => 'skematian'])->except(['show','edit','create']);
-    Route::get('skematian/{skematian}/{user_id}','SkematianController@show')->name('skematian.show');
-    Route::post('export/skematian','SkematianController@csv')->name('skematian.export');
-    Route::get('export/skematian',function(){
-        return abort(404);
-    });
+        //route CRUD data Skematian
+        Route::post('acc/skematian','SkematianController@acc')->name('skematian.acc');
+        Route::get('acc/skematian','SkematianController@indexAcc')->name('skematian.indexAcc');
+        Route::resource('skematian','SkematianController',['names' => 'skematian'])->except(['show','edit','create']);
+        Route::get('skematian/{skematian}/{user_id}','SkematianController@show')->name('skematian.show');
+        Route::post('export/skematian','SkematianController@csv')->name('skematian.export');
+        Route::get('export/skematian',function(){
+            return abort(404);
+        });
 
-    //route CRUD data Keterangan
-    Route::post('acc/sk','SkController@acc')->name('sk.acc');
-    Route::get('acc/sk','SkController@indexAcc')->name('sk.indexAcc');
-    Route::resource('sk','SkController',['names' => 'sk'])->except(['show','edit','create']);
-    Route::get('sk/{sk}/{user_id}','SkController@show')->name('sk.show');
-    Route::post('export/sk','SkController@csv')->name('sk.export');
-    Route::get('export/sk',function(){
-        return abort(404);
-    });
+        //route CRUD data Keterangan
+        Route::post('acc/sk','SkController@acc')->name('sk.acc');
+        Route::get('acc/sk','SkController@indexAcc')->name('sk.indexAcc');
+        Route::resource('sk','SkController',['names' => 'sk'])->except(['show','edit','create']);
+        Route::get('sk/{sk}/{user_id}','SkController@show')->name('sk.show');
+        Route::post('export/sk','SkController@csv')->name('sk.export');
+        Route::get('export/sk',function(){
+            return abort(404);
+        });
 
-    //route CRUD data Pengaduan
-    Route::post('acc/pengaduan','PengaduanController@acc')->name('pengaduan.acc');
-    Route::get('acc/pengaduan','PengaduanController@indexAcc')->name('pengaduan.indexAcc');
-    Route::resource('pengaduan','PengaduanController')->except(['update','edit','create']);
-    Route::post('export/pengaduan','PengaduanController@csv')->name('pengaduan.export');
-    Route::get('export/pengaduan',function(){
-        return abort(404);
-    });
+        //route CRUD data Pengaduan
+        Route::post('acc/pengaduan','PengaduanController@acc')->name('pengaduan.acc');
+        Route::get('acc/pengaduan','PengaduanController@indexAcc')->name('pengaduan.indexAcc');
+        Route::resource('pengaduan','PengaduanController')->except(['update','edit','create']);
+        Route::post('export/pengaduan','PengaduanController@csv')->name('pengaduan.export');
+        Route::get('export/pengaduan',function(){
+            return abort(404);
+        });
 
-    //Route CRUD Kategori
-    Route::resource('kategori','KategoriController')->except(['show','edit','create']);
+        //Route CRUD Kategori
+        Route::resource('kategori','KategoriController')->except(['show','edit','create']);
 
-    //Route CRUD Profesi
-    Route::resource('profesi','PekerjaanController')->except(['show','edit','create']);
+        //Route CRUD Profesi
+        Route::resource('profesi','PekerjaanController')->except(['show','edit','create']);
 
-    //Route CRUD Post
-    Route::resource('blog','BlogController');
+        //Route CRUD Post
+        Route::resource('blog','BlogController');
 
-    Route::get('/riwayat','DashboardController@riwayat')->name('riwayat');
-    Route::post('/riwayat','DashboardController@hapus_riwayat')->name('hapus_riwayat');
+        Route::get('/riwayat','DashboardController@riwayat')->name('riwayat');
+        Route::post('/riwayat','DashboardController@hapus_riwayat')->name('hapus_riwayat');
 
-    Route::get('/web','DashboardController@editWeb')->name('admin.web');
-    Route::patch('/web/{id}','DashboardController@updateWeb')->name('admin.web.update');
+        Route::get('/web','DashboardController@editWeb')->name('admin.web');
+        Route::patch('/web/{id}','DashboardController@updateWeb')->name('admin.web.update');
 
-    Route::get('struktur','DashboardController@indexStruktur')->name('admin.struktur');
-    Route::patch('struktur/{id}','DashboardController@updateStruktur')->name('admin.struktur.update');
+        Route::get('struktur','DashboardController@indexStruktur')->name('admin.struktur');
+        Route::patch('struktur/{id}','DashboardController@updateStruktur')->name('admin.struktur.update');
 });

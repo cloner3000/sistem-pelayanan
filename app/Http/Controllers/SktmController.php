@@ -112,7 +112,7 @@ class SktmController extends Controller
             'tempat'          => $r->input('tempat'),
             'tanggal'         => date('Y-m-d',strtotime($r->input('tanggal'))),
             'pekerjaan'       => $r->input('pekerjaan'),
-            'jenis_kelamin'   = $r->input('jenis_kelamin'),
+            'jenis_kelamin'   => $r->input('jenis_kelamin'),
             'alamat'          => $r->input('alamat'),
             'kewarganegaraan' => $r->input('kewarganegaraan'),
             'agama'           => $r->input('agama'),

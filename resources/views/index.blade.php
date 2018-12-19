@@ -73,7 +73,7 @@
                       <li>
                         <a class="page-scroll" href="{{ route('kades.dashboard') }}">Dashboard</a>
                       </li>
-                    @else
+                    @elseif(Auth::user()->roles->first()->name != 'User' )
                       <li>
                         <a class="page-scroll" href="{{ route('admin.dashboard') }}">Dashboard</a>
                       </li> 
