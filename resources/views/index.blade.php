@@ -65,7 +65,7 @@
                     <a class="page-scroll" href="#struktur">Struktur Organisasi</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="{{ route('berita') }}">Berita</a>
+                    <a class="page-scroll" href="{{ route('berita') }}">Warta Desa</a>
                   </li>
                   @guest
                   @else

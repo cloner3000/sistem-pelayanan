@@ -119,7 +119,7 @@
 		            	<br>
 						
 		            	<div class="box-footer">
-		               		<button type="submit" class="btn btn-primary">Tambah</button>
+		               		<button type="submit" class="btn btn-primary">Ubah Password</button>
 		              	</div>
 					</form>
 	            </div>

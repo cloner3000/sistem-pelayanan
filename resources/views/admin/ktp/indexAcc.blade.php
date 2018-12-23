@@ -117,6 +117,7 @@
 				            <div class="input-group">
 				              	<span class="input-group-addon"><i class="fa fa-hammer"></i></span>
 				              	<select class="form-control" data-url="{{ route('ktp.show',['ktp'=> $d->id,'user_id' => '']) }}" onchange="getData(this);">
+				              		<option disabled selected>Pilih Penanggung Jawab Surat</option>
 				              		@foreach($user as $u)
 				              			<option data-id="{{$u->id}}">{{$u->name}}</option>
 				              		@endforeach

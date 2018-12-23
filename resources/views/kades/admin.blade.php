@@ -16,7 +16,7 @@
 <div class="wrapper">
 
   <header class="main-header">
-    <a href="index2.html" class="logo">
+    <a href="{{ route('kades.dashboard') }}" class="logo">
       <span class="logo-mini"><b>S</b>P</span>
       <span class="logo-lg"><b>System</b> Pelayanan</span>
     </a>

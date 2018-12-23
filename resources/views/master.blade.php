@@ -56,7 +56,7 @@
                     <a class="page-scroll" href="{{ route('/') }}#struktur">Struktur Organisasi</a>
                   </li>
                   <li class="active">
-                    <a class="page-scroll" href="{{ route('/') }}#struktur">Berita</a>
+                    <a class="page-scroll" href="{{ route('/') }}#struktur">Warta Desa</a>
                   </li>
                   @guest
                   @else

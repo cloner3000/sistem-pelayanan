@@ -117,6 +117,7 @@
 				            <div class="input-group">
 				              	<span class="input-group-addon"><i class="fa fa-hammer"></i></span>
 				              	<select id="penanggungJawab" data-url="{{ route('kades.skematian.show',['skematian'=> $d->id,'user_id' => '']) }}" class="form-control" onchange="getData(this)">
+				              		<option disabled selected>Pilih Penanggung Jawab Surat</option>
 				              		@foreach($user as $u)
 				              			<option data-id="{{$u->id}}">{{$u->name}}</option>
 				              		@endforeach

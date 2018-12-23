@@ -9,7 +9,7 @@
 		<div class="content">
 			<br>
 			<p>Yang Bertanda tangan dibawah ini, menerangkan bahwa:</p>
-			<br>
+
 
 			<div class="row">
 				<div class="col-md-3">Nama Lengkap</div>
@@ -81,7 +81,6 @@
 				<div class="col-md-3">Alamat</div>
 				<div class="col-md-7">: {{ucfirst($data->p_alamat)}}</div>
 			</div>
-			<br>
 			<p>Hubungan dengan yang meninggal : {{ucfirst($data->p_hubungan)}}</p>	
 		</div>
 @endsection
