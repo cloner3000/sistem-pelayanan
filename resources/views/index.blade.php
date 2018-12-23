@@ -55,8 +55,22 @@
                   <li class="active">
                     <a class="page-scroll" href="#home">Home</a>
                   </li>
-                  <li>
+                  {{-- <li>
                     <a class="page-scroll" href="#tentang">Tentang</a>
+                  </li> --}}
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profil<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a style="color: black !important;padding:0px 0px !important;" href="#">Page 1-1</a>
+                      </li>
+                      <li>
+                        <a style="color: black !important;padding:0px 0px !important;" href="#">Page 1-2</a>
+                      </li>
+                      <li>
+                        <a style="color: black !important;padding:0px 0px !important;" href="#">Page 1-3</a>
+                      </li>
+                    </ul>
                   </li>
                   <li>
                     <a class="page-scroll" href="#pelayanan">Pelayanan</a>
