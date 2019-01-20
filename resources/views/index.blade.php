@@ -46,7 +46,7 @@
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 									</button>
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
+                <a class="navbar-brand page-scroll sticky-logo" href="{{ route('/') }}">
                   <h1>{{$web->nama_website}}</h1>
 								</a>
               </div>
@@ -72,6 +72,56 @@
                       </li>
                     </ul>
                   </li>
+
+                  @if($kats->count() > 0)
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Lembaga 
+                        <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu kat">
+                        @foreach($kats as $k)
+                          @if($k->slug == "pengurus-bpd")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "pengurus-lpm")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "pengurus-pkk")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "karang-taruna")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "rw-rt")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "kader-posyandu")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "linmas")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "mui-desa")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "gapoktan")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                            </li>
+                          @endif
+                        @endforeach                        
+                      </ul>
+                    </li>
+                  @endif
                   <li>
                     <a class="page-scroll" href="#pelayanan">Pelayanan</a>
                   </li>
@@ -243,6 +293,20 @@
     </div>
   </div>
 
+  @if(!empty($web->runtext))
+    <div id="runtext">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <marquee behavior="scroll" direction="left">
+              {!!$web->runtext!!}
+            </marquee>
+          </div>
+        </div>
+      </div>
+    </div>
+  @endif
+
   <div id="tentang" class="about-area area-padding">
     <div class="container">
       <div class="row">
@@ -383,6 +447,7 @@
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Form Pengajuan KTP</h4>
+                            <h6><i>Peringatan : Pada waktu mengambil bukti fisik surat keterangan ini harap membawa/ melampirkan surat pengantar dari ketua RT/RW setempat.</i></h6>
                           </div>
 
                           <div class="modal-body">
@@ -511,6 +576,9 @@
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Form Surat Keterangan</h4>
+                            <h6>
+                              <i>Peringatan : Pada waktu mengambil bukti fisik surat keterangan ini harap membawa/ melampirkan surat pengantar dari ketua RT/RW setempat.</i>
+                            </h6>
                           </div>
 
                           <div class="modal-body">
@@ -649,6 +717,9 @@
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Form Surat Keterangan Kelahiran</h4>
+                            <h6>
+                              <i>Peringatan : Pada waktu mengambil bukti fisik surat keterangan ini harap membawa/ melampirkan surat pengantar dari ketua RT/RW setempat.</i>
+                            </h6>
                           </div>
 
                           <div class="modal-body">
@@ -1120,6 +1191,9 @@
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Form Pengaduan</h4>
+                            <h6>
+                              <i>Peringatan : Pada waktu mengambil bukti fisik surat keterangan ini harap membawa/ melampirkan surat pengantar dari ketua RT/RW setempat.</i>
+                            </h6>
                           </div>
 
                           <div class="modal-body">
@@ -1236,6 +1310,9 @@
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Form Surat Pernyataan Tanggung Jawab Mutlak (SPTJM)</h4>
+                            <h6>
+                              <i>Peringatan : Pada waktu mengambil bukti fisik surat keterangan ini harap membawa/ melampirkan surat pengantar dari ketua RT/RW setempat.</i>
+                            </h6>
                           </div>
                           <div class="modal-body">
 
@@ -1485,6 +1562,9 @@
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Form Surat Keterangan Kematian</h4>
+                            <h6>
+                              <i>Peringatan : Pada waktu mengambil bukti fisik surat keterangan ini harap membawa/ melampirkan surat pengantar dari ketua RT/RW setempat.</i>
+                            </h6>
                           </div>
                           <div class="modal-body">
 
@@ -1692,6 +1772,9 @@
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Form Surat Keterangan Tidak Mampu</h4>
+                            <h6>
+                              <i>Peringatan : Pada waktu mengambil bukti fisik surat keterangan ini harap membawa/ melampirkan surat pengantar dari ketua RT/RW setempat.</i>
+                            </h6>
                           </div>
                           <div class="modal-body">
 
@@ -1932,7 +2015,7 @@
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="footer-content">
               <div class="footer-head">
-                <h4>informasi</h4>
+                <h4>Informasi</h4>
                 <p>
                   Untuk informasi lebih lanjut hubungi kontak di bawah ini.
                 </p>
@@ -1940,6 +2023,18 @@
                   <p><span>Tel:</span> {{$web->tlp}}</p>
                   <p><span>Email:</span> {{$web->email}}</p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="footer-content">
+              <div class="footer-head">
+                <h4>Peta Lokasi</h4>
+                <p>
+                  Untuk lokasi bisa di lihat pada peta di bawah.
+                </p>
+                <img src="{{secure_asset('storage/peta/'.$web->peta)}}" style="height: 250px;width: 100%;"> 
               </div>
             </div>
           </div>

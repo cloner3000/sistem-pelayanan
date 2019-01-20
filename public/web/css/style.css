@@ -2322,6 +2322,9 @@ span.email-notes {
   padding-top: 30px;
 }
 
+.dropdown-backdrop {
+    position: static;
+}
 /*----------------------------------------
  .End CSS
 ----------------------------------------*/

@@ -24,8 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SptjmSeeder::class);
         //Seeder data Pengunjugn website
         $this->call(PengunjungSeeder::class);
-        //Seeder data Web
-        $this->call(WebSeeder::class);
         //Seeder data Struktur
         $this->call(StrukturSeeder::class);
         //Seeder data Pengaduan
@@ -42,6 +40,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BlogSeeder::class);
         //Seeder Pekerjaan
         $this->call(PekerjaanSeeder::class);
+        //Seeder data Web
+        $this->call(WebSeeder::class);
 
     }
 }

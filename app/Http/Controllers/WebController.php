@@ -28,6 +28,16 @@ class WebController extends Controller
     	$web = Web::firstOrFail();
     	$strukturs = Struktur::all();
         $ps = Pekerjaan::all();
+        $kats = Kategori::where('slug','LIKE','%pengurus-bpd%')
+                        ->orWhere('slug','LIKE','%pengurus-lpm%')
+                        ->orWhere('slug','LIKE','%pengurus-pkk%')
+                        ->orWhere('slug','LIKE','%karang-taruna%')
+                        ->orWhere('slug','LIKE','%rw-rt%')
+                        ->orWhere('slug','LIKE','%kader-posyandu%')
+                        ->orWhere('slug','LIKE','%linmas%')
+                        ->orWhere('slug','LIKE','%mui-desa%')
+                        ->orWhere('slug','LIKE','%gapoktan%')
+                        ->get();
 
         $acc  =   Ktp::where('status','=','acc')->count()+Skk::where('status','=','acc')->count()
                     +Pengaduan::where('status','=','acc')->count()+Sk::where('status','=','acc')->count()
@@ -57,8 +67,9 @@ class WebController extends Controller
             'platform' => $platform,
         ]); 
 
+
         $news = Blog::with('users','kategoris')->orderBy('updated_at','desc')->get()->chunk(4);
-    	return view('index',compact('web','strukturs','acc','pending','p_total','p_thisMonth','news','ps'));
+    	return view('index',compact('web','strukturs','acc','pending','p_total','p_thisMonth','news','ps','kats'));
     }
 
     public function blogIndex(Request $req)

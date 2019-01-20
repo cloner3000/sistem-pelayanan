@@ -265,6 +265,39 @@ class DashboardController extends Controller
             $data->foto_tentang = $file['basename'];
         }
 
+        if ($req->hasFile('peta')) {
+            $foto = Image::make($req->file('peta'))->fit(600,360)->encode('jpg');
+            $nama = md5($foto->__toString()).".jpg";
+
+            //uncoment if you use local storage 
+            $lokasi = "/storage/peta/{$nama}";
+            $foto->save(public_path($lokasi));
+
+            $data->peta = $nama;
+
+            // $lokasi = '/';
+            // $recursive = false;
+            // $contents = collect(Storage::cloud()->listContents($lokasi, $recursive));
+            // $lokasi = $contents->where('type', '=', 'dir')
+            //     ->where('filename', '=', 'tentang')
+            //     ->first();
+
+            // if ( ! $lokasi) {
+            //     return 'Directory does not exist!';
+            // }
+
+            // Storage::cloud()->put($lokasi['path']."/".$nama, $foto);
+
+            // $file = collect(Storage::cloud()->listContents($lokasi['basename'], $recursive))
+            //     ->where('type', '=', 'file')
+            //     ->where('filename', '=', pathinfo($nama, PATHINFO_FILENAME))
+            //     ->where('extension', '=', pathinfo($nama, PATHINFO_EXTENSION))
+            //     ->sortBy('timestamp')
+            //     ->last();
+
+            // $data->peta = $file['basename'];
+        }
+
         $data->nama_website      = $req->input('nama_website');
         $data->judul_slider      = $req->input('judul_slider');
         $data->deskripsi_slider  = $req->input('deskripsi_slider');
@@ -280,6 +313,7 @@ class DashboardController extends Controller
         $data->fb       = $req->input('fb');
         $data->twitter  = $req->input('twitter');
         $data->ig       = $req->input('ig');
+        $data->runtext  = $req->input('runtext');
 
         $data->save();
         return back();

@@ -89,17 +89,35 @@
 				
 				<div class="box-body pad">
 					<div class="form-group">
-						<label for="foto_tentang">Foto Tentang</label>
-						<input name="foto_tentang" class="form-control" type="file" id="foto_tentang">
-						<p class="help-block">Gambar Untuk Desktipsi Website</p>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="foto_tentang">Foto Tentang</label>
+								<input name="foto_tentang" class="form-control" type="file" id="foto_tentang">
+								<p class="help-block">Gambar Untuk Deskripsi Website</p>
+							</div>
+							<div class="col-md-6">
+								<label for="peta">Foto Map Desa</label>
+								<input name="peta" class="form-control" type="file" id="peta">
+								<p class="help-block">Gambar Map Untuk Lokasi Website</p>
+							</div>
+						</div>
 					</div>
 				</div>
+
 		        <div class="box-body pad">
 		            <div class="form-group">
 		            	<label for="tentang1">Tentang website untuk posisi di bawah</label>
 		            	<textarea  name="tentang1" id="tentang1" class="form-control" rows="3" cols="80">{{$web->tentang1}}</textarea>
 		            </div>
 		        </div>
+
+		        <div class="box-body pad">
+		            <div class="form-group">
+		            	<label for="runtext">Running Text Index Page</label>
+		            	<textarea  name="runtext" id="runtext" class="form-control" rows="3" cols="80">{{$web->runtext}}</textarea>
+		            </div>
+		        </div>
+
 		    </div>
 
 		    <div class="box box-info">
@@ -181,8 +199,8 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-								<button type="submit" class="btn btn-sm btn-info">Save</button>
-							</div>
+							<button type="submit" class="btn btn-sm btn-info">Save</button>
+						</div>
 					</div>
 				</div>
 
@@ -196,5 +214,6 @@
 	  CKEDITOR.replace('tentang');
 	  CKEDITOR.replace('visi');
 	  CKEDITOR.replace('misi');
+	  CKEDITOR.replace('runtext');
 	</script>
 @endsection

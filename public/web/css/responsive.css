@@ -2,6 +2,9 @@
   .work-right-text {
     padding: 150px 150px;
   }
+  #dropdown{
+    color: black !important;padding:0px 0px !important;
+  }
 }
 
 /* Normal desktop :992px. */
@@ -16,6 +19,9 @@
   .work-right-text h2 {
     font-size: 18px;
     line-height: 28px;
+  }
+  #dropdown{
+    color: black !important;padding:0px 0px !important;
   }
 }
 
@@ -113,6 +119,9 @@
   }
   .search-option input {
     width: 67%;
+  }
+  #dropdown{
+    color: black !important;padding:0px 0px !important;
   }
 }
 
@@ -269,6 +278,9 @@
   li.threaded-comments {
     margin-left: 0;
   }
+  #dropdown{
+    color: black !important;padding:0px 0px !important;
+  }
 }
 
 /* Large Mobile :480px. */
@@ -295,5 +307,8 @@
   }
   .tab-menu ul.nav li a {
     padding: 8px 20px;
+  }
+  #dropdown{
+    color: white !important;padding:0px 0px !important;
   }
 }

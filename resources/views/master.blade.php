@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
+                <a class="navbar-brand page-scroll sticky-logo" href="{{ route('/') }}">
                   <h1>{{$web->nama_website}}</h1>
                 </a>
               </div>
@@ -124,6 +124,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="footer-content">
               <div class="footer-head">
@@ -135,6 +136,18 @@
                   <p><span>Tel:</span> {{$web->tlp}}</p>
                   <p><span>Email:</span> {{$web->email}}</p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="footer-content">
+              <div class="footer-head">
+                <h4>Peta Lokasi</h4>
+                <p>
+                  Untuk lokasi bisa di lihat pada peta di bawah.
+                </p>
+                <img src="{{secure_asset('storage/peta/'.$web->peta)}}" style="height: 250px;width: 100%;"> 
               </div>
             </div>
           </div>

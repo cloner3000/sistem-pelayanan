@@ -29,10 +29,18 @@
 								    </p>
 				    			</div>
 				    			<div class="post-footer">
-									<span class="badge">Diposting : {{date('d-m-Y H:i:s',strtotime($p->created_at))}}</span>
-									<div class="pull-right"> 
-										<a href="{{ route('kategori',$p->kategoris->slug) }}" title=""><span class="label label-primary">{{$p->kategoris->nama}}</span> </a>
-									</div>         
+									<div class="row">
+										<div class="col-md-6 col-sm-6">
+											<span class="badge">Diposting : {{date('d-m-Y H:i:s',strtotime($p->created_at))}}</span>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<div class="pull-right"> 
+												<a href="{{ route('kategori',$p->kategoris->slug) }}" title="">
+													<span class="label label-primary">{{$p->kategoris->nama}}</span>
+												</a>
+											</div> 
+										</div>
+									</div>        
 								</div>
 				    		</div>
 				    	</div>
