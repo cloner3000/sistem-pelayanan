@@ -37,6 +37,9 @@ class WebController extends Controller
                         ->orWhere('slug','LIKE','%linmas%')
                         ->orWhere('slug','LIKE','%mui-desa%')
                         ->orWhere('slug','LIKE','%gapoktan%')
+                        ->orWhere('slug','LIKE','%peraturan-desa%')
+                        ->orWhere('slug','LIKE','%kekayaan-desa%')
+                        ->orWhere('slug','LIKE','%keuangan-desa%')
                         ->get();
 
         $acc  =   Ktp::where('status','=','acc')->count()+Skk::where('status','=','acc')->count()
@@ -73,32 +76,80 @@ class WebController extends Controller
     }
 
     public function blogIndex(Request $req)
-    {
+    {        $kats = Kategori::where('slug','LIKE','%pengurus-bpd%')
+                        ->orWhere('slug','LIKE','%pengurus-lpm%')
+                        ->orWhere('slug','LIKE','%pengurus-pkk%')
+                        ->orWhere('slug','LIKE','%karang-taruna%')
+                        ->orWhere('slug','LIKE','%rw-rt%')
+                        ->orWhere('slug','LIKE','%kader-posyandu%')
+                        ->orWhere('slug','LIKE','%linmas%')
+                        ->orWhere('slug','LIKE','%mui-desa%')
+                        ->orWhere('slug','LIKE','%gapoktan%')
+                        ->orWhere('slug','LIKE','%peraturan-desa%')
+                        ->orWhere('slug','LIKE','%kekayaan-desa%')
+                        ->orWhere('slug','LIKE','%keuangan-desa%')
+                        ->get();
         $web = Web::firstOrFail();
         $posts = Blog::with('users','kategoris')->orderBy('updated_at','desc')->paginate(3);
         $kategoris = Kategori::all();
-        return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);
+        return view('blog',compact('web','posts','kategoris','kats'))->with('no',($req->input('page',1)-1)*10);
     }
 
     public function blogDetail($slug)
-    {
+    {        $kats = Kategori::where('slug','LIKE','%pengurus-bpd%')
+                        ->orWhere('slug','LIKE','%pengurus-lpm%')
+                        ->orWhere('slug','LIKE','%pengurus-pkk%')
+                        ->orWhere('slug','LIKE','%karang-taruna%')
+                        ->orWhere('slug','LIKE','%rw-rt%')
+                        ->orWhere('slug','LIKE','%kader-posyandu%')
+                        ->orWhere('slug','LIKE','%linmas%')
+                        ->orWhere('slug','LIKE','%mui-desa%')
+                        ->orWhere('slug','LIKE','%gapoktan%')
+                        ->orWhere('slug','LIKE','%peraturan-desa%')
+                        ->orWhere('slug','LIKE','%kekayaan-desa%')
+                        ->orWhere('slug','LIKE','%keuangan-desa%')
+                        ->get();
         $web = Web::firstOrFail();
         $post = Blog::where('slug',$slug)->with('users','kategoris')->firstOrFail();
         $kategoris = Kategori::all();
-        return view('blogDetail',compact('web','post','kategoris')); 
+        return view('blogDetail',compact('web','post','kategoris','kats')); 
     }
 
     public function kategori(Request $req,$slug)
-    {   
+    {        $kats = Kategori::where('slug','LIKE','%pengurus-bpd%')
+                        ->orWhere('slug','LIKE','%pengurus-lpm%')
+                        ->orWhere('slug','LIKE','%pengurus-pkk%')
+                        ->orWhere('slug','LIKE','%karang-taruna%')
+                        ->orWhere('slug','LIKE','%rw-rt%')
+                        ->orWhere('slug','LIKE','%kader-posyandu%')
+                        ->orWhere('slug','LIKE','%linmas%')
+                        ->orWhere('slug','LIKE','%mui-desa%')
+                        ->orWhere('slug','LIKE','%gapoktan%')
+                        ->orWhere('slug','LIKE','%peraturan-desa%')
+                        ->orWhere('slug','LIKE','%kekayaan-desa%')
+                        ->orWhere('slug','LIKE','%keuangan-desa%')
+                        ->get();   
         $k = Kategori::where('slug',$slug)->firstOrFail();
         $web = Web::firstOrFail();
         $posts = Blog::where('kategori_id',$k->id)->with('users','kategoris')->orderBy('updated_at','desc')->paginate(3);
         $kategoris = Kategori::all();
-        return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);
+        return view('blog',compact('web','posts','kategoris','kats'))->with('no',($req->input('page',1)-1)*10);
     }
 
     public function cari(Request $req)
-    {
+    {        $kats = Kategori::where('slug','LIKE','%pengurus-bpd%')
+                        ->orWhere('slug','LIKE','%pengurus-lpm%')
+                        ->orWhere('slug','LIKE','%pengurus-pkk%')
+                        ->orWhere('slug','LIKE','%karang-taruna%')
+                        ->orWhere('slug','LIKE','%rw-rt%')
+                        ->orWhere('slug','LIKE','%kader-posyandu%')
+                        ->orWhere('slug','LIKE','%linmas%')
+                        ->orWhere('slug','LIKE','%mui-desa%')
+                        ->orWhere('slug','LIKE','%gapoktan%')
+                        ->orWhere('slug','LIKE','%peraturan-desa%')
+                        ->orWhere('slug','LIKE','%kekayaan-desa%')
+                        ->orWhere('slug','LIKE','%keuangan-desa%')
+                        ->get();
         $q = $req->input('cari');
         $web = Web::firstOrFail();
         $posts = Blog::WhereHas('kategoris',function($c) use($q){
@@ -110,6 +161,42 @@ class WebController extends Controller
                  ->orderBy('updated_at','desc')
                  ->paginate(3);
         $kategoris = Kategori::all();
-        return view('blog',compact('web','posts','kategoris'))->with('no',($req->input('page',1)-1)*10);
+        return view('blog',compact('web','posts','kategoris','kats'))->with('no',($req->input('page',1)-1)*10);
+    }
+
+    public function visi_misi(){        $kats = Kategori::where('slug','LIKE','%pengurus-bpd%')
+                        ->orWhere('slug','LIKE','%pengurus-lpm%')
+                        ->orWhere('slug','LIKE','%pengurus-pkk%')
+                        ->orWhere('slug','LIKE','%karang-taruna%')
+                        ->orWhere('slug','LIKE','%rw-rt%')
+                        ->orWhere('slug','LIKE','%kader-posyandu%')
+                        ->orWhere('slug','LIKE','%linmas%')
+                        ->orWhere('slug','LIKE','%mui-desa%')
+                        ->orWhere('slug','LIKE','%gapoktan%')
+                        ->orWhere('slug','LIKE','%peraturan-desa%')
+                        ->orWhere('slug','LIKE','%kekayaan-desa%')
+                        ->orWhere('slug','LIKE','%keuangan-desa%')
+                        ->get();
+        $web = Web::firstOrFail();
+        $kategoris = Kategori::all();
+        return view('visi_misi',compact('web','post','kategoris','kats')); 
+    }
+
+    public function sejarah(){        $kats = Kategori::where('slug','LIKE','%pengurus-bpd%')
+                        ->orWhere('slug','LIKE','%pengurus-lpm%')
+                        ->orWhere('slug','LIKE','%pengurus-pkk%')
+                        ->orWhere('slug','LIKE','%karang-taruna%')
+                        ->orWhere('slug','LIKE','%rw-rt%')
+                        ->orWhere('slug','LIKE','%kader-posyandu%')
+                        ->orWhere('slug','LIKE','%linmas%')
+                        ->orWhere('slug','LIKE','%mui-desa%')
+                        ->orWhere('slug','LIKE','%gapoktan%')
+                        ->orWhere('slug','LIKE','%peraturan-desa%')
+                        ->orWhere('slug','LIKE','%kekayaan-desa%')
+                        ->orWhere('slug','LIKE','%keuangan-desa%')
+                        ->get();
+        $web = Web::firstOrFail();
+        $kategoris = Kategori::all();
+        return view('sejarah',compact('web','post','kategoris','kats')); 
     }
 }

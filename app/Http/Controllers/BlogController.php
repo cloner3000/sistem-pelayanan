@@ -178,4 +178,23 @@ class BlogController extends Controller
         $data->delete();
         return back();
     }
+
+    public function editRegulasi($slug)
+    {
+        $nKtp       = Ktp::where('status','=','pending')->count();
+        $nPengaduan = Pengaduan::where('status','=','pending')->count();
+        $nSk        = Sk::where('status','=','pending')->count();
+        $nSkematian = Skematian::where('status','=','pending')->count();
+        $nSkk       = Skk::where('status','=','pending')->count();
+        $nSktm      = Sktm::where('status','=','pending')->count();
+        $nSptjm     = Sptjm::where('status','=','pending')->count();
+
+        $data = Blog::where('slug',$slug)->first();
+        $kategori = Kategori::all();
+        if (Auth::user()->roles->first()->name == "Kepala Desa") {
+            return view('kades.regulasi.edit',compact('data','kategori','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'));
+        }else{
+            return view('admin.regulasi.edit',compact('data','kategori','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'));
+        }
+    }
 }

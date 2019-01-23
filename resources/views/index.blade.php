@@ -52,26 +52,82 @@
               </div>
               <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="active">
-                    <a class="page-scroll" href="#home">Home</a>
-                  </li>
-                  {{-- <li>
-                    <a class="page-scroll" href="#tentang">Tentang</a>
-                  </li> --}}
+                  
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profil<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a style="color: black !important;padding:0px 0px !important;" href="#">Page 1-1</a>
-                      </li>
-                      <li>
-                        <a style="color: black !important;padding:0px 0px !important;" href="#">Page 1-2</a>
-                      </li>
-                      <li>
-                        <a style="color: black !important;padding:0px 0px !important;" href="#">Page 1-3</a>
-                      </li>
-                    </ul>
+                    @if(!Browser::isMobile())
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a style="color: black !important;padding:0px 0px !important;" href="{{ route('visi_misi') }}">Visi Dan Misi</a>
+                        </li>
+                        <li>
+                          <a style="color: black !important;padding:0px 0px !important;" href="{{ route('sejarah') }}">Sejarah</a>
+                        </li>
+                        <li>
+                          <a style="color: black !important;padding:0px 0px !important;" href="#">Page 1-3</a>
+                        </li>
+                      </ul>
+                    @else
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a style="color: white !important;padding:0px 0px !important;" href="{{ route('visi_misi') }}">Visi Dan Misi</a>
+                        </li>
+                        <li>
+                          <a style="color: white !important;padding:0px 0px !important;" href="{{ route('sejarah') }}">Sejarah</a>
+                        </li>
+                        <li>
+                          <a style="color: white !important;padding:0px 0px !important;" href="#">Page 1-3</a>
+                        </li>
+                      </ul>
+                    @endif
                   </li>
+
+                  @if($kats->count() > 0)
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Regulasi
+                        <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu kat">
+                        @if(!Browser::isMobile())
+                        @foreach($kats as $k)
+                          @if($k->slug == "peraturan-desa")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "keuangan-desa")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "kekayaan-desa")
+                            <li>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @endif
+                        @endforeach
+
+                        @else
+
+                        @foreach($kats as $k)
+                          @if($k->slug == "peraturan-desa")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "keuangan-desa")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "kekayaan-desa")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @endif
+                        @endforeach
+                      
+                      @endif
+                      </ul>
+                    </li>
+                  @endif
 
                   @if($kats->count() > 0)
                     <li class="dropdown">
@@ -80,45 +136,90 @@
                         <span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu kat">
+                        @if(!Browser::isMobile())
                         @foreach($kats as $k)
                           @if($k->slug == "pengurus-bpd")
                             <li>
-                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "pengurus-lpm")
                             <li>
-                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "pengurus-pkk")
                             <li>
-                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "karang-taruna")
                             <li>
-                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "rw-rt")
                             <li>
-                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "kader-posyandu")
                             <li>
-                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "linmas")
                             <li>
-                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "mui-desa")
                             <li>
-                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "gapoktan")
                             <li>
-                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="#">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: black !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @endif
-                        @endforeach                        
+                        @endforeach
+
+                        @else
+
+                        @foreach($kats as $k)
+                          @if($k->slug == "pengurus-bpd")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "pengurus-lpm")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "pengurus-pkk")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "karang-taruna")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "rw-rt")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "kader-posyandu")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "linmas")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "mui-desa")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @elseif($k->slug == "gapoktan")
+                            <li>
+                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                            </li>
+                          @endif
+                        @endforeach
+                      
+                      @endif
                       </ul>
                     </li>
                   @endif
@@ -126,7 +227,7 @@
                     <a class="page-scroll" href="#pelayanan">Pelayanan</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#struktur">Struktur Organisasi</a>
+                    <a class="page-scroll" href="#struktur">Struktur</a>
                   </li>
                   <li>
                     <a class="page-scroll" href="{{ route('berita') }}">Warta Desa</a>
@@ -307,7 +408,7 @@
     </div>
   @endif
 
-  <div id="tentang" class="about-area area-padding">
+ {{--  <div id="tentang" class="about-area area-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -321,10 +422,10 @@
           <div class="well-left">
             <div class="single-well">
               <a href="#">
-								  {{--
+								  
                     uncoment this if you use local storage 
                     <img src="{{secure_asset('storage/tentang/'.$web->foto_tentang)}}" alt=""> 
-                  --}}
+                  
                   <img src="https://docs.google.com/uc?id={{$web->foto_tentang}}" alt="">
 								</a>
             </div>
@@ -339,7 +440,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <div class="our-skill-area fix hidden-sm">
     <div class="test-overly"></div>
@@ -1902,7 +2003,7 @@
     </div>
   </div>
 
-  <div class="wellcome-area">
+{{--   <div class="wellcome-area">
     <div class="well-bg">
       <div class="test-overly"></div>
       <div class="container">
@@ -1930,7 +2031,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <div id="struktur" class="our-team-area area-padding">
     <div class="container">

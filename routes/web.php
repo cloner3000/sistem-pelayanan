@@ -14,6 +14,11 @@
     Route::get('test',function(){
         return Auth::user()->roles;
     });
+
+    //Route Visi Misi
+    Route::get('/visi-misi','WebController@visi_misi')->name('visi_misi');
+    Route::get('/sejarah-desa','WebController@sejarah')->name('sejarah');
+
     //Route Blog
     Route::get('berita','WebController@blogIndex')->name('berita');
     Route::get('berita/{slug}','WebController@blogDetail')->name('detail');
@@ -142,6 +147,9 @@ Route::group(['prefix' => 'kades','middleware' => 'role:Kepala Desa','name' => '
     //Route CRUD Profesi
     Route::resource('profesi','PekerjaanController',['names' => 'kades.profesi'])->except(['show','edit','create']);
 
+    // Route Custom regulasi/lembaga
+    Route::get('regulasi/{slug}','BlogController@editRegulasi')->name('kades.regulasi.edit');
+
     //Route CRUD Post
     Route::resource('blog','BlogController',['names' => 'kades.blog']);
 
@@ -244,6 +252,9 @@ Route::group(['prefix' => 'admin',['middleware' =>
 
         //Route CRUD Profesi
         Route::resource('profesi','PekerjaanController')->except(['show','edit','create']);
+
+        // Route Custom regulasi/lembaga
+        Route::get('regulasi/{slug}','BlogController@editRegulasi')->name('admin.regulasi.edit');
 
         //Route CRUD Post
         Route::resource('blog','BlogController');

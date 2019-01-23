@@ -310,7 +310,101 @@
           </ul>
         </li>
 
-         <li class="treeview @yield('blog')">
+        <li class="treeview @yield('regulasi')">
+          <a href="#">
+            <i class="fa fa-globe"></i><span>Regulasi Desa</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@yield('peraturanDesa')">
+              <a href="{{ route('kades.regulasi.edit','peraturan-desa') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Peraturan Desa
+              </a>
+            </li>
+            <li class="@yield('keuanganDesa')">
+              <a href="{{ route('kades.regulasi.edit','keuangan-desa') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Keuangan Desa
+              </a>
+            </li>
+            <li class="@yield('kekayaanDesa')">
+              <a href="{{ route('kades.regulasi.edit','kekayaan-desa') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Kekayaan Desa
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="treeview @yield('lembaga')">
+          <a href="#">
+            <i class="fa fa-globe"></i><span>Lembaga Desa</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@yield('pengurus-bpd')">
+              <a href="{{ route('kades.regulasi.edit','pengurus-bpd') }}">
+                <i class="fa fa-dot-circle"></i> 
+                  Pengurus BPD
+              </a>
+            </li>
+            <li class="@yield('pengurus-lpm')">
+              <a href="{{ route('kades.regulasi.edit','pengurus-lpm') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Pengurus LPM
+              </a>
+            </li>
+            <li class="@yield('pengurus-pkk')">
+              <a href="{{ route('kades.regulasi.edit','pengurus-pkk') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Pengurus PKK
+              </a>
+            </li>
+            <li class="@yield('karang-taruna')">
+              <a href="{{ route('kades.regulasi.edit','karang-taruna') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Karang Taruna
+              </a>
+            </li>
+            <li class="@yield('rw-rt')">
+              <a href="{{ route('kades.regulasi.edit','rw-rt') }}">
+                <i class="fa fa-dot-circle"></i> 
+                RW/RT
+              </a>
+            </li>
+            <li class="@yield('kader-posyandu')">
+              <a href="{{ route('kades.regulasi.edit','kader-posyandu') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Kader Posyandu
+              </a>
+            </li>
+            <li class="@yield('linmas')">
+              <a href="{{ route('kades.regulasi.edit','linmas') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Linmas
+              </a>
+            </li>
+            <li class="@yield('mui-desa')">
+              <a href="{{ route('kades.regulasi.edit','mui-desa') }}">
+                <i class="fa fa-dot-circle"></i> 
+                MUI Desa
+              </a>
+            </li>
+            <li class="@yield('gapoktan')">
+              <a href="{{ route('kades.regulasi.edit','gapoktan') }}">
+                <i class="fa fa-dot-circle"></i> 
+                Gapoktan
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="treeview @yield('blog')">
           <a href="#">
             <i class="fa fa-globe"></i><span>Pengaturan Blog</span>
             <span class="pull-right-container">

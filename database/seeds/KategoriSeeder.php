@@ -13,9 +13,9 @@ class KategoriSeeder extends Seeder
     public function run()
     {
         $f = f::create('id_ID');
-        $kategori=array('Berita','Keamanan','Kebersihan','Lomba');
+        $kategori=array('Berita','Keamanan','Kebersihan','Lomba','Pengurus BPD','Pengurus LPM','Pengurus PKK','Karang Taruna','RW/RT','Kader Posyandu','Linmas','MUI Desa','Gapoktan','Peraturan Desa','Keuangan Desa','Kekayaan Desa');
 
-        foreach ($kategori as $key => $value) {
+        foreach ($kategori as $value) {
         	Kategori::insert([
         		'nama' => $value,
         		'slug' => slugify($value),
