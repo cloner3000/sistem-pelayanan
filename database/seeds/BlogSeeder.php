@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Blog;
 use Faker\Factory as F;
 use Carbon\Carbon;
+use App\Kategori;
 class BlogSeeder extends Seeder
 {
     /**
@@ -22,9 +23,9 @@ class BlogSeeder extends Seeder
            		<h2 style='ont-style:italic'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas itaque, quisquam, fuga voluptate dolor ab. Deleniti ea deserunt similique beatae eos excepturi aliquid sapiente temporibus nulla magnam dicta, maiores iure?</h2>\r\n\r\n
            		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas itaque, quisquam, fuga voluptate dolor ab. Deleniti ea deserunt similique beatae eos excepturi aliquid sapiente temporibus nulla magnam dicta, maiores iure?</h3>";
         for ($i=0; $i < $limit ; $i++) { 
-        	$judul = $f->sentence($nbWords = 6, $variableNbWords = true);
+        	$judul = $f->sentence($nbWords = 10, $variableNbWords = true);
         	Blog::insert([
-        		'kategori_id' => $f->numberBetween($min = 1, $max = 3),
+        		'kategori_id' => $f->numberBetween($min = 1, $max = 4),
 				'user_id'     => 3,
 				'slug'        => slugify($judul),
 				'judul'       => $judul,
@@ -34,6 +35,21 @@ class BlogSeeder extends Seeder
                 'created_at'  => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at'  => Carbon::now()->format('Y-m-d H:i:s'),
         	]);
+        }
+
+        for ($i=5; $i <= 16; $i++) {
+            $kat=Kategori::find($i); 
+            Blog::insert([
+                'kategori_id' => $i,
+                'user_id'     => 3,
+                'slug'        => slugify($kat->nama),
+                'judul'       => $kat->nama,
+                'isi'         => $isi,
+                'deskripsi'   => $f->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'foto'        => "c168827a560a9740914c799554c87ef7.jpg",
+                'created_at'  => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at'  => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
         }
     }
 }
