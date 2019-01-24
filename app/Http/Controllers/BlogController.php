@@ -33,7 +33,24 @@ class BlogController extends Controller
         $nSktm      = Sktm::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
-        $datas = Blog::with('users','kategoris')->orderBy('created_at','desc')->paginate(10);
+        $datas = Blog::with('users','kategoris')
+                ->whereDoesntHave('kategoris',function($q){
+                    $q->where('slug','=','peraturan-desa')
+                        ->orWhere('slug','=','keuangan-desa')
+                        ->orWhere('slug','=','kekayaan-desa')
+                        ->orWhere('slug','=','pengurus-bpd')
+                        ->orWhere('slug','=','pengurus-lpm')
+                        ->orWhere('slug','=','pengurus-pkk')
+                        ->orWhere('slug','=','karang-taruna')
+                        ->orWhere('slug','=','rw-rt')
+                        ->orWhere('slug','=','kader-posyandu')
+                        ->orWhere('slug','=','linmas')
+                        ->orWhere('slug','=','mui-desa')
+                        ->orWhere('slug','=','gapoktan');
+                })
+                ->orderBy('created_at','desc')
+                ->paginate(10);
+
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.blog.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
@@ -56,7 +73,20 @@ class BlogController extends Controller
         $nSktm      = Sktm::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
-        $datas = Kategori::all();
+        $datas = Kategori::Where('slug','!=','peraturan-desa')
+                 ->Where('slug','!=','keuangan-desa')
+                 ->Where('slug','!=','kekayaan-desa')
+                 ->Where('slug','!=','pengurus-bpd')
+                 ->Where('slug','!=','pengurus-lpm')
+                 ->Where('slug','!=','pengurus-pkk')
+                 ->Where('slug','!=','karang-taruna')
+                 ->Where('slug','!=','rw-rt')
+                 ->Where('slug','!=','kader-posyandu')
+                 ->Where('slug','!=','linmas')
+                 ->Where('slug','!=','mui-desa')
+                 ->Where('slug','!=','gapoktan')
+                 ->get();
+
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.blog.create',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'));
         }else{
@@ -122,7 +152,19 @@ class BlogController extends Controller
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
         $data = Blog::findOrFail($id);
-        $kategori = Kategori::all();
+        $kategori = Kategori::Where('slug','!=','peraturan-desa')
+                 ->Where('slug','!=','keuangan-desa')
+                 ->Where('slug','!=','kekayaan-desa')
+                 ->Where('slug','!=','pengurus-bpd')
+                 ->Where('slug','!=','pengurus-lpm')
+                 ->Where('slug','!=','pengurus-pkk')
+                 ->Where('slug','!=','karang-taruna')
+                 ->Where('slug','!=','rw-rt')
+                 ->Where('slug','!=','kader-posyandu')
+                 ->Where('slug','!=','linmas')
+                 ->Where('slug','!=','mui-desa')
+                 ->Where('slug','!=','gapoktan')
+                 ->get();
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.blog.edit',compact('data','kategori','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'));
         }else{

@@ -31,7 +31,19 @@ class KategoriController extends Controller
         $nSktm      = Sktm::where('status','=','pending')->count();
         $nSptjm     = Sptjm::where('status','=','pending')->count();
         
-        $datas = Kategori::paginate(10);
+        $datas = Kategori::Where('slug','!=','peraturan-desa')
+                 ->Where('slug','!=','keuangan-desa')
+                 ->Where('slug','!=','kekayaan-desa')
+                 ->Where('slug','!=','pengurus-bpd')
+                 ->Where('slug','!=','pengurus-lpm')
+                 ->Where('slug','!=','pengurus-pkk')
+                 ->Where('slug','!=','karang-taruna')
+                 ->Where('slug','!=','rw-rt')
+                 ->Where('slug','!=','kader-posyandu')
+                 ->Where('slug','!=','linmas')
+                 ->Where('slug','!=','mui-desa')
+                 ->Where('slug','!=','gapoktan')
+                 ->paginate(10);
         if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return view('kades.kategori.index',compact('datas','nKtp','nPengaduan','nSk','nSkematian','nSkk','nSktm','nSptjm'))->with('no',($req->input('page',1)-1)*10);
         }else{
