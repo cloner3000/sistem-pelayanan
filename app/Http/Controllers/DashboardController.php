@@ -55,9 +55,16 @@ class DashboardController extends Controller
     					->all();
 
         if (!empty($p)) {
-            $hit =  $p['01']->count().','.$p['02']->count().','.$p['03']->count().','.$p['04']->count().','.
-                    $p['05']->count().','.$p['06']->count().','.$p['07']->count().','.$p['08']->count().','.
-                    $p['09']->count().','.$p['10']->count().','.$p['11']->count().','.$p['12']->count();
+            // $hit =  $p['01']->count().','.$p['02']->count().','.$p['03']->count().','.$p['04']->count().','.
+            //         $p['05']->count().','.$p['06']->count().','.$p['07']->count().','.$p['08']->count().','.
+            //         $p['09']->count().','.$p['10']->count().','.$p['11']->count().','.$p['12']->count();
+            foreach ($p as $key => $value) {
+                $hit =  $p[$key]->count().',';
+            }
+            if (substr($hit, -1, 1) == ','){
+              $hit = substr($hit, 0, -1);
+            }
+            
         }else{
             $hit = "0,0,0,0,0,0,0,0,0,0,0,0";
         }
