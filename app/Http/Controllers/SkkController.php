@@ -154,7 +154,13 @@ class SkkController extends Controller
                     's2_alamat'            => $r->input('s2_alamat'),
                 ]);
         
-        $skk->save();
+        if ($skk->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Surat Keterangan Kelahiran berhasil dibuat');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Surat Keterangan Kelahiran gagal dibuat');
+        }
         return back();
     }
 

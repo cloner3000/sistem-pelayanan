@@ -104,7 +104,7 @@ class SktmController extends Controller
      */
     public function store(Request $r)
     {
-        $sptjm = Sktm::create([
+        $sktm = Sktm::create([
             'user_id'    => Auth::id(),
             
             'nama'            => $r->input('nama'),
@@ -121,7 +121,13 @@ class SktmController extends Controller
             'n_ibu'           => $r->input('n_ibu')
         ]);
 
-        $sptjm->save();
+        if ($sktm->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Surat Keterangan Tidak Mampu berhasil dibuat');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Surat Keterangan Tidak Mampu gagal dibuat');
+        }
         return back();
     }
 

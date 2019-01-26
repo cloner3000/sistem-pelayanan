@@ -127,7 +127,13 @@ class SkematianController extends Controller
             'p_hubungan'      => $request->input('p_hubungan'),
         ]);
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Surat Kematian berhasil dibuat');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Surat Kematian gagal dibuat');
+        }
         return back();
     }
 

@@ -117,7 +117,15 @@ class KtpController extends Controller
                     'nik' => $request->input('nik'),
                     'alamat' => $request->input('alamat'),
                 ]);
-        $ktp->save();
+
+        if ($ktp->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data Pelayanan KTP berhasil dibuat');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data Pelayanan KTP gagal dibuat');
+        }
+
         return back();
     }
 

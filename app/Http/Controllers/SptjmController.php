@@ -140,7 +140,13 @@ class SptjmController extends Controller
             'hubungan'       => $r->input('hubungan'),
         ]);
 
-        $sptjm->save();
+        if ($sptjm->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Surat Pertanggung Jawaban berhasil dibuat');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Surat Pertanggung Jawaban gagal dibuat');
+        }
         return back();
     }
 

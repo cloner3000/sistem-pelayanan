@@ -40,12 +40,12 @@
 	                @foreach($datas as $data)
 			            	<tr>
 			                  	<td>{{++$no}}</td>
-				                <td>{{ucfirst(str)($data->nama)}}</td>
+				                <td>{{ucfirst($data->nama)}}</td>
 				                <td>{{$data->nik}}</td>
-				                <td>{{ucfirst(str)($data->tempat)}}, {{date('d-m-Y',strtotime($data->tanggal))}}</td> 
-				                <td>{{ucfirst(str)($data->jenis_kelamin)}}</td>
-				                <td>{{ucfirst(str)($data->keperluan)}}</td>
-				                <td>{{ucfirst(str)($data->keterangan)}}</td>
+				                <td>{{ucfirst($data->tempat)}}, {{date('d-m-Y',strtotime($data->tanggal))}}</td> 
+				                <td>{{ucfirst($data->jenis_kelamin)}}</td>
+				                <td>{{ucfirst($data->keperluan)}}</td>
+				                <td>{{ucfirst($data->keterangan)}}</td>
 			                  	<td>
 			                  		<span class="label label-warning">{{$data->status}}</span>
 			                  	</td>

@@ -133,7 +133,13 @@ class PengaduanController extends Controller
             'alternatif' => $req->input('alternatif'),
         ]);
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data Pengaduan berhasil dibuat');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data Pengaduan gagal dibuat');
+        }
         return back();
     }
 

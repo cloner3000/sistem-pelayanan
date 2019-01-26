@@ -123,7 +123,13 @@ class SkController extends Controller
             'keterangan'      => $r->input('keterangan')
         ]);
 
-        $sk->save();
+        if ($sk->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Surat Keterangan berhasil dibuat');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Surat Keterangan gagal dibuat');
+        }
         return back();
     }
 

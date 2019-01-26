@@ -2169,13 +2169,25 @@
   <script src="{{secure_asset('web/js/main.js')}}"></script>
   <script src="{{ secure_asset('web/js/moment.js') }}" type="text/javascript"></script>
   <script src="{{ secure_asset('web/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script type="text/javascript">
     $(function () {
-        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sk_tl,#sktm_tl').datetimepicker({
+        $('#l_bayi,#l_ibu,#p_ibu,#l_ayah,#p_ayah,#tl,#tl1,#tl2,#l_pengaduan,#sk_tl,#sktm_tl,#l_kematian,#w_kematian,#l_kematian_pelapor').datetimepicker({
            format:'DD-MM-YYYY HH:mm:ss',
         });
     });
   </script>
+    @if(session()->has('status'))
+      @if(session('status') == 'Sukses')
+        <script type="text/javascript">
+          swal("{{session('status')}}", "{{session('pesan')}}", "success");
+        </script>
+      @else
+        <script type="text/javascript">
+          swal("{{session('status')}}", "{{session('pesan')}}", "success");
+        </script>
+      @endif
+    @endif
 </body>
 
 </html>
