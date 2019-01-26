@@ -126,6 +126,9 @@ class DashboardController extends Controller
         $data  = Web::findOrFail($id);
 
         if ($req->hasFile('foto_slider') && $req->hasFile('foto_slider1')) {
+            @unlink(public_path("storage/slider/{$data->foto_slider}"));
+            @unlink(public_path("storage/slider/{$data->foto_slider1}"));
+
             $foto = Image::make($req->file('foto_slider'))->fit(600,360)->encode('jpg');
             $nama = md5($foto->__toString()).".jpg";
 
@@ -173,6 +176,7 @@ class DashboardController extends Controller
             // $data->foto_slider1 = $file1['basename'];
 
         }elseif($req->hasFile('foto_slider')){
+            @unlink(public_path("storage/slider/{$data->foto_slider}"));
             $foto = Image::make($req->file('foto_slider'))->fit(600,360)->encode('jpg');
             $nama = md5($foto->__toString()).".jpg";
             
@@ -204,6 +208,7 @@ class DashboardController extends Controller
             // $data->foto_slider = $file['basename'];
 
         }elseif($req->hasFile('foto_slider1')){
+            @unlink(public_path("storage/slider/{$data->foto_slider1}"));
             $foto = Image::make($req->file('foto_slider1'))->fit(600,360)->encode('jpg');
             $nama = md5($foto->__toString()).".jpg";
 
@@ -235,6 +240,7 @@ class DashboardController extends Controller
         }
 
         if ($req->hasFile('foto_tentang')) {
+            @unlink(public_path("storage/tentang/{$data->foto_tentang}"));
             $foto = Image::make($req->file('foto_tentang'))->fit(600,360)->encode('jpg');
             $nama = md5($foto->__toString()).".jpg";
 
@@ -267,6 +273,7 @@ class DashboardController extends Controller
         }
 
         if ($req->hasFile('peta')) {
+            @unlink(public_path("storage/peta/{$data->peta}"));
             $foto = Image::make($req->file('peta'))->fit(600,360)->encode('jpg');
             $nama = md5($foto->__toString()).".jpg";
 
@@ -351,6 +358,7 @@ class DashboardController extends Controller
         $data = Struktur::findOrFail($id);
 
         if($req->hasFile('foto')){
+            @unlink(public_path("storage/struktur/{$data->foto}"));
             $foto = Image::make($req->file('foto'))->fit(600,360)->encode('jpg');
             $nama = md5($foto->__toString()).".jpg";
             

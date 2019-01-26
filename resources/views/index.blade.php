@@ -393,8 +393,7 @@
   </div>
 
   @if(!empty($web->runtext))
-    <div id="runtext">
-      <div class="container-fluid">
+    <div id="runtext" style="background-color: black;">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <marquee behavior="scroll" direction="left">
@@ -402,7 +401,6 @@
             </marquee>
           </div>
         </div>
-      </div>
     </div>
   @endif
 
