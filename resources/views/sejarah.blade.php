@@ -1,5 +1,5 @@
 @extends('master')
-@section('judul',ucfirst($post->judul))
+@section('judul','Sejarah')
 
 @section('isi')
 	<br>
@@ -10,29 +10,20 @@
 
 	    <div class="row">
 	    	<div class="col-md-8">	          
-	    		<h3 class="mt-4">{{$post->judul}}</h3>
+	    		<h3 class="mt-4">Sejarah</h3>
 	          	<hr>
 	          	<div class="row">
-	          		<div class="col-md-8">
-	          			Dipost Pada : {{date('H:i:s d-m-Y',strtotime($post->updated_at))}}
+	          		<div class="col-md-12">
+	          			Dipost Pada : {{date('H:i:s d-m-Y',strtotime($web->updated_at))}}
 	          		</div>
-					<div class="col-md-4">
-						<div class="pull-right">
-							<a href="{{ route('kategori',$post->kategoris->slug) }}" title="">
-								<span class="label label-primary">{{$post->kategoris->nama}}</span> 
-							</a>
-						</div>
-					</div>
 	          	</div>
 	          	<hr>
-	          	<img class="img-fluid rounded" src="{{ secure_asset('storage/blog/'.$post->foto) }}" alt="">
+	          	<img src="{{secure_asset('storage/tentang/'.$web->foto_tentang)}}" alt="">
 	          	<hr>
+				
+				{!!$web->tentang!!}
 
-	          	{!!$post->isi!!}
-
-	          	<hr>
-
-         
+	          	<hr>         
 		    </div>
 
 	        <div class="col-md-4">

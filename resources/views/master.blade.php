@@ -5,8 +5,7 @@
   <title>{{$web->nama_website}} | @yield('judul')</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="shortcut icon" type="image/png" href="{{ asset('img/logo.jpg') }}"/>
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
 

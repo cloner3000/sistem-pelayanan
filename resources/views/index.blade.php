@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <title>{{$web->nama_website}} | Portal</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <link href="img/favicon.png" rel="icon">
+  <link rel="shortcut icon" type="image/png" href="{{ asset('img/logo.jpg') }}"/>
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
@@ -272,13 +271,12 @@
   <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides">
-        {{-- uncoment this if you using local storage 
           <img src="{{secure_asset('storage/slider/'.$web->foto_slider)}}" alt="" title="#slider-direction-1" />
           <img src="{{secure_asset('storage/slider/'.$web->foto_slider1)}}" alt="" title="#slider-direction-2" /> 
-        --}}
-      
-          <img src="https://docs.google.com/uc?id={{$web->foto_slider}}" alt="" title="#slider-direction-1" />
-          <img src="https://docs.google.com/uc?id={{$web->foto_slider1}}" alt="" title="#slider-direction-2" />
+       
+          {{-- Uncomment this f you using google drive storage --}}
+          {{-- <img src="https://docs.google.com/uc?id={{$web->foto_slider}}" alt="" title="#slider-direction-1" />
+          <img src="https://docs.google.com/uc?id={{$web->foto_slider1}}" alt="" title="#slider-direction-2" /> --}}
       </div>
 
       <div id="slider-direction-1" class="slider-direction slider-one">
@@ -2050,10 +2048,11 @@
               <div class="single-team-member">
                 <div class="team-img">
                   <a href="#">
-                    {{-- 
+                    
                       <img src="{{secure_asset('storage/struktur/'.$s->foto)}}" style="height: 250px;width: 100%;"> 
-                      --}}
-                    <img src="https://docs.google.com/uc?id={{$s->foto}}" style="height: 250px;width: 100%;"> 
+                     
+                     {{-- Uncomment this if you using google drive storage --}}
+                      {{-- <img src="https://docs.google.com/uc?id={{$s->foto}}" style="height: 250px;width: 100%;">  --}}
                   </a>
                   <div class="team-social-icon text-center">
                     <ul>

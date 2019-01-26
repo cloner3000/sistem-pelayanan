@@ -16,7 +16,7 @@
 				    		<div class="row">
 				    			<div class="col-md-4">
 				    				<a href="{{ route('detail',$p->slug) }}">
-				    					<img src="{{ asset('storage/blog').'/'.$p->foto }}" class="img-thumbnail">
+				    					<img src="{{ secure_asset('storage/blog').'/'.$p->foto }}" class="img-thumbnail">
 				    				</a>
 				    			</div>
 				    			<div class="col-md-8">

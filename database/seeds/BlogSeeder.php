@@ -31,7 +31,7 @@ class BlogSeeder extends Seeder
 				'judul'       => $judul,
 				'isi'         => $isi,
 				'deskripsi'   => $f->paragraph($nbSentences = 3, $variableNbSentences = true),
-				'foto'        => "c168827a560a9740914c799554c87ef7.jpg",
+				'foto'        => "bae2e93eafa86224a0fa415ab3a73333.jpg",
                 'created_at'  => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at'  => Carbon::now()->format('Y-m-d H:i:s'),
         	]);
@@ -46,7 +46,7 @@ class BlogSeeder extends Seeder
                 'judul'       => $kat->nama,
                 'isi'         => $isi,
                 'deskripsi'   => $f->paragraph($nbSentences = 3, $variableNbSentences = true),
-                'foto'        => "c168827a560a9740914c799554c87ef7.jpg",
+                'foto'        => "bae2e93eafa86224a0fa415ab3a73333.jpg",
                 'created_at'  => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at'  => Carbon::now()->format('Y-m-d H:i:s'),
             ]);

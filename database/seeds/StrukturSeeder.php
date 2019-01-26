@@ -28,18 +28,18 @@ class StrukturSeeder extends Seeder
         );
 
         $foto = array(
-            '1LuUdwmXwDooc8j8DLVPVC_tECQPLHeGx',
-            '1_h0kGMcCssqlk5P2N-k7VUISdDoLxL10',
-            '1Ffl9S90SBY4QoMyWVz8lcVhQq6TmFMdB',
-            '107lGuo_5_4SCx4rHCy4e8pqBqcuK9SuT',
-            '1UXmZ3yDQkRsHlrRxXuxkHyjNmOecmreu',
-            '1LaZ7gbLhtpBjoMNCnu-f0-h5BqfpCFxw',
-            '1qbQ7M78iuzYNqX-IpA6fXBDUH5_rRXD5',
-            '1Js2JP_ROzNGKqj_27MY8CZIM-chGfWoq',
-            '1cltSLvLlUOe3RG5bpxasBDGW99TwLiqh',
-            '1_z64AH5jAig4oyass6_G9Ma5Nv5tp9cO',
-            '1SPIfXq1THxPQJcgWW6-ejvrCULCXs5UW',
-            '1X56KsrxgDHbAUph2Tn6a8wq-QuxqYF8c',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
+            '24864f80e5eebefefc1716fe991886ce.jpg',
         );
         
         $jabatan = array(

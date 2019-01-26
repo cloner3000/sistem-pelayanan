@@ -37,7 +37,9 @@
 			                  	<td>{{++$no}}</td>
 			                  	<td>{{$data->nama}}</td>
 			                  	<td>{{$data->jabatan}}</td>
-			                  	<td>{{$data->foto}}</td>
+			                  	<td>
+									<img src="{{ asset('storage/struktur/'.$data->foto) }}" class="img-thumbnail" style="width: 70px;height: auto;">
+			                  	</td>
 			                  	<td>
 									<a class="btn btn-xs btn-info" data-toggle="modal" data-target="#{{md5($data->id.'struktur')}}" >
 										<i class="fa fa-edit"></i>

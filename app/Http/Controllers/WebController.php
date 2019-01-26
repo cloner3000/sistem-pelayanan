@@ -76,7 +76,8 @@ class WebController extends Controller
     }
 
     public function blogIndex(Request $req)
-    {        $kats = Kategori::where('slug','LIKE','%pengurus-bpd%')
+    {        
+        $kats = Kategori::where('slug','LIKE','%pengurus-bpd%')
                         ->orWhere('slug','LIKE','%pengurus-lpm%')
                         ->orWhere('slug','LIKE','%pengurus-pkk%')
                         ->orWhere('slug','LIKE','%karang-taruna%')
@@ -91,7 +92,19 @@ class WebController extends Controller
                         ->get();
         $web = Web::firstOrFail();
         $posts = Blog::with('users','kategoris')->orderBy('updated_at','desc')->paginate(3);
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::where('slug','!=','peraturan-desa')
+                        ->where('slug','!=','keuangan-desa')
+                        ->where('slug','!=','kekayaan-desa')
+                        ->where('slug','!=','pengurus-bpd')
+                        ->where('slug','!=','pengurus-lpm')
+                        ->where('slug','!=','pengurus-pkk')
+                        ->where('slug','!=','karang-taruna')
+                        ->where('slug','!=','rw-rt')
+                        ->where('slug','!=','kader-posyandu')
+                        ->where('slug','!=','linmas')
+                        ->where('slug','!=','mui-desa')
+                        ->where('slug','!=','gapoktan')
+                        ->get();
         return view('blog',compact('web','posts','kategoris','kats'))->with('no',($req->input('page',1)-1)*10);
     }
 
@@ -111,7 +124,19 @@ class WebController extends Controller
                         ->get();
         $web = Web::firstOrFail();
         $post = Blog::where('slug',$slug)->with('users','kategoris')->firstOrFail();
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::where('slug','!=','peraturan-desa')
+                        ->where('slug','!=','keuangan-desa')
+                        ->where('slug','!=','kekayaan-desa')
+                        ->where('slug','!=','pengurus-bpd')
+                        ->where('slug','!=','pengurus-lpm')
+                        ->where('slug','!=','pengurus-pkk')
+                        ->where('slug','!=','karang-taruna')
+                        ->where('slug','!=','rw-rt')
+                        ->where('slug','!=','kader-posyandu')
+                        ->where('slug','!=','linmas')
+                        ->where('slug','!=','mui-desa')
+                        ->where('slug','!=','gapoktan')
+                        ->get();
         return view('blogDetail',compact('web','post','kategoris','kats')); 
     }
 
@@ -132,7 +157,19 @@ class WebController extends Controller
         $k = Kategori::where('slug',$slug)->firstOrFail();
         $web = Web::firstOrFail();
         $posts = Blog::where('kategori_id',$k->id)->with('users','kategoris')->orderBy('updated_at','desc')->paginate(3);
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::where('slug','!=','peraturan-desa')
+                        ->where('slug','!=','keuangan-desa')
+                        ->where('slug','!=','kekayaan-desa')
+                        ->where('slug','!=','pengurus-bpd')
+                        ->where('slug','!=','pengurus-lpm')
+                        ->where('slug','!=','pengurus-pkk')
+                        ->where('slug','!=','karang-taruna')
+                        ->where('slug','!=','rw-rt')
+                        ->where('slug','!=','kader-posyandu')
+                        ->where('slug','!=','linmas')
+                        ->where('slug','!=','mui-desa')
+                        ->where('slug','!=','gapoktan')
+                        ->get();
         return view('blog',compact('web','posts','kategoris','kats'))->with('no',($req->input('page',1)-1)*10);
     }
 
@@ -160,7 +197,19 @@ class WebController extends Controller
                  ->with('users','kategoris')
                  ->orderBy('updated_at','desc')
                  ->paginate(3);
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::where('slug','!=','peraturan-desa')
+                        ->where('slug','!=','keuangan-desa')
+                        ->where('slug','!=','kekayaan-desa')
+                        ->where('slug','!=','pengurus-bpd')
+                        ->where('slug','!=','pengurus-lpm')
+                        ->where('slug','!=','pengurus-pkk')
+                        ->where('slug','!=','karang-taruna')
+                        ->where('slug','!=','rw-rt')
+                        ->where('slug','!=','kader-posyandu')
+                        ->where('slug','!=','linmas')
+                        ->where('slug','!=','mui-desa')
+                        ->where('slug','!=','gapoktan')
+                        ->get();
         return view('blog',compact('web','posts','kategoris','kats'))->with('no',($req->input('page',1)-1)*10);
     }
 
@@ -178,7 +227,19 @@ class WebController extends Controller
                         ->orWhere('slug','LIKE','%keuangan-desa%')
                         ->get();
         $web = Web::firstOrFail();
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::where('slug','!=','peraturan-desa')
+                        ->where('slug','!=','keuangan-desa')
+                        ->where('slug','!=','kekayaan-desa')
+                        ->where('slug','!=','pengurus-bpd')
+                        ->where('slug','!=','pengurus-lpm')
+                        ->where('slug','!=','pengurus-pkk')
+                        ->where('slug','!=','karang-taruna')
+                        ->where('slug','!=','rw-rt')
+                        ->where('slug','!=','kader-posyandu')
+                        ->where('slug','!=','linmas')
+                        ->where('slug','!=','mui-desa')
+                        ->where('slug','!=','gapoktan')
+                        ->get();
         return view('visi_misi',compact('web','post','kategoris','kats')); 
     }
 
@@ -196,7 +257,19 @@ class WebController extends Controller
                         ->orWhere('slug','LIKE','%keuangan-desa%')
                         ->get();
         $web = Web::firstOrFail();
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::where('slug','!=','peraturan-desa')
+                        ->where('slug','!=','keuangan-desa')
+                        ->where('slug','!=','kekayaan-desa')
+                        ->where('slug','!=','pengurus-bpd')
+                        ->where('slug','!=','pengurus-lpm')
+                        ->where('slug','!=','pengurus-pkk')
+                        ->where('slug','!=','karang-taruna')
+                        ->where('slug','!=','rw-rt')
+                        ->where('slug','!=','kader-posyandu')
+                        ->where('slug','!=','linmas')
+                        ->where('slug','!=','mui-desa')
+                        ->where('slug','!=','gapoktan')
+                        ->get();
         return view('sejarah',compact('web','post','kategoris','kats')); 
     }
 }
