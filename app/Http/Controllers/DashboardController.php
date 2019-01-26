@@ -61,10 +61,11 @@ class DashboardController extends Controller
             foreach ($p as $key => $value) {
                 $hit =  $p[$key]->count().',';
             }
+            
             if (substr($hit, -1, 1) == ','){
               $hit = substr($hit, 0, -1);
             }
-            
+
         }else{
             $hit = "0,0,0,0,0,0,0,0,0,0,0,0";
         }
