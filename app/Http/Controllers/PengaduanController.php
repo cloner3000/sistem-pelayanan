@@ -99,7 +99,13 @@ class PengaduanController extends Controller
 
         $data->status = "acc";
 
-        $data->save();
+        if ($data->save()){
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengaduan berhasil di terima');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengaduan gagal di terima');
+        }
         return back();
     }
     
@@ -164,7 +170,13 @@ class PengaduanController extends Controller
     public function destroy($id)
     {
         $data = Pengaduan::findOrFail($id);
-        $data->delete();
+        if ($data->delete()){
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengaduan berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengaduan gagal di hapus');
+        }
         return back();
     }
 }

@@ -118,7 +118,13 @@ class BlogController extends Controller
                     'deskripsi'   => $req->input('deskripsi'),
                     'foto'        => $nama,
                 ]);
-            $data->save();  
+            if ($data->save()) {
+                session()->flash('status','Sukses');
+                session()->flash('pesan','Artikel berhasil di simpan');
+            }else{
+                session()->flash('status','Gagal');
+                session()->flash('pesan','Artikel gagal di simpan');
+            }  
         }
 
         return back();     
@@ -198,7 +204,14 @@ class BlogController extends Controller
         $data->judul       = $req->input('judul');
         $data->isi         = $req->input('isi');
         $data->deskripsi   = $req->input('deskripsi');
-        $data->save();
+         
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Artikel berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Artikel gagal di ubah');
+        }  
 
          if (Auth::user()->roles->first()->name == "Kepala Desa") {
             return redirect()->route('kades.blog.index');
@@ -217,7 +230,14 @@ class BlogController extends Controller
     {
         $data = Blog::findOrFail($id);
         unlink(public_path('storage/blog/').$data->foto);
-        $data->delete();
+        
+        if ($data->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Artikel berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Artikel gagal di hapus');
+        }
         return back();
     }
 

@@ -85,7 +85,13 @@ class SkController extends Controller
 
         $data->status = "acc";
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuan Surat Keterangan berhasil di terima');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuan Surat Keterangan gagal di terima');
+        }
         return back();
     }
 
@@ -180,7 +186,13 @@ class SkController extends Controller
             $data->keperluan       = $r->input('keperluan');
             $data->keterangan      = $r->input('keterangan');
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuan Surat Keterangan berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuan Surat Keterangan gagal di ubah');
+        }
         return back();
     }
 
@@ -193,7 +205,13 @@ class SkController extends Controller
     public function destroy($id)
     {
         $data = Sk::findOrFail($id);
-        $data->delete();
+         if ($data->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuan Surat Keterangan berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuan Surat Keterangan gagal di hapus');
+        }
         return back();
     }
 }

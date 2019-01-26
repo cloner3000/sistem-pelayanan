@@ -59,6 +59,13 @@ class PekerjaanController extends Controller
             'nama' => $request->input('nama'),
             'slug' => strtolower($request->input('nama')),
         ]);
+        if ($data){
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data Pekerjaan berhasil di simpan');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data Pekerjaan gagal di simpan');
+        }
         return back();
     }
 
@@ -74,7 +81,13 @@ class PekerjaanController extends Controller
         $data = Pekerjaan::findOrFail($id);
         $data->nama = $request->input('nama');
         $data->slug = strtolower($request->input('nama'));
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data Pekerjaan berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data Pekerjaan gagal di ubah');
+        }
         return back();
     }
 
@@ -87,7 +100,13 @@ class PekerjaanController extends Controller
     public function destroy($id)
     {
         $data = Pekerjaan::findOrFail($id);
-        $data->delete();
+        if ($data->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Data Pekerjaan berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Data Pekerjaan gagal di hapus');
+        }
         return back();
     }
 }

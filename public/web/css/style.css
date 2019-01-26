@@ -2325,6 +2325,14 @@ span.email-notes {
 .dropdown-backdrop {
     position: static;
 }
+
+
+/*runtext css*/
+#runtext .row marquee p{
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  color: white;
+}
 /*----------------------------------------
  .End CSS
 ----------------------------------------*/

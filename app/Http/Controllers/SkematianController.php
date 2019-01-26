@@ -84,7 +84,13 @@ class SkematianController extends Controller
 
         $data->status = "acc";
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuatn Surat Kematian berhasil di terima');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuatn Surat Kematian gagal di terima');
+        }
         return back();
     }
 
@@ -193,7 +199,13 @@ class SkematianController extends Controller
         $data->p_pekerjaan     = $request->input('p_pekerjaan');
         $data->p_hubungan      = $request->input('p_hubungan');
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuatn Surat Kematian berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuatn Surat Kematian gagal di ubah');
+        }
         return back();
     }
 
@@ -206,7 +218,13 @@ class SkematianController extends Controller
     public function destroy($id)
     {
         $data = Skematian::findOrFail($id);
-        $data->delete();
+        if ($data->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuatn Surat Kematian berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuatn Surat Kematian gagal di ubah');
+        }
         return back();
     }
 }

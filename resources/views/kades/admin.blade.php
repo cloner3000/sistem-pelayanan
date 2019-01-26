@@ -465,6 +465,22 @@
   </aside>
 
   <div class="content-wrapper">
+    @if(session()->has('status'))
+      @if(session('status') == 'Sukses')
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h4><i class="icon fa fa-check"></i>{{session('status')}}</h4>
+          {{session('pesan')}}
+      </div>
+      @else
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h4><i class="icon fa fa-check"></i>{{session('status')}}</h4>
+          {{session('pesan')}}
+      </div>
+      @endif
+    @endif
+
     @yield('isi')
   </div>
 

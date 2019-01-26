@@ -98,8 +98,14 @@ class DashboardController extends Controller
     }
 
     public function hapus_riwayat()
-    {
-    	$data = Pengunjung::truncate();
+    {    	
+        if ($data = Pengunjung::truncate()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Riwayat berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Riwayat gagal di hapus');
+        }
     	return back();
     }
 
@@ -323,7 +329,13 @@ class DashboardController extends Controller
         $data->ig       = $req->input('ig');
         $data->runtext  = $req->input('runtext');
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Website berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Website gagal di ubah');
+        }
         return back();
     }
 
@@ -395,7 +407,13 @@ class DashboardController extends Controller
         $data->fb      = $req->input('fb');
         $data->twitter = $req->input('twitter');
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Struktur Organisasi berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Struktur Organisasi gagal di ubah');
+        }
         return back();
     }
 }

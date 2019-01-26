@@ -84,7 +84,13 @@ class SkkController extends Controller
 
         $data->status = "acc";
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuan Surat Keterangan Kelahiran berhasil di terima');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuan Surat Keterangan Kelahiran gagal di terima');
+        }
         return back();
     }
 
@@ -246,7 +252,13 @@ class SkkController extends Controller
         $data->s2_pekerjaan         = $req->input('s2_pekerjaan');
         $data->s2_alamat            = $req->input('s2_alamat');
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuan Surat Keterangan  Kelahiran berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuan Surat Keterangan  Kelahiran gagal di ubah');
+        }
         return back();
     }
 
@@ -259,7 +271,13 @@ class SkkController extends Controller
     public function destroy($id)
     {
         $hapus = Skk::findOrFail($id);
-        $hapus->delete();
+        if ($hapus->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuan Surat Keterangan Kelahiran berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuan Surat Keterangan Kelahiran gagal di hapus');
+        }
         return back();
     }
 }

@@ -85,7 +85,13 @@ class SptjmController extends Controller
 
         $data->status = "acc";
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Surat Pertanggung Jawaban berhasil di terima');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Surat Pertanggung Jawaban gagal di terima');
+        }
         return back();
     }
 
@@ -222,7 +228,13 @@ class SptjmController extends Controller
         // $data->pekerjaan_anak = $request->input('pekerjaan_anak');
         // $data->alamat_anak    = $request->input('alamat_anak');
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Surat Pertanggung Jawaban berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Surat Pertanggung Jawaban gagal di ubah');
+        }
         return back();
     }
 
@@ -235,7 +247,13 @@ class SptjmController extends Controller
     public function destroy($id)
     {
         $hapus = Sptjm::findOrFail($id);
-        $hapus->delete();
+        if ($hapus->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Surat Pertanggung Jawaban berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Surat Pertanggung Jawaban gagal di hapus');
+        }
         return back();
     }
 }

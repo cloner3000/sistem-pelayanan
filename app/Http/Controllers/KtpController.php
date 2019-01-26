@@ -83,7 +83,14 @@ class KtpController extends Controller
 
         $data->status = "acc";
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuatn KTP berhasil di diterima');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuatn KTP gagal di diterima');
+        }
+
         return back();
     }
 
@@ -171,7 +178,13 @@ class KtpController extends Controller
         $data->no_kk            = $request->input('no_kk');
         $data->alamat           = $request->input('alamat');
 
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuan KTP berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuan KTP gagal di ubah');
+        }
         return back();
     }
 
@@ -184,7 +197,14 @@ class KtpController extends Controller
     public function destroy($id)
     {
         $hapus = Ktp::findOrFail($id);
-        $hapus->delete();
+        
+        if ($hapus->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Pengajuan KTP berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Pengajuan KTP gagal di hapus');
+        }
         return back();
     }
 }

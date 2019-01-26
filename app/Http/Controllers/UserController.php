@@ -125,6 +125,14 @@ class UserController extends Controller
         
         $user->roles()->attach(Role::where('id', $request->input('role'))->first());
 
+        if ($user) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Akun Berhasil di simpan');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Akun Berhasil di simpan');
+        }
+
         return back();
     }
 
@@ -141,7 +149,13 @@ class UserController extends Controller
         $data->name     = $request->input('name');
         $data->email    = $request->input('email');
         $data->password = $data->password;
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Akun Berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Akun Berhasil di ubah');
+        }
         $data->roles()->attach($data->roles->first());
 
         return back();
@@ -157,7 +171,13 @@ class UserController extends Controller
     {
         $data = User::findOrFail($id);
         $data->roles()->detach();
-        $data->delete();
+        if ($data->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Akun Berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Akun Berhasil di hapus');
+        }
         return back();
     }
 }

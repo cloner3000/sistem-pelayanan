@@ -63,6 +63,13 @@ class KategoriController extends Controller
             'nama' => $request->input('nama'),
             'slug' => slugify($request->input('nama')),
         ]);
+        if ($data){
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Kategori berhasil di simpan');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Kategori gagal di simpan');
+        }
         return back();
     }
 
@@ -78,7 +85,13 @@ class KategoriController extends Controller
         $data = Kategori::findOrFail($id);
         $data->nama = $request->input('nama');
         $data->slug = slugify($request->input('nama'));
-        $data->save();
+        if ($data->save()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Kategori berhasil di ubah');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Kategori gagal di ubah');
+        }
         return back();
     }
 
@@ -91,7 +104,13 @@ class KategoriController extends Controller
     public function destroy($id)
     {
         $data = Kategori::findOrFail($id);
-        $data->delete();
+        if ($data->delete()) {
+            session()->flash('status','Sukses');
+            session()->flash('pesan','Kategori berhasil di hapus');
+        }else{
+            session()->flash('status','Gagal');
+            session()->flash('pesan','Kategori gagal di hapus');
+        }
         return back();
     }
 }
