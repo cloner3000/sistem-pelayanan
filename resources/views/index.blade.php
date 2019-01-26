@@ -463,23 +463,43 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-3 col-md-3 text-center">
-              <div class="single-skill">
-                <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="{{100*($p_thisMonth/$p_total)}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h4 class="progress-h4">Data Pengunjung Bulan Ini</h4>
+            @if($p_total != 0 && $p_thisMonth != 0)
+              <div class="col-xs-12 col-sm-3 col-md-3 text-center">
+                <div class="single-skill">
+                  <div class="progress-circular">
+                    <input type="text" class="knob" value="0" data-rel="{{100*($p_thisMonth/$p_total)}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
+                    <h4 class="progress-h4">Data Pengunjung Bulan Ini</h4>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xs-12 col-sm-3 col-md-3 text-center">
-              <div class="single-skill">
-                <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="{{100*(($p_total-$p_thisMonth)/$p_total)}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h4 class="progress-h4">Data Pengunjung Bulan Sebelumnya</h4>
+              <div class="col-xs-12 col-sm-3 col-md-3 text-center">
+                <div class="single-skill">
+                  <div class="progress-circular">
+                    <input type="text" class="knob" value="0" data-rel="{{100*(($p_total-$p_thisMonth)/$p_total)}}" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
+                    <h4 class="progress-h4">Data Pengunjung Bulan Sebelumnya</h4>
+                  </div>
                 </div>
               </div>
-            </div>
+            @elseif($p_total == 0 && $p_thisMonth == 0)
+              <div class="col-xs-12 col-sm-3 col-md-3 text-center">
+                <div class="single-skill">
+                  <div class="progress-circular">
+                    <input type="text" class="knob" value="0" data-rel="0" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
+                    <h4 class="progress-h4">Data Pengunjung Bulan Ini</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-3 col-md-3 text-center">
+                <div class="single-skill">
+                  <div class="progress-circular">
+                    <input type="text" class="knob" value="0" data-rel="0" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
+                    <h4 class="progress-h4">Data Pengunjung Bulan Sebelumnya</h4>
+                  </div>
+                </div>
+              </div>
+            @endif
 
           </div>
         </div>
