@@ -62,20 +62,14 @@
                         <li>
                           <a style="color: black !important;padding:0px 0px !important;" href="{{ route('sejarah') }}">Sejarah</a>
                         </li>
-                        <li>
-                          <a style="color: black !important;padding:0px 0px !important;" href="#">Page 1-3</a>
-                        </li>
                       </ul>
                     @else
                       <ul class="dropdown-menu">
                         <li>
-                          <a style="color: white !important;padding:0px 0px !important;" href="{{ route('visi_misi') }}">Visi Dan Misi</a>
+                          <a style="color: white !important;padding:5px 0px !important;" href="{{ route('visi_misi') }}">Visi Dan Misi</a>
                         </li>
                         <li>
-                          <a style="color: white !important;padding:0px 0px !important;" href="{{ route('sejarah') }}">Sejarah</a>
-                        </li>
-                        <li>
-                          <a style="color: white !important;padding:0px 0px !important;" href="#">Page 1-3</a>
+                          <a style="color: white !important;padding:5px 0px !important;" href="{{ route('sejarah') }}">Sejarah</a>
                         </li>
                       </ul>
                     @endif
@@ -110,15 +104,15 @@
                         @foreach($kats as $k)
                           @if($k->slug == "peraturan-desa")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "keuangan-desa")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "kekayaan-desa")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @endif
                         @endforeach
@@ -181,39 +175,39 @@
                         @foreach($kats as $k)
                           @if($k->slug == "pengurus-bpd")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "pengurus-lpm")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "pengurus-pkk")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "karang-taruna")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "rw-rt")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "kader-posyandu")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "linmas")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "mui-desa")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @elseif($k->slug == "gapoktan")
                             <li>
-                              <a id="dropdownColor" style="color: white !important;padding:0px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
+                              <a id="dropdownColor" style="color: white !important;padding:5px 0px !important;" href="{{ route('detail',$k->slug) }}">{{$k->nama}}</a>
                             </li>
                           @endif
                         @endforeach
