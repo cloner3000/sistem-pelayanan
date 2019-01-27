@@ -23,7 +23,7 @@
 
 	          	<h3 class="mt-4">Misi</h3>
 				<hr>
-	          	{!!$web->visi!!}
+	          	{!!$web->misi!!}
 	          	<hr>
 		    </div>
 
