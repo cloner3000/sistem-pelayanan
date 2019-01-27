@@ -29,7 +29,7 @@
   <div id="preloader"></div>
   
   <header>
-    <div id="sticker" class="header-area">
+    <div id="sticker" class="header-area" style="background-color: black;">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12">
