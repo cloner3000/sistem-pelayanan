@@ -272,7 +272,7 @@
                   <h2><span>{{$web->nama_website}}</span></h2>
                 </div>
 
-                {{$web->tentang1}}
+                {!!$web->tentang1!!}
                 <div class="footer-icons">
                   <ul>
                     <li>
